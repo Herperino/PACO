@@ -1,2 +1,4 @@
-<h1>Oops, desculpas!</h1>
-<h2><?php  echo($errormessage)?></h2>
+<div class='alert alert-warning'>
+<h3>Oops, desculpas!</h3>
+<h4><?php  echo($errormessage)?></h4>
+</div>
