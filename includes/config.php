@@ -16,11 +16,7 @@
     // CS50 Library
     require("../vendor/library50-php-5/CS50/CS50.php");
     CS50::init(__DIR__ . "/../config.json");
-
-    //init postgres connection
-    $handle = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=". CS50::$config["database"]["name"] ."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");
-
-    // enable sessions
+    
     session_start();
 
     //require authentication for all pages except /login.php, /logout.php, and /register.php
