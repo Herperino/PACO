@@ -8,23 +8,8 @@
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-
             //init postgres connection
-            $database = "PACO_users"
-            try{
-            $conn = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=".$database."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");// enable sessions
-            }
-            catch(Exception $e){
-              render("apology.php", ['errormessage' => htmlspecialchars("test")]);
-            }
 
-            // query database for user
-            try{
-            $users = pg_query($conn, "SELECT * FROM PACO_users WHERE username = ?", $_POST["id"]);
-            }
-            catch(Exception $e){
-              render("apology.php", ['errormessage' => htmlspecialchars("test")]);
-            }
             // if we found user, check password
             if (count($users) == 1)
             {
