@@ -7,8 +7,10 @@
      */
 
     // display errors, warnings, and notices
-    ini_set("display_errors", true);
-    error_reporting(E_ALL);
+    error_reporting(-1); // reports all errors
+    ini_set("display_errors", "1"); // shows all errors
+    ini_set("log_errors", 1);
+    ini_set("error_log", "/tmp/php-error.log");
 
     // requirements
     require("helpers.php");
@@ -16,7 +18,7 @@
     // CS50 Library
     require("../vendor/library50-php-5/CS50/CS50.php");
     CS50::init(__DIR__ . "/../config.json");
-    
+
     session_start();
 
     //require authentication for all pages except /login.php, /logout.php, and /register.php
