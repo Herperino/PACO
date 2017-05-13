@@ -3,7 +3,7 @@
 
         //init postgres connection
         $database = "PACO_users"
-        $handle = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=".$database."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");// enable sessions
+        $conn = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=".$database."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");// enable sessions
 
         /** This file is used for the login controller */
 
@@ -14,7 +14,7 @@
         {
 
             // query database for user
-            $users = CS50::query("SELECT * FROM PACO_users WHERE username = ?", $_POST["id"]);
+            $users = pg_query($conn, "SELECT * FROM PACO_users WHERE username = ?", $_POST["id"]);
 
             // if we found user, check password
             if (count($users) == 1)
