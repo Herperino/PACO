@@ -301,7 +301,11 @@
                 try
                 {
                     // connect to database
-                    $handle = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=". self::$config["database"]["name"] ."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");
+                    $handle = new PDO(
+                        "mysql:dbname=" . self::$config["database"]["name"] . ";host=" . self::$config["database"]["host"],
+                        self::$config["database"]["username"],
+                        self::$config["database"]["password"]
+                    );
                 }
                 catch (Exception $e)
                 {
