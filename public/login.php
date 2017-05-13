@@ -3,7 +3,13 @@
 
         //init postgres connection
         $database = "PACO_users"
+        try{
         $conn = pg_connect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432 dbname=".$database."user=hypmpmdpmsubvi password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85");// enable sessions
+        }
+        catch(Exception $e){
+          render("apology.php", ['errormessage' => htmlspecialchars("test")]);
+        }
+
 
         /** This file is used for the login controller */
 
