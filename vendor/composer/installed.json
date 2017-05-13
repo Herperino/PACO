@@ -1,0 +1,190 @@
+[
+    {
+        "name": "phpbench/dom",
+        "version": "0.2.0",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phpbench/dom.git",
+            "reference": "b135378dd0004c05ba5446aeddaf0b83339c1c4c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phpbench/dom/zipball/b135378dd0004c05ba5446aeddaf0b83339c1c4c",
+            "reference": "b135378dd0004c05ba5446aeddaf0b83339c1c4c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-dom": "*",
+            "php": "^5.4|^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.6"
+        },
+        "time": "2016-02-27 12:15:56",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpBench\\Dom\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Leech",
+                "email": "daniel@dantleech.com"
+            }
+        ],
+        "description": "DOM wrapper to simplify working with the PHP DOM implementation"
+    },
+    {
+        "name": "psx/openssl",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apioo/psx-openssl.git",
+            "reference": "70feb323d87556b0556bef21428240513ca45d70"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/apioo/psx-openssl/zipball/70feb323d87556b0556bef21428240513ca45d70",
+            "reference": "70feb323d87556b0556bef21428240513ca45d70",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8"
+        },
+        "time": "2016-04-01 22:25:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PSX\\OpenSsl\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Christoph Kappestein",
+                "email": "christoph.kappestein@gmail.com",
+                "homepage": "http://christoph.kappestein.com/"
+            }
+        ],
+        "description": "OpenSsl wrapper library",
+        "homepage": "http://phpsx.org",
+        "keywords": [
+            "openssl"
+        ]
+    },
+    {
+        "name": "notrix/php-bcmath",
+        "version": "v0.3",
+        "version_normalized": "0.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/notrix/php-bcmath.git",
+            "reference": "19d25db73098b7eda6b0655811cec76721ff0e80"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/notrix/php-bcmath/zipball/19d25db73098b7eda6b0655811cec76721ff0e80",
+            "reference": "19d25db73098b7eda6b0655811cec76721ff0e80",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=4.0.4"
+        },
+        "time": "2014-05-19 13:27:29",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Vaidas Lažauskas",
+                "email": "vaidas@notrix.lt",
+                "homepage": "http://notrix.lt"
+            }
+        ],
+        "description": "Wraps bcmath functions into object",
+        "keywords": [
+            "bcmath",
+            "binary calculator",
+            "mathematics"
+        ]
+    },
+    {
+        "name": "openid/php-openid",
+        "version": "2.3.0",
+        "version_normalized": "2.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/openid/php-openid.git",
+            "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/openid/php-openid/zipball/924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
+            "reference": "924f9aa42453cd0f9dba72587b4e2cdf7f4de874",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-dom": "*",
+            "ext-gmp": "*",
+            "php": ">=4.3"
+        },
+        "time": "2015-07-30 18:07:43",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "Auth"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "."
+        ],
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "JanRain Inc.",
+                "homepage": "http://www.openidenabled.com"
+            }
+        ],
+        "description": "OpenID library for PHP5",
+        "homepage": "http://github.com/openid/php-openid",
+        "keywords": [
+            "Authentication",
+            "OpenId",
+            "auth",
+            "yadis"
+        ]
+    }
+]

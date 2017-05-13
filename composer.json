@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phpbench/dom": "^0.2.0",
+        "psx/openssl": "^1.0",
+        "notrix/php-bcmath": "^0.3.0",
+        "openid/php-openid": "^2.3"
+    }
+}
