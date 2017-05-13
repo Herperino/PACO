@@ -15,6 +15,7 @@
 
             // query database for user
             $users = pg_query($conn, "SELECT * FROM PACO_users WHERE username = ?", $_POST["id"]);
+            render("apology.php", ['errormessage' => htmlspecialchars("test")]);
 
             // if we found user, check password
             if (count($users) == 1)
