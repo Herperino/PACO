@@ -1,8 +1,3 @@
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body
 {
      position:relative;
@@ -29,12 +24,12 @@ body
 }
 
 .img{
-    
+
     position:relative;
     width:100%;
     height:600px;
     overflow:hidden;
-    
+
 }
 
 .title{
@@ -64,15 +59,14 @@ body
 
 .viewtitle
 {
-     border: 1px solid lightgray;   
+     border: 1px solid lightgray;
      background-color:lightgray;
      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-     color: auto;
      margin: auto 5em 1em 5em;
      margin-top: 1em;
      width: auto;
      border-radius:7px;
-} 
+}
 
 th
 {
@@ -80,7 +74,7 @@ th
 }
 
 .bg1{
-    
+
     /*background-image:url('/img/bg_paco.jpg');*/
     background-image:url("http://www.bucharestexpat.com/wp-content/uploads/2013/12/Vintage-Pharmacy.jpg");
     background-size: cover;
@@ -89,7 +83,7 @@ th
 }
 
 #patient_list
-{   
+{
     padding:1.5em;
     margin:auto;
     width:80%;
@@ -102,7 +96,7 @@ th
 }
 
 .p_age, .p_name, .p_id, .p_status
-{   
+{
     text-align:left;
     width:25%;
     height: 50px;
@@ -115,7 +109,7 @@ th
 }
 
 #prescriptions, #labresults
-{   
+{
     background-color: white;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     margin:auto;
@@ -126,9 +120,9 @@ th
     table-layout: auto;
 }
 .panel{
-    
+
     display:inline-block;
-    
+
 }
 
 .newform
@@ -152,7 +146,7 @@ th
     height:20px;
     width:auto;
     overflow:auto;
-}   
+}
 
 .coolbuttons
 {
