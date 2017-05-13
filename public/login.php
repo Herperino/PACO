@@ -15,7 +15,7 @@
 
               // query database for user
               try{
-              $users = pg_query_params($conn, "SELECT * FROM PACO_users WHERE username = ?", $_POST["id"]);
+                $users = pg_query_params($conn, "SELECT * FROM PACO_users WHERE username = ?", array($_POST["id"]));
               }
               catch(Exception $e){
                 render("apology.php", ['errormessage' => htmlspecialchars("test")]);
