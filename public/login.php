@@ -30,15 +30,13 @@
             // if we found user, check password
             if (count($users) == 1)
             {
-                // first (and only) row
-                $user = $users[0];
-
+                              
                 // compare hash of user's input against hash that's in database
                 if (password_verify($_POST["password"], $user["userhash"]))
                 {
                     // remember that user's now logged in by storing user's ID in session
-                    $_SESSION["id"] = $user["id"];
-                    $_SESSION["username"] = $user['username'];
+                    $_SESSION["id"] = $users["id"];
+                    $_SESSION["username"] = $users['username'];
 
                     // redirect to landing page
                     redirect("index.php", ['P_MODE' => true]);
