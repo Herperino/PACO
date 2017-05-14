@@ -24,7 +24,7 @@
         //Store patient data in an array
         $i = 0;
         while($row = pg_fetch_array($data)){
-          $patients[$i] = $row["data"];
+          $patients[$i] = $row;
           $i++;
         }
         // output patients as JSON (pretty-printed for debugging convenience)
