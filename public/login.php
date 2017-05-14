@@ -33,7 +33,7 @@
 
                 $users = pg_fetch_array($users);
 
-                $user = $users[0];
+                $user = $users['id'];
                 echo $users[0];
                 // compare hash of user's input against hash that's in database
                 if (password_verify($_POST["password"], $users["userhash"]))
