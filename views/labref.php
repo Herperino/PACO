@@ -4,7 +4,7 @@
      * This is the view file for reviewing patients lab results
      * (labref)
      */
-     
+
 ?>
 
 <?php if($P_MODE == true):?>
@@ -19,10 +19,10 @@
             <table class = 'table'>
             <?php displayResults($labresults);?>
             </table>
-    
+
         </div>     <!--end panel body-->
-    </div>     <!--end panel-->    
-    </div> <!--end row-->   
+    </div>     <!--end panel-->
+    </div> <!--end row-->
     <script>
         window.onload = function(){
             //Will add a button that allows to insert a new result set to the DB
@@ -35,10 +35,10 @@
 
 <!--THE VIEW mode allows the users to review a patient prescriptions and also edit the current prescription or add a new prescription -->
 <?php else: ?>
-<div class = 'container-fluid'>
+<div class = 'container'>
     <div class = 'page-header'><h2>Acompanhamento laboratorial</h2></div>
     <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
-    <div id="patient_list">      
+    <div id="patient_list">
         <script>showPatients("labref.php"); </script>
     </div>
 </div> <!-- end container -->
