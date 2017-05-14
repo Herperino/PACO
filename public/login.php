@@ -31,7 +31,7 @@
             if ($users)
             {
 
-                $users = pg_fetch_array($users);
+                $users = pg_fetch_array($users,PGSQL_ASSOC);
 
                 $user = $users['id'];
                 print($users[0]);
@@ -48,12 +48,12 @@
                 else
                 {
 
-                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados fausto".$users['userhash'])]);
+                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados fausto")]);
                 }
             }
             else
             {
-                render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados oloco")]);
+                render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados")]);
             }
 
         }
