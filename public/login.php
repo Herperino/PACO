@@ -28,8 +28,12 @@
             }
 
             // if we found user, check password
-            if (count($users) == 1)
+            if (pg_num_rows($users) >= 1)
             {
+
+                $users = pg_fetch_array($users);
+
+                $user = $users[0];
 
                 // compare hash of user's input against hash that's in database
                 if (password_verify($_POST["password"], $users["userhash"]))
