@@ -31,7 +31,7 @@
             if ($users)
             {
 
-                $users = pg_fetch_array($users,PGSQL_ASSOC);
+                $users = pg_fetch_array($users,0,PGSQL_ASSOC);
 
                 $user = $users['id'];
                 print($users[0]);
