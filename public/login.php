@@ -32,7 +32,7 @@
             {
 
                 // compare hash of user's input against hash that's in database
-                if (password_verify($_POST["password"], $user["userhash"]))
+                if (password_verify($_POST["password"], $users["userhash"]))
                 {
                     // remember that user's now logged in by storing user's ID in session
                     $_SESSION["id"] = $users["id"];
