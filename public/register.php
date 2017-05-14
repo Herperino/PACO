@@ -11,7 +11,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         //Query the database to insert a new user. Check if the user is valid.
-        $query ="SELECT * FROM public.\"PACO_users\" WHERE username =" .$_POST['regisid'];         
+        $query ="SELECT * FROM public.\"PACO_users\" WHERE username =''" . $_POST['regisid']."'";
         $registered = pg_query($conn, $query);
 
         if (!empty($registered)) //If user isn't valid
@@ -22,7 +22,7 @@
         {
             $pwd = password_hash($_POST['regispwd'], PASSWORD_DEFAULT);
 
-            $query = "INSERT INTO public.\"PACO_users\"(username, userhash) VALUES (".$_POST['regisid'].",".$pwd.")";
+            $query = "INSERT INTO public.\"PACO_users\"(username, userhash) VALUES ('".$_POST['regisid']."','".$pwd."')";
             $register = pg_query($conn, $query);
 
             render("register.php");
