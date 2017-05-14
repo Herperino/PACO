@@ -14,7 +14,7 @@
         $query ="SELECT * FROM public.\"PACO_users\" WHERE username ='" . $_POST['regisid']."'";
         $registered = pg_query($conn, $query);
 
-        if (!empty($registered)) //If user isn't valid
+        if (!$registered)) //If user isn't valid
         {
          render("apology", ['errormesage' => "This username is already in use. Try again"]);
         }

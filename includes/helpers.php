@@ -2,14 +2,14 @@
 
 /** Final project helper file. Contains an assortment of tools that wil be needed to run the site */
 
-    /** Renders a view from POST requests to the server. 
+    /** Renders a view from POST requests to the server.
      *  Used mostly for login and main transitions.
-     *  Taken from pset7 helpers.php, used for the same purpose 
+     *  Taken from pset7 helpers.php, used for the same purpose
      */
     function render($view, $values = [])
     {
-       
-    
+
+
         // if view exists, render it
         if (file_exists("../views/{$view}"))
         {
@@ -29,9 +29,9 @@
             trigger_error("Invalid view: {$view}", E_USER_ERROR);
         }
     }
-    
+
     /** Stupid ass UTF8 won't accept my brazilian letters */
-    
+
     function utf8_string_array_encode(&$array){
     $func = function(&$value,&$key){
         if(is_string($value)){
@@ -66,73 +66,73 @@
         header("Location: {$location}");
         exit;
     }
-    
+
     /**
-     * Takes data from the server to display the prescription list 
+     * Takes data from the server to display the prescription list
      * for a registered patient.
-     * 
+     *
      * It must be called within a table div.
      */
     function displayPrescription($prescriptions){
-        
+
         print("<th>Paciente</th>");
         print("<th>Data</th>");
         print("<th colspan='13'>Medicamentos </th>");
             if (!empty($prescriptions)){
             foreach($prescriptions as $prescription){
                  $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
-                    
-                print("<tr>"); 
+
+                print("<tr>");
                 print("<td>" . $prescription["patientID"]. "</td>");
                 print("<td>" . $prescription["Date"]. "</td>");
                 for($i = 1; $i <= 10; $i++){
                     print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
                 }
-             print("<td>"); 
+             print("<td>");
              print("<input  data-patient =" . (string)$prescription['patientID'] ."
                     data-operation = \"PRESCRIPTION_EDIT\"
-                     data-timestamp ='" . (string)$prescription['Date'] . 
-                    "' type = 'button' onClick = 'prescriptionHandler(this)' 
+                     data-timestamp ='" . (string)$prescription['Date'] .
+                    "' type = 'button' onClick = 'prescriptionHandler(this)'
                     class= 'btn btn-success' value='Editar Prescrição'/>"); print("</td></tr>");}}
     }
-    
+
     /**
-     * Takes data from the server to display the result list 
+     * Takes data from the server to display the result list
      * for a registered patient.
-     *  
+     *
      * It must be called within a table div.
      */
     function displayResults($labresults){
         print("<th>Paciente</th>" . "<th>Data</th>" . "<th colspan= '13'> Exames</th>");
-        
+
         if(!empty($labresults)){
             foreach($labresults as $result){
-                
+
               $labref = $sub = array_slice($result, 1, null, true); //Removes index and userID from the array
-              
+
               print("<tr>");
-              
+
               foreach ($labref as $key=>$item){
-                  
+
                  $currentkey = $key;
-                  
+
                  if(strcmp($currentkey,"Date") == 0 || strcmp($currentkey,"patientID") == 0){
                       print("<td>". $item . "</td>");
                   }
                   else{
-                   
+
                     if($item !=  null)
                         print("<td>". $key. "<br> " .$item. "</td>");
                      else
                         print("<td>". $key. "<br> --</td>");
                   }
               }
-              
+
               print("<td>");
               print("<input  data-patient = ". (string)$result['patientID'] .
                     "data-operation = 'LAB_EDIT'
-                     data-timestamp ='" . (string)$result['Date'] . 
-                    "' type = 'button' onClick = 'labHandler(this, 'labref.php')' 
+                     data-timestamp ='" . (string)$result['Date'] .
+                    "' type = 'button' onClick = 'labHandler(this, 'labref.php')'
                     class= 'btn btn-success' value='Editar resultados'/>");
               print("</td>"."</tr>");
             }
