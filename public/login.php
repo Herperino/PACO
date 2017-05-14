@@ -30,7 +30,7 @@
             // if we found user, check password
             if (count($users) == 1)
             {
-                              
+
                 // compare hash of user's input against hash that's in database
                 if (password_verify($_POST["password"], $user["userhash"]))
                 {
@@ -44,7 +44,7 @@
                 else
                 {
 
-                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ". $_POST['password'] . $user['userhash'])]);
+                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ". $_POST['password'] . $users['userhash'])]);
                 }
             }
             else
