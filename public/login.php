@@ -16,7 +16,7 @@
               // query database for user
               try{
 
-                $query = "SELECT * FROM \"PACO_users\" WHERE username = '" . $_POST["id"]."'";
+                $query = "SELECT * FROM \"public.PACO_users\" WHERE username = '" . $_POST["id"]."'";
                 $users = pg_query($conn, $query);
               }
               catch(Exception $e){
@@ -31,10 +31,9 @@
             if ($users)
             {
 
-                $rows = pg_fetch_array($users,0,PGSQL_NUM);
+                $rows = pg_fetch_array($users,PGSQL_NUM);
+                $user = $rows[0];
 
-                $user = $row[0];
-                print($users[0]);
                 // compare hash of user's input against hash that's in database
                 if (password_verify($_POST["password"], $users["userhash"]))
                 {
