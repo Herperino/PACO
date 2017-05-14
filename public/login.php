@@ -44,7 +44,7 @@
                 else
                 {
 
-                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ". $_POST['password'] . $users['userhash'])]);
+                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ".$users['userhash'])]);
                 }
             }
             else
