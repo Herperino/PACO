@@ -19,7 +19,7 @@
 
         //Queries the data from the postgresql db
         $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status ASC,lastactive DESC ";
-        $data = $pg_query($conn, $query);
+        $data = pg_query($conn, $query);
 
         //Store patient data in an array
         $i = 0;
