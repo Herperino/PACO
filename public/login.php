@@ -28,7 +28,7 @@
             }
 
             // if we found user, check password
-            if (pg_num_rows($users) >= 1)
+            if ($users)
             {
 
                 $users = pg_fetch_array($users);
