@@ -3,7 +3,7 @@
 <?php if($_SERVER['REQUEST_METHOD'] == "GET"):?>
 <div class ="container">
     <div class = "row">
-        <div class = 'col-xs 10 col-md 10'>
+        <div class = 'col-xs 8 col-md 8'>
             <h1>Registre-se no PACO</h1>
 
             <div class ="form-group">
@@ -26,7 +26,7 @@
                 <input class='btn btn-success'type="submit" value= "Registrar">
             </form>
           </div> <!--end form-->
-        </div><!--end columns--> 
+        </div><!--end columns-->
 </div>
 </div>
 </?>
