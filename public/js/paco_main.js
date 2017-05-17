@@ -12,7 +12,7 @@ function patientHandler(event, page){
     var options = ["EDIT", "STATUS", "ACOMP", "ADD"];
     var index = event.selectedIndex; //Index of the option in select
     var choice = options[index-1]; //offsetting the non 0 indexed select
-    console.log(this);
+    console.log(event);
     var patientid = event.id.substring(4); //Patient ids are passed as "ptt_(patientid)"
 
     //If option chosen is ACOMP, send patient chosen to acompanhamento.php(Request method is POST)
