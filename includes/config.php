@@ -19,6 +19,8 @@
     // CS50 Library
     require("../vendor/library50-php-5/CS50/CS50.php");
     CS50::init(__DIR__ . "/../config.json");
+
+    $database = "da9ca7l565c2pg";
     $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
                         dbname=".$database."
                         user=hypmpmdpmsubvi
