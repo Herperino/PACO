@@ -54,9 +54,9 @@
         }
 
         //Returns to the original page
-        //redirect($page);
+        redirect($page);
 
-        trigger_error("function was called");
+        //trigger_error("function was called");
     }
 
 
