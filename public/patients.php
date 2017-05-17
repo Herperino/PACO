@@ -55,7 +55,6 @@
 
         //Returns to the original page
         redirect($page);
-
         //trigger_error("function was called");
     }
 
@@ -73,7 +72,7 @@
 
         $patient = pg_fetch_all($data);
         $status = $patient[6]; //6 = p_status
-        trigger_error();
+
         //Change status given current status state
         if($status == 1) { pg_query("UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
         else { pg_query("UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
@@ -91,7 +90,7 @@
 
         //If the patient ID remains the same
         if ($_POST['new_id'] == $patientID){
-            $query = "UPDATE public.\"patients\" SET patientname = '".$pname."', patientage = ".$_POST['patient_age']." WHERE patientid = '".$patientID;
+            //$query = "UPDATE public.\"patients\" SET patientname = '".$pname."', patientage = ".$_POST['patient_age']." WHERE patientid = '".$patientID;
             //$res = pg_query($conn, $query);
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
