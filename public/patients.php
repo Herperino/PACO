@@ -58,7 +58,7 @@
     }
     else {
 
-      trigger_error("Oops")
+      trigger_error("Oops");
     }
 
 
