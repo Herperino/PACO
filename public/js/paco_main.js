@@ -45,6 +45,7 @@ function patientHandler(event, page){
             patientID : patientid
         }
 
+        console.log(info)
         renderPatientForm("patients.php", info);
     }
     else{
