@@ -23,10 +23,12 @@
 
         //Store patient data in an array
         $i = 0;
-        while($row = pg_fetch_array($data,PQSQL_NUM)){
-          $patients[$i] = $row;
-          $i++;
-        }
+        // while($row = pg_fetch_all($data)){
+        //   $patients[$i] = $row;
+        //   $i++;
+        // }
+        $patients = pg_fetch_all($data);
+
         // output patients as JSON (pretty-printed for debugging convenience)
         header("Content-type: application/json; charset=UTF-8");
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
