@@ -51,12 +51,11 @@
 
             addPatient();
         }
-
+}
         //Returns to the original page
         redirect($page);
-
     }
-    
+
 
 
     /** PatientID -> NULL
