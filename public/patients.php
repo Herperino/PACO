@@ -34,7 +34,7 @@
 
         //Get operation (Remove, Add, Change Status)
         $operation = $_POST['operation'];
-        $patientID = $_POST['patientID'];
+        $patientID = $_POST['patientid'];
         $page = basename($_SERVER['HTTP_REFERER']);
 
         print $patientID;
