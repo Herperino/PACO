@@ -75,8 +75,8 @@
         $status = $patient["p_status"];
 
         //Change status given current status state
-        if($status == '1') { pg_query("UPDATE patients SET p_status = '0' WHERE patientID ='".$patientID."'");}
-        else { pg_query("UPDATE patients SET p_status = '1' WHERE patientID ='".$patientID."'");}
+        if($status == '1') { pg_query("UPDATE public.\"patients\" SET p_status = '0' WHERE patientid ='".$patientID."'");}
+        else { pg_query("UPDATE public.\"patients\" SET p_status = '1' WHERE patientid ='".$patientID."'");}
     }
 
     /** PatientID, page -> NULL
@@ -91,7 +91,7 @@
 
         //If the patient ID remains the same
         if ($_POST['new_id'] == $_POST['patientID']){
-            cs50::query("UPDATE patients SET patientname = ?, patientage = ? WHERE patientID = ?", $pname, $_POST['patient_age'],$_POST['patientID']);
+            cs50::query("UPDATE patients SET patientname = ?, patientage = ? WHERE patientid = ?", $pname, $_POST['patient_age'],$_POST['patientID']);
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
         else{
