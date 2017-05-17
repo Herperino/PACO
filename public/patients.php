@@ -91,7 +91,6 @@
         if ($_POST['new_id'] == $patientID){
             $query = "UPDATE public.\"patients\" SET patientname = '".$pname."', patientage = ".$_POST['patient_age']." WHERE patientid = '".$patientID;
             $res = pg_query($conn, $query);
-            trigger_error("function was called");
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
         else{
@@ -101,6 +100,8 @@
             cs50::query("UPDATE prescriptions SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
             cs50::query("UPDATE labref SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
            }
+
+           trigger_error("function was called");
     }
 
     /** PatientID, page -> NULL
