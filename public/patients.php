@@ -65,10 +65,6 @@
     function changeStatus($patientID){
 
         //Get patient and it's status from the database
-        require_once("../includes/helpers.php");
-
-        $conn = db_connect();
-
         $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
         $res = pg_query($conn, $query);
 
