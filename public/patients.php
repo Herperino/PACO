@@ -18,7 +18,9 @@
          */
 
         //Queries the data from the postgresql db
-        $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status ASC,lastactive DESC ";
+        $query = "SELECT * FROM public.\"patients\"
+                  WHERE userid = '".$_SESSION['id']."'
+                  ORDER BY p_status ASC,lastactive DESC ";
         $data = pg_query($conn, $query);
 
         //Store patient data in an array
@@ -27,7 +29,6 @@
         // output patients as JSON (pretty-printed for debugging convenience)
         header("Content-type: application/json; charset=UTF-8");
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
-        exit();
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -65,7 +66,8 @@
     function changeStatus($patientID){
 
         //Get patient and it's status from the database
-        $query = "SELECT * FROM public.\"patients\" WHERE patientid ='" . $patientID ."'";
+        $query = "SELECT * FROM public.\"patients\"
+                  WHERE patientid ='" . $patientID ."'" ;
         $res = pg_query($conn, $query);
 
         $patient = pg_fetch_all($data);
