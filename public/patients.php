@@ -55,7 +55,7 @@
 
         //Returns to the original page
         redirect($page);
-        //trigger_error("function was called");
+        trigger_error("function was called");
     }
 
 
@@ -67,7 +67,7 @@
 
         //Get patient and it's status from the database
 
-        $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
+        $query = "SELECT * FROM public.\"patients\" WHERE patientid ='" . $patientID ."'";
         $res = pg_query($conn, $query);
 
         $patient = pg_fetch_all($data);
