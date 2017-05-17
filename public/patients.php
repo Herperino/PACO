@@ -23,7 +23,7 @@
 
         //Store patient data in an array
         $i = 0;
-        while($row = pg_fetch_array($data)){
+        while($row = pg_fetch_array($data,PSQL_BOTH)){
           $patients[$i] = $row;
           $i++;
         }
