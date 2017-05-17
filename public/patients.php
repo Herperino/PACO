@@ -68,7 +68,7 @@
         $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
         $res = pg_query($conn, $query);
 
-        $patient = pg_fetch_all($data);
+        $patient = pg_fetch_all($res);
         $status = $patient[6]; //6 = p_status
 
         //Change status given current status state
