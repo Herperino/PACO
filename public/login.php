@@ -8,10 +8,9 @@
 
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            // query database for user
-            $conn = connect_db();
+            // query database for user            
             try{
-
+              $conn = connect_db();
               $query = "SELECT * FROM public.\"PACO_users\" WHERE email = '" . $_POST["id"]."'";
               $users = pg_query($conn, $query);
             }
