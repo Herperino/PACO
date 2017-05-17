@@ -72,7 +72,7 @@
         $status = $patient[6]; //6 = p_status
 
         for($i = 0; $i<sizeof($patient); $i++){
-          print($patient[$i]);
+          print("".$patient[$i]);
         }
         //Change status given current status state
         if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
