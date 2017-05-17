@@ -40,7 +40,7 @@
         if($operation == 'STATUS'){
 
             changeStatus($patientID);
-            trigger_error("CARALHO FILHO DA PUTA");
+            //trigger_error("CARALHO FILHO DA PUTA");
         }
         else if($operation == 'EDIT'){
 
