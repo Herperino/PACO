@@ -6,7 +6,7 @@
      * labref to render the correct patient list.
      */
 
-    include("../includes/config.php");
+    require("../includes/config.php");
 
     $patients = []; //Array containing all the patients currently under care
 
@@ -18,9 +18,7 @@
          */
 
         //Queries the data from the postgresql db
-        $query = "SELECT * FROM public.\"patients\"
-                  WHERE userid = '".$_SESSION['id']."'
-                  ORDER BY p_status ASC,lastactive DESC ";
+        $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status ASC,lastactive DESC ";
         $data = pg_query($conn, $query);
 
         //Store patient data in an array
@@ -29,6 +27,7 @@
         // output patients as JSON (pretty-printed for debugging convenience)
         header("Content-type: application/json; charset=UTF-8");
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
+        exit();
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -38,10 +37,11 @@
         $patientID = $_POST['patientID'];
         $page = basename($_SERVER['HTTP_REFERER']);
 
+        //Query database according to operation selected
         if($operation == 'STATUS'){
 
             changeStatus($patientID);
-            //trigger_error("CARALHO FILHO DA PUTA");
+
         }
         else if($operation == 'EDIT'){
 
@@ -58,7 +58,6 @@
     }
 
 
-
     /** PatientID -> NULL
      *  Gets a given patient ID and changes its status in the
      *  database row corresponding to the patient under care
@@ -67,16 +66,15 @@
 
         //Get patient and it's status from the database
 
-        $query = "SELECT * FROM public.\"patients\"
-                  WHERE patientid ='" . $patientID ."'" ;
+        $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
         $res = pg_query($conn, $query);
 
         $patient = pg_fetch_all($data);
         $status = $patient[6]; //6 = p_status
 
         //Change status given current status state
-        if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
-        else { pg_query($conn, "UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
+        if($status == 1) { pg_query("UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
+        else { pg_query("UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
     }
 
     /** PatientID, page -> NULL
@@ -90,9 +88,8 @@
         $pname = htmlspecialchars($_POST['patient_name']);
 
         //If the patient ID remains the same
-        if ($_POST['new_id'] == $patientID){
-            //$query = "UPDATE public.\"patients\" SET patientname = '".$pname."', patientage = ".$_POST['patient_age']." WHERE patientid = '".$patientID;
-            //$res = pg_query($conn, $query);
+        if ($_POST['new_id'] == $_POST['patientID']){
+            cs50::query("UPDATE patients SET patientname = ?, patientage = ? WHERE patientid = ?", $pname, $_POST['patient_age'],$_POST['patientID']);
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
         else{
