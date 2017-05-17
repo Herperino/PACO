@@ -37,7 +37,7 @@
                 content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + data[count].p_status+ "</td>";
-                content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientID +
+                content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientid +
                 "' onchange='if (this.selectedIndex) patientHandler(this," + pageid + ");'>  <option  value='nada'>Selecione</option> <option value='edit'  data-toggle='modal' data-target='myform'>Editar</option><option value='changestatus'>Mudar status</option><option value='acomp'>Acompanhar</option></select></td>";
                 content += "</tr>"
 
