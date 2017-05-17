@@ -21,7 +21,7 @@
     CS50::init(__DIR__ . "/../config.json");
 
     $database = "da9ca7l565c2pg";
-    $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
+    global $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
                         dbname=".$database."
                         user=hypmpmdpmsubvi
                         password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85
