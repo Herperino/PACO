@@ -9,6 +9,7 @@
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
             // query database for user
+            $conn = connect_db();
             try{
 
               $query = "SELECT * FROM public.\"PACO_users\" WHERE email = '" . $_POST["id"]."'";
