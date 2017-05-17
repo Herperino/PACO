@@ -46,7 +46,7 @@
         else if($operation == 'EDIT'){
 
             editPatient($patientID);
-
+            trigger_error("function was called");
         }
         else if($operation == 'ADD'){
 
@@ -100,8 +100,6 @@
             cs50::query("UPDATE prescriptions SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
             cs50::query("UPDATE labref SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
            }
-
-           trigger_error("function was called");
     }
 
     /** PatientID, page -> NULL
