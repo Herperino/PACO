@@ -33,7 +33,7 @@
                     content += "<tr class = 'tc'  id= '" + rowindex + "' style = 'color:gray'>" ;
                 }
 
-                content += "<td class = 'p_id' value = '" + count + "'>" + data[count].patientID + "</td>";
+                content += "<td class = 'p_id' value = '" + count + "'>" + data[count].id + "</td>";
                 content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + data[count].p_status+ "</td>";
