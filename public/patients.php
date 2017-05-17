@@ -58,9 +58,10 @@
     }
 
 
-    /** PatientID -> NULL
+    /** PatientID, database connection -> NULL
      *  Gets a given patient ID and changes its status in the
      *  database row corresponding to the patient under care
+     *  A connection to the database must be passed
      */
     function changeStatus($patientID, $conn){
 
@@ -68,21 +69,20 @@
         $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
         $res = pg_query($conn, $query);
 
+        //Fetches the single row for the user found
         $patient = pg_fetch_row($res);
         $status = $patient[6]; //6 = p_status
 
-        for($i = 0; $i<sizeof($patient); $i++){
-          print("".$patient[$i]);
-        }
         //Change status given current status state
         if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
         else { pg_query($conn, "UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
     }
 
-    /** PatientID, page -> NULL
+    /** PatientID, database connection -> NULL
      *  This part of the function will take patients new ID, name and age.
      *  Query patients, lab and prescriptions to make changes to the user ID
      *  or else it will fuck all the databases(prescriptions and labref)
+     *  A connection to the database must be passed
      */
     function editPatient($patientID, $conn){
 
