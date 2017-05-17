@@ -2,6 +2,26 @@
 
 /** Final project helper file. Contains an assortment of tools that wil be needed to run the site */
 
+    function connect_db(){
+
+      //database name
+      $database = "da9ca7l565c2pg";
+
+      global $conn;
+
+      //try to open a persistent connection with DB
+      try{
+      $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
+                          dbname=".$database."
+                          user=hypmpmdpmsubvi
+                          password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85
+                          sslmode=require");
+      }
+      catch(Exception $e){
+        error_log($e);
+      }
+        return $conn;
+    }
     /** Renders a view from POST requests to the server.
      *  Used mostly for login and main transitions.
      *  Taken from pset7 helpers.php, used for the same purpose
@@ -137,26 +157,5 @@
               print("</td>"."</tr>");
             }
         }
-    }
-
-    function connect_db(){
-
-      //database name
-      $database = "da9ca7l565c2pg";
-
-      global $conn;
-
-      //try to open a persistent connection with DB
-      try{
-      $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
-                          dbname=".$database."
-                          user=hypmpmdpmsubvi
-                          password=d4338194bb3376272ff09a413786ed3852229812b977259d5d4b5e7958c37c85
-                          sslmode=require");
-      }
-      catch(Exception $e){
-        error_log($e);
-      }
-        return $conn;
     }
 ?>
