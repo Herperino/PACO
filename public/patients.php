@@ -70,7 +70,7 @@
 
         $patient = pg_fetch_all($res);
         $status = $patient[6]; //6 = p_status
-        print($res)
+        print($res);
 
         //Change status given current status state
         if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
