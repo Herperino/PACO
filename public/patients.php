@@ -40,12 +40,12 @@
         //Query database according to operation selected
         if($operation == 'STATUS'){
 
-            changeStatus($patientID);
+            changeStatus($patientID,$conn);
 
         }
         else if($operation == 'EDIT'){
 
-            editPatient($patientID);
+            editPatient($patientID,$conn);
 
         }
         else if($operation == 'ADD'){
@@ -62,7 +62,7 @@
      *  Gets a given patient ID and changes its status in the
      *  database row corresponding to the patient under care
      */
-    function changeStatus($patientID){
+    function changeStatus($patientID, $conn){
 
         //Get patient and it's status from the database
         $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
@@ -81,7 +81,7 @@
      *  Query patients, lab and prescriptions to make changes to the user ID
      *  or else it will fuck all the databases(prescriptions and labref)
      */
-    function editPatient($patientID){
+    function editPatient($patientID, $conn){
 
         //Edit the patient to contain html supported chars.
         $pname = htmlspecialchars($_POST['patient_name']);
