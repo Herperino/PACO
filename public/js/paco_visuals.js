@@ -48,7 +48,6 @@
         content += "<td><input onClick= 'handler()' id = 'addBtn' type ='button' value= 'Adicionar Paciente'";
         content += "class = 'btn btn-success'/></tr>" + "</div>" //panel body;
 
-        console.log(content);
         form.html(content);
     });
 }

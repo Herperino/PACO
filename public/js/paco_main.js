@@ -1,23 +1,23 @@
- /** 
+ /**
   *  /paco/public/scripts.js
-  * 
+  *
   *  This is the PACO JS script file.
   *  It contains functions that will work client-side to help the functioning
-  *  of the whole PACO platform. 
+  *  of the whole PACO platform.
   */
 
 function patientHandler(event, page){
-    
+
     //Based on selectedIndex from the menu option
     var options = ["EDIT", "STATUS", "ACOMP", "ADD"];
     var index = event.selectedIndex; //Index of the option in select
     var choice = options[index-1]; //offsetting the non 0 indexed select
-    
+    console.log(this);
     var patientid = event.id.substring(4); //Patient ids are passed as "ptt_(patientid)"
-    
+
     //If option chosen is ACOMP, send patient chosen to acompanhamento.php(Request method is POST)
     if (choice == "ACOMP"){
-        
+
         //TODO: SEND INFO TO the correct page
         var package_to_send = {
             operation : choice,
@@ -25,7 +25,7 @@ function patientHandler(event, page){
         }
         post(window.location.href, package_to_send);
     }
-    
+
     //If option chosen is EDIT or STATUS, send info to patients.php (Request method is POST)
     else if(choice == "STATUS")
     {
@@ -35,116 +35,116 @@ function patientHandler(event, page){
             patientID : patientid
         }
         $.post("patients.php", package_to_send);
-        
+
         showPatients();
     }
     else if (choice == "EDIT"){
-        
+
         var info = {
             operation:choice,
             patientID : patientid
         }
-        
+
         renderPatientForm("patients.php", info);
     }
     else{
-        
+
         var info = {
             operation:choice,
             patientID: null
         }
-        
+
         renderPatientForm("patients.php", info);
     }
-    
+
 }
 
 /** Event -> Controller response
- *  Request a response for the server given a page event. 
- * 
+ *  Request a response for the server given a page event.
+ *
  *  Event can be:
  *  - ADD a prescription
  *  - EDIT a prescription
- *  - GET last prescription 
+ *  - GET last prescription
  */
 
 function prescriptionHandler(event){
-    
+
 
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
-    
+
     var pkg_to_send = {event: event,
                        operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    
+
     getLastPrescription(pkg_to_send);
 }
 
 function labHandler(event){
-    
+
 
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
-    
+
     var pkg_to_send = {event: event,
                        operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    
+
     getLastPrescription(pkg_to_send);
 }
 
  /** Event -> Array
-  *  Queries the database for the last prescription. 
+  *  Queries the database for the last prescription.
   *  Returns an empty array if no empty prescription was found
   */
 function getLastPrescription(source){
-    
+
     var last_prescription = [];
-    
+
     //Declaring the prescription's date and patient
     if (source.operation == "PRESCRIPTION_EDIT"){
-        var tr = source.event.parentElement.parentElement; 
+        var tr = source.event.parentElement.parentElement;
         var timestamp = source.timestamp;
         var patientID = source.patientID;
     }
     else{
         var target = document.getElementById("prescription_list");
         var timestamp = source.timestamp;
-        var patientID = source.patientID;        
+        var patientID = source.patientID;
     }
-    
+
     //Parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
                 patientID: patientID,
                 date:timestamp};
-                
-    //Query acompanhamento controller via POST ajax            
+
+    //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
          var to_form = {last_p: data[0],
                         operation:source.operation,
                         patientID: patientID,
                         date : timestamp};
-                        
+
         renderPrescriptionForm(to_form);
     });
 }
 
 function validate(){
-    
+
     var form = document.getElementById("register");
     var regispwd = form.regispwd.value;
     var confirmation = form.confirmation.value;
     var betakey = form.testebeta.value;
-    
+
     console.log(form);
-    
+
     if ((regispwd != confirmation) || (betakey != "catioro"))
     {
         var midscreen = document.getElementById("pagemid");
@@ -183,4 +183,3 @@ function handler(){
         var event = { selectedIndex: 4, id: "supergambiarra"}
         patientHandler(event, "acompanhamento.php");
     }
-    
