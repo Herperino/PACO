@@ -7,7 +7,7 @@
      */
 
     require("../includes/config.php");
-
+    require("../includes/helpers.php"))
     $patients = []; //Array containing all the patients currently under care
 
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
