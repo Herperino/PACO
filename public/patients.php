@@ -34,7 +34,7 @@
 
         //Get operation (Remove, Add, Change Status)
         $operation = $_POST['operation'];
-        $patientID = $_POST['patientid'];
+        $patientID = $_POST['patientID'];
         $page = basename($_SERVER['HTTP_REFERER']);
 
         print $patientID;
@@ -75,8 +75,8 @@
         $status = $patient["p_status"];
 
         //Change status given current status state
-        if($status == '1') { pg_query("UPDATE public.\"patients\" SET p_status = '0' WHERE patientid ='".$patientID."'");}
-        else { pg_query("UPDATE public.\"patients\" SET p_status = '1' WHERE patientid ='".$patientID."'");}
+        if($status == '1') { pg_query("UPDATE public.\"patients\" SET p_status = 0 WHERE patientid ='".$patientID."'");}
+        else { pg_query("UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
     }
 
     /** PatientID, page -> NULL
