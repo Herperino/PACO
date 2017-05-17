@@ -89,7 +89,7 @@
 
         //If the patient ID remains the same
         if ($_POST['new_id'] == $_POST['patientID']){
-            $query = "UPDATE patients SET patientname = '".$pname."', patientage = '".$_POST['patient_age']."' WHERE patientid = '".$_POST['patientID'];
+            $query = "UPDATE public.\"patients\" SET patientname = '".$pname."', patientage = '".$_POST['patient_age']."' WHERE patientid = '".$_POST['patientID'];
             pg_query($conn, $query);
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
