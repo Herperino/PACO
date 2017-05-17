@@ -23,13 +23,12 @@
 
         //Store patient data in an array
         $i = 0;
-        while($row = pg_fetch_array($data)){
+        while($row = pg_fetch_row($data)){
           $patients[$i] = $row;
           $i++;
         }
         // output patients as JSON (pretty-printed for debugging convenience)
         header("Content-type: application/json; charset=UTF-8");
-        file_put_contents("../bin/log1.txt",$patients);
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
         exit();
     }
