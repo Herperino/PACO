@@ -56,10 +56,7 @@
         redirect($page);
 
     }
-    else {
-
-      trigger_error("Oops");
-    }
+    
 
 
     /** PatientID -> NULL
