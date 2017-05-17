@@ -22,11 +22,6 @@
         $data = pg_query($conn, $query);
 
         //Store patient data in an array
-        $i = 0;
-        // while($row = pg_fetch_all($data)){
-        //   $patients[$i] = $row;
-        //   $i++;
-        // }
         $patients = pg_fetch_all($data);
 
         // output patients as JSON (pretty-printed for debugging convenience)
@@ -76,7 +71,7 @@
         $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
         $res = pg_query($conn, $query);
 
-        $patient = pg_fetch_array($res,0,PGSQL_BOTH);
+        $patient = pg_fetch_all($data);
         $status = $patient["p_status"];
 
         //Change status given current status state
