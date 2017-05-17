@@ -20,8 +20,9 @@
     require("../vendor/library50-php-5/CS50/CS50.php");
     CS50::init(__DIR__ . "/../config.json");
 
-    global $conn = connect_db();
+    global $conn;
 
+    $conn = connect_db();
     // enable sessions
     session_start();
 
