@@ -68,12 +68,16 @@
     function changeStatus($patientID){
 
         //Get patient and it's status from the database
-        $patient = cs50::query("SELECT p_status FROM patients WHERE patientID = ?", $patientID);
-        $status = $patient[0]['p_status'];
+
+        $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
+        $res = pg_query($conn, $query);
+
+        $patient = pg_fetch_array($res,0,PGSQL_BOTH);
+        $status = $patient["p_status"];
 
         //Change status given current status state
-        if($status == "active") { cs50::query("UPDATE patients SET p_status = 'inactive' WHERE patientID = ?", $patientID);}
-        else { cs50::query("UPDATE patients SET p_status = 'active' WHERE patientID = ?", $patientID);}
+        if($status == 1) { pg_query("UPDATE patients SET p_status = '0' WHERE patientID ='".$patientID."'");}
+        else { pg_query("UPDATE patients SET p_status = '0' WHERE patientID ='".$patientID."'");}
     }
 
     /** PatientID, page -> NULL
