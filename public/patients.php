@@ -76,7 +76,7 @@
         $status = $patient["p_status"];
 
         //Change status given current status state
-        if($status == 1) { pg_query("UPDATE patients SET p_status = '0' WHERE patientID ='".$patientID."'");}
+        if($status == '1') { pg_query("UPDATE patients SET p_status = '0' WHERE patientID ='".$patientID."'");}
         else { pg_query("UPDATE patients SET p_status = '1' WHERE patientID ='".$patientID."'");}
     }
 
