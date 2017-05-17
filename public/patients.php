@@ -29,6 +29,7 @@
         }
         // output patients as JSON (pretty-printed for debugging convenience)
         header("Content-type: application/json; charset=UTF-8");
+        error_log($patients);
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
         exit();
     }
