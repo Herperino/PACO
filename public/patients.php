@@ -6,8 +6,8 @@
      * labref to render the correct patient list.
      */
 
-    require("../includes/config.php");
-    require("../includes/helpers.php"))
+    include("../includes/config.php");
+
     $patients = []; //Array containing all the patients currently under care
 
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
