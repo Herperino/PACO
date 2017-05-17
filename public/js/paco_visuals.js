@@ -1,54 +1,55 @@
 /** Este arquivo contém funcionalidades javascript para a execução
- *  de código que customiza a aparência do site, tal como a adição 
+ *  de código que customiza a aparência do site, tal como a adição
  *  de formulários, listas e tabelas. Os arquivos principais ficam
  *  no main.js
  */
- 
- 
+
+
  /** Displays a list of patients and their current state
-  *  based on data sent by the server 
+  *  based on data sent by the server
   */
  function showPatients(page){
-    
+
     $.getJSON("patients.php").done(function(data){
-    
+
         var form = $('#patient_list');
         var patients = data.length;
-        
+
         var pageid = "\""+ page + "\"";
-        
-        var content = "<div class = 'panel-body' style='overflow-x:scroll'>" + 
+
+        var content = "<div class = 'panel-body' style='overflow-x:scroll'>" +
                         "<table id='patients' class='table'>"+
                         "<tr><th>ID</th><th>Nome</th><th class='p_age'>Idade</th><th>Status</th><th>Ação</th></tr>";
-        
+
         for (var count = 0; count < patients; count++)
             {
-                
+
                 var rowindex = "row_" + count;
-                
-                if (data[count].p_status != "inactive"){
+
+                if (data[count].p_status != "0"){
                     content += "<tr class = 'tc'  id= '" + rowindex + "'>" ;
                 }
                 else{
                     content += "<tr class = 'tc'  id= '" + rowindex + "' style = 'color:gray'>" ;
                 }
-                
+
                 content += "<td class = 'p_id' value = '" + count + "'>" + data[count].patientID + "</td>";
                 content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + data[count].p_status+ "</td>";
-                content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientID + 
+                content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientID +
                 "' onchange='if (this.selectedIndex) patientHandler(this," + pageid + ");'>  <option  value='nada'>Selecione</option> <option value='edit'  data-toggle='modal' data-target='myform'>Editar</option><option value='changestatus'>Mudar status</option><option value='acomp'>Acompanhar</option></select></td>";
                 content += "</tr>"
-                
+
             }
-        
+
         content += "<tr></td>";
         content += "</table>";
         content += "<td><input onClick= 'handler()' id = 'addBtn' type ='button' value= 'Adicionar Paciente'";
         content += "class = 'btn btn-success'/></tr>" + "</div>" //panel body;
-    
-        form.html(content);    
+
+        console.log(content);
+        form.html(content);
     });
 }
 
@@ -58,22 +59,22 @@
  *  edit patient information and will be sent to the patient controller
  */
 function renderPatientForm(path, parameters){
-    
+
     //Declare variables to be used in the form
     if(parameters['operation'] == "ADD") {var info = 'Adicionar novo paciente';}
     else {var info = 'Alterar dados do paciente';}
-    
+
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
-    
+
     if (pat_id == null){
         pat_id = "";
     }
-    
+
     var action = "submitModal();"
-    
+
     //the form itself
-    
+
     var content = ""+
     "<div class='modal fade' id='myForm' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
         "<div class='modal-dialog' role='document'>"+
@@ -93,19 +94,19 @@ function renderPatientForm(path, parameters){
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>" +
             "</form>" +
             "</div>" +
-            
+
             "</div>"+
             "<div class='modal-footer'>"+
                 "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
                 "<input class= 'btn btn-success' type = 'button' onclick ='" + action + "' value= '" + info +"'> &nbsp;" +
-                
+
             "</div>"+
             "</div>"+
         "</div>"+
     "</div>";
-    
+
     document.body.innerHTML += content;
-    
+
     $('#myForm').modal('show');
 }
 
@@ -117,9 +118,9 @@ function renderPatientForm(path, parameters){
  */
 
 function renderLabrefForm(parameters){
-    
+
     //Do function here
-    
+
 }
 
 /** Parameters -> Form (on page)
@@ -128,10 +129,10 @@ function renderLabrefForm(parameters){
  *  precriptions and will be sent to the prescription controller
  */
 function renderPrescriptionForm(parameters){
-    
+
     //For prescription handling, the controller can only be acompanhamento.php
     var controller = "acompanhamento.php";
-    
+
     if(parameters['operation'] == "PRESCRIPTION_ADD") {
         var info = 'Adicionar nova prescrição';
         var date = document.getElementById("dateinfo").dataset.timestamp;
@@ -139,21 +140,21 @@ function renderPrescriptionForm(parameters){
     else {
         var info = 'Alterar prescrição';
         var date = parameters.date;
-       
+
     }
-    
+
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
-    
+
     var content = "<div style='margin-left:5%;width:auto'>";
-    
+
     //The form
     content+= "<center>";
     content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
-    
+
     for(var i = 1; i <= 10; i++){
         try{
-        content+="<div class='panel'>" + i + ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' "+ parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";    
+        content+="<div class='panel'>" + i + ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' "+ parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";
         }
         catch(err){
         content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
@@ -172,28 +173,28 @@ function renderPrescriptionForm(parameters){
     }
     content+= "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>";
     content+= "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>";
-    
+
     content+= "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
     content+= "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>";
     content+= "</form></div></center>";
-    
-    
+
+
     document.getElementById("prescription_list").innerHTML = content;
 }
 
 function newPrescriptionButton(id){
-    
+
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
     try{
         var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
         var date = source.nextSibling.innerHTML;
         var patient = source.innerHTML;
-        
+
         if(patient == "Paciente" || date == "data"){
             throw ("got a th");
         }
-        
+
         console.log("The date is "+ date + " and the patient is: "+patient);
     }
     catch(err){
@@ -207,19 +208,19 @@ function newPrescriptionButton(id){
     content += "data-timestamp ='" + date + "'";
     content += "type = 'button' onClick = 'prescriptionHandler(this)'";
     content += "class= 'btn btn-success' value='Adicionar Prescrição'/>";
-    
+
     target.innerHTML += content;
 }
 
 function newLabButton(id){
-    
+
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("labresults_list");
     try{
         var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
         var date = source.nextSibling.innerHTML;
         var patient = source.innerHTML;
-        
+
         if(patient == "Paciente" || date == "data"){
             throw ("got a th");
         }
@@ -236,7 +237,7 @@ function newLabButton(id){
     content += "data-timestamp ='" + date + "'";
     content += "type = 'button' onClick = 'labHandler(this)'";
     content += "class= 'btn btn-success' value='Adicionar Resultados'/>";
-    
+
     target.innerHTML += content;
 }
 
@@ -245,6 +246,6 @@ function newLabButton(id){
  */
 
 function submitModal(){
-    
+
     var form = document.getElementById('formC').submit();
-} 
+}

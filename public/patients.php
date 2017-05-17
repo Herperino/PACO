@@ -40,6 +40,8 @@
         $patientID = $_POST['patientID'];
         $page = basename($_SERVER['HTTP_REFERER']);
 
+        print $patientID;
+
         //Query database according to operation selected
         if($operation == 'STATUS'){
 
