@@ -37,9 +37,6 @@
         $patientID = $_POST['patientID'];
         $page = basename($_SERVER['HTTP_REFERER']);
 
-        //Query database according to operation selected
-        $conn = connect_db();
-
         if($operation == 'STATUS'){
 
             changeStatus($patientID);
@@ -56,8 +53,8 @@
         }
 
         //Returns to the original page
-        //redirect($page);
-        trigger_error("function was called");
+        redirect($page);
+
     }
 
 
@@ -68,6 +65,7 @@
     function changeStatus($patientID){
 
         //Get patient and it's status from the database
+        $conn = db_connect();
         $query = "SELECT * FROM public.\"patients\" WHERE patientid ='" . $patientID ."'";
         $res = pg_query($conn, $query);
 
