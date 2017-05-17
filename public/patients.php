@@ -71,7 +71,7 @@
         $patient = pg_fetch_all($res);
         $status = $patient[6]; //6 = p_status
 
-        for($i = 0; i<sizeof($i); $i++){
+        for($i = 0; $i<sizeof($i); $i++){
           print($res);
         }
         //Change status given current status state
