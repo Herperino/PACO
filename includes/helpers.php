@@ -7,7 +7,7 @@
       //database name
       $database = "da9ca7l565c2pg";
 
-      global $conn;
+      $conn = 0;
 
       //try to open a persistent connection with DB
       try{
