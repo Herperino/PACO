@@ -46,7 +46,7 @@
         else if($operation == 'EDIT'){
 
             editPatient($patientID);
-            trigger_error("function was called");
+
         }
         else if($operation == 'ADD'){
 
@@ -55,6 +55,8 @@
 
         //Returns to the original page
         //redirect($page);
+
+        trigger_error("function was called");
     }
 
 
