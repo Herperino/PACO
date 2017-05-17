@@ -144,6 +144,7 @@
       //database name
       $database = "da9ca7l565c2pg";
 
+      //try to open a persistent connection with DB
       try{
       $conn = pg_pconnect("host=ec2-23-21-227-73.compute-1.amazonaws.com port=5432
                           dbname=".$database."

@@ -54,7 +54,7 @@
         }
 
         //Returns to the original page
-        //redirect($page);
+        redirect($page);
     }
 
 
@@ -66,7 +66,7 @@
     function changeStatus($patientID){
 
         //Get patient and it's status from the database
-        
+
         $query = "SELECT * FROM public.\"patients\"
                   WHERE patientid ='" . $patientID ."'" ;
         $res = pg_query($conn, $query);
