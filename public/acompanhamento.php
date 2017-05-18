@@ -21,7 +21,9 @@
 
         //Gets the patient name for displaying.
         $patientID = $_POST['patientID'];
-        //$patients = cs50::query("SELECT patientname FROM patients WHERE patientID = ?", $patientID);
+        $query = pg_query($conn, "SELECT patientname FROM public.\"patients\" WHERE patientid = ?", $patientID);
+        $patients = pg_fetch_all($query);
+
         $name = ($patients[0]['patientname']);
         $name = utf8_encode($name);
 
