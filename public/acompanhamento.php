@@ -21,7 +21,7 @@
 
         //Gets the patient name for displaying.
         $patientID = $_POST['patientID'];
-        $patients = cs50::query("SELECT patientname FROM patients WHERE patientID = ?", $patientID);
+        //$patients = cs50::query("SELECT patientname FROM patients WHERE patientID = ?", $patientID);
         $name = ($patients[0]['patientname']);
         $name = utf8_encode($name);
 
