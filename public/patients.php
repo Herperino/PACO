@@ -106,7 +106,7 @@
                             patientid = '". $new_id ."',
                             patientname = '". $pname ."',
                             patientage = ". $_POST['patient_age'] ."
-                            WHERE patientID = '".$_POST['patientID'] ."'");
+                            WHERE patientid = '".$_POST['patientID'] ."'");
 
             pg_query($conn,"UPDATE public.\"prescriptions\" SET
                             patientid = '". $new_id."'
@@ -129,7 +129,7 @@
         $userID = $_SESSION['id'];
 
         //Insert a new patient into the patients database
-        pg_query($conn,"INSERT INTO public.\"patients\"(patientID, patientname, patientage,userID)
+        pg_query($conn,"INSERT INTO public.\"patients\"(patientid, patientname, patientage,userid)
                          values ('". $patientID."','".$patientname."','".$patientage."','".$userID."')");                                ,,);
     }
 ?>
