@@ -54,7 +54,7 @@
         }
 
         //Returns to the original page
-        redirect($page);
+        //redirect($page);
     }
 
 
