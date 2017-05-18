@@ -146,7 +146,7 @@ function renderPrescriptionForm(parameters){
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
 
-    var content = "<div style='margin-left:5%;width:auto'>";
+    var content = "<div class = 'content' style='margin-left:5%;width:auto'>";
 
     //The form
     content+= "<center>";
