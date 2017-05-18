@@ -149,15 +149,14 @@ function renderPrescriptionForm(parameters){
     var content = "<div class = 'content' style='margin-left:5%;width:auto'>";
 
     //The form
-    content+= "<center>";
     content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
         try{
-        content+="<div class='panel'>" + i + ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' "+ parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";
+          content+="<div class='panel'>" + i + ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' "+ parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";
         }
         catch(err){
-        content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
+          content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         }
         content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         content+= "Via<input name= 'via"+ i + "' type = 'text'  placeholder = 'Inserir'></input>";
