@@ -106,7 +106,7 @@
                                 '".$prescriptions['med7']."','".$prescriptions['pos7']."',
                                 '".$prescriptions['med8']."','".$prescriptions['pos8']."',
                                 '".$prescriptions['med9']."','".$prescriptions['pos9']."',
-                                '".$prescriptions['med10']."','".$prescriptions['pos10']."'"),
+                                '".$prescriptions['med10']."','".$prescriptions['pos10']."')");
 
     }
 
