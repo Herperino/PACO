@@ -54,7 +54,7 @@
         }
 
         //Returns to the original page
-        trigger_error;
+        redirect($page);
     }
 
 
