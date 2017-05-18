@@ -76,11 +76,10 @@ function prescriptionHandler(event){
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
     if (event.dataset.timestamp == "null")
-      var timestamp =  "*"; //Timestamp may be null
+      return renderPrescriptionForm();
     else
       timestamp = event.dataset.timestamp;
-      
-    console.log(timestamp);
+
     var pkg_to_send = {event: event,
                        operation: operation,
                        patientID: patientID,
