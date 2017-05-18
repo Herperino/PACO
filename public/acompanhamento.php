@@ -45,7 +45,8 @@
         else if($_POST['operation'] == "GET_PRESCRIPTION"){
 
             //makes a JSON return of the prescriptions array.
-            //$last_prescription = cs50::query("SELECT * FROM prescriptions WHERE Date =?", $_POST['date']);
+            $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
+            $last_prescription = pg_fetch_all($query);
 
             header("Content-type: application/json; charset=UTF-8");
             print(json_encode($last_prescription, JSON_PRETTY_PRINT));
@@ -54,8 +55,10 @@
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
-        //$prescriptions =  cs50::query("SELECT * FROM prescriptions WHERE patientID = ? AND userID = ? ORDER BY Date ASC", $patientID, $userID);
-
+        $query = pg_query($conn, "SELECT * FROM prescriptions
+                                  WHERE patientID = '".$patientID."' AND userID = '".$userID."'
+                                  ORDER BY Date ASC");
+        $prescription = pg_fetch_all($query);
         $page_mode = true;
         render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID, 'token' => $token]);
     }
