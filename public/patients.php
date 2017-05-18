@@ -129,7 +129,7 @@
         $userID = $_SESSION['id'];
 
         //Insert a new patient into the patients database
-        pg_query($conn,"INSERT INTO public.\"patients\"(patientid, patientname, patientage,userid)
-                         values ('". $patientID."','".$patientname."','".$patientage."','".$userID."')");
+        pg_query($conn,"INSERT INTO public.\"patients\"(patientid, patientname, patientage,userid, p_status)
+                         values ('". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
     }
 ?>
