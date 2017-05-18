@@ -56,7 +56,7 @@
 
         //Query database for the patient's prescriptions given a userID and patient name
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
-                                  WHERE patientID = '".$patientID."' AND userID = '".$userID."'
+                                  WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'
                                   ORDER BY Date ASC");
         $prescription = pg_fetch_all($query);
 
@@ -94,7 +94,7 @@
 
      }
 
-     pg_query($conn,"INSERT INTO public.\"prescriptions\"(userID,patientID, med1,pos1,med2,pos2,med3,pos3,med4,pos4,med5,pos5,
+     pg_query($conn,"INSERT INTO public.\"prescriptions\"(userID,\"patientID\", med1,pos1,med2,pos2,med3,pos3,med4,pos4,med5,pos5,
                                            med6,pos6,med7,pos7,med8,pos8,med9,pos9,med10,pos10)
                                  VALUES ('".$_SESSION['id']."','".$patientID."',
                                 '".$prescriptions['med1']."','".$prescriptions['pos1']."',
@@ -126,7 +126,7 @@
 
       // cs50::query("UPDATE prescriptions SET Date = Date,med1=?,pos1=?,med2=?,pos2=?,med3=?,pos3=?,med4=?,pos4=?,med5=?,pos5=?,
       //                                     med6=?,pos6=?,med7=?,pos7=?,med8=?,pos8=?,med9=?,pos9=?,med10=?,pos10=? WHERE
-      //                           Date = ? AND userID = ? AND patientID =? ",
+      //                           Date = ? AND \"userID\" = ? AND patientID =? ",
       //                           $prescriptions['med1'],$prescriptions['pos1'],
       //                           $prescriptions['med2'],$prescriptions['pos2'],
       //                           $prescriptions['med3'],$prescriptions['pos3'],
