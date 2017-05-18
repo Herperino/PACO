@@ -78,7 +78,7 @@ function prescriptionHandler(event){
     if (event.dataset.timestamp == "null"){
 
       var data =  {
-                  operation:"PRESCRIPITON_ADD",
+                  operation:"PRESCRIPTION_ADD",
                   patientID: patientID,
                   date : null};
 
