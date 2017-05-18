@@ -75,7 +75,11 @@ function prescriptionHandler(event){
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
-    var timestamp = event.dataset.timestamp || "*"; //Timestamp may be null
+    if (event.dataset.timestamp == "null")
+      var timestamp =  "*"; //Timestamp may be null
+    else
+      timestamp = event.dataset.timestamp;
+      
     console.log(timestamp);
     var pkg_to_send = {event: event,
                        operation: operation,
