@@ -48,6 +48,9 @@
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
             $last_prescription = pg_fetch_all($query);
 
+            if($last_prescription == null)
+              $last_prescription = [];
+
             header("Content-type: application/json; charset=UTF-8");
             print(json_encode($last_prescription, JSON_PRETTY_PRINT));
             $token = true;
