@@ -75,8 +75,17 @@ function prescriptionHandler(event){
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
-    if (event.dataset.timestamp == "null")
+    if (event.dataset.timestamp == "null"){
+
+      var data =  {
+                  operation:"PRESCRIPITON_ADD",
+                  patientID: patientID,
+                  date : null};
+
+
       return renderPrescriptionForm();
+    }
+
     else
       timestamp = event.dataset.timestamp;
 
