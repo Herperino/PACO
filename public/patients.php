@@ -54,7 +54,7 @@
         }
 
         //Returns to the original page
-        //redirect($page);
+        redirect($page);
     }
 
 
@@ -96,9 +96,9 @@
                             patientage = ". $_POST['patient_age'] ."
                             WHERE patientid = '". $_POST['patientID'] ."'");
         }
-        //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
+        //If the patientID changes.
         else{
-            $new_id = $_POST['new_id'] . ".";
+            $new_id = $_POST['new_id'];
 
 
             //Here be queries updating the new ID into patients, labref and prescriptions
