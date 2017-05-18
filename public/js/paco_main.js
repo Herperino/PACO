@@ -83,7 +83,7 @@ function prescriptionHandler(event){
                   date : null};
 
 
-      return renderPrescriptionForm();
+      return renderPrescriptionForm(data);
     }
 
     else
