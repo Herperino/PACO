@@ -34,12 +34,12 @@
         $userID = $_SESSION['id'];
 
         if($_POST['operation'] == 'PRESCRIPTION_ADD'){
-            addPrescription($patientID);
+            addPrescription($patientID,$conn);
             $token = true;
         }
         else if ($_POST['operation'] == 'PRESCRIPTION_EDIT'){
 
-            editPrescription($patientID);
+            editPrescription($patientID, $conn);
             $token = true;
         }
         else if($_POST['operation'] == "GET_PRESCRIPTION"){
@@ -59,7 +59,7 @@
                                   WHERE patientID = '".$patientID."' AND userID = '".$userID."'
                                   ORDER BY Date ASC");
         $prescription = pg_fetch_all($query);
-        
+
         $page_mode = true;
         render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID, 'token' => $token]);
     }
@@ -77,7 +77,7 @@
         render("acompanhamento.php", ['P_MODE' => $page_mode]);
     }
 
-    function addPrescription($patientID){
+    function addPrescription($patientID,$conn){
 
      $date = "CURRENT_TIMESTAMP";
 
@@ -94,19 +94,20 @@
 
      }
 
-    // cs50::query("INSERT INTO prescriptions(userID,patientID, med1,pos1,med2,pos2,med3,pos3,med4,pos4,med5,pos5,
-    //                                       med6,pos6,med7,pos7,med8,pos8,med9,pos9,med10,pos10)
-    //                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-    //                             $_SESSION['id'], $patientID, $prescriptions['med1'],$prescriptions['pos1'],
-    //                             $prescriptions['med2'],$prescriptions['pos2'],
-    //                             $prescriptions['med3'],$prescriptions['pos3'],
-    //                             $prescriptions['med4'],$prescriptions['pos4'],
-    //                             $prescriptions['med5'],$prescriptions['pos5'],
-    //                             $prescriptions['med6'],$prescriptions['pos6'],
-    //                             $prescriptions['med7'],$prescriptions['pos7'],
-    //                             $prescriptions['med8'],$prescriptions['pos8'],
-    //                             $prescriptions['med9'],$prescriptions['pos9'],
-    //                             $prescriptions['med10'],$prescriptions['pos10']);
+     pg_query($conn,"INSERT INTO public.\"prescriptions\"(userID,patientID, med1,pos1,med2,pos2,med3,pos3,med4,pos4,med5,pos5,
+                                           med6,pos6,med7,pos7,med8,pos8,med9,pos9,med10,pos10)
+                                 VALUES ('".$_SESSION['id']."','".$patientID."',
+                                '".$prescriptions['med1']."','".$prescriptions['pos1']."',
+                                '".$prescriptions['med2']."','".$prescriptions['pos2']."',
+                                '".$prescriptions['med3']."','".$prescriptions['pos3']."',
+                                '".$prescriptions['med4']."','".$prescriptions['pos4']."',
+                                '".$prescriptions['med5']."','".$prescriptions['pos5']."',
+                                '".$prescriptions['med6']."','".$prescriptions['pos6']."',
+                                '".$prescriptions['med7']."','".$prescriptions['pos7']."',
+                                '".$prescriptions['med8']."','".$prescriptions['pos8']."',
+                                '".$prescriptions['med9']."','".$prescriptions['pos9']."',
+                                '".$prescriptions['med10']."','".$prescriptions['pos10']."'"),
+
     }
 
     function editPrescription($patientID){

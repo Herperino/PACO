@@ -113,34 +113,35 @@ INSERT INTO `patients` (`LastActive`, `id`, `patientID`, `userID`, `patientname`
 --
 -- Table structure for table `prescriptions`
 --
+CREATE TYPE posologia AS ENUM ('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO');
 
-CREATE TABLE IF NOT EXISTS `prescriptions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userID` int(11) NOT NULL,
-  `patientID` int(11) NOT NULL,
-  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `med1` varchar(255) NOT NULL,
-  `pos1` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med2` varchar(60) NOT NULL,
-  `pos2` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med3` varchar(60) NOT NULL,
-  `pos3` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med4` varchar(60) NOT NULL,
-  `pos4` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med5` varchar(60) NOT NULL,
-  `pos5` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med6` varchar(60) NOT NULL,
-  `pos6` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med7` varchar(60) NOT NULL,
-  `pos7` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med8` varchar(60) NOT NULL,
-  `pos8` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med9` varchar(60) NOT NULL,
-  `pos9` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  `med10` varchar(60) NOT NULL,
-  `pos10` enum('1x/d','2x/d','3x/d','4x/d','6x/d','SOS','OUTRO') DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+CREATE TABLE IF NOT EXISTS "prescriptions" (
+  "id" serial NOT NULL,
+  "userID" int NOT NULL,
+  "patientID" text NOT NULL,
+  "date" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  "med1" varchar(255) NOT NULL,
+  "pos1" posologia
+  "med2" varchar(60) NOT NULL,
+  "pos2" posologia
+  "med3" varchar(60) NOT NULL,
+  "pos3" posologia
+  "med4" varchar(60) NOT NULL,
+  "pos4" posologia
+  "med5" varchar(60) NOT NULL,
+  "pos5" posologia
+  "med6" varchar(60) NOT NULL,
+  "pos6" posologia
+  "med7" varchar(60) NOT NULL,
+  "pos7" posologia
+  "med8" varchar(60) NOT NULL,
+  "pos8" posologia
+  "med9" varchar(60) NOT NULL,
+  "pos9" posologia
+  "med10" varchar(60) NOT NULL,
+  "pos10" posologia
+  PRIMARY KEY ("id")
+)
 
 --
 -- Dumping data for table `prescriptions`
