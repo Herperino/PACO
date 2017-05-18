@@ -49,17 +49,17 @@ CREATE TABLE IF NOT EXISTS `labref` (
 -- Dumping data for table `labref`
 --
 
-INSERT INTO `labref` (`id`, `patientID`, `Date`, `HCT`, `Hemacias`, `HGB`, `Ureia`, `Cr`, `K`, `Na`, `Leuco`, `INR`, `PCR`, `TGO/TGP`, `Outros`) VALUES
+INSERT INTO "labref" ("id", "patientID", "Date", "HCT", "Hemacias", "HGB", "Ureia", "Cr", "K", "Na", "Leuco", "INR", "PCR", "TGO/TGP", "Outros") VALUES
 (0, 171, '2016-12-30 14:00:00', 25, 9.2, 10.4, 46, 1.3, 4.2, 141, 13000, 1, 0.3, NULL, 'VDRL: Negativo');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PACO_users`
+-- Table structure for table "PACO_users"
 --
 
-CREATE TABLE IF NOT EXISTS `PACO_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS "PACO_users" (
+  "id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `userhash` varchar(255) NOT NULL,

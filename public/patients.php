@@ -50,7 +50,7 @@
         }
         else if($operation == 'ADD'){
 
-            addPatient();
+            addPatient($conn);
         }
 
         //Returns to the original page
@@ -91,30 +91,45 @@
 
         //If the patient ID remains the same
         if ($_POST['new_id'] == $_POST['patientID']){
-            cs50::query("UPDATE patients SET patientname = ?, patientage = ? WHERE patientid = ?", $pname, $_POST['patient_age'],$_POST['patientID']);
+            pg_query($conn,"UPDATE public.\"patients\" SET
+                            patientname ='". $pname ."',
+                            patientage = ". $_POST['patient_age'] ."
+                            WHERE patientid = '". $_POST['patientID'] ."'");
         }
         //If the patientID changes. Adds a dot to the end of the string to ensure no ID is equal.
         else{
             $new_id = $_POST['new_id'] . ".";
 
-            cs50::query("UPDATE patients SET patientID = ?, patientname = ?, patientage = ? WHERE patientID = ?", $new_id, $pname, $_POST['patient_age'],$_POST['patientID']);
-            cs50::query("UPDATE prescriptions SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
-            cs50::query("UPDATE labref SET patientID = ? WHERE patientID = ?", $new_id, $_POST['patientID']);
+
+            //Here be queries updating the new ID into patients, labref and prescriptions
+            pg_query($conn,"UPDATE public.\"patients\" SET
+                            patientid = '". $new_id ."',
+                            patientname = '". $pname ."',
+                            patientage = ". $_POST['patient_age'] ."
+                            WHERE patientID = '".$_POST['patientID'] ."'");
+
+            pg_query($conn,"UPDATE public.\"prescriptions\" SET
+                            patientid = '". $new_id."'
+                            WHERE patientid ='". $_POST['patientID']."'");
+
+            pg_query($conn,"UPDATE public.\"labref\" SET
+                            patientid = '". $new_id."'
+                            WHERE patientid ='". $_POST['patientID']."'");
            }
     }
 
     /** PatientID, page -> NULL
      *  Adds a new patient to the database of patients
      */
-    function addPatient(){
+    function addPatient($conn){
 
         $patientname = $_POST['patient_name'];
         $patientage = $_POST['patient_age'];
         $patientID = $_POST['new_id'];
         $userID = $_SESSION['id'];
 
-        cs50::query("INSERT INTO patients(patientID, patientname, patientage,userID)
-                                 values (?,?,?,?)",
-                                 $patientID, $patientname,$patientage,$userID);
+        //Insert a new patient into the patients database
+        pg_query($conn,"INSERT INTO public.\"patients\"(patientID, patientname, patientage,userID)
+                         values ('". $patientID."','".$patientname."','".$patientage."','".$userID."')");                                ,,);
     }
 ?>
