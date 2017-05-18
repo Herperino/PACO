@@ -46,10 +46,11 @@
 
             //makes a JSON return of the prescriptions array.
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
-            $last_prescription = pg_fetch_all($query);
 
-            if($last_prescription == null)
+            if($_POST['date'] == null)
               $last_prescription = [];
+            else
+              $last_prescription = pg_fetch_all($query);
 
             header("Content-type: application/json; charset=UTF-8");
             print(json_encode($last_prescription, JSON_PRETTY_PRINT));
