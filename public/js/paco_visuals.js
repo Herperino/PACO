@@ -167,14 +167,15 @@ function renderPrescriptionForm(parameters){
         form+= "</select><br>";
     }
 
-    var content = "<table class='row' style='width:100%'>";
-    content += "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>";
-    content += form;
-    content+= "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>";
-    content+= "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>";
-    content+= "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
-    content+= "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>";
-    content+= "</form></table>";
+    var content = "<div class='row' style='width:100%'>"+
+            "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>" +
+              form +
+            "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
+            "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
+            "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"+
+        "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"+
+      "</form>"+
+    "</div>";
 
 
     document.getElementById("prescription_list").innerHTML = content;
