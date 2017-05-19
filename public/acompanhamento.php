@@ -100,10 +100,10 @@
 
      }
 
-     pg_query($conn,"INSERT INTO public.\"prescriptions\"(\'userID\',\'patientID\', \'med1\',\'pos1\',\'med2\',\'pos2\',\'med3\'
-                                          ,\'pos3\',\'med4\',\'pos4\',\'med5\',\'pos5\',
-                                           \'med6\',\'pos6\',\'med7\',\'pos7\',\'med8\',
-                                           \'pos8\',\'med9\',\'pos9\',\'med10\',\'pos10\')
+     pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"userID\",\"patientID\", \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\"
+                                          ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
+                                           \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
+                                           \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
                                  VALUES ('".$_SESSION['id']."','".$patientID."',
                                 '".$prescriptions['med1']."','".$prescriptions['pos1']."',
                                 '".$prescriptions['med2']."','".$prescriptions['pos2']."',
