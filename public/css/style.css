@@ -161,7 +161,7 @@ th
     text-align:center;
 }
 
-#prescription_list, #labresults_list{
+#prescription_list .panel-body{
 
   overflow-x : scroll;
 }
