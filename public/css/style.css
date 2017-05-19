@@ -48,12 +48,12 @@ body
 
 .table{
     font-size:calc(8px + 0.5vw);
-    table-layout:auto;
+    table-layout:fixed;
     min-width:100%;
 }
 
 td{
-
+  word-break: break-all;
   min-width:10px;
 }
 
