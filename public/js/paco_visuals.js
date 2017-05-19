@@ -136,6 +136,8 @@ function renderPrescriptionForm(parameters){
     if(parameters['operation'] == "PRESCRIPTION_ADD") {
         var info = 'Adicionar nova prescrição';
         var date = document.getElementById("dateinfo").dataset.timestamp;
+        for (var i = 0; i<9;i++){
+          parameters.last_p['med'+i] = "";
     }
     else {
         var info = 'Alterar prescrição';
@@ -145,17 +147,13 @@ function renderPrescriptionForm(parameters){
 
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
-    console.log(parameters);
+
     var content = "<div style='margin-left:5%;width:auto'>";
 
     //The form
     content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
-
-        if(parameters.last_p['med'+i]){
-          //var parameters.last_p['med'+i] = "";
-        }
 
         content+= i + ". Medicamento<input name= 'med"+ i + "' value="+ parameters.last_p['med'+i] +" type = 'text' placeholder = 'Inserir'></input>";
         content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
