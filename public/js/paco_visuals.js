@@ -156,7 +156,7 @@ function renderPrescriptionForm(parameters){
         form+= i + ")<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
-        form+= "<select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' name= 'pos"+ i +"'>";
+        form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
         form+= "<option value = 'null'> Posologia </option>";
         form+= "<option value = '1x/d'> 1x/dia </option>";
         form+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
@@ -167,8 +167,8 @@ function renderPrescriptionForm(parameters){
         form+= "</select><br>";
     }
 
-    var content = "<div class='row' style='width:100%'>"+
-            "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>" +
+    var content = "<div class='row'>"+
+            "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
               form +
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
