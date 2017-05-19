@@ -27,10 +27,12 @@
                 <h4><?php echo $patientID ?></h4>
             </div>
 
-            <div id ="prescription_list" class="panel-body" style='overflow-x:scroll'>
+            <div id ="prescription_list" class="panel-body">
+              <div style='overflow-x:scroll'>
                 <table class = 'table'>
                 <?php displayPrescription($prescriptions); ?>
                 </table>
+              </div>
             </div>     <!--end panel body-->
         </div>     <!--end panel-->
 

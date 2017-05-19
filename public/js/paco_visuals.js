@@ -17,7 +17,7 @@
 
         var pageid = "\""+ page + "\"";
 
-        var content = "<div class = 'panel-body' style='overflow-x:scroll'>" +
+        var content = "<div class = 'panel-body' style='overflow-x:auto'>" +
                         "<table id='patients' class='table'>"+
                         "<tr><th>ID</th><th>Nome</th><th class='p_age'>Idade</th><th>Status</th><th>Ação</th></tr>";
 
