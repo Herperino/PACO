@@ -149,10 +149,10 @@ function renderPrescriptionForm(parameters){
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
 
-    var content = "<div class='row'>";
+    var content = "<div class='row' style='width:100%'>";
 
     //The form
-    content += "<form style='margin:auto' class = 'form-group col-sm-10' action = \"" + controller + "\" method='POST'>";
+    content += "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
 
