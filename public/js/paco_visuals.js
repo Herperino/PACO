@@ -149,7 +149,7 @@ function renderPrescriptionForm(parameters){
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
 
-    var content = "<div class='row' style='width:100%'>";
+    var content = "<table class='row' style='width:100%'>";
 
     //The form
     content += "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>";
@@ -167,14 +167,14 @@ function renderPrescriptionForm(parameters){
         content+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";
         content+= "<option value = '6x/d'> 6x/dia (4/4h) </option>";
         content+= "<option value = 'SOS'> Caso necessário </option>";
-        content+= "</select><br></div>";
+        content+= "</select><br>";
     }
     content+= "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>";
     content+= "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>";
 
     content+= "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
     content+= "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>";
-    content+= "</form></div>";
+    content+= "</form></table>";
 
 
     document.getElementById("prescription_list").innerHTML = content;
