@@ -109,7 +109,7 @@
                     if ($prescription["med".$i] == "null")
                       print("<td>"."</td>");
                     else
-                      print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
+                      print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
                 }
              print("<td>");
              print("<input  data-patient =" . (string)$prescription['patientID'] ."
