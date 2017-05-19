@@ -154,7 +154,7 @@ function renderPrescriptionForm(parameters){
     for(var i = 1; i <= 10; i++){
 
         if(parameters.last_p['med'+i]){
-          var parameters.last_p['med'+i] = "";
+          //var parameters.last_p['med'+i] = "";
         }
 
         content+= i + ". Medicamento<input name= 'med"+ i + "' value="+ parameters.last_p['med'+i] +" type = 'text' placeholder = 'Inserir'></input>";
