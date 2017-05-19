@@ -94,7 +94,7 @@
      * It must be called within a table div.
      */
     function displayPrescription($prescriptions){
-
+        print ("<div style='overflow-x:auto'")
         print("<th>Paciente</th>");
         print("<th>Data</th>");
         print("<th colspan='13'>Medicamentos </th>");
@@ -116,7 +116,7 @@
                     data-operation = \"PRESCRIPTION_EDIT\"
                      data-timestamp ='" . (string)$prescription['date'] .
                     "' type = 'button' onClick = 'prescriptionHandler(this)'
-                    class= 'btn btn-success' value='Editar Prescrição'/>"); print("</td></tr>");}}
+                    class= 'btn btn-success' value='Editar Prescrição'/>"); print("</td></tr></div>");}}
     }
 
     /**

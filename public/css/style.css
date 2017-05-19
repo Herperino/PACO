@@ -152,7 +152,3 @@ th
     border-radius:5px;
     text-align:center;
 }
-
-#prescription_list{
-  overflow-x : scroll;
-}
