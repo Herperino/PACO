@@ -152,7 +152,7 @@ function renderPrescriptionForm(parameters){
     var content = "<div style='margin-left:5%;width:auto'>";
 
     //The form
-    content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
+    content += "<form style='margin:auto' class = 'form-group' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
 
