@@ -153,7 +153,8 @@ function renderPrescriptionForm(parameters){
     //The form content
     for(var i = 1; i <= 10; i++){
 
-        form+= i + ")<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
+        form += <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
@@ -173,7 +174,7 @@ function renderPrescriptionForm(parameters){
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
             "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"+
-        "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"+
+        "<br><input class= 'btn btn-success' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"+
       "</form>"+
     "</div>";
 
