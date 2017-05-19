@@ -52,13 +52,6 @@ body
     min-width:100%;
 }
 
-td{
-  width: 30px;
-   overflow: hidden;
-   display: inline-block;
-   white-space: nowrap;
-}
-
 .landing
 {
     position:absolute;
