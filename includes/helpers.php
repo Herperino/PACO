@@ -94,8 +94,7 @@
      * It must be called within a table div.
      */
     function displayPrescription($prescriptions){
-        print ("<div style='overflow-x:auto'>".
-                "<th>Paciente</th>".
+        print ( "<th>Paciente</th>".
                 "<th>Data</th>".
                 "<th colspan='13'>Medicamentos </th>");
             if (!empty($prescriptions)){

@@ -27,7 +27,7 @@
                 <h4><?php echo $patientID ?></h4>
             </div>
 
-            <div id ="prescription_list" class="panel-body">
+            <div id ="prescription_list" class="panel-body" style='overflow-x:auto'>
                 <table class = 'table'>
                 <?php displayPrescription($prescriptions); ?>
                 </table>
