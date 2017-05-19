@@ -138,7 +138,7 @@ function renderPrescriptionForm(parameters){
         var info = 'Adicionar nova prescrição';
         var date = document.getElementById("dateinfo").dataset.timestamp;
         for (var i = 1; i<=10;i++)
-          parameters.last_p['med'+i] = null;
+          parameters.last_p['med'+i] = "\n";
     }
     else {
         var info = 'Alterar prescrição';
