@@ -51,6 +51,11 @@ body
     table-layout:fixed;
 }
 
+td{
+
+  min-width:10px;
+}
+
 .landing
 {
     position:absolute;
