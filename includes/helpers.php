@@ -94,17 +94,21 @@
      * It must be called within a table div.
      */
     function displayPrescription($prescriptions){
-        print ("<div style='overflow-x:auto'>");
-        print("<th>Paciente</th>");
-        print("<th>Data</th>");
-        print("<th colspan='13'>Medicamentos </th>");
+        print ("<div style='overflow-x:auto'>".
+                "<th>Paciente</th>".
+                "<th>Data</th>".
+                "<th colspan='13'>Medicamentos </th>";
             if (!empty($prescriptions)){
             foreach($prescriptions as $prescription){
                  $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
 
-                print("<tr>");
-                print("<td>" . $prescription["patientID"]. "</td>");
-                print("<td>" . $prescription["date"]. "</td>");
+                print("<tr>".
+                        "<td>" .
+                          $prescription["patientID"].
+                        "</td>".
+                        "<td>" .
+                          $prescription["date"].
+                        "</td>");
                 for($i = 1; $i <= 10; $i++){
                     if ($prescription["med".$i] == "null")
                       print("<td>"."</td>");
