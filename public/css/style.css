@@ -120,7 +120,6 @@ th
     text-align:left;
     width: 80%;
     table-layout: auto;
-    overflow-x : scroll;
 }
 .panel{
 
@@ -160,4 +159,9 @@ th
     width:120px;
     border-radius:5px;
     text-align:center;
+}
+
+#prescription_list, #labresults_list{
+
+  overflow-x : scroll;
 }
