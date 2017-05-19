@@ -152,15 +152,9 @@ function renderPrescriptionForm(parameters){
     content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
-        try{
-          content+="<div class='panel'>" + i +
-                ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' " +
-                parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";
-                console.log("panificadora alfa");
-        }
-        catch(err){
-          content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
-        }
+
+
+        content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         content+= "Via<input name= 'via"+ i + "' type = 'text'  placeholder = 'Inserir'></input>";
         content+= "Posologia <select class = 'form-control' name= 'pos"+ i +"'>";
@@ -178,7 +172,7 @@ function renderPrescriptionForm(parameters){
 
     content+= "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
     content+= "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>";
-    content+= "</form></div></center>";
+    content+= "</form></div>";
 
 
     document.getElementById("prescription_list").innerHTML = content;
