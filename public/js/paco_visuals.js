@@ -159,7 +159,7 @@ function renderPrescriptionForm(parameters){
         content+= i + ". Medicamento<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Inserir'></input>";
         content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         content+= "Via<input name= 'via"+ i + "' type = 'text'  placeholder = 'Inserir'></input>";
-        content+= "Posologia <select class = 'form-control' name= 'pos"+ i +"'>";
+        content+= "Posologia <select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' name= 'pos"+ i +"'>";
         content+= "<option value = 'null'> Selecione </option>";
         content+= "<option value = '1x/d'> 1x/dia </option>";
         content+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
