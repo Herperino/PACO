@@ -161,7 +161,6 @@ th
     text-align:center;
 }
 
-#prescription_list .panel-body{
-
+#prescription_list{
   overflow-x : scroll;
 }
