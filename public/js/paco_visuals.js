@@ -149,7 +149,7 @@ function renderPrescriptionForm(parameters){
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
 
-    var content = "<div style='margin-left:5%'>";
+    var content = "<div>";
 
     //The form
     content += "<form style='margin:auto' class = 'form-group row' action = \"" + controller + "\" method='POST'>";
