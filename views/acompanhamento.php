@@ -28,7 +28,7 @@
             </div>
 
             <div id ="prescription_list" class="panel-body">
-              <div style='overflow-x:scroll'>
+              <div style='overflow-x:auto'>
                 <table class = 'table'>
                 <?php displayPrescription($prescriptions); ?>
                 </table>
