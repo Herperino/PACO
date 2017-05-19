@@ -97,7 +97,7 @@
         print ("<div style='overflow-x:auto'>".
                 "<th>Paciente</th>".
                 "<th>Data</th>".
-                "<th colspan='13'>Medicamentos </th>";
+                "<th colspan='13'>Medicamentos </th>");
             if (!empty($prescriptions)){
             foreach($prescriptions as $prescription){
                  $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
