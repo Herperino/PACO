@@ -104,9 +104,12 @@
 
                 print("<tr>");
                 print("<td>" . $prescription["patientID"]. "</td>");
-                print("<td>" . $prescription["Date"]. "</td>");
+                print("<td>" . $prescription["date"]. "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
+                    if (!null)
+                      print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
+                    else
+                      print("<td>"."</td>");
                 }
              print("<td>");
              print("<input  data-patient =" . (string)$prescription['patientID'] ."
