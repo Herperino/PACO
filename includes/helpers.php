@@ -106,15 +106,15 @@
                 print("<td>" . $prescription["patientID"]. "</td>");
                 print("<td>" . $prescription["date"]. "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    if (!null)
-                      print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
-                    else
+                    if ($prescription["med".$i] == "null" || $prescription["pos".$i] = "null")
                       print("<td>"."</td>");
+                    else
+                      print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
                 }
              print("<td>");
              print("<input  data-patient =" . (string)$prescription['patientID'] ."
                     data-operation = \"PRESCRIPTION_EDIT\"
-                     data-timestamp ='" . (string)$prescription['Date'] .
+                     data-timestamp ='" . (string)$prescription['date'] .
                     "' type = 'button' onClick = 'prescriptionHandler(this)'
                     class= 'btn btn-success' value='Editar Prescrição'/>"); print("</td></tr>");}}
     }
