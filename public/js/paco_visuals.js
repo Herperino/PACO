@@ -152,12 +152,11 @@ function renderPrescriptionForm(parameters){
     content += "<form style='margin:auto' action = \"" + controller + "\" method='POST'>";
 
     for(var i = 1; i <= 10; i++){
-        try{
-          content+="<div class='panel'>" + i +
-                ". Medicamento<input name= 'med"+ i + "' type = 'text' value =' " +
-                parameters.last_p['med'+i] +"' placeholder = 'Inserir'></input>";
-                console.log("panificadora alfa");
-        }
+        if(parameters.last_p['med'+i]){
+
+            console.log("test");
+
+          }
         catch(err){
           content+= i + ". Medicamento<input name= 'med"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
         }
