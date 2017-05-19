@@ -142,14 +142,6 @@ th
     opacity:1.0;
 }
 
-#prescriptions td, #prescription th, #prescription tr
-{
-    padding:1.2px;
-    height:20px;
-    width:auto;
-    overflow:auto;
-}
-
 .coolbuttons
 {
     text-align:left;
