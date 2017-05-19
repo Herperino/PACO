@@ -53,8 +53,10 @@ body
 }
 
 td{
-  word-break: break-all;
-  min-width:10px;
+  width: 30px;
+   overflow: hidden;
+   display: inline-block;
+   white-space: nowrap;
 }
 
 .landing
