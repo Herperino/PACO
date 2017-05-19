@@ -145,7 +145,7 @@ function renderPrescriptionForm(parameters){
 
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
-
+    console.log(parameters);
     var content = "<div style='margin-left:5%;width:auto'>";
 
     //The form
@@ -153,8 +153,8 @@ function renderPrescriptionForm(parameters){
 
     for(var i = 1; i <= 10; i++){
 
-        if(parameters.last_p['med'+i] == undefined){
-          parameters.last_p['med'+i] = "";
+        if(parameters.last_p['med'+i]){
+          var parameters.last_p['med'+i] = "";
         }
 
         content+= i + ". Medicamento<input name= 'med"+ i + "' value="+ parameters.last_p['med'+i] +" type = 'text' placeholder = 'Inserir'></input>";
