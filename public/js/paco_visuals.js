@@ -148,30 +148,30 @@ function renderPrescriptionForm(parameters){
 
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
+    var form = '';
 
-    var content = "<table class='row' style='width:100%'>";
-
-    //The form
-    content += "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>";
-
+    //The form content
     for(var i = 1; i <= 10; i++){
 
-        content+= i + ")<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
-        content+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
-        content+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
-        content+= "<select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' name= 'pos"+ i +"'>";
-        content+= "<option value = 'null'> Posologia </option>";
-        content+= "<option value = '1x/d'> 1x/dia </option>";
-        content+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
-        content+= "<option value = '3x/d'> 3x/dia (8/8h) </option>";
-        content+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";
-        content+= "<option value = '6x/d'> 6x/dia (4/4h) </option>";
-        content+= "<option value = 'SOS'> Caso necessário </option>";
-        content+= "</select><br>";
+        form+= i + ")<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
+        form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
+        form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
+        form+= "<select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' name= 'pos"+ i +"'>";
+        form+= "<option value = 'null'> Posologia </option>";
+        form+= "<option value = '1x/d'> 1x/dia </option>";
+        form+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
+        form+= "<option value = '3x/d'> 3x/dia (8/8h) </option>";
+        form+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";
+        form+= "<option value = '6x/d'> 6x/dia (4/4h) </option>";
+        form+= "<option value = 'SOS'> Caso necessário </option>";
+        form+= "</select><br>";
     }
+
+    var content = "<table class='row' style='width:100%'>";
+    content += "<form style='margin:auto' class = 'form-group col-sm-12' action = \"" + controller + "\" method='POST'>";
+    content += form;
     content+= "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>";
     content+= "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>";
-
     content+= "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
     content+= "<br><input class= 'btn btn-default' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>";
     content+= "</form></table>";
