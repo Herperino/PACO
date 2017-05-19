@@ -156,9 +156,9 @@ function renderPrescriptionForm(parameters){
 
     for(var i = 1; i <= 10; i++){
 
-        content+= i + ". Medicamento<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Inserir'></input>";
-        content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input>";
-        content+= "Via<input name= 'via"+ i + "' type = 'text'  placeholder = 'Inserir'></input>";
+        content+= i + ". Medicamento<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Inserir'></input><br>";
+        content+= "Dose<input name= 'dos"+ i + "' type = 'text' placeholder = 'Inserir'></input><br>";
+        content+= "Via<input name= 'via"+ i + "' type = 'text'  placeholder = 'Inserir'></input><br>";
         content+= "Posologia <select class = 'custom-select mb-2 mr-sm-2 mb-sm-0' name= 'pos"+ i +"'>";
         content+= "<option value = 'null'> Selecione </option>";
         content+= "<option value = '1x/d'> 1x/dia </option>";
@@ -167,7 +167,7 @@ function renderPrescriptionForm(parameters){
         content+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";
         content+= "<option value = '6x/d'> 6x/dia (4/4h) </option>";
         content+= "<option value = 'SOS'> Caso necessário </option>";
-        content+= "</select></div>";
+        content+= "</select><br></div>";
     }
     content+= "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>";
     content+= "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>";
