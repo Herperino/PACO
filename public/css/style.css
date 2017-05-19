@@ -120,6 +120,7 @@ th
     text-align:left;
     width: 80%;
     table-layout: auto;
+    overflow-x : scroll;
 }
 .panel{
 
