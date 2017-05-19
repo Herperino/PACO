@@ -106,7 +106,7 @@
                 print("<td>" . $prescription["patientID"]. "</td>");
                 print("<td>" . $prescription["date"]. "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    if ($prescription["med".$i] == "null" || $prescription["pos".$i] = "null")
+                    if ($prescription["med".$i] == "null")
                       print("<td>"."</td>");
                     else
                       print("<td>". $prescription["med".$i] ." ". $prescription["pos".$i]."</td>");
