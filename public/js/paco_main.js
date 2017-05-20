@@ -138,9 +138,11 @@ function getLastPrescription(source){
     var info = {operation:"GET_PRESCRIPTION",
                 patientID: patientID,
                 date:timestamp};
-    console.log(info);
+
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
+
+        console.log(data);
          var to_form = {last_p: data[0],
                         operation:source.operation,
                         patientID: patientID,
