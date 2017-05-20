@@ -83,7 +83,6 @@ function prescriptionHandler(event){
                   patientID: patientID,
                   date : null};
 
-      console.log("hello from prescriptionHandler");
       return renderPrescriptionForm(data);
     }
 
