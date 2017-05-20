@@ -188,7 +188,7 @@ function newPrescriptionButton(id){
     var target = document.getElementById("prescription_list");
     try{
         var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
-        var date = source.nextSibling.innerHTML;
+        var date = source;
         var patient = source.innerHTML;
 
         if(patient == "Paciente" || date == "data"){
