@@ -21,7 +21,7 @@
             if ($users)
             {
 
-                $users = pg_fetch_array($users,0,PGSQL_BOTH);
+                @$users = pg_fetch_array($users,0,PGSQL_BOTH);
 
 
                 // compare hash of user's input against hash that's in database

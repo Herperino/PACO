@@ -232,7 +232,7 @@
                                     \"med5\" = '".$prescriptions['med5']."',\"pos5\" = '".$prescriptions['pos5']."',
                                     \"med6\" = '".$prescriptions['med6']."',\"pos6\" = '".$prescriptions['pos6']."',
                                     \"med7\" = '".$prescriptions['med7']."',\"pos7\" = '".$prescriptions['pos7']."',
-                                    \"med8\" = '".$prescriptions['med8']."',\"pos8\" = '".$prescriptions['med7']."',
+                                    \"med8\" = '".$prescriptions['med8']."',\"pos8\" = '".$prescriptions['pos8']."',
                                     \"med9\" = '".$prescriptions['med9']."',\"pos9\" = '".$prescriptions['pos9']."',
                                     \"med10\" = '".$prescriptions['med10']."',\"pos10\" = '".$prescriptions['pos10']."'
                                     WHERE \"date\" = date AND
