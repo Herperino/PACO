@@ -112,7 +112,7 @@
                           $prescription["date"].
                         "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    if (strcmp($prescription["med".$i],"1x/d"))
+                    if (strcmp($prescription["med".$i],"1x/d") == 0)
                       print("<td>"."</td>");
                     else
                       print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
