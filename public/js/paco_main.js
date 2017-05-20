@@ -113,14 +113,15 @@ function getLastPrescription(source){
     var timestamp = source.timestamp;
     var patientID = source.patientID;
 
-    //If it is the first prescription. Render an empty form
-     if(timestamp == "Data")
-        renderPrescriptionForm();
-
-    //Else, store parameters to be sent to the request
+    //Store parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
                 patientID: patientID,
                 date:timestamp};
+
+
+    //If it is the first prescription. Render an empty form
+     if(timestamp == "Data")
+        renderPrescriptionForm(info);
 
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
