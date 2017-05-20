@@ -14,15 +14,9 @@ body
     text-align:center;
 }
 
-#register p
-{
-   text-align:left;
-   font-weight:bold;
-}
-
 #register input
 {
-    width:100%;
+    width:80%;
 }
 
 .img{
@@ -113,36 +107,10 @@ th
     background-color: #dddddc;
 }
 
-#prescriptions, #labresults
-{
-    background-color: white;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    margin:auto;
-    border-radius:5px;
-    margin-bottom:1.5em;
-    text-align:left;
-    width: 80%;
-    table-layout: auto;
-}
 .panel{
 
     display:inline-block;
 
-}
-
-.newform
-{
-    background-color: white;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius:5px;
-    position:absolute;
-    padding:1%;
-    height: auto;
-    width: auto;
-    top: 40vh;
-    left:36vw;
-    z-index:100;
-    opacity:1.0;
 }
 
 .coolbuttons
