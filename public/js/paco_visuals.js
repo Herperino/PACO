@@ -132,7 +132,7 @@ function renderPrescriptionForm(parameters){
 
     //For prescription handling, the controller can only be acompanhamento.php
     var controller = "acompanhamento.php";
-    
+
 
     if(parameters['operation'] == "PRESCRIPTION_ADD") {
         var info = 'Adicionar nova prescrição';
@@ -153,13 +153,14 @@ function renderPrescriptionForm(parameters){
     //The form content
     for(var i = 1; i <= 10; i++){
 
+        console.log("Type:" typeof(parameters.last_p['med'+i]) + ", Value:" + parameters.last_p['med'+i])
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
         form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
         form+= "<option value = 'null'> Posologia </option>";
-        form+= "<option value = '1x/d'> 1x/dia </option>";
+        form+= "<option value = '1x/d' selected> 1x/dia </option>";
         form+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
         form+= "<option value = '3x/d'> 3x/dia (8/8h) </option>";
         form+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";

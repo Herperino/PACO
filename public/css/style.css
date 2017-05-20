@@ -41,7 +41,7 @@ body
 }
 
 .table{
-    font-size:calc(8px + 0.6vw);
+    font-size:calc(8px + 0.55vw);
     table-layout:auto;
     min-width:70px;
     overflow-x:auto;
