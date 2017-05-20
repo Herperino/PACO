@@ -134,7 +134,7 @@ function renderPrescriptionForm(parameters){
     var controller = "acompanhamento.php";
     console.log(parameters.date);
 
-    if(parameters['operation'] == "PRESCRIPTION_ADD") {
+    if(parameters['operation'] == "PRESCRIPTION_ADD" && parameters.date > "null") {
         var info = 'Adicionar nova prescrição';
         var date = document.getElementById("dateinfo").dataset.timestamp;
         for (var i = 1; i<=10;i++)
