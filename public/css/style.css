@@ -48,8 +48,9 @@ body
 
 .table{
     font-size:calc(8px + 0.5vw);
-    table-layout:fixed;
+    table-layout:auto;
     min-width:70px;
+    overflow-x:auto;
 }
 
 .landing
