@@ -224,7 +224,7 @@
         $prescriptions[$currentP] = $_POST[$currentP];
         }
 
-      pg_query("UPDATE public.\"prescriptions\" SET \'date\' = date,
+      pg_query("UPDATE public.\"prescriptions\" SET date = date,
                                     \"med1\" = '".$prescriptions['med1']."',\"pos1\" = '".$prescriptions['pos1']."',
                                     \"med2\" = '".$prescriptions['med2']."',\"pos2\" = '".$prescriptions['pos2']."',
                                     \"med3\" = '".$prescriptions['med3']."',\"pos3\" = '".$prescriptions['pos3']."',
