@@ -134,6 +134,8 @@ function getLastPrescription(source){
         var target = document.getElementById("prescription_list");
         var timestamp = source.timestamp;
         var patientID = source.patientID;
+
+        console.log("Hello from getLastPrescription");
     }
 
     //Parameters to be sent to the request
