@@ -114,8 +114,8 @@ function getLastPrescription(source){
     var patientID = source.patientID;
 
     //If it is the first prescription. Render an empty form
-    // if(timestamp == "Data")
-        // return renderPrescriptionForm();
+     if(timestamp == "Data")
+        renderPrescriptionForm();
 
     //Else, store parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
