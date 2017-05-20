@@ -153,7 +153,7 @@ function renderPrescriptionForm(parameters){
     //The form content
     for(var i = 1; i <= 10; i++){
 
-        console.log("Type:" typeof(parameters.last_p['med'+i]) + ", Value:" + parameters.last_p['med'+i])
+        console.log("Type:"  + typeof(parameters.last_p['med'+i]) + ", Value:" + parameters.last_p['med'+i]);
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
         form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
