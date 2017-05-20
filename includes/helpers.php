@@ -220,7 +220,7 @@
         $currentV = "via" . $i;
         $currentP = "pos" . $i;
 
-        $prescriptions[$currentM] = $_POST[$currentM] ."". $_POST[$currentD] ."". $_POST[$currentV] ;
+        $prescriptions[$currentM] = $_POST[$currentM] ." ". $_POST[$currentD] ." ". $_POST[$currentV] ;
         $prescriptions[$currentP] = $_POST[$currentP];
         }
 
