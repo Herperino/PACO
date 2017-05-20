@@ -112,7 +112,7 @@
                           $prescription["date"].
                         "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    if ($prescription["med".$i] == "null")
+                    if ($prescription["med".$i] == " ")
                       print("<td>"."</td>");
                     else
                       print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
