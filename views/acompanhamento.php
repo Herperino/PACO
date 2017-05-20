@@ -28,11 +28,10 @@
             </div>
 
             <div id ="prescription_list" class="panel-body">
-              <div class = "panel-body"> <!-- starts a table -->
+
                 <table class = 'table'>
                 <?php displayPrescription($prescriptions); ?>
                 </table>
-              </div>
             </div>     <!--end panel body-->
         </div>     <!--end panel-->
 

@@ -187,7 +187,7 @@ function newPrescriptionButton(id){
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
     try{
-        var source = target.firstElementChild.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
+        var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
         var date = source.nextSibling.innerHTML;
         var patient = source.innerHTML;
 
