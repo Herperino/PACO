@@ -75,6 +75,8 @@ function prescriptionHandler(event){
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
+    console.log(event.dataset.timestamp);
+
 
     if (!event.dataset.timestamp){
 
@@ -142,8 +144,7 @@ function getLastPrescription(source){
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
 
-        console.log(data[0]);
-         var to_form = {last_p: data[0],
+        var to_form = {last_p: data[0],
                         operation:source.operation,
                         patientID: patientID,
                         date : timestamp};
