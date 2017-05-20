@@ -81,7 +81,7 @@ function prescriptionHandler(event){
                        operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    console.log("hello from handler");
+
     getLastPrescription(pkg_to_send);
 }
 
@@ -125,7 +125,7 @@ function getLastPrescription(source){
                         operation:source.operation,
                         patientID: patientID,
                         date : timestamp};
-
+        console.log("hello from handler");
         renderPrescriptionForm(to_form);
     });
 }
