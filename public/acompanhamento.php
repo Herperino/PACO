@@ -47,7 +47,8 @@
             //makes a JSON return of the prescriptions array.
 
             if(!empty($_POST['date'])){
-              $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
+              if(strcmp($_POST['date'],"Data")!=0) //If it isn't the first prescription
+                $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
               $last_prescription = pg_fetch_all($query);
             }
             else
