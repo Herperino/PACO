@@ -135,6 +135,8 @@ function renderPrescriptionForm(parameters){
     console.log(parameters.date);
 
     if(parameters['operation'] == "PRESCRIPTION_ADD" && parameters.date > "null") {
+        console.log("hello from almost there")
+        parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
         var date = document.getElementById("dateinfo").dataset.timestamp;
         for (var i = 1; i<=10;i++)
