@@ -75,10 +75,8 @@ function prescriptionHandler(event){
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
-    console.log(event.dataset.timestamp);
 
-
-    if (!event.dataset.timestamp){
+    if (event.dataset.timestamp > "null"){
 
       var data =  {
                   operation:"PRESCRIPTION_ADD",
@@ -127,7 +125,7 @@ function getLastPrescription(source){
     //Declaring the prescription's date and patient
     var timestamp = source.timestamp;
     var patientID = source.patientID;
-    
+
     //Parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
                 patientID: patientID,
