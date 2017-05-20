@@ -76,7 +76,7 @@ function prescriptionHandler(event){
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
 
-    if (event.dataset.timestamp == "null"){
+    if (!event.dataset.timestamp){
 
       var data =  {
                   operation:"PRESCRIPTION_ADD",
