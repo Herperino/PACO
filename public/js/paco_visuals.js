@@ -185,7 +185,7 @@ function newPrescriptionButton(id){
 
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
-    try{
+    // try{
         var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
         var date = source.nextSibling.innerHTML;
         var patient = source.innerHTML;
@@ -194,13 +194,13 @@ function newPrescriptionButton(id){
             console.log("got a th");
         }
         console.log(date);
-    }
-    catch(err){
-        console.log(err);
-        var patient = id;
-        var date = 'null';
-        console.log("Err: The date is "+ date + " and the patient is: "+patient);
-    }
+    // }
+    // catch(err){
+        // console.log(err);
+        // var patient = id;
+        // var date = 'null';
+        // console.log("Err: The date is "+ date + " and the patient is: "+patient);
+    // }
     var content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
     content +="data-operation = 'PRESCRIPTION_ADD'";
     content += "data-timestamp ='" + date + "'";
