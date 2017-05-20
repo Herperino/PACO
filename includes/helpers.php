@@ -87,6 +87,9 @@
         exit;
     }
 
+    /* ----------------------------------------------------------------------------------------------*/
+    /**             FROM HERE ON THERE ARE FUNCTIONS THAT HELP DATA TO BE DISPLAYED                  */
+    /* --------------------------------------------------------------------------------------------- */
     /**
      * Takes data from the server to display the prescription list
      * for a registered patient.
@@ -164,4 +167,78 @@
             }
         }
     }
+
+    /** -------------------------------------------------------------------------------------------*/
+    /**           FROM HERE ON ARE FUNCTIONS THAT WORK ON THE DATABASE                             */
+    /** -------------------------------------------------------------------------------------------*/
+
+    /** Adds prescription values into the database. Requires a connection for pg_query */
+    function addPrescription($patientID,$conn){
+
+     $date = "CURRENT_TIMESTAMP";
+
+     //Concatenates the prescription data into a single k/v array
+     for ($i = 1; $i<=10; $i++){
+
+        $currentM = "med" . $i;
+        $currentD = "dos" . $i;
+        $currentV = "via" . $i;
+        $currentP = "pos" . $i;
+
+        $prescriptions[$currentM] = $_POST[$currentM] ." ". $_POST[$currentD] ." ". $_POST[$currentV] ;
+        $prescriptions[$currentP] = $_POST[$currentP];
+
+     }
+
+     pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"userID\",\"patientID\", \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\"
+                                          ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
+                                           \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
+                                           \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
+                                 VALUES ('".$_SESSION['id']."','".$patientID."',
+                                '".$prescriptions['med1']."','".$prescriptions['pos1']."',
+                                '".$prescriptions['med2']."','".$prescriptions['pos2']."',
+                                '".$prescriptions['med3']."','".$prescriptions['pos3']."',
+                                '".$prescriptions['med4']."','".$prescriptions['pos4']."',
+                                '".$prescriptions['med5']."','".$prescriptions['pos5']."',
+                                '".$prescriptions['med6']."','".$prescriptions['pos6']."',
+                                '".$prescriptions['med7']."','".$prescriptions['pos7']."',
+                                '".$prescriptions['med8']."','".$prescriptions['pos8']."',
+                                '".$prescriptions['med9']."','".$prescriptions['pos9']."',
+                                '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
+
+    }
+
+    /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
+
+    function editPrescription($patientID,$conn){
+
+     //Concatenates the prescription data into a single k/v array
+     for ($i = 1; $i<=10; $i++){
+
+        $currentM = "med" . $i;
+        $currentD = "dos" . $i;
+        $currentV = "via" . $i;
+        $currentP = "pos" . $i;
+
+        $prescriptions[$currentM] = $_POST[$currentM] ."". $_POST[$currentD] ."". $_POST[$currentV] ;
+        $prescriptions[$currentP] = $_POST[$currentP];
+        }
+
+      pg_query("UPDATE public.\"prescriptions\" SET \'date\' = date,
+                                    \"med1\" = '".$prescriptions['med1']."',\"pos1\" = '".$prescriptions['pos1']."',
+                                    \"med2\" = '".$prescriptions['med2']."',\"pos2\" = '".$prescriptions['pos2']."',
+                                    \"med3\" = '".$prescriptions['med3']."',\"pos3\" = '".$prescriptions['pos3']."',
+                                    \"med4\" = '".$prescriptions['med4']."',\"pos4\" = '".$prescriptions['pos4']."',
+                                    \"med5\" = '".$prescriptions['med5']."',\"pos5\" = '".$prescriptions['pos5']."',
+                                    \"med6\" = '".$prescriptions['med6']."',\"pos6\" = '".$prescriptions['pos6']."',
+                                    \"med7\" = '".$prescriptions['med7']."',\"pos7\" = '".$prescriptions['pos7']."',
+                                    \"med8\" = '".$prescriptions['med8']."',\"pos8\" = '".$prescriptions['med7']."',
+                                    \"med9\" = '".$prescriptions['med9']."',\"pos9\" = '".$prescriptions['pos9']."',
+                                    \"med10\" = '".$prescriptions['med10']."',\"pos10\" = '".$prescriptions['pos10']."'
+                                    WHERE \"date\" = date AND
+                                    \"userID\" = '".$_SESSION['id']."'
+                                    AND \"patientID\" ='".$patientID."'");
+    }
+
+
 ?>
