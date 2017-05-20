@@ -134,16 +134,16 @@ function renderPrescriptionForm(parameters){
     var controller = "acompanhamento.php";
     console.log(parameters.date);
 
-    // if(parameters['operation'] == "PRESCRIPTION_ADD" && parameters.date > "null") {
-    //     var info = 'Adicionar nova prescrição';
-    //     var date = document.getElementById("dateinfo").dataset.timestamp;
-    //     for (var i = 1; i<=10;i++)
-    //       parameters.last_p['med'+i] = "\n";
-    // }
-    // else {
+    if(parameters['operation'] == "PRESCRIPTION_ADD" && parameters.date > "null") {
+        var info = 'Adicionar nova prescrição';
+        var date = document.getElementById("dateinfo").dataset.timestamp;
+        for (var i = 1; i<=10;i++)
+          parameters.last_p['med'+i] = "\n";
+    }
+    else {
         var info = 'Inserir prescrição';
         var date = parameters.date;
-    //}
+    }
 
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];

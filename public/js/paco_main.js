@@ -118,7 +118,6 @@ function getLastPrescription(source){
                 patientID: patientID,
                 date:timestamp};
 
-
     //If it is the first prescription. Render an empty form
      if(timestamp == "Data")
         renderPrescriptionForm(info);
