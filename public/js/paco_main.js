@@ -112,7 +112,7 @@ function getLastPrescription(source){
     //Declaring the prescription's date and patient
     var timestamp = source.timestamp;
     var patientID = source.patientID;
-
+    console.log(timestamp);
     //Parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
                 patientID: patientID,
