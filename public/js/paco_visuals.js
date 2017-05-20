@@ -134,7 +134,7 @@ function renderPrescriptionForm(parameters){
     var controller = "acompanhamento.php";
     console.log(parameters.date);
 
-    if(parameters['operation'] == "PRESCRIPTION_ADD" && parameters.date > "null") {
+    if(parameters.last_p == undefined) {
         console.log("hello from almost there")
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
