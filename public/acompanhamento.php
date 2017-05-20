@@ -46,8 +46,7 @@
 
             //makes a JSON return of the prescriptions array.
 
-
-            if($_POST['date'] != null){
+            if(!empty($_POST['date'])){
               $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
               $last_prescription = pg_fetch_all($query);
             }
@@ -81,5 +80,5 @@
        //Renders acompanhamento in view mode
         $page_mode = false; //Defines whether the view will be displayed in Select or View mode
         render("acompanhamento.php", ['P_MODE' => $page_mode]);
-    }    
+    }
 ?>
