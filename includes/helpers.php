@@ -112,7 +112,7 @@
                           $prescription["date"].
                         "</td>");
                 for($i = 1; $i <= 10; $i++){
-                    if ($prescription["med".$i] == "1x/d")
+                    if (strcomp($prescription["med".$i],"1x/d"))
                       print("<td>"."</td>");
                     else
                       print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
