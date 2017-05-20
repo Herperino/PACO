@@ -21,14 +21,14 @@
 <?php if($P_MODE == true):?>
 <div class ="container">
     <br><br>
-    <div class= "row">
+    <div class= "row" style = "overflow-x:auto">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4><?php echo $patientID ?></h4>
             </div>
 
             <div id ="prescription_list" class="panel-body">
-              <div style='overflow-x:auto'>
+              <div class = "panel-body"> <!-- starts a table -->
                 <table class = 'table'>
                 <?php displayPrescription($prescriptions); ?>
                 </table>
