@@ -200,7 +200,7 @@ function newPrescriptionButton(id){
         console.log(err);
         var patient = id;
         var date = 'null';
-        console.log("The date is "+ date + " and the patient is: "+patient);
+        console.log("Err: The date is "+ date + " and the patient is: "+patient);
     }
     var content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
     content +="data-operation = 'PRESCRIPTION_ADD'";
