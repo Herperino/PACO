@@ -126,14 +126,13 @@ function getLastPrescription(source){
 
     //Declaring the prescription's date and patient
     if (source.operation == "PRESCRIPTION_EDIT"){
-        //var tr = source.event.parentElement.parentElement;
         var timestamp = source.timestamp;
         var patientID = source.patientID;
     }
     else{
-        //var tr = document.getElementById("prescription_list");
         var timestamp = source.timestamp;
         var patientID = source.patientID;
+        console.log(patientID);
     }
 
     //Parameters to be sent to the request
