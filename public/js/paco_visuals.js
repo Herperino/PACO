@@ -67,9 +67,9 @@ function renderPatientForm(path, parameters){
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
 
-    if (pat_id == null){
-        pat_id = "";
-    }
+    // if (pat_id == null){
+    //     pat_id = "";
+    // }
 
     var action = "submitModal();"
 
