@@ -135,10 +135,10 @@ function renderPrescriptionForm(parameters){
     console.log(parameters.date);
 
     if(parameters.last_p == undefined) {
-        console.log("hello from almost there")
+
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
-        var date = document.getElementById("dateinfo").dataset.timestamp;
+        
         for (var i = 1; i<=10;i++)
           parameters.last_p['med'+i] = "\n";
     }
