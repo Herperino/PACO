@@ -94,6 +94,20 @@ function prescriptionHandler(event){
     }
 }
 
+function deleteEntry(event){
+
+  // important info to send
+  var patientID = event.dataset.patient;
+  var operation = event.dataset.operation;
+  var timestamp = event.dataset.timestamp;
+
+  var pkg_to_send = {event: event,
+                     operation: operation,
+                     patientID: patientID,
+                     timestamp: timestamp};
+  $.post("acompanhamento.php", pkg_to_send)
+}
+
 function labHandler(event){
 
 
