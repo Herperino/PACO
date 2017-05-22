@@ -56,8 +56,9 @@
               exit();
             }
         }
-        else if($_POST['operation'] == "DELETE"){
-          //Insert code here
+        else if($_POST['operation'] == "DELETE_PRESCRIPTION"){
+          //Deletes selected prescription
+          $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
         }
 
         //Query database for the patient's prescriptions given a userID and patient name

@@ -82,7 +82,7 @@ function prescriptionHandler(event){
                        operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-
+    
     getLastPrescription(pkg_to_send);
 }
 
