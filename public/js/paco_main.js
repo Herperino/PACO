@@ -77,7 +77,7 @@ function prescriptionHandler(event){
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
 
-    console.log("I'm being called");
+    console.log("PH being called");
 
     var pkg_to_send = {event: event,
                        operation: operation,
@@ -110,6 +110,7 @@ function labHandler(event){
 function getLastPrescription(source){
 
     var last_prescription = [];
+    console.log("GLP is being called")
 
     //Declaring the prescription's date and patient
     var timestamp = source.timestamp;
@@ -121,7 +122,7 @@ function getLastPrescription(source){
                 date:timestamp};
 
     //If it is the first prescription. Render an empty form
-     if(timestamp == "Data")
+     if(timestamp == "null")
         renderPrescriptionForm(info);
 
     //Query acompanhamento controller via POST ajax
