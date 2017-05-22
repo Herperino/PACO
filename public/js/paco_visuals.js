@@ -143,7 +143,13 @@ function renderPrescriptionForm(parameters){
     //The form content
     for(var i = 1; i <= 10; i++){
 
-        var current = parameters.last_p['med'+i] || null;
+        var current;
+        try{
+          current = parameters.last_p['med'+i] || null;
+        }
+        catch(err){
+          current = null;
+        }
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
         form+= "<input name= 'med"+ i + "' value='"+ current +"' type = 'text' placeholder = 'Medicamento'></input>";
