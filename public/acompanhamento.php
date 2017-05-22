@@ -54,14 +54,15 @@
               print(json_encode($last_prescription, JSON_PRETTY_PRINT));
               $token = true;
             }
-
-            $token = true;
+        }
+        else if($_POST['operation'] == "DELETE"){
+          //Insert code here
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
                                   WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'
-                                  ORDER BY Date ASC");
+                                  ORDER BY \"Date\" ASC");
         $prescriptions = pg_fetch_all($query);
 
         $page_mode = true;
