@@ -85,7 +85,7 @@ function prescriptionHandler(event){
 
     if(operation == "DELETE_PRESCRIPTION"){
       console.log(pkg_to_send);
-      $.post("acompanhamento.php", pkg_to_send)
+  //    $.post("acompanhamento.php", pkg_to_send)
 
     }
     else
