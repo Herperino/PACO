@@ -1,4 +1,4 @@
-me /**
+/**
   *  /paco/public/scripts.js
   *
   *  This is the PACO JS script file.
@@ -23,7 +23,7 @@ function patientHandler(event, page){
             operation : choice,
             patientID : patientid
         }
-        post(window.location.href, package_to_send);
+        $.post(window.location.href, package_to_send);
     }
 
     //If option chosen is EDIT or STATUS, send info to patients.php (Request method is POST)
@@ -83,8 +83,11 @@ function prescriptionHandler(event){
                        patientID: patientID,
                        timestamp: timestamp};
 
-    if(operation == "PRESCRIPTION_DELETE")
+    if(operation == "PRESCRIPTION_DELETE"){
+      console.log(pkg_to_send);
       $.post("acompanhamento.php", pkg_to_send)
+
+    }
     else
       getLastPrescription(pkg_to_send);
 }
