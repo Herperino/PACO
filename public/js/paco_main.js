@@ -88,8 +88,10 @@ function prescriptionHandler(event){
   //    $.post("acompanhamento.php", pkg_to_send)
 
     }
-    else
+    else{
+      console.log("I'm being called instead")
       getLastPrescription(pkg_to_send);
+    }
 }
 
 function labHandler(event){
