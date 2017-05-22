@@ -190,12 +190,12 @@ function newPrescriptionButton(id){
     // try{
         var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
         var date = source.nextSibling.innerHTML;
-        var patient = source.innerHTML;
+        var patient = id;
 
         if(patient == "Paciente" || date == "data"){
             console.log("got a th");
         }
-        console.log(date);
+        console.log(date + ", " + id);
     // }
     // catch(err){
         // console.log(err);
