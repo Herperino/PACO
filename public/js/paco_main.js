@@ -1,4 +1,4 @@
- /**
+me /**
   *  /paco/public/scripts.js
   *
   *  This is the PACO JS script file.
@@ -82,8 +82,11 @@ function prescriptionHandler(event){
                        operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    
-    getLastPrescription(pkg_to_send);
+
+    if(operation == "PRESCRIPTION_DELETE")
+      $.post("acompanhamento.php", pkg_to_send)
+    else
+      getLastPrescription(pkg_to_send);
 }
 
 function labHandler(event){
