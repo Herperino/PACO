@@ -44,18 +44,18 @@
         }
         else if($_POST['operation'] == "GET_PRESCRIPTION"){
 
-            //makes a JSON return of the prescriptions array.
-
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
-            if ($query != false)
-              $last_prescription = pg_fetch_all($query);
-            else
-              return;
 
-            header("Content-type: application/json; charset=UTF-8");
-            print(json_encode($last_prescription, JSON_PRETTY_PRINT));
-            $token = true;
-            exit();
+            //If the query returns something
+            if ($query != false){
+              $last_prescription = pg_fetch_all($query);
+              //makes a JSON return of the prescriptions array.
+              header("Content-type: application/json; charset=UTF-8");
+              print(json_encode($last_prescription, JSON_PRETTY_PRINT));
+              $token = true;
+            }
+            else //There are no prescriptions
+              return;
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
