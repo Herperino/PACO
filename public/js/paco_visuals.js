@@ -67,7 +67,7 @@ function renderPatientForm(path, parameters){
     var choice = parameters['operation'];
     var pat_id = "value = " + parameters['patientID'];
 
-     if (strcmp(parameters['operation'],"ADD"){
+     if (parameters['operation'] = "ADD"){
          pat_id = "";
      }
 
