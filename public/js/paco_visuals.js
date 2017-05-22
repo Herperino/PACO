@@ -195,7 +195,7 @@ function newPrescriptionButton(id){
         var date = source.nextSibling.innerHTML;
         var patient = id;
 
-        if(patient == "Paciente" || date == "data"){
+        if(patient == "Paciente" || date == "Data"){
             console.log("got a th");
         }
         //console.log(date + ", " + patient);
