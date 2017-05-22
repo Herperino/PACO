@@ -148,7 +148,7 @@ function renderPrescriptionForm(parameters){
           current = parameters.last_p['med'+i];
         }
         catch(err){
-          current = "";
+          current = "null";
         }
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
