@@ -145,10 +145,10 @@ function renderPrescriptionForm(parameters){
 
         var current;
         try{
-          current = parameters.last_p['med'+i] || null;
+          current = parameters.last_p['med'+i];
         }
         catch(err){
-          current = null;
+          current = "";
         }
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
