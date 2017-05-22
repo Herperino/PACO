@@ -133,7 +133,7 @@ function renderPrescriptionForm(parameters){
     //For prescription handling, the controller can only be acompanhamento.php
     var controller = "acompanhamento.php";
 
-    if(parameters.last_p == null) {
+    if(parameters.last_p === undefined) {
 
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
