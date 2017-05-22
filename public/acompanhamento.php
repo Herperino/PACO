@@ -33,16 +33,16 @@
         //Gets patientID and userID
         $userID = $_SESSION['id'];
 
-        if($_POST['operation'] == 'PRESCRIPTION_ADD'){
+        if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
             addPrescription($patientID,$conn);
             $token = true;
         }
-        else if ($_POST['operation'] == 'PRESCRIPTION_EDIT'){
+        else if (strcmp($_POST['operation'],'PRESCRIPTION_EDIT')==0){
 
             editPrescription($patientID, $conn);
             $token = true;
         }
-        else if($_POST['operation'] == "GET_PRESCRIPTION"){
+        else if(strcmp($_POST['operation'],'GET_PRESCRIPTION')==0){
 
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
 
@@ -57,9 +57,8 @@
             }
         }
         else {
-          //Deletes selected prescription
-          print($_POST['timestamp']);
-          $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['timestamp']."'");
+          //Deletes selected prescription. Ignores warnings if not on delete function
+          @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['timestamp']."'");
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
