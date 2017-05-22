@@ -177,7 +177,7 @@ function renderPrescriptionForm(parameters){
             "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"+
         "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"
         if (choice == "PRESCRIPTION_EDIT"){ //Allows for a delete button only in EDITION MODE
-          content+=  "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ="+ pat_id+" data-timestamp = "+ date +" data-operation='DELETE_PRESCRIPTION'" +
+          content+=  "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ="+ pat_id+" data-timestamp ="+ date +" data-operation='DELETE_PRESCRIPTION'" +
         "onclick = 'prescriptionHandler(this)'>Remover Prescrição</button> "
       }
       content += "</form>"+
