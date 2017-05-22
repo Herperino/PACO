@@ -23,7 +23,7 @@ function patientHandler(event, page){
             operation : choice,
             patientID : patientid
         }
-        $.post(window.location.href, package_to_send);
+        post(window.location.href, package_to_send);
     }
 
     //If option chosen is EDIT or STATUS, send info to patients.php (Request method is POST)
