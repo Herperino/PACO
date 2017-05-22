@@ -59,6 +59,7 @@
         else {
           //Deletes selected prescription
           print("HEYHEYHEYHEYEHEY");
+          print("$_POST['date']");
           $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
         }
 
