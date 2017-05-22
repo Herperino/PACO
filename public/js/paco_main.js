@@ -105,7 +105,7 @@ function deleteEntry(event){
                      operation: operation,
                      patientID: patientID,
                      timestamp: timestamp};
-  $.post("acompanhamento.php", pkg_to_send)
+  post("acompanhamento.php", pkg_to_send)
 }
 
 function labHandler(event){
