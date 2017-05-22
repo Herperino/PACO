@@ -132,9 +132,8 @@ function renderPrescriptionForm(parameters){
 
     //For prescription handling, the controller can only be acompanhamento.php
     var controller = "acompanhamento.php";
-    console.log(parameters.date);
-    console.log(parameters.last_p);
-    if(parameters.last_p == undefined) {
+
+    if(parameters.last_p == null) {
 
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
@@ -186,7 +185,7 @@ function renderPrescriptionForm(parameters){
 function newPrescriptionButton(id){
 
 
-    console.log(id);
+
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
     // try{
