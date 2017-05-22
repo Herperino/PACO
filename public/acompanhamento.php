@@ -58,9 +58,8 @@
         }
         else {
           //Deletes selected prescription
-          print("HEYHEYHEYHEYEHEY");
-          print($_POST['date']);
-          $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
+          
+          $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['timestamp']."'");
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
