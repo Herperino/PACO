@@ -144,7 +144,7 @@ function renderPrescriptionForm(parameters){
     for(var i = 1; i <= 10; i++){
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
-        form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] || " " +"' type = 'text' placeholder = 'Medicamento'></input>";
+        form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] || null +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
