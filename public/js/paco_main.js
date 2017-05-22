@@ -83,15 +83,7 @@ function prescriptionHandler(event){
                        patientID: patientID,
                        timestamp: timestamp};
 
-    if(operation == "DELETE_PRESCRIPTION"){
-      console.log(pkg_to_send);
-  //    $.post("acompanhamento.php", pkg_to_send)
-
-    }
-    else{
-      console.log("I'm being called instead")
       getLastPrescription(pkg_to_send);
-    }
 }
 
 function deleteEntry(event){
