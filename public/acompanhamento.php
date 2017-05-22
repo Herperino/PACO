@@ -53,6 +53,7 @@
               header("Content-type: application/json; charset=UTF-8");
               print(json_encode($last_prescription, JSON_PRETTY_PRINT));
               $token = true;
+              exit();
             }
         }
         else if($_POST['operation'] == "DELETE"){

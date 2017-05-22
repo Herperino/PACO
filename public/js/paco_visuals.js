@@ -135,13 +135,13 @@ function renderPrescriptionForm(parameters){
     //console.log(typeof(parameters.last_p))
 
 
-    if(parameters.last_p == 'undefined') {
+    if(parameters.last_p == 'undefined' || parameters.last_p == null) {
 
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
 
         for (var i = 1; i<=10;i++)
-          parameters.last_p['med'+i] = "\n";
+          parameters.last_p['med'+i] = " ";
     }
     else {
         var info = 'Inserir prescrição';
