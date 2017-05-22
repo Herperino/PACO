@@ -145,14 +145,14 @@ function renderPrescriptionForm(parameters){
 
         var current;
         try{
-          current = parameters.last_p['med'+i];
+          current = "value = '" + parameters.last_p['med'+i] + "'" ;
         }
         catch(err){
-          current = "null";
+          current = ""
         }
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
-        form+= "<input name= 'med"+ i + "' value='"+ current +"' type = 'text' placeholder = 'Medicamento'></input>";
+        form+= "<input name= 'med"+ i + "'  type = 'text'" + current +  "placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
