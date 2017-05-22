@@ -144,8 +144,11 @@ function renderPrescriptionForm(parameters){
     for(var i = 1; i <= 10; i++){
 
         var current;
+
         try{
           current = "value = '" + parameters.last_p['med'+i] + "'" ;
+            if (parameters.last_p['med'+i] == null) throw "error";
+
         }
         catch(err){
           current = ""
