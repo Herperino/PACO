@@ -58,7 +58,7 @@
         }
         else {
           //Deletes selected prescription
-          
+          print($_POST['timestamp']);
           $query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['timestamp']."'");
         }
 
