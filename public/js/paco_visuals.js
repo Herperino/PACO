@@ -185,6 +185,8 @@ function renderPrescriptionForm(parameters){
 
 function newPrescriptionButton(id){
 
+
+    console.log(id);
     //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
     // try{
@@ -195,7 +197,7 @@ function newPrescriptionButton(id){
         if(patient == "Paciente" || date == "data"){
             console.log("got a th");
         }
-        console.log(date + ", " + patient);
+        //console.log(date + ", " + patient);
     // }
     // catch(err){
         // console.log(err);

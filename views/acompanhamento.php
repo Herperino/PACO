@@ -39,7 +39,6 @@
         //Will add a button that allows to insert a new prescription to the DB
         var patientID =""+ <?php echo $P_ID ?>;
         window.onload = function(){
-            console.log(patientID);
             newPrescriptionButton(patientID);
         }
     </script>
