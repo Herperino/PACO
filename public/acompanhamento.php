@@ -50,7 +50,7 @@
             if ($query != false)
               $last_prescription = pg_fetch_all($query);
             else
-              $last_prescription = [];
+              return;
 
             header("Content-type: application/json; charset=UTF-8");
             print(json_encode($last_prescription, JSON_PRETTY_PRINT));
