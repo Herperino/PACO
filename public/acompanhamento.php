@@ -54,8 +54,8 @@
               print(json_encode($last_prescription, JSON_PRETTY_PRINT));
               $token = true;
             }
-            else //There are no prescriptions
-              return;
+
+            $token = true;
         }
 
         //Query database for the patient's prescriptions given a userID and patient name
