@@ -77,6 +77,8 @@ function prescriptionHandler(event){
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
 
+    console.log("I'm being called");
+
     var pkg_to_send = {event: event,
                        operation: operation,
                        patientID: patientID,
