@@ -194,7 +194,7 @@
                                           ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
                                            \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
                                            \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
-                                 VALUES ('".$_SESSION['id']."','".$patientID."',
+                                 VALUES ('".$patientID."','".$_SESSION['id']."',
                                 '".$prescriptions['med1']."','".$prescriptions['pos1']."',
                                 '".$prescriptions['med2']."','".$prescriptions['pos2']."',
                                 '".$prescriptions['med3']."','".$prescriptions['pos3']."',
