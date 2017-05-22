@@ -101,11 +101,11 @@ function deleteEntry(event){
   var operation = event.dataset.operation;
   var timestamp = event.dataset.timestamp;
 
-  var pkg_to_send = {event: event,
-                     operation: operation,
+  var pkg_to_send = {operation: operation,
                      patientID: patientID,
                      timestamp: timestamp};
-  post("acompanhamento.php", pkg_to_send)
+
+  $.post("acompanhamento.php", {operation: operation, patientID: patientID,timestamp: timestamp})
 }
 
 function labHandler(event){
