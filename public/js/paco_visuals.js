@@ -195,7 +195,7 @@ function newPrescriptionButton(id){
         if(patient == "Paciente" || date == "data"){
             console.log("got a th");
         }
-        console.log(date + ", " + id);
+        console.log(date + ", " + patient);
     // }
     // catch(err){
         // console.log(err);
