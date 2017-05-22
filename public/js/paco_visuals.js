@@ -175,8 +175,9 @@ function renderPrescriptionForm(parameters){
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
             "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"+
-        "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"+if (choice == "PRESCRIPTION_EDIT")
-        "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ='"+ pat_id+"' data-timestamp = '"+ date +"' data-operation='DELETE_PRESCRIPTION'" +
+        "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"
+        if (choice == "PRESCRIPTION_EDIT")
+        content+=  "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ='"+ pat_id+"' data-timestamp = '"+ date +"' data-operation='DELETE_PRESCRIPTION'" +
         "onclick = 'prescriptionHandler(this)' value= 'Deletar prescrição'>"+
       "</form>"+
     "</div>";
