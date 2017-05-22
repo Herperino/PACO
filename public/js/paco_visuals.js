@@ -65,11 +65,11 @@ function renderPatientForm(path, parameters){
     else {var info = 'Alterar dados do paciente';}
 
     var choice = parameters['operation'];
-    var pat_id = parameters['patientID'];
+    var pat_id = "value = " + parameters['patientID'];
 
-    // if (pat_id == null){
-    //     pat_id = "";
-    // }
+     if (strcmp(parameters['operation'],"ADD"){
+         pat_id = "";
+     }
 
     var action = "submitModal();"
 
@@ -87,7 +87,7 @@ function renderPatientForm(path, parameters){
                 "</div>"+
             "<div class='modal-body'>"+
             "<form id= 'formC' class= 'form-group col-12' accept-charset='UTF-8' action ='" + path + "' method='post' >" +
-            "<label>ID</label><br><input name= 'new_id' type = 'text' placeholder='' value="+ pat_id +"></input><br><small>Código de identificação do paciente</small><br>" +
+            "<label>ID</label><br><input name= 'new_id' type = 'text' placeholder='' +" pat_id +"></input><br><small>Código de identificação do paciente</small><br>" +
             "<label>Nome</label><br><input name= 'patient_name' type = 'text' required></input><br><small>Edite o nome do paciente (sem acentos)</small><br>" +
             "<label>Idade</label><br><input name= 'patient_age' type = 'text'required></input><br><small>Edite a idade do paciente</small><br><div>" +
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>" +
