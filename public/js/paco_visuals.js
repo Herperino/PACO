@@ -132,10 +132,10 @@ function renderPrescriptionForm(parameters){
 
     //For prescription handling, the controller can only be acompanhamento.php
     var controller = "acompanhamento.php";
-    console.log(typeof(parameters.last_p))
+    //console.log(typeof(parameters.last_p))
 
 
-    if(parameters.last_p == undefined) {
+    if(parameters.last_p == 'undefined') {
 
         parameters.last_p = {}
         var info = 'Adicionar nova prescrição';
@@ -195,18 +195,11 @@ function newPrescriptionButton(id){
         var date = source.nextSibling.innerHTML;
         var patient = id;
 
-        if(patient == "Paciente" || date == "Data"){
-            console.log("got a th");
+        if(patient == "Paciente" || date == "Data"){//If it is the first prescription
             date = 'null';
         }
-        //console.log(date + ", " + patient);
-    // }
-    // catch(err){
-        // console.log(err);
-        // var patient = id;
-        // var date = 'null';
-        // console.log("Err: The date is "+ date + " and the patient is: "+patient);
-    // }
+
+
     var content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
     content +="data-operation = 'PRESCRIPTION_ADD'";
     content += "data-timestamp ='" + date + "'";

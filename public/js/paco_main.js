@@ -77,7 +77,6 @@ function prescriptionHandler(event){
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
 
-    console.log("PH being called");
 
     var pkg_to_send = {event: event,
                        operation: operation,
@@ -110,7 +109,7 @@ function labHandler(event){
 function getLastPrescription(source){
 
     var last_prescription = [];
-    console.log("GLP is being called")
+
 
     //Declaring the prescription's date and patient
     var timestamp = source.timestamp;
@@ -132,7 +131,7 @@ function getLastPrescription(source){
                         operation:source.operation,
                         patientID: patientID,
                         date : timestamp};
-
+        console.log("GLP is being called AJAX")
         renderPrescriptionForm(to_form);
     });
 }
