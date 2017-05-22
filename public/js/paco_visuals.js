@@ -134,20 +134,8 @@ function renderPrescriptionForm(parameters){
     var controller = "acompanhamento.php";
     //console.log(typeof(parameters.last_p))
 
-
-    if(parameters.last_p == 'undefined' || parameters.last_p == null) {
-
-        parameters.last_p = {}
-        var info = 'Adicionar nova prescrição';
-
-        for (var i = 1; i<=10;i++)
-          parameters.last_p['med'+i] = " ";
-    }
-    else {
-        var info = 'Inserir prescrição';
-        var date = parameters.date;
-    }
-
+    var info = 'Inserir prescrição';
+    var date = parameters.date;
     var choice = parameters['operation'];
     var pat_id = parameters['patientID'];
     var form = '';
@@ -156,7 +144,7 @@ function renderPrescriptionForm(parameters){
     for(var i = 1; i <= 10; i++){
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
-        form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] +"' type = 'text' placeholder = 'Medicamento'></input>";
+        form+= "<input name= 'med"+ i + "' value='"+ parameters.last_p['med'+i] || " " +"' type = 'text' placeholder = 'Medicamento'></input>";
         form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
         form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
