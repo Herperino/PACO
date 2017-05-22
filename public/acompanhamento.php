@@ -62,7 +62,7 @@
         //Query database for the patient's prescriptions given a userID and patient name
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
                                   WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'
-                                  ORDER BY \"Date\" ASC");
+                                  ORDER BY \"date\" ASC");
         $prescriptions = pg_fetch_all($query);
 
         $page_mode = true;
