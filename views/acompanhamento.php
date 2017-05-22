@@ -24,7 +24,7 @@
     <div class= "row" style = "overflow-x:auto">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4><?php echo $patientID ?></h4>
+                <h4><?php echo $patientID ?> - <?php echo $P_ID ?> </h4>
             </div>
 
             <div id ="prescription_list" class="panel-body">
