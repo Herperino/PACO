@@ -20,12 +20,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         //Gets the patient name for displaying.
-        $patientID = $_POST['patientID'];
-        $query = pg_query($conn, "SELECT patientname FROM public.\"patients\" WHERE patientid = '".$patientID."' AND userid = '".$_SESSION['id']."'");
-        $patients = pg_fetch_all($query);
-
-        $name = ($patients[0]['patientname']);
-        $name = utf8_encode($name);
+        $name = getName($conn);
 
         //token for displaying prescriptions correctly
         $token = false;

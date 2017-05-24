@@ -240,5 +240,21 @@
                                     AND \"patientID\" ='".$patientID."'");
     }
 
+    /** Queries the database in order to get the current patient name for a given user **/
+    function getName($conn){
+
+      //Gets the patient ID
+      $patientID = $_POST['patientID'];
+
+      //The query
+      $query = pg_query($conn, "SELECT patientname FROM public.\"patients\" WHERE
+                                       patientid = '".$patientID."' AND userid = '".$_SESSION['id']."'");
+      $patients = pg_fetch_all($query);
+
+      $name = ($patients[0]['patientname']);
+      $name = utf8_encode($name);
+
+      return $name;
+    }
 
 ?>
