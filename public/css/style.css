@@ -2,6 +2,7 @@
 
 body
 {
+    min-height: calc(100vh - 70px);
      position:relative;
 }
 
@@ -15,7 +16,6 @@ body
   height:50px;
   background-color: #efefef;
   text-align: center;
-  min-height: calc(100vh - 70px);
 }
 
 #register input
