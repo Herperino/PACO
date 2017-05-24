@@ -39,7 +39,7 @@
 
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;
-        render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name]);
+        render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name], 'P_ID' => $patientID);
     }
 
     /** Upon a GET request, the server will will then render the page in select mode
