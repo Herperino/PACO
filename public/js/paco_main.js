@@ -111,7 +111,7 @@ function labHandler(event){
     var pkg_to_send = {operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    alert("labHandler being correctly called\n\n" + patientID + " " + operation + " " + timestamp;
+    alert("labHandler being correctly called\n\n" + patientID + " " + operation + " " + timestamp);
     //$.post("acompanhamento.php", pkg_to_send);
 }
 
