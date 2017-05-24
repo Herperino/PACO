@@ -54,7 +54,9 @@
         }
         else if(strcmp($operation,"DELETE_PTT") == 0){
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'
-            AND userid ='".$_SESSION['id']."'");
+            AND userid =".$_SESSION['id'].);
+
+
         }
 
         //Returns to the original page
