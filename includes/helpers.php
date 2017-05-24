@@ -235,7 +235,7 @@
                                     \"med8\" = '".$prescriptions['med8']."',\"pos8\" = '".$prescriptions['pos8']."',
                                     \"med9\" = '".$prescriptions['med9']."',\"pos9\" = '".$prescriptions['pos9']."',
                                     \"med10\" = '".$prescriptions['med10']."',\"pos10\" = '".$prescriptions['pos10']."'
-                                    WHERE \"date\" = date AND
+                                    WHERE \"date\" = '".$_POST['date']."' AND
                                     \"userID\" = '".$_SESSION['id']."'
                                     AND \"patientID\" ='".$patientID."'");
     }
