@@ -97,7 +97,7 @@ function deleteEntry(event){
   var pkg_to_send = {operation: operation,
                      patientID: patientID,
                      timestamp: timestamp};
-  console.log("DE was called")
+  console.log("DE was called with the following parameters: " + patientID +","+ operation)
   $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
 }
 
