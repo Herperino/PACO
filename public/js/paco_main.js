@@ -113,7 +113,7 @@ function labHandler(event){
                        patientID: patientID,
                        timestamp: timestamp};
 
-    renderLabForm();
+    renderLabForm(pkg_to_send);
 }
 
  /** Event -> Array
