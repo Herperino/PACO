@@ -7,7 +7,8 @@
 
     require("../includes/config.php");
 
-    $page_mode = false; //Defines whether the view will be displayed in Select or View mode (default = false --> view)
+    //Defines whether the view will be displayed in Select or View mode (default = false --> view)
+    $page_mode = false;
 
     /**A server request will trigger a POST request to the server, meaning that
      * a patient was selected. For such selection, we will grab the patient id
@@ -23,7 +24,7 @@
         $patientID = $_POST['patientID'];
 
         //Query database for the patient's all lab results given a patientID
-        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC;");
+        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
         $results = pg_fetch_all($query);
 
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
