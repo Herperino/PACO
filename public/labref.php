@@ -18,8 +18,9 @@
      */
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        //Gets the patient name for displaying.
-        $name = getName();
+        //Gets the patient name and ID for displaying.
+        $name = getName($conn);
+        $patientID = $_POST['patientID'];
 
         //Query database for the patient's all lab results given a patientID
         $query =  pg_query("SELECT * FROM labref WHERE patientID = ? ORDER BY Date ASC", $patientID);
@@ -35,7 +36,7 @@
             editResult($patientID);
 
         }
-        
+
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;
         render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $labresults, 'patientID' => $name]);

@@ -19,8 +19,9 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        //Gets the patient name for displaying.
+        //Gets the patient name and ID for displaying.
         $name = getName($conn);
+        $patientID = $_POST['patientID'];
 
         //token for displaying prescriptions correctly
         $token = false;
