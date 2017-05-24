@@ -120,7 +120,7 @@ function renderPatientForm(path, parameters){
 function renderLabForm(parameters){
 
   //For prescription handling, the controller can only be acompanhamento.php
-  var controller = "acompanhamento.php";
+  var controller = "labref.php";
   //console.log(typeof(parameters.last_p))
 
   var info = 'Inserir prescrição';
@@ -176,7 +176,7 @@ function renderLabForm(parameters){
   "</div>";
 
 
-  document.getElementById("prescription_list").innerHTML = content;
+  document.getElementById("labresults_list").innerHTML = content;
 
 
 }
