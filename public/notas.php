@@ -11,7 +11,7 @@
   * Source as a data structure should be consisted of:
   * Timestamp, patientID, userID
   * From these sources, fetches the associated prescription and
-  * all of its comments
+  * all of its comments returned as JSON.
   * ---------------------------------------------*/
   function fetchData($source){
     //TODO
@@ -25,7 +25,7 @@
   * --------------------------------------------*/
   function addComment($source, $comment){
     //TODO
-
+    //Create a template for comments
   }
 
   //edits or deletes a comment
