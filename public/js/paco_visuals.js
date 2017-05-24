@@ -98,7 +98,7 @@ function renderPatientForm(path, parameters){
             "</div>"+
             "<div class='modal-footer'>"+
                 "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-                "<input class= 'btn btn-warning' type = 'button' value= 'Cancelar' data-patient='"+ pat_id +"' onclick='deleteEntry(this)'>" +
+                "<input class= 'btn btn-warning' type = 'button' value= 'Cancelar' data-operation = 'DELETE_PTT' data-patient='"+ pat_id +"' onclick='deleteEntry(this)'>" +
                 "<input class= 'btn btn-success' type = 'button' onclick ='" + action + "' value= '" + info +"'> &nbsp;" +
 
             "</div>"+
