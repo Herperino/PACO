@@ -108,12 +108,11 @@ function labHandler(event){
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
 
-    var pkg_to_send = {event: event,
-                       operation: operation,
+    var pkg_to_send = {operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-
-    getLastPrescription(pkg_to_send);
+    alert("labHandler being correctly called\n\n" + pkg_to_send);
+    //$.post("acompanhamento.php", pkg_to_send);
 }
 
  /** Event -> Array
@@ -145,7 +144,6 @@ function getLastPrescription(source){
                         operation:source.operation,
                         patientID: patientID,
                         date : timestamp};
-        console.log("GLP is being called AJAX")
         renderPrescriptionForm(to_form);
     });
 }

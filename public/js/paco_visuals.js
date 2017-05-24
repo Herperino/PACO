@@ -192,18 +192,15 @@ function renderPrescriptionForm(parameters){
 
 function newPrescriptionButton(id){
 
-
-
-    //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
+    //Gets the DOM object containg the last prescription timestamp
     var target = document.getElementById("prescription_list");
-    // try{
-        var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
-        var date = source.nextSibling.innerHTML;
-        var patient = id;
+    var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
+    var date = source.nextSibling.innerHTML;
+    var patient = id;
 
-        if(patient == "Paciente" || date == "Data"){//If it is the first prescription
-            date = 'null';
-        }
+    if(patient == "Paciente" || date == "Data"){//If it is the first prescription
+          date = 'null';
+    }
 
 
     var content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
@@ -217,31 +214,22 @@ function newPrescriptionButton(id){
 
 function newLabButton(id){
 
-    //Sorry for this super specific part. It gets the DOM object containg the last prescription timestamp
-    var target = document.getElementById("labresults_list");
-    try{
-        var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
-        var date = source.nextSibling.innerHTML;
-        var patient = source.innerHTML;
+  var target = document.getElementById("labresults_list");
+  var source = target.firstElementChild.firstElementChild.lastElementChild.firstElementChild;
+  var date = source.nextSibling.innerHTML;
+  var patient = id;
 
-        if(patient == "Paciente" || date == "data"){
-            throw ("got a th");
-        }
-        console.log("The date is "+ date + " and the patient is: "+patient);
-    }
-    catch(err){
-        console.log(err);
-        var patient = id;
-        var date = 'null';
-        console.log("The date is "+ date + " and the patient is: "+patient);
-    }
-   var  content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
-    content +="data-operation = 'LAB_ADD'";
-    content += "data-timestamp ='" + date + "'";
-    content += "type = 'button' onClick = 'labHandler(this)'";
-    content += "class= 'btn btn-success' value='Adicionar Resultados'/>";
+  if(patient == "Paciente" || date == "Data"){//If it is the first prescription
+        date = 'null';
+  }
 
-    target.innerHTML += content;
+  var  content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
+  content +="data-operation = 'LAB_ADD'";
+  content += "data-timestamp ='" + date + "'";
+  content += "type = 'button' onClick = 'labHandler(this)'";
+  content += "class= 'btn btn-success' value='Adicionar Resultados'/>";
+
+  target.innerHTML += content;
 }
 
 /*
