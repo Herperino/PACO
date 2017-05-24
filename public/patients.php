@@ -52,7 +52,7 @@
 
             addPatient($conn);
         }
-        else if(strcmp($operation,"DELETE_PTT"){
+        else if(strcmp($operation,"DELETE_PTT")){
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'
             AND userid ='".$_SESSION['id']."'");
         }
