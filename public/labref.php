@@ -36,6 +36,10 @@
 
             editResult($patientID);
         }
+        else if(strcmp($_POST['operation'],'DELETE_LAB')){
+          //Adds a row ignoring errors or warnings if no row is matched
+          @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
+        }
 
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;
