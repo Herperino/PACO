@@ -117,7 +117,7 @@ function renderPatientForm(path, parameters){
  *  lab results and will be sent to the labref controller
  */
 
-function renderLabrefForm(parameters){
+function renderLabForm(parameters){
 
   //For prescription handling, the controller can only be acompanhamento.php
   var controller = "acompanhamento.php";
