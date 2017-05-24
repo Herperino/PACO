@@ -12,6 +12,7 @@ body
 
 .pagebottom{
   padding: 1rem;
+  height:50px;
   background-color: #efefef;
   text-align: center;
   min-height: calc(100vh - 70px);
