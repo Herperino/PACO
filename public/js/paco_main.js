@@ -89,6 +89,7 @@ function prescriptionHandler(event){
 function deleteEntry(event){
 
   // important info to send
+  var target = document.location.href;
   var patientID = event.dataset.patient;
   var operation = event.dataset.operation;
   var timestamp = event.dataset.timestamp;
@@ -97,7 +98,7 @@ function deleteEntry(event){
                      patientID: patientID,
                      timestamp: timestamp};
 
-  $.post("acompanhamento.php", {operation: operation, patientID: patientID,timestamp: timestamp})
+  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
 }
 
 function labHandler(event){
@@ -111,8 +112,8 @@ function labHandler(event){
     var pkg_to_send = {operation: operation,
                        patientID: patientID,
                        timestamp: timestamp};
-    alert("labHandler being correctly called\n\n" + patientID + " " + operation + " " + timestamp);
-    //$.post("acompanhamento.php", pkg_to_send);
+
+    renderLabForm();
 }
 
  /** Event -> Array
