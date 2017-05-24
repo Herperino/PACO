@@ -2,7 +2,6 @@
 
 body
 {
-    min-height: calc(100vh - 70px);
      position:relative;
 }
 
@@ -21,6 +20,10 @@ body
 #register input
 {
     width:80%;
+}
+
+#pagemid{
+  min-height: calc(100vh - 70px);
 }
 
 .img{
