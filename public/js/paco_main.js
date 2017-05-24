@@ -45,7 +45,6 @@ function patientHandler(event, page){
             patientID : patientid
         }
 
-        console.log(info)
         renderPatientForm("patients.php", info);
     }
     else{
@@ -98,7 +97,9 @@ function deleteEntry(event){
                      patientID: patientID,
                      timestamp: timestamp};
   console.log("DE was called with the following parameters: " + patientID +","+ operation)
-  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
+  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(data){
+      console.log("hello from DE-AJAX");
+    });
 }
 
 function labHandler(event){
