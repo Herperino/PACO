@@ -23,7 +23,7 @@
         $patientID = $_POST['patientID'];
 
         //Query database for the patient's all lab results given a patientID
-        $query =  pg_query("SELECT * FROM labref WHERE patientID = ? ORDER BY Date ASC", $patientID);
+        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY Date ASC");
         $results = pg_fetch_all($query);
 
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
@@ -34,7 +34,6 @@
         else if (strcmp($_POST['operation'],'LAB_EDIT') == 0){
 
             editResult($patientID);
-
         }
 
         //Sets the page mode to display lab results rather than patients
