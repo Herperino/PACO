@@ -65,6 +65,7 @@ function renderPatientForm(path, parameters){
     else {var info = 'Alterar dados do paciente';}
 
     var choice = parameters['operation'];
+    //pat_id is intended to be inserted as a tag attrivute
     var pat_id = "value = " + parameters['patientID'];
 
      if (parameters['operation'] == "ADD"){
