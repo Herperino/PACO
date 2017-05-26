@@ -38,7 +38,7 @@
         $page = basename($_SERVER['HTTP_REFERER']);
 
         //Query database according to operation selected
-        if($operation == "STATUS"){
+        if($operation == "REMOVE"){
 
             changeStatus($patientID,$conn);
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");

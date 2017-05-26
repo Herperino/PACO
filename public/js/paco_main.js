@@ -9,7 +9,7 @@
 function patientHandler(event, page){
 
     //Based on selectedIndex from the menu option
-    var options = ["EDIT", "STATUS", "ACOMP", "ADD"];
+    var options = ["EDIT", "REMOVE", "ACOMP", "ADD"];
     var index = event.selectedIndex; //Index of the option in select
     var choice = options[index-1]; //offsetting the non 0 indexed select
 
@@ -27,7 +27,7 @@ function patientHandler(event, page){
     }
 
     //If option chosen is EDIT or STATUS, send info to patients.php (Request method is POST)
-    else if(choice == "STATUS")
+    else if(choice == "REMOVE")
     {
         //TODO: SEND INFO TO PATIENTS.PHP (Will query the database for the fix)
         var package_to_send = {
