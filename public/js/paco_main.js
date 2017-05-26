@@ -110,11 +110,24 @@ function labHandler(event){
     var operation = event.dataset.operation;
     var timestamp = event.dataset.timestamp;
 
-    var pkg_to_send = {operation: operation,
-                       patientID: patientID,
-                       timestamp: timestamp};
 
-    renderLabForm(pkg_to_send);
+    if (operation = "GET_LAB"){
+      $.post("labref.php", {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(){
+
+          //handle data here
+
+          //eventually render a form
+          return alert("things went okay");
+
+      });
+    }
+    else{
+      var pkg_to_send = {operation: operation,
+                         patientID: patientID,
+                         timestamp: timestamp};
+
+      renderLabForm(pkg_to_send);
+    }
 }
 
  /** Event -> Array
