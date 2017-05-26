@@ -53,6 +53,7 @@
             addPatient($conn);
         }
         else if(strcmp($operation,"DELETE_PTT") == 0){
+            print("Got to delete");
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE 'patientid' ='".$patientID."'");
         }
 
@@ -103,7 +104,6 @@
         else{
             $new_id = $_POST['new_id'];
 
-
             //Here be queries updating the new ID into patients, labref and prescriptions
             pg_query($conn,"UPDATE public.\"patients\" SET
                             patientid = '". $new_id ."',
@@ -125,6 +125,8 @@
      *  Adds a new patient to the database of patients
      */
     function addPatient($conn){
+
+        //TODO: Work on validation. No two ids should be the same for the same user.
 
         $patientname = $_POST['patient_name'];
         $patientage = $_POST['patient_age'];
