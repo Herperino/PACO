@@ -52,7 +52,7 @@
               exit();
             }
         }
-        else {
+        else if(strcmp($_POST['operation'],'DELETE_PRESCRIPTION')==0){
           //Deletes selected prescription. Ignores warnings if not on delete function
           @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE date ='".$_POST['timestamp']."'");
         }
