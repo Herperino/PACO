@@ -41,8 +41,17 @@
           @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
         }
         else if(strcmp($_POST['operation'],'GET_LAB')){
-          //TODO: Add get the last result as an array and return as a json object
+          //Gets the last result as an array and return as a json object
+          $query = pg_query($conn, "SELECT * FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
 
+          //If the query returns something
+          if ($query != false){
+            $last_prescription = pg_fetch_all($query);
+            //makes a JSON return of the prescriptions array.
+            header("Content-type: application/json; charset=UTF-8");
+            print(json_encode($last_prescription, JSON_PRETTY_PRINT));
+            $token = true;
+            exit();
         }
 
         //Sets the page mode to display lab results rather than patients

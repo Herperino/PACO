@@ -112,10 +112,10 @@ function labHandler(event){
 
 
     if (operation == "GET_LAB"){
-      $.post("labref.php", {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(){
+      $.post("labref.php", {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(data){
 
           //handle data here
-
+          console.log(data);
           //eventually render a form
           return alert("things went okay");
 
