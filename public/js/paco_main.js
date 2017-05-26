@@ -111,7 +111,7 @@ function labHandler(event){
     var timestamp = event.dataset.timestamp;
 
 
-    if (operation = "GET_LAB"){
+    if (operation == "GET_LAB"){
       $.post("labref.php", {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(){
 
           //handle data here
