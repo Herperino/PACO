@@ -40,6 +40,10 @@
           //Adds a row ignoring errors or warnings if no row is matched
           @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
         }
+        else if(strcmp($_POST['operation'],'GET_LAB')){
+          //TODO: Add get the last result as an array and return as a json object
+
+        }
 
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;

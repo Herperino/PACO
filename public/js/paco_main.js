@@ -93,13 +93,12 @@ function deleteEntry(event){
   var operation = event.dataset.operation;
   var timestamp = event.dataset.timestamp;
 
+  //creates a package that will be sent as a request to the server
   var pkg_to_send = {operation: operation,
                      patientID: patientID,
                      timestamp: timestamp};
-  console.log("DE was called with the following parameters: " + patientID +","+ operation)
-  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(data){
-      console.log("hello from DE-AJAX");
-    });
+
+  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
 }
 
 function labHandler(event){
