@@ -53,12 +53,7 @@
 
             addPatient($conn);
         }
-        else if ($operation == "DELETE_PTT"){
-            // If not one of our predefined actions, the only option is the delete option
-
-            redirect($page);
-          }
-
+        
         //Returns to the original page
         redirect($page);
     }
