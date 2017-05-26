@@ -52,8 +52,8 @@
             print(json_encode($last_prescription, JSON_PRETTY_PRINT));
             $token = true;
             exit();
+          }
         }
-
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;
         render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
