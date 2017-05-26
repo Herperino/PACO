@@ -91,7 +91,7 @@ function renderPatientForm(path, parameters){
             "<label>Nome</label><br><input name= 'patient_name' type = 'text' required></input><br><small>Edite o nome do paciente (sem acentos)</small><br>" +
             "<label>Idade</label><br><input name= 'patient_age' type = 'text'required></input><br><small>Edite a idade do paciente</small><br><div>" +
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>" +
-            "<input name= 'patientID' type = 'hidden' value =' "+ pat_id +"'></input>" +
+            "<input name= 'patientID' type = 'hidden'"+ pat_id +"  ></input>" +
             "</form>" +
             "</div>" +
 
