@@ -251,8 +251,7 @@
                                        patientid = '".$patientID."' AND userid = '".$_SESSION['id']."'");
       $patients = pg_fetch_all($query);
 
-      $name = ($patients[0]['patientname']);
-      $name = utf8_encode($name);
+      $name = ($patients['patientname']);
 
       return $name;
     }
