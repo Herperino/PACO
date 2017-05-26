@@ -18,7 +18,7 @@
          */
 
         //Queries the data from the postgresql db
-        $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status ASC,lastactive DESC ";
+        $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status DESC,lastactive DESC ";
         $data = pg_query($conn, $query);
 
         //Store patient data in an array
@@ -54,10 +54,10 @@
         }
         else if(strcmp($operation,"DELETE_PTT") == 0){
             print("Got to delete");
-            pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
+
             redirect($page);
         }
-
+        pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
         //Returns to the original page
         redirect($page);
     }
