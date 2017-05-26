@@ -74,6 +74,11 @@ body
      border-radius:7px;
 }
 
+.panel{
+
+  min-width:50vw;
+}
+
 th
 {
     border-bottom:1px solid black;
