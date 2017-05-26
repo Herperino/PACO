@@ -21,7 +21,7 @@
 
         //Gets the patient name and ID for displaying.
         $name = getName($conn);
-        $patientID = "".$_POST['patientID'];
+        $patientID = "\n".$_POST['patientID'];
 
         //token for displaying prescriptions correctly
         $token = false;
