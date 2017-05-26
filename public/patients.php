@@ -52,7 +52,7 @@
 
             addPatient($conn);
         }
-        else{
+        else if ($operation == "DELETE_PTT"){
             // If not one of our predefined actions, the only option is the delete option
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
             redirect($page);
