@@ -38,21 +38,22 @@
         $page = basename($_SERVER['HTTP_REFERER']);
 
         //Query database according to operation selected
-        if(strcmp($operation,'STATUS') == 0){
+        if($operation == "STATUS"){
 
             changeStatus($patientID,$conn);
 
         }
-        else if(strcmp($operation,'EDIT') == 0){
+        else if($operation == "EDIT"){
 
             editPatient($patientID,$conn);
 
         }
-        else if(strcmp($operation,'ADD') == 0){
+        else if(strcmp($operation,"ADD") == 0){
 
             addPatient($conn);
         }
         else{
+            // If not one of our predefined actions, the only option is the delete option
             pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
           }
 
