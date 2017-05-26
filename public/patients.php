@@ -38,17 +38,17 @@
         $page = basename($_SERVER['HTTP_REFERER']);
 
         //Query database according to operation selected
-        if($operation == 'STATUS'){
+        if(strcmp($operation,'STATUS') == 0){
 
             changeStatus($patientID,$conn);
 
         }
-        else if($operation == 'EDIT'){
+        else if(strcmp($operation,'EDIT') == 0){
 
             editPatient($patientID,$conn);
 
         }
-        else if($operation == 'ADD'){
+        else if(strcmp($operation,'ADD') == 0){
 
             addPatient($conn);
         }
