@@ -54,7 +54,7 @@
         }
         else if(strcmp($operation,"DELETE_PTT") == 0){
             print("Got to delete");
-            pg_query($conn, "DELETE FROM public.\"patients\" WHERE 'patientid' ='".$patientID."'");
+            pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
         }
 
         //Returns to the original page
