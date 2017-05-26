@@ -128,7 +128,7 @@
 
         $patientname = $_POST['patient_name'];
         $patientage = $_POST['patient_age'];
-        $patientID = $_POST['new_id'];
+        $patientID = ltrim($_POST['new_id'],"0");
         $userID = $_SESSION['id'];
 
         //Insert a new patient into the patients database
