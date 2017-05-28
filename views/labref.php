@@ -11,7 +11,7 @@
 
 <div class ="container">
     <br><br>
-    <div class= "row">
+    <div class= "row" style="overflow-x:auto">
         <div class="panel panel-default">
         <div class="panel-heading"><h4><?php echo $patientID ?></h4></div>
 
