@@ -13,7 +13,9 @@
     <br><br>
     <div class= "row" style="overflow-x:auto">
         <div class="panel panel-default">
-        <div class="panel-heading"><h4><?php echo $patientID ?></h4></div>
+          <div class="panel-heading">
+            <h4><?php echo $patientID ?></h4>
+          </div>
 
         <div id ="labresults_list" class="panel-body">
             <table class = 'table'>
