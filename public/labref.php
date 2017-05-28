@@ -23,10 +23,6 @@
         $name = getName($conn);
         $patientID = $_POST['patientID'];
 
-        //Query database for the patient's all lab results given a patientID
-        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
-        $results = pg_fetch_all($query);
-
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
 
             addResults($patientID,$conn);
@@ -53,6 +49,11 @@
             exit();
           }
         }
+
+        //Query database for the patient's all lab results given a patientID
+        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
+        $results = pg_fetch_all($query);
+
         //Sets the page mode to display lab results rather than patients
         $page_mode = true;
         render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
