@@ -85,12 +85,13 @@ th
 }
 
 .form-norm{
-    height:50px;
+    height:auto;
 }
 
 .form-ext{
 
-  height:125px;
+  height:25%;
+  width:100%;
 }
 .bg1{
 
