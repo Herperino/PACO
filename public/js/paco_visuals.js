@@ -135,49 +135,49 @@ function renderLabForm(parameters){
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = "<div class ='row'>" //Form as an empty string that will be displayed
 
-  form += "<h3 class = 'col-md-12 col-xs-12'> Insira os valores númericos dos resultados </h3>"
+  form += "<h3 class = 'col-sm-12 col-xs-12'> Insira os valores númericos dos resultados </h3>"
 
   //Hemácias
-  form += "<div class ='col-md-4 col-xs-12'><label>Hemácias</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Hemácias</label><br>"
   form += "<input class='form-norm' name='hemacias' type='text' placeholder='4.85 milhões/dL'></input></div>";
   //Hematócrito
-  form += "<div class ='col-md-4 col-xs-12'><label>Hematócrito</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Hematócrito</label><br>"
   form += "<input class='form-norm' name='hct' type='text' placeholder='35%'></input></div>";
   //Hemoglobina
-  form += "<div class ='col-md-4 col-xs-12'><label>Hemoglobina</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Hemoglobina</label><br>"
   form += "<input class='form-norm' name='hgb' type='text' placeholder='12.5 mg/dL'></input></div>";
   //Ureia
-  form += "<div class ='col-md-4 col-xs-12'><label>Uréia</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Uréia</label><br>"
   form += "<input class='form-norm' name='ureia' type='text' placeholder='150 mg/dL'></input></div>";
   //Creatinina
-  form += "<div class ='col-md-4 col-xs-12'><label>Creatinina</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Creatinina</label><br>"
   form += "<input class='form-norm' name='cr' type='text' placeholder='1.0 mg/dL'></input></div>";
   //Potássio
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Sódio
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Leucócitos
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //INR
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //PCR
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //TGO e TGP
-  form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
+  form += "<div class ='col-sm-4 col-xs-12'><label>Potássio</label><br>"
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Outros
-  form += "<div class ='col-md-12 col-xs-12'><label>Outros Exames</label><br>"
+  form += "<div class ='col-sm-12 col-xs-12'><label>Outros Exames</label><br>"
   form += "<input class='form-ext' name='outros' type='text' placeholder='4.5 mmol/L'></input></div>";
 
   form += "</div>"; //End row div
 
   var content = "<div class='row'>"+
-          "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
+          "<form style='margin:auto' class = 'form-group col-sm-12 col-sm-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
             form +
           "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
           "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
@@ -246,7 +246,7 @@ function renderPrescriptionForm(parameters){
     }
 
     var content = "<div class='row'>"+
-            "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
+            "<form style='margin:auto' class = 'form-group col-sm-12 col-sm-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
               form +
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
