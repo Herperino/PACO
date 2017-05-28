@@ -9,7 +9,7 @@
 function patientHandler(event){
 
     //Based on selectedIndex from the menu option
-    var options = ["EDIT", "REMOVE","STATUS","ACOMP", "ADD"];
+    var options = ["EDIT","STATUS", "REMOVE","ACOMP", "ADD"];
     var index = event.selectedIndex; //Index of the option in select
     var choice = options[index-1]; //offsetting the non 0 indexed select
 
