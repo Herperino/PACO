@@ -175,8 +175,6 @@ function displayPrescription($prescriptions){
     /** Adds prescription values into the database. Requires a connection for pg_query */
     function addPrescription($patientID,$conn){
 
-      $date = "CURRENT_TIMESTAMP";
-
       //Concatenates the prescription data into a single k/v array
       for ($i = 1; $i<=10; $i++){
 
@@ -205,8 +203,18 @@ function displayPrescription($prescriptions){
         '".$prescriptions['med8']."','".$prescriptions['pos8']."',
         '".$prescriptions['med9']."','".$prescriptions['pos9']."',
         '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
-
       }
+
+      function addResults($patientID,$conn){
+
+        //Concatenates the prescription data into a single k/v array
+
+        pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
+                                                      \"hgb\",\"hemacias\", \"hct\")
+          VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
+                  '".$_POST['hgb']."','".$_POST['hemacias']."','".$_POST['hct']."') ");
+
+        }
 
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
 
@@ -284,51 +292,51 @@ function displayPrescription($prescriptions){
           */
           function editPatient($patientID, $conn){
 
-            //Edit the patient to contain html supported chars.
-            $pname = htmlspecialchars($_POST['patient_name']);
+          //Edit the patient to contain html supported chars.
+          $pname = htmlspecialchars($_POST['patient_name']);
 
-            //If the patient ID remains the same
-            if ($_POST['new_id'] == $_POST['patientID']){
+          //If the patient ID remains the same
+          if ($_POST['new_id'] == $_POST['patientID']){
+            pg_query($conn,"UPDATE public.\"patients\" SET
+              patientname ='". $pname ."',
+              patientage = ". $_POST['patient_age'] ."
+              WHERE patientid = '". $_POST['patientID'] ."'");
+            }
+            //If the patientID changes.
+            else{
+              $new_id = $_POST['new_id'];
+
+              //Here be queries updating the new ID into patients, labref and prescriptions
               pg_query($conn,"UPDATE public.\"patients\" SET
-                patientname ='". $pname ."',
+                patientid = '". $new_id ."',
+                patientname = '". $pname ."',
                 patientage = ". $_POST['patient_age'] ."
-                WHERE patientid = '". $_POST['patientID'] ."'");
-              }
-              //If the patientID changes.
-              else{
-                $new_id = $_POST['new_id'];
+                WHERE patientid = '".$_POST['patientID'] ."'");
 
-                //Here be queries updating the new ID into patients, labref and prescriptions
-                pg_query($conn,"UPDATE public.\"patients\" SET
-                  patientid = '". $new_id ."',
-                  patientname = '". $pname ."',
-                  patientage = ". $_POST['patient_age'] ."
-                  WHERE patientid = '".$_POST['patientID'] ."'");
+                pg_query($conn,"UPDATE public.\"prescriptions\" SET
+                  patientid = '". $new_id."'
+                  WHERE patientid ='". $_POST['patientID']."'");
 
-                  pg_query($conn,"UPDATE public.\"prescriptions\" SET
+                  pg_query($conn,"UPDATE public.\"labref\" SET
                     patientid = '". $new_id."'
                     WHERE patientid ='". $_POST['patientID']."'");
-
-                    pg_query($conn,"UPDATE public.\"labref\" SET
-                      patientid = '". $new_id."'
-                      WHERE patientid ='". $_POST['patientID']."'");
-                    }
                   }
+                }
 
-                  /** PatientID, page -> NULL
-                  *  Adds a new patient to the database of patients
-                  */
-                  function addPatient($conn){
+                /** PatientID, page -> NULL
+                *  Adds a new patient to the database of patients
+                */
+    function addPatient($conn){
+        //TODO: Work on validation. No two ids should be the same for the same user.
 
-                    //TODO: Work on validation. No two ids should be the same for the same user.
+        $patientname = $_POST['patient_name'];
+        $patientage = $_POST['patient_age'];
+        $patientID = ltrim($_POST['new_id'],"0");
+        $userID = $_SESSION['id'];
 
-                    $patientname = $_POST['patient_name'];
-                    $patientage = $_POST['patient_age'];
-                    $patientID = ltrim($_POST['new_id'],"0");
-                    $userID = $_SESSION['id'];
+        //Insert a new patient into the patients database
+        pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
+        values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
+        }
 
-                    //Insert a new patient into the patients database
-                    pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-                    values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
-                  }
-                  ?>
+?>
