@@ -135,33 +135,8 @@ function renderLabForm(parameters){
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = ''; //Form as an empty string that will be displayed
 
-  //The old form content
-  // for(var i = 1; i <= 10; i++){
-  //
-  //     var current;
-  //
-  //     try{
-  //       current = "value = '" + parameters.last_p['med'+i] + "'" ;
-  //         if (parameters.last_p['med'+i] == null) throw "error";
-  //     }
-  //     catch(err){
-  //       current = ""
-  //     }
-  //
-  //     form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
-  //     form+= "<input name= 'med"+ i + "'  type = 'text'" + current +  "placeholder = 'Medicamento'></input>";
-  //     form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
-  //     form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
-  //     form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
-  //     form+= "<option value = 'null'> Posologia </option>";
-  //     form+= "<option value = '1x/d' selected> 1x/dia </option>";
-  //     form+= "<option value = '2x/d'> 2x/dia (12/12h) </option>";
-  //     form+= "<option value = '3x/d'> 3x/dia (8/8h) </option>";
-  //     form+= "<option value = '4x/d'> 4x/dia (6/6h) </option>";
-  //     form+= "<option value = '6x/d'> 6x/dia (4/4h) </option>";
-  //     form+= "<option value = 'SOS'> Caso necessário </option>";
-  //     form+= "</select><br>";
-  // }
+  form += "<label>Hemoglobina</label><br>"
+  form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input>";
 
   var content = "<div class='row'>"+
           "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
