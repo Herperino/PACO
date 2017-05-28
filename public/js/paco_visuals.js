@@ -135,6 +135,8 @@ function renderLabForm(parameters){
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = "<div class ='row'>" //Form as an empty string that will be displayed
 
+  form += "<h3> Insira os valores númericos dos resultados </h3>"
+
   form += "<div class ='col-md-4 col-xs-4'><label>Hemácias</label>"
   form += "<input name='hemacias' type='text' placeholder='4.85 milhões/dL'></input></div>";
 
