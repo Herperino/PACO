@@ -213,9 +213,11 @@ function displayPrescription($prescriptions){
         //Concatenates the prescription data into a single k/v array
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
-                                                      \"hgb\",\"hemacias\", \"hct\")
+                                                      \"hgb\",\"hemacias\", \"hct\",
+                                                      \"ureia\",\"cr\",\"k\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
-                  '".$_POST['hemacias']."','".$_POST['hct']."') ");
+                  '".$_POST['hemacias']."','".$_POST['hct']."'),'".$_POST['ureia']."',
+                  '".$_POST['cr']."','".$_POST['k']."'");
 
         }
 
