@@ -246,7 +246,7 @@ function renderPrescriptionForm(parameters){
     }
 
     var content = "<div class='row'>"+
-            "<form style='margin:auto' class = 'form-group col-sm-12 col-sm-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
+            "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
               form +
             "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
