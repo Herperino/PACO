@@ -139,40 +139,40 @@ function renderLabForm(parameters){
 
   //Hemácias
   form += "<div class ='col-md-4 col-xs-12'><label>Hemácias</label><br>"
-  form += "<input name='hemacias' type='text' placeholder='4.85 milhões/dL'></input></div>";
+  form += "<input class='form-norm' name='hemacias' type='text' placeholder='4.85 milhões/dL'></input></div>";
   //Hematócrito
   form += "<div class ='col-md-4 col-xs-12'><label>Hematócrito</label><br>"
-  form += "<input name='hct' type='text' placeholder='35%'></input></div>";
+  form += "<input class='form-norm' name='hct' type='text' placeholder='35%'></input></div>";
   //Hemoglobina
   form += "<div class ='col-md-4 col-xs-12'><label>Hemoglobina</label><br>"
-  form += "<input name='hgb' type='text' placeholder='12.5 mg/dL'></input></div>";
+  form += "<input class='form-norm' name='hgb' type='text' placeholder='12.5 mg/dL'></input></div>";
   //Ureia
   form += "<div class ='col-md-4 col-xs-12'><label>Uréia</label><br>"
-  form += "<input name='ureia' type='text' placeholder='150 mg/dL'></input></div>";
+  form += "<input class='form-norm' name='ureia' type='text' placeholder='150 mg/dL'></input></div>";
   //Creatinina
   form += "<div class ='col-md-4 col-xs-12'><label>Creatinina</label><br>"
-  form += "<input name='cr' type='text' placeholder='1.0 mg/dL'></input></div>";
+  form += "<input class='form-norm' name='cr' type='text' placeholder='1.0 mg/dL'></input></div>";
   //Potássio
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Sódio
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Leucócitos
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //INR
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //PCR
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //TGO e TGP
   form += "<div class ='col-md-4 col-xs-12'><label>Potássio</label><br>"
-  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Outros
   form += "<div class ='col-md-12 col-xs-12'><label>Outros Exames</label><br>"
-  form += "<input name='outros' type='text' style='min-height:50%;' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-ext' name='outros' type='text' placeholder='4.5 mmol/L'></input></div>";
 
   form += "</div>"; //End row div
 

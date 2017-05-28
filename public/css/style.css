@@ -84,6 +84,14 @@ th
     border-bottom:1px solid black;
 }
 
+.form-norm{
+    height:50px;
+}
+
+.form-ext{
+
+  height:125px;
+}
 .bg1{
 
     /*background-image:url('/img/bg_paco.jpg');*/
