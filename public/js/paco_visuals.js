@@ -135,7 +135,7 @@ function renderLabForm(parameters){
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = ""; //Form as an empty string that will be displayed
 
-  form += "<div class ='col-md-4'><label>Hemoglobina</label>"
+  form += "<div class ='col-md-12'><label>Hemoglobina</label>"
   form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
 
   form += "<div class ='col-md-4'><label>Hemoglobina</label>"
@@ -159,7 +159,7 @@ function renderLabForm(parameters){
       else
         content +="<br><input class= 'btn btn-success' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
      "</form>"+
-  "</div></div>";
+  "</div>";
 
 
   document.getElementById("labresults_list").innerHTML = content;
