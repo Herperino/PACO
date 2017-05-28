@@ -160,7 +160,7 @@ function displayPrescription($prescriptions){
           print("<td>");
           print("<input  data-patient = ". (string)$result['patientID'] .
           "data-operation = 'LAB_EDIT'
-          data-timestamp ='" . (string)$result['Date'] .
+          data-timestamp ='" . (string)$result['date'] .
           "' type = 'button' onClick = 'labHandler(this, 'labref.php')'
           class= 'btn btn-success' value='Editar resultados'/>");
           print("</td>"."</tr>");
