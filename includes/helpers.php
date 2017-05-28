@@ -161,9 +161,9 @@ function displayPrescription($prescriptions){
           }
 
           print("<td>");
-          print("<input  data-patient =" . (string)$results['patientid'] ."
+          print("<input  data-patient =" . (string)$labresults['patientid'] ."
           data-operation = \"PRESCRIPTION_EDIT\"
-          data-timestamp ='" . (string)$results['date'] .
+          data-timestamp ='" . (string)$labresults['date'] .
           "' type = 'button' onClick = 'prescriptionHandler(this)'
           class= 'btn btn-success' value='Editar Prescrição'/>");
           print("</td></tr></div>");
