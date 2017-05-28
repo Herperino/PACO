@@ -171,8 +171,8 @@ function renderLabForm(parameters){
   form += "<div class ='col-md-4 col-xs-4'><label>Potássio</label><br>"
   form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Outros
-  form += "<div class ='col-md-4 col-xs-12'><label>Outros Exames</label><br>"
-  form += "<input name='outros' type='text' style='height:50%;' placeholder='4.5 mmol/L'></input></div>";
+  form += "<div class ='col-md-12 col-xs-12'><label>Outros Exames</label><br>"
+  form += "<input name='outros' type='text' style='min-height:50%;' placeholder='4.5 mmol/L'></input></div>";
 
   form += "</div>"; //End row div
 
