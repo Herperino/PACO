@@ -135,10 +135,10 @@ function renderLabForm(parameters){
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = ""; //Form as an empty string that will be displayed
 
-  form += "<div class ='col-md-3'><label>Hemoglobina</label><br>"
+  form += "<div class ='col-md-3'><label>Hemoglobina</label>"
   form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
 
-  form += "<div class ='col-md-3'><label>Hemoglobina</label><br>"
+  form += "<div class ='col-md-3'><label>Hemoglobina</label>"
   form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
 
   form += "<div class ='col-md-3'><label>Hemoglobina</label>"
