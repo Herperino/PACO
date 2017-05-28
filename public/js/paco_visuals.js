@@ -142,7 +142,16 @@ function renderLabForm(parameters){
   form += "<input name='hct' type='text' placeholder='35%'></input></div>";
 
   form += "<div class ='col-md-4 col-xs-4'><label>Hemoglobina</label>"
-  form += "<input name='hgb' type='text' placeholder='12,5 mg/dL'></input></div>";
+  form += "<input name='hgb' type='text' placeholder='12.5 mg/dL'></input></div>";
+
+  form += "<div class ='col-md-4 col-xs-4'><label>Uréia</label>"
+  form += "<input name='ureia' type='text' placeholder='150 mg/dL'></input></div>";
+
+  form += "<div class ='col-md-4 col-xs-4'><label>Creatinina</label>"
+  form += "<input name='cr' type='text' placeholder='1.0 mg/dL'></input></div>";
+
+  form += "<div class ='col-md-4 col-xs-4'><label>Potássio</label>"
+  form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
 
   form += "</div>";
 
