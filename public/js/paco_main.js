@@ -34,9 +34,18 @@ function patientHandler(event){
             operation : choice,
             patientID : patientid
         }
-        $.post("patients.php", package_to_send);
+        $.post("patients.php", package_to_send).done(showPatients());
 
-        showPatients();
+    }
+    else if(choice == "STATUS")
+    {
+        //TODO: SEND INFO TO PATIENTS.PHP (Will query the database for the fix)
+        var package_to_send = {
+            operation : choice,
+            patientID : patientid
+        }
+        $.post("patients.php", package_to_send).done(showPatients());
+        
     }
     else if (choice == "EDIT"){
 
