@@ -161,12 +161,12 @@ function displayPrescription($prescriptions){
           }
 
           print("<td>");
-          print("<input  data-patient = ". (string)$result['patientid'] .
-          "data-operation = 'LAB_EDIT'
-          data-timestamp ='" . (string)$result['date'] .
-          "' type = 'button' onClick = 'labHandler(this, 'labref.php')'
-          class= 'btn btn-success' value='Editar resultados'/>");
-          print("</td>"."</tr>");
+          print("<input  data-patient =" . (string)$results['patientid'] ."
+          data-operation = \"PRESCRIPTION_EDIT\"
+          data-timestamp ='" . (string)$results['date'] .
+          "' type = 'button' onClick = 'prescriptionHandler(this)'
+          class= 'btn btn-success' value='Editar Prescrição'/>");
+          print("</td></tr></div>");
         }
       }
     }
