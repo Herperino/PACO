@@ -144,7 +144,7 @@ function renderLabForm(parameters){
   form += "<div class ='col-md-3>'<label>Hemoglobina</label><br>"
   form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
 
-  var content = "<div class='row'>"+
+  var content += ""+
           "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
             form +
           "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
