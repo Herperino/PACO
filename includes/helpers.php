@@ -148,7 +148,7 @@ function displayPrescription($prescriptions){
             if(strcmp($currentkey,"date") == 0 || strcmp($currentkey,"patientid") == 0){
               print("<td>". $item . "</td>");
             }
-            else if (strcmp($currentkey,"patientid") == 0){
+            else if (strcmp($currentkey,"userid") == 0){
               continue;
             }
             else{
