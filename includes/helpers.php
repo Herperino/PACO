@@ -217,7 +217,7 @@ function displayPrescription($prescriptions){
                                                       \"ureia\",\"cr\",\"k\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."'),'".$_POST['ureia']."',
-                  '".$_POST['cr']."','".$_POST['k']."'");
+                  '".$_POST['cr']."','".$_POST['k']."')");
 
         }
 
