@@ -133,10 +133,16 @@ function renderLabForm(parameters){
   var date = parameters.date; // Parameters.date comes from patient selector
   var choice = parameters['operation']; // Also comes from patient selector
   var pat_id = parameters['patientID']; // Also comes from patient selector
-  var form = ''; //Form as an empty string that will be displayed
+  var form = "<div class='row'>"; //Form as an empty string that will be displayed
 
-  form += "<label>Hemoglobina</label><br>"
-  form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input>";
+  form += "<div class ='col-md-3>'<label>Hemoglobina</label><br>"
+  form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
+
+  form += "<div class ='col-md-3>'<label>Hemoglobina</label><br>"
+  form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
+
+  form += "<div class ='col-md-3>'<label>Hemoglobina</label><br>"
+  form += "<input name='hct' type='text' placeholder='12,5 mg/dL'></input></div>";
 
   var content = "<div class='row'>"+
           "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
