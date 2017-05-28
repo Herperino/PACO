@@ -145,8 +145,11 @@ function displayPrescription($prescriptions){
 
             $currentkey = $key;
 
-            if(strcmp($currentkey,"Date") == 0 || strcmp($currentkey,"patientID") == 0){
+            if(strcmp($currentkey,"date") == 0 || strcmp($currentkey,"patientid") == 0){
               print("<td>". $item . "</td>");
+            }
+            else if (strcmp($currentkey,"patientid") == 0){
+              continue;
             }
             else{
 
@@ -158,7 +161,7 @@ function displayPrescription($prescriptions){
           }
 
           print("<td>");
-          print("<input  data-patient = ". (string)$result['patientID'] .
+          print("<input  data-patient = ". (string)$result['patientid'] .
           "data-operation = 'LAB_EDIT'
           data-timestamp ='" . (string)$result['date'] .
           "' type = 'button' onClick = 'labHandler(this, 'labref.php')'
