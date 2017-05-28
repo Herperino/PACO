@@ -137,22 +137,22 @@ function renderLabForm(parameters){
 
   form += "<h3 class = 'col-md-12 col-xs-12'> Insira os valores númericos dos resultados </h3>"
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Hemácias</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Hemácias</label><br>"
   form += "<input name='hemacias' type='text' placeholder='4.85 milhões/dL'></input></div>";
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Hematócrito</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Hematócrito</label><br>"
   form += "<input name='hct' type='text' placeholder='35%'></input></div>";
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Hemoglobina</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Hemoglobina</label><br>"
   form += "<input name='hgb' type='text' placeholder='12.5 mg/dL'></input></div>";
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Uréia</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Uréia</label><br>"
   form += "<input name='ureia' type='text' placeholder='150 mg/dL'></input></div>";
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Creatinina</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Creatinina</label><br>"
   form += "<input name='cr' type='text' placeholder='1.0 mg/dL'></input></div>";
 
-  form += "<div class ='col-md-4 col-xs-4'><label>Potássio</label>"
+  form += "<div class ='col-md-4 col-xs-4'><label>Potássio</label><br>"
   form += "<input name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
 
   form += "</div>";
