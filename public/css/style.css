@@ -90,7 +90,7 @@ th
 
 .form-ext{
 
-  height:25%;
+  min-height:25vw;
   width:100%;
 }
 .bg1{
