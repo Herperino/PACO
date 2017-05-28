@@ -159,7 +159,7 @@ function renderLabForm(parameters){
       else
         content +="<br><input class= 'btn btn-success' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
      "</form>"+
-  "</div>";
+  "</div></div>";
 
 
   document.getElementById("labresults_list").innerHTML = content;
