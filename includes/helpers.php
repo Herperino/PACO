@@ -154,7 +154,7 @@ function displayPrescription($prescriptions){
             else{
 
               if($item !=  null)
-              print("<td><strong>". $key. "</strong><br> " .$item. "</td>");
+              print("<td>". $key. "<br> " .$item. "</td>");
               else
               print("<td>". $key. "<br> -- </td>");
             }
