@@ -6,10 +6,10 @@
   *  of the whole PACO platform.
   */
 
-function patientHandler(event, page){
+function patientHandler(event){
 
     //Based on selectedIndex from the menu option
-    var options = ["EDIT", "REMOVE", "ACOMP", "ADD"];
+    var options = ["EDIT", "REMOVE","STATUS","ACOMP", "ADD"];
     var index = event.selectedIndex; //Index of the option in select
     var choice = options[index-1]; //offsetting the non 0 indexed select
 
@@ -175,7 +175,8 @@ function validate(){
     if ((regispwd != confirmation) || (betakey != "catioro"))
     {
         var midscreen = document.getElementById("pagemid");
-        midscreen.innerHTML ="<div class='container'><div class ='alert alert-warning'><h3> Não foi possível realizar o cadastro.</h3><br> <p>Entre em contato com Leon para receber sua senha beta</p></div></div>";
+        midscreen.innerHTML ="<div class='container'><div class ='alert alert-warning'>"+
+        "<h3> Não foi possível realizar o cadastro.</h3><br> <p>Entre em contato com Leon para receber sua senha beta</p></div></div>";
         return false;
     }
 }
@@ -207,6 +208,6 @@ function post(path, parameters) {
 function handler(){
         /*Since adding a new patient doesn't really send the same event
          * we create our own event and send it to the function */
-        var event = { selectedIndex: 4, id: "supergambiarra"}
-        patientHandler(event, "acompanhamento.php");
+        var event = { selectedIndex: 5, id: "supergambiarra"}
+        patientHandler(event);
     }

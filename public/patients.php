@@ -34,15 +34,18 @@
 
         //Get operation (Remove, Add, Change Status)
         $operation = $_POST['operation'];
-        $patientID = ltrim($_POST['patientID'],"0");
+        $patientID = ltrim($_POST['patientID'],"0"); //Removes trailing zeroes
         $page = basename($_SERVER['HTTP_REFERER']);
 
         //Query database according to operation selected
         if($operation == "REMOVE"){
 
-            changeStatus($patientID,$conn);
-            pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
+          pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
 
+        }
+        else if($operation == "STATUS"){
+
+            changeStatus($patientID,$conn);
         }
         else if($operation == "EDIT"){
 
@@ -53,90 +56,8 @@
 
             addPatient($conn);
         }
-        else if ($operation == "DELETE_PTT"){
-            // If not one of our predefined actions, the only option is the delete option
-
-            redirect($page);
-          }
 
         //Returns to the original page
         redirect($page);
-    }
-
-
-    /** PatientID, database connection -> NULL
-     *  Gets a given patient ID and changes its status in the
-     *  database row corresponding to the patient under care
-     *  A connection to the database must be passed
-     */
-    function changeStatus($patientID, $conn){
-
-        //Get patient and it's status from the database
-        $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
-        $res = pg_query($conn, $query);
-
-        //Fetches the single row for the user found
-        $patient = pg_fetch_row($res);
-        $status = $patient[6]; //6 = p_status
-
-        //Change status given current status state
-        if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
-        else { pg_query($conn, "UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
-    }
-
-    /** PatientID, database connection -> NULL
-     *  This part of the function will take patients new ID, name and age.
-     *  Query patients, lab and prescriptions to make changes to the user ID
-     *  or else it will fuck all the databases(prescriptions and labref)
-     *  A connection to the database must be passed
-     */
-    function editPatient($patientID, $conn){
-
-        //Edit the patient to contain html supported chars.
-        $pname = htmlspecialchars($_POST['patient_name']);
-
-        //If the patient ID remains the same
-        if ($_POST['new_id'] == $_POST['patientID']){
-            pg_query($conn,"UPDATE public.\"patients\" SET
-                            patientname ='". $pname ."',
-                            patientage = ". $_POST['patient_age'] ."
-                            WHERE patientid = '". $_POST['patientID'] ."'");
-        }
-        //If the patientID changes.
-        else{
-            $new_id = $_POST['new_id'];
-
-            //Here be queries updating the new ID into patients, labref and prescriptions
-            pg_query($conn,"UPDATE public.\"patients\" SET
-                            patientid = '". $new_id ."',
-                            patientname = '". $pname ."',
-                            patientage = ". $_POST['patient_age'] ."
-                            WHERE patientid = '".$_POST['patientID'] ."'");
-
-            pg_query($conn,"UPDATE public.\"prescriptions\" SET
-                            patientid = '". $new_id."'
-                            WHERE patientid ='". $_POST['patientID']."'");
-
-            pg_query($conn,"UPDATE public.\"labref\" SET
-                            patientid = '". $new_id."'
-                            WHERE patientid ='". $_POST['patientID']."'");
-           }
-    }
-
-    /** PatientID, page -> NULL
-     *  Adds a new patient to the database of patients
-     */
-    function addPatient($conn){
-
-        //TODO: Work on validation. No two ids should be the same for the same user.
-
-        $patientname = $_POST['patient_name'];
-        $patientage = $_POST['patient_age'];
-        $patientID = ltrim($_POST['new_id'],"0");
-        $userID = $_SESSION['id'];
-
-        //Insert a new patient into the patients database
-        pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-                         values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
     }
 ?>

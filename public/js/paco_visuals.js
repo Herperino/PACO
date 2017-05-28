@@ -39,7 +39,12 @@
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + status[data[count].p_status] + "</td>";
                 content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientid +
-                "' onchange='if (this.selectedIndex) patientHandler(this," + pageid + ");'>  <option  value='nada'>Selecione</option> <option value='edit'  data-toggle='modal' data-target='myform'>Editar</option><option value='changestatus'>Remover</option><option value='acomp'>Acompanhar</option></select></td>";
+                "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
+                "<option  value='nada'>Selecione</option>"+
+                "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
+                "<option value='changestatus'>Status</option>"+
+                "<option value='remover'>Remover</option>"+
+                "<option value='acomp'>Acompanhar</option></select></td>";
                 content += "</tr>"
 
             }
@@ -99,8 +104,6 @@ function renderPatientForm(path, parameters){
             "</div>"+
             "<div class='modal-footer'>"+
                 "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-                "<input class= 'btn btn-danger' type = 'button' value= 'Remover Paciente' data-operation = 'DELETE_PTT' data-patient='"+ parameters['patientID'] +
-                        "' onclick='deleteEntry(this)' data-dismiss ='modal'>" +
                 "<input class= 'btn btn-success' type = 'button' onclick ='" + action + "' value= '" + info +"'> &nbsp;" +
 
             "</div>"+
