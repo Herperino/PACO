@@ -212,7 +212,7 @@ function displayPrescription($prescriptions){
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
-                  '".$_POST['hgb']."','".$_POST['hemacias']."','".$_POST['hct']."') ");
+                  '".$_POST['hemacias']."','".$_POST['hct']."') ");
 
         }
 
