@@ -29,7 +29,7 @@
 
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
 
-            addResult($patientID);
+            addResults($patientID);
         }
         else if (strcmp($_POST['operation'],'LAB_EDIT') == 0){
 
