@@ -8,14 +8,13 @@
 ?>
 
 <?php if($P_MODE == true):?>
-
 <div class ="container">
     <br><br>
     <div class= "row" style="overflow-x:auto">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4><?php echo $patientID ?></h4>
-          </div>
+            <div class="panel-heading">
+                <h4> <?php echo $P_ID ?> - <?php echo $patientID ?>  </h4>
+           </div>
 
         <div id ="labresults_list" class="panel-body">
             <table class = 'table'>
@@ -40,7 +39,7 @@
 <div class = 'container'>
     <div class = 'page-header'><h2>Acompanhamento laboratorial</h2></div>
     <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
-    <div id="patient_list">
+    <div id="patient_list" class = "panel panel-default">
         <script>showPatients("labref.php"); </script>
     </div>
 </div> <!-- end container -->
