@@ -42,13 +42,12 @@ body
 }
 
 .content{
-    font-family:Arial;
-    color:white;
-    font-size:calc(8vw + 0.5vw);
+    font-family:Helvetica, Arial;
+    color:#EEEEEE;
+    font-size:calc(2vw + 0.5vw);
 }
 
 .table{
-    font-size:calc(8px + 0.55vw);
     table-layout:auto;
     min-width:70px;
     overflow-x:auto;
