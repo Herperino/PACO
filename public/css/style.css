@@ -111,3 +111,8 @@ body
     display:inline-block;
 
 }
+
+tr{
+
+  min-width:150px;
+}
