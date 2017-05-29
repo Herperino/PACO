@@ -31,6 +31,9 @@
 
         <script src="js/paco_visuals.js"></script>
 
+        <!-- Fake-select.js by Takien on GitHub -->
+        <script src="js/fake-select.js"></script>
+
         <Title> PACO | Programa de Acompanhamento Farmacêutico</Title>
 </HEAD>
     <BODY>

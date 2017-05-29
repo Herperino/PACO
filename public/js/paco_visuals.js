@@ -38,7 +38,7 @@
                 content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + status[data[count].p_status] + "</td>";
-                content += "<td> <select class = 'form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientid +
+                content += "<td> <select class = 'fake-select form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientid +
                 "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
                 "<option value='nada'>Selecione</option>"+
                 "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
@@ -316,3 +316,8 @@ function submitModal(){
 
     var form = document.getElementById('formC').submit();
 }
+
+//Readies the Fake-select module
+  jQuery(document).ready(function($) {
+    $('.fake-select').fakeSelect();
+  });
