@@ -18,7 +18,7 @@
         var pageid = "\""+ page + "\"";
 
 
-        var content = "<div class='panel-heading'>Panel heading</div>"+
+        var content = "<div class='panel-heading'>Pacientes ("+ data.length+")</div>"+
                       "<div class ='panel-body' >" +
                         "<table id='patients' class='table'>"+
                         "<tr><th>ID</th><th>Nome</th><th class='p_age'>Idade</th><th>Status</th><th>Ação</th></tr>";
@@ -53,7 +53,7 @@
 
         content += "<tr></td>";
         content += "</table>";
-        content += "<td><input onClick= 'handler()' id = 'addBtn' type ='button' value= 'Adicionar Paciente'";
+        content += "<td><input onClick= 'handler()' id = 'addBtn' style='width:100%' type ='button' value= 'Adicionar Paciente'";
         content += "class = 'btn btn-success'/></tr>" + "</div>" //panel body;
 
         form.html(content);

@@ -78,11 +78,6 @@ body
   min-width:60vw;
 }
 
-th
-{
-    border-bottom:1px solid black;
-}
-
 .form-norm{
     height:auto;
 }
@@ -100,19 +95,6 @@ th
     min-height:40vw;
     height:auto;
 }
-
-/*#patient_list
-{
-    padding:1.5em;
-    margin:auto;
-    min-width:60%;
-    background-color:white;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    border-radius:5px;
-    margin-bottom:5em;
-    margin-top: 1.5em;
-    width:auto;
-}*/
 
 #patient_list .tc:hover, #labresults_list .tc:hover
 {
