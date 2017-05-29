@@ -44,7 +44,7 @@ body
 .content{
     font-family:Helvetica, Arial;
     color:#EEEEEE;
-    font-size: calc(2vw + 10px);
+    font-size: calc(2vw + 0.25vw);
 }
 
 .table{
