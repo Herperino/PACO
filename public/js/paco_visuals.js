@@ -38,7 +38,7 @@
                 content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
                 content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
                 content += "<td class = 'p_status' value = '" + count + "'>" + status[data[count].p_status] + "</td>";
-                content += "<td> <select class = 'fake-select form-control coolbuttons' data-style='btn-success' id = 'ptt_" + data[count].patientid +
+                content += "<td> <select class = 'fake-select' data-style='btn-success' id = 'ptt_" + data[count].patientid +
                 "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
                 "<option value='nada'>Selecione</option>"+
                 "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
