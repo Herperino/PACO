@@ -5,6 +5,11 @@ body
      position:relative;
 }
 
+.fake-select{
+
+  width:100%;
+}
+
 .marginless{
     margin:0;
     padding:0;
