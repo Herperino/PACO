@@ -101,7 +101,7 @@ th
     height:auto;
 }
 
-#patient_list
+/*#patient_list
 {
     padding:1.5em;
     margin:auto;
@@ -112,13 +112,7 @@ th
     margin-bottom:5em;
     margin-top: 1.5em;
     width:auto;
-}
-
-.p_age, .p_name, .p_id, .p_status
-{
-    text-align:auto;
-    padding-bottom: 10px;
-}
+}*/
 
 #patient_list .tc:hover, #labresults_list .tc:hover
 {
