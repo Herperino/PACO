@@ -53,11 +53,9 @@
     <div id="patient_list" class = "panel panel-default">
         <script>
             showPatients("acompanhamento.php");
-
-             $(document).ready(function() {
-                    $('#patients').stacktable();
-                    }
-                )
+            window.onload = function(){
+                $('#patients').stacktable();
+            }
 
         </script>
     </div>
