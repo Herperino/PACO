@@ -1,6 +1,6 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
   #patients
   {visibility: hidden;}
 }
