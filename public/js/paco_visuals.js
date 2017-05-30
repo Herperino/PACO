@@ -330,5 +330,5 @@ function submitModal(){
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();
-
+    $('#patients').stacktable({myClass:'table'});
   });
