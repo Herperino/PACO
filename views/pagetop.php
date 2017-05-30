@@ -16,7 +16,7 @@
         <script src="/js/stacktable.js"></script>
 
         <!-- http://jquery.com/ -->
-        <script src="/js/jquery-1.11.3.min.js"></script>
+        <script src="/js/libs/jquery-1.11.3.min.js"></script>
 
         <!-- https://github.com/twitter/typeahead.js/ -->
         <script src="/js/typeahead.jquery.min.js"></script>
