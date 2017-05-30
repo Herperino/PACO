@@ -330,19 +330,55 @@ function submitModal(){
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();
+
+    $(function(){
+      $('#patients').ngResponsiveTables({
+      smallPaddingCharNo: 13,
+      mediumPaddingCharNo: 18,
+      largePaddingCharNo: 30
+    });
+});
+
+
   });
 
-  var headertext = [],
-  headers = document.querySelectorAll("#patients th"),
-  tablerows = document.querySelectorAll("#patients th"),
-  tablebody = document.querySelector("#patients tbody");
+/**
+* NG Responsive Tables v1.1
+* Inspiration: http://css-tricks.com/examples/ResponsiveTables/responsive.php
+* Author: Tomislav Matijević
+* List of functions:
+* - targetTable: Searches for each table row , find td and take its current index.
+*      Apply to that index same index of table head or td in first table row ( in case there are no table header applied )
+* - checkForTableHead: If there is no table head defined, use td in first table row as table head (prevention mode)
+*/
 
-for(var i = 0; i < headers.length; i++) {
-  var current = headers[i];
-  headertext.push(current.textContent.replace(/\r?\n|\r/,""));
-} 
-for (var i = 0, row; row = tablebody.rows[i]; i++) {
-  for (var j = 0, col; col = row.cells[j]; j++) {
-    col.setAttribute("data-th", headertext[j]);
-  } 
-}
+;(function ($) {
+    $.fn.ngResponsiveTables = function() {
+        return this.each(function(){
+            var dataContent = '',
+                $this = $(this),
+                init = function(){
+                    targetTable();
+                },
+                targetTable = function(){
+                    $this.find('tr').each(function(){
+                        $(this).find('td').each(function(i, v){
+                            checkForTableHead($(this), i);
+                            $(this).addClass('tdno' + i);
+                        });
+                    });
+                },
+                checkForTableHead = function(element, index){
+                    if ($this.find('th').length ){
+                        dataContent = $this.find('th')[index].textContent;
+                    } else {
+                        dataContent = $this.find('tr:first td')[index].textContent;
+                    }
+                    element.wrapInner('<div class="td-text"></div>').attr('data-content', dataContent);
+                };
+
+            init();
+        });
+    };
+
+}( jQuery ));

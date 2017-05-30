@@ -131,36 +131,20 @@ body
   overflow-x:auto;
 }
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
-table#patients { 
-  margin: 0 auto;
-  border-collapse: collapse;
-  font-family: Agenda-Light, sans-serif;
-  font-weight: 100; 
-  text-rendering: optimizeLegibility;
-  border-radius: 5px; 
-}
-table#patients thead th { font-weight: 600; }
-table#patients thead th, table#patients tbody td { 
-  padding: .8rem; font-size: 1.4rem;
-}
-table#patients tbody td { 
-  padding: .8rem; font-size: 1.4rem;
-}
-table#patients tbody tr:not(:last-child) { 
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;  
-}
 
-@media screen and (max-width: 600px) {
-  table#patients caption { background-image: none; }
-  table#patients thead { display: none; }
-  table#patients tbody td { 
-    display: block; padding: .6rem; 
-  }
-  table#patients tbody td:before { 
-    content: attr(data-th); 
-    font-weight: bold;
-    display: inline-block;
-    width: 6rem;  
-  }
+@media (max-width: 480px) {
+    /* CSS Responsive table */
+    table.responsive,
+    table.responsive thead,
+    table.responsive tbody,
+    table.responsive th,
+    table.responsive td,
+    table.responsive tr {display:block;}
+    table.responsive thead tr {position:absolute; top:-9999px; left:-9999px;}
+    table.responsive tr {border:1px solid #ccc; margin-bottom:10px;}
+    table.responsive td {border:none; border-bottom:1px solid #eee; position:relative; padding:12px 5%; width:100%;}
+    table.responsive td::before,
+    table.responsive td .td-text {float:left; width:50%;}
+    table.responsive td::before {width:50%; padding-right:15px; text-align:left; content:attr(data-content); display:block;}
+    table.responsive td::after {content:""; display:table; clear:both;}
 }
