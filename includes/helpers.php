@@ -117,13 +117,27 @@ function displayPrescription($prescriptions){
         else
         print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
       }
-      print("<td>");
-      print("<button  data-patient =" . (string)$prescription['patientID'] ."
-      data-operation = \"PRESCRIPTION_EDIT\"
-      data-timestamp ='" . (string)$prescription['date'] .
-      "' type = 'button' onClick = 'prescriptionHandler(this)'
-      class= 'btn btn-success' value='Editar Prescrição'>".
-      "<span class='glyphicon glyphicon-pencil'></span> Editar</button>"); print("</td></tr></div>");}}
+      print("<td>
+
+              <button  data-patient =" . (string)$prescription['patientID'] ."
+                       data-operation = \"PRESCRIPTION_EDIT\"
+                       data-timestamp ='" . (string)$prescription['date'] ."' 
+                       type = 'button' onClick = 'prescriptionHandler(this)'
+                       class= 'btn btn-success' value='Editar Prescrição'>".
+                        "<span class='glyphicon glyphicon-comment'></span>
+              </button>   
+
+
+            </td>");
+      print("<td>
+              
+              <button  data-patient =" . (string)$prescription['patientID'] ."
+                       data-operation = \"PRESCRIPTION_EDIT\"
+                       data-timestamp ='" . (string)$prescription['date'] ."' 
+                       type = 'button' onClick = 'prescriptionHandler(this)'
+                       class= 'btn btn-success' value='Editar Prescrição'>".
+                        "<span class='glyphicon glyphicon-pencil'></span> Editar</button>"); 
+      print("</td></tr></div>");}}
     }
 
     /**
