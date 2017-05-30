@@ -325,9 +325,9 @@ function submitModal(){
   });
 
 // Run on window load instead of on DOM Ready in case images or other scripts affect element widths
-$(window).on('load', function() {
+$(document).on('load', function() {
   // Check all tables. You may need to be more restrictive.
-  $('table').each(function() {
+  $('.table').each(function() {
     var element = $(this);
     // Create the wrapper element
     var scrollWrapper = $('<div />', {
