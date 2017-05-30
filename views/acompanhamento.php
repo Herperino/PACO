@@ -50,7 +50,7 @@
 <div class = 'container'>
     <div class = 'page-header'><h2>Acompanhamento de prescrições</h2></div>
     <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
-    <div id="patient_list" class = "panel panel-default" style="overflow-x:scroll">
+    <div id="patient_list" class = "panel panel-default">
         <script>
             showPatients("acompanhamento.php");
         </script>
