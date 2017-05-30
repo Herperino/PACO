@@ -20,8 +20,7 @@
 
         var content = "<div class='panel-heading'>Pacientes ("+ data.length+")</div>"+
                         "<div class ='panel-body'>" +
-                          "<div class = 'wrapper'>"+
-                          "<table id='patients' class='table'>"+
+                          "<div class = 'wrapper'><table id='patients' class='table'>"+
                             "<tr>"+
                               "<th>ID</th>"+
                               "<th>Nome</th>"+
