@@ -19,8 +19,8 @@
 
 
         var content = "<div class='panel-heading'>Pacientes ("+ data.length+")</div>"+
-                      "<div class ='panel-body' style='overflow-x:auto'>" +
-                        "<div style='overflow-x:scroll'> <table id='patients' class='table'>"+
+                      "<div class ='panel-body'>" +
+                        "<table id='patients' class='table'>"+
                         "<tr><th>ID</th><th>Nome</th><th class='p_age'>Idade</th><th>Status</th><th>Ação</th></tr>";
 
         for (var count = 0; count < patients; count++)
@@ -52,7 +52,7 @@
             }
 
         content += "<tr></td>";
-        content += "</table></div>";
+        content += "</table>";
         content += "<td><input onClick= 'handler()' id = 'addBtn' style='width:100%' type ='button' value= 'Adicionar Paciente'";
         content += "class = 'btn btn-success'/></tr>" + "</div>" //panel body;
 
