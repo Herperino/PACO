@@ -65,6 +65,8 @@
           "</div>" //panel body;
 
         form.html(content);
+
+        $('#patients').stacktable();
     });
 }
 
