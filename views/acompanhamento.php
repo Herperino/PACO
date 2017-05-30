@@ -53,6 +53,7 @@
     <div id="patient_list" class = "panel panel-default">
         <script>
             showPatients("acompanhamento.php");
+            $('#patients').stacktable({myClass:'table'});
         </script>
     </div>
 </div> <!-- end container-->
