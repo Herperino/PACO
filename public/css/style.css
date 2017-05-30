@@ -2,7 +2,7 @@
 
 @media screen and (max-width: 480px) {
   #patients
-  {visibility: hidden;}
+  {visibility: none;}
 }
 
 body
@@ -111,40 +111,4 @@ body
     display:inline-block;
 
 }
-
-.scrollable.has-scroll {
-  position:relative;
-  overflow:hidden; /* Clips the shadow created with the pseudo-element in the next rule. Not necessary for the actual scrolling. */
-}
-.scrollable.has-scroll:after {
-  position:absolute;
-  top:0;
-  left:100%;
-  width:50px;
-  height:100%;
-  border-radius:10px 0 0 10px / 50% 0 0 50%;
-  box-shadow:-5px 0 10px rgba(0, 0, 0, 0.25);
-  content:'';
-}
-/* This is the element whose content will be scrolled if necessary */
-.scrollable.has-scroll > div {
-  overflow-x:auto;
-}
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
-
-@media (max-width: 480px) {
-    /* CSS Responsive table */
-    table.responsive,
-    table.responsive thead,
-    table.responsive tbody,
-    table.responsive th,
-    table.responsive td,
-    table.responsive tr {display:block;}
-    table.responsive thead tr {position:absolute; top:-9999px; left:-9999px;}
-    table.responsive tr {border:1px solid #ccc; margin-bottom:10px;}
-    table.responsive td {border:none; border-bottom:1px solid #eee; position:relative; padding:12px 5%; width:100%;}
-    table.responsive td::before,
-    table.responsive td .td-text {float:left; width:50%;}
-    table.responsive td::before {width:50%; padding-right:15px; text-align:left; content:attr(data-content); display:block;}
-    table.responsive td::after {content:""; display:table; clear:both;}
-}
