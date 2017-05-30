@@ -53,12 +53,6 @@ body
     font-size: calc(90% + 0.25vw);
 }
 
-.table{
-    table-layout:auto;
-    min-width:60px;
-    overflow-x:auto;
-}
-
 .landing
 {
     position:absolute;
@@ -111,9 +105,4 @@ body
 
     display:inline-block;
 
-}
-
-.tc{
-
-  min-width:400px;
 }
