@@ -130,3 +130,34 @@ body
 .scrollable.has-scroll > div {
   overflow-x:auto;
 }
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+table#patients thead th { font-weight: 600; }
+table#patients thead th, table#patients tbody td { 
+  padding: .8rem; font-size: 1.4rem;
+}
+table#patients tbody td { 
+  padding: .8rem; font-size: 1.4rem;
+  color: #444; background: #eee; 
+}
+table#patients tbody tr:not(:last-child) { 
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  
+}
+
+@media screen and (max-width: 600px) {
+  table#patients caption { background-image: none; }
+  table#patients thead { display: none; }
+  table#patients tbody td { 
+    display: block; padding: .6rem; 
+  }
+  table#patients tbody tr td:first-child { 
+    background: #666; color: #fff; 
+  }
+  table#patients tbody td:before { 
+    content: attr(data-th); 
+    font-weight: bold;
+    display: inline-block;
+    width: 6rem;  
+  }
+}
