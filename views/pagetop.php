@@ -17,6 +17,8 @@
 
         <!-- http://jquery.com/ -->
         <script src="/js/libs/jquery-1.11.3.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js"><\/script>')</script> </script>
+
 
         <!-- https://github.com/twitter/typeahead.js/ -->
         <script src="/js/typeahead.jquery.min.js"></script>
