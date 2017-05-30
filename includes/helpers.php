@@ -122,7 +122,7 @@ function displayPrescription($prescriptions){
               <button  data-patient =" . (string)$prescription['patientID'] ."
                        data-operation = \"PRESCRIPTION_EDIT\"
                        data-timestamp ='" . (string)$prescription['date'] ."' 
-                       type = 'button' onClick = 'prescriptionHandler(this)'
+                       type = 'button' onClick = 'alert('Função de comentários em construção')'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
               </button>   
