@@ -56,7 +56,9 @@
                 console.log("This should've worked");
                 
 
-                return $('#patients').stacktable();
+                $(document).ready(function() {
+                    $('#patients').stacktable();
+                    }
             });
 
 
