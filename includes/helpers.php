@@ -122,7 +122,7 @@ function displayPrescription($prescriptions){
       data-operation = \"PRESCRIPTION_EDIT\"
       data-timestamp ='" . (string)$prescription['date'] .
       "' type = 'button' onClick = 'prescriptionHandler(this)'
-      class= 'btn btn-success' value='Editar Prescrição'>"+
+      class= 'btn btn-success' value='Editar Prescrição'>".
       "<span class='glyphicon glyphicon-pencil'></span> Editar</button>"); print("</td></tr></div>");}}
     }
 
