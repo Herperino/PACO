@@ -8,6 +8,7 @@ body
 .fake-select{
 
   width:100%;
+  min-width:150px;
 }
 
 .marginless{
@@ -76,13 +77,6 @@ body
      margin-top: 1em;
      width: auto;
      border-radius:7px;
-}
-
-#patient_list .tc{
-
-  table-layout:fixed;
-  min-width:150px;
-
 }
 
 .panel{
