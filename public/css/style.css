@@ -80,6 +80,7 @@ body
 
 #patient_list .tc{
 
+  table-layout:fixed;
   min-width:150px;
 
 }
