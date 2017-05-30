@@ -19,15 +19,20 @@
 
 
         var content = "<div class='panel-heading'>Pacientes ("+ data.length+")</div>"+
-                      "<div class ='panel-body'>" +
-                        "<table id='patients' class='table'>"+
-                        "<tr><th>ID</th><th>Nome</th><th class='p_age'>Idade</th><th>Status</th><th>Ação</th></tr>";
+                        "<div class ='panel-body'>" +
+                          "<table id='patients' class='table'>"+
+                            "<tr>"+
+                              "<th>ID</th>"+
+                              "<th>Nome</th>"+
+                              "<th class='p_age'>Idade</th>"+
+                              "<th>Status</th>"+
+                              "<th>Ação</th>"+
+                            "</tr>";
 
         for (var count = 0; count < patients; count++)
             {
-
                 var rowindex = "row_" + count;
-                var status = ["inativo", "ativo"];
+                var status = ["Inativo", "Ativo"];
 
                 if (data[count].p_status != "0"){
                     content += "<tr class = 'tc'  id= '" + rowindex + "'>" ;
@@ -36,11 +41,12 @@
                     content += "<tr class = 'tc'  id= '" + rowindex + "' style = 'color:gray'>" ;
                 }
 
-                content += "<td class = 'p_id' value = '" + count + "'>" + data[count].patientid + "</td>";
-                content += "<td class = 'p_name' value = '" + count + "'>" + data[count].patientname + "</td>";
-                content += "<td class = 'p_age' value ='" + count + "'>" + data[count].patientage + "</td>";
-                content += "<td class = 'p_status' value = '" + count + "'>" + status[data[count].p_status] + "</td>";
-                content += "<td> <select class = 'fake-select' data-style='btn-success' id = 'ptt_" + data[count].patientid +
+                content += "<td value = '" + count + "'>" + data[count].patientid + "</td>";
+                content += "<td value = '" + count + "'>" + data[count].patientname + "</td>";
+                content += "<td value ='" + count + "'>" + data[count].patientage + "</td>";
+                content += "<td value = '" + count + "'>" + status[data[count].p_status] + "</td>";
+                content += "<td> <select class = 'fake-select' data-style='btn-success'"+
+                "id = 'ptt_" + data[count].patientid +
                 "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
                 "<option value='nada'>Selecione</option>"+
                 "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
@@ -51,10 +57,12 @@
 
             }
 
-        content += "<tr></td>";
         content += "</table>";
-        content += "<td><input onClick= 'handler()' id = 'addBtn' style='width:100%' type ='button' value= 'Adicionar Paciente'";
-        content += "class = 'btn btn-success'/></tr>" + "</div>" //panel body;
+        content += "<input onClick= 'handler()'"+
+        "id = 'addBtn' style='width:100%' "+
+        "type ='button' value= 'Adicionar Paciente'"+
+        "class = 'btn btn-success'/>" + 
+          "</div>" //panel body;
 
         form.html(content);
     });
