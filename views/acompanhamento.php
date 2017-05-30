@@ -53,15 +53,13 @@
     <div id="patient_list" class = "panel panel-default">
         <script>
             $.when(showPatients("acompanhamento.php")).then(function(){
-                console.log("This should've worked");
-                
+                console.log("This should've worked");               
 
                 $(document).ready(function() {
                     $('#patients').stacktable();
                     }
+                )
             });
-
-
 
         </script>
     </div>
