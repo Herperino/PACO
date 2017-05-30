@@ -11,6 +11,10 @@
         <!-- File's CSS stylesheet -->
         <link href = "/css/style.css" rel="stylesheet"/>
 
+        <!-- Stacktable's files -->
+        <link href = "/css/Stacktable.css" rel="stylesheet"/>
+        <script src="/js/stacktable.js"></script>
+
         <!-- http://jquery.com/ -->
         <script src="/js/jquery-1.11.3.min.js"></script>
 
