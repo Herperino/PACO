@@ -220,3 +220,6 @@ function handler(){
         var event = { selectedIndex: 5, id: "supergambiarra"}
         patientHandler(event);
     }
+
+//Calls stacktable
+$('#patients').stacktable();    
