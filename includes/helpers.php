@@ -118,12 +118,12 @@ function displayPrescription($prescriptions){
         print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
       }
       print("<td>");
-      print("<input  data-patient =" . (string)$prescription['patientID'] ."
+      print("<button  data-patient =" . (string)$prescription['patientID'] ."
       data-operation = \"PRESCRIPTION_EDIT\"
       data-timestamp ='" . (string)$prescription['date'] .
       "' type = 'button' onClick = 'prescriptionHandler(this)'
       class= 'btn btn-success' value='Editar Prescrição'>"+
-      "<span class='glyphicon glyphicon-pencil'></span> Editar</input>"); print("</td></tr></div>");}}
+      "<span class='glyphicon glyphicon-pencil'></span> Editar</button>"); print("</td></tr></div>");}}
     }
 
     /**
