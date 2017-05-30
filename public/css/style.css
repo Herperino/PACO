@@ -136,7 +136,6 @@ table#patients {
   border-collapse: collapse;
   font-family: Agenda-Light, sans-serif;
   font-weight: 100; 
-  color: #fff;
   text-rendering: optimizeLegibility;
   border-radius: 5px; 
 }
@@ -146,7 +145,6 @@ table#patients thead th, table#patients tbody td {
 }
 table#patients tbody td { 
   padding: .8rem; font-size: 1.4rem;
-  color: #444; 
 }
 table#patients tbody tr:not(:last-child) { 
   border-top: 1px solid #ddd;
@@ -158,9 +156,6 @@ table#patients tbody tr:not(:last-child) {
   table#patients thead { display: none; }
   table#patients tbody td { 
     display: block; padding: .6rem; 
-  }
-  table#patients tbody tr td:first-child { 
-    ; color: #fff; 
   }
   table#patients tbody td:before { 
     content: attr(data-th); 
