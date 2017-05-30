@@ -54,7 +54,9 @@
         <script>
             $.when(showPatients("acompanhamento.php")).then(function(){
                 console.log("This should've worked");
-                $('#patients').stacktable();    
+                
+
+                return $('#patients').stacktable();
             });
 
 
