@@ -11,10 +11,6 @@
         <!-- File's CSS stylesheet -->
         <link href = "/css/style.css" rel="stylesheet"/>
 
-        <!-- Stacktable's files -->
-        <link href = "/css/Stacktable.css" rel="stylesheet"/>
-        <script src="/js/stacktable.js"></script>
-
         <!-- http://jquery.com/ -->
         <script src="/js/libs/jquery-1.11.3.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js"><\/script>')</script> </script>
@@ -22,7 +18,11 @@
 
         <!-- https://github.com/twitter/typeahead.js/ -->
         <script src="/js/typeahead.jquery.min.js"></script>
-
+        
+        <!-- Stacktable's files -->
+        <link href = "/css/Stacktable.css" rel="stylesheet"/>
+        <script src="/js/stacktable.js"></script>
+        
         <!-- http://getbootstrap.com/ -->
         <script src="/js/bootstrap.min.js"></script>
 
