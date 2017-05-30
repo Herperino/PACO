@@ -52,7 +52,7 @@
     <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
     <div id="patient_list" class = "panel panel-default">
         <script>
-            $.when(showPatients("acompanhamento.php")).then(function2(){
+            $.when(showPatients("acompanhamento.php")).then(function(){
 
                 $('#patients').stacktable();                
             });
