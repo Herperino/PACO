@@ -21,11 +21,6 @@ body
     padding:0;
 }
 
-#patients{
-
-  min-width: 400px;
-}
-
 .pagebottom{
   padding: 1rem;
   height:50px;
