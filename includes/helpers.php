@@ -229,10 +229,9 @@ function displayPrescription($prescriptions){
         foreach ($_POST as $key => $value){
 
           if ($value == "")
-            $value = NULL;
+            $value = 0;
 
         }
-
 
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
