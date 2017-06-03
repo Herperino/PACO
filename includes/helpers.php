@@ -227,10 +227,8 @@ function displayPrescription($prescriptions){
 
         //Checks for empty strings. If found, changes them to null
         foreach ($_POST as $key => $value){
-
-          if ($value == "")
-            $value = 0;
-
+            
+     echo "POST parameter '$key' has '$value'";
         }
 
 
