@@ -20,7 +20,7 @@
         <script src="/js/typeahead.jquery.min.js"></script>
         
         <!-- Stacktable's files -->
-        <link href = "/css/Stacktable.css" rel="stylesheet"/>
+        <link href = "/css/stacktable.css" rel="stylesheet"/>
         <script src="/js/stacktable.js"></script>
         
         <!-- http://getbootstrap.com/ -->

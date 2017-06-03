@@ -225,7 +225,15 @@ function displayPrescription($prescriptions){
 
       function addResults($patientID,$conn){
 
-        //Concatenates the prescription data into a single k/v array. On TGO/TGP the slash has to be escaped
+        //Checks for empty strings. If found, changes them to null
+        foreach ($_POST as $value){
+
+          if ($value == '')
+            $value = NULL;
+
+        }
+
+
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
@@ -235,7 +243,7 @@ function displayPrescription($prescriptions){
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
                   '".$_POST['cr']."','".$_POST['k']."','".$_POST['na']."','".$_POST['leuco']."',
-                  '".$_POST['inr']."','".$_POST['pcr']."','".$_POST['tgo/tpg']."', '".$_POST['outros']."')");
+                  '".$_POST['inr']."','".$_POST['pcr']."','".$_POST['tgo&tpg']."', '".$_POST['outros']."')");
 
         }
 
