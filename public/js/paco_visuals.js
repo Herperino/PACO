@@ -172,19 +172,19 @@ function renderLabForm(parameters){
   form += "<input class='form-norm' name='na' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Leucócitos
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>Leucócitos</label><br>"
-  form += "<input class='form-norm' name='leuco' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='leuco' type='text' placeholder='12000 celulas/dL'></input></div>";
   //INR
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>INR</label><br>"
-  form += "<input class='form-norm' name='inr' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='inr' type='text' placeholder='1.0 mmol/L'></input></div>";
   //PCR
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>PCR</label><br>"
-  form += "<input class='form-norm' name='pcr' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='pcr' type='text' placeholder='0.3 '></input></div>";
   //TGO e TGP
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>TGO/TGP</label><br>"
-  form += "<input class='form-norm' name='tgo/tgp' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='tgo/tgp' type='text' placeholder='3'></input></div>";
   //Outros
   form += "<div class ='col-sm-12 col-md-12 col-xs-12'><label>Outros Exames</label><br>"
-  form += "<input class='form-ext' name='outros' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-ext' name='outros' type='text' placeholder='Insira resultados de outros exames aqui'></input></div>";
 
   form += "</div>"; //End row div
 

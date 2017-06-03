@@ -231,7 +231,7 @@ function displayPrescription($prescriptions){
                                                       \"hgb\",\"hemacias\", \"hct\",
                                                       \"ureia\",\"cr\",\"k\",\"na\",
                                                       \"leuco\",\"inr\",\"pcr\",\"tgo/tgp\",
-                                                      \"outros\",)
+                                                      \"outros\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
                   '".$_POST['cr']."','".$_POST['k']."','".$_POST['na']."','".$_POST['leuco']."',
