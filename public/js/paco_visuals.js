@@ -169,7 +169,7 @@ function renderLabForm(parameters){
   form += "<input class='form-norm' name='k' type='text' placeholder='4.5 mmol/L'></input></div>";
   //Sódio
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>Sódio</label><br>"
-  form += "<input class='form-norm' name='na' type='text' placeholder='4.5 mmol/L'></input></div>";
+  form += "<input class='form-norm' name='na' type='text' placeholder='4130.0 mmol/L'></input></div>";
   //Leucócitos
   form += "<div class ='col-sm-4 col-md-4 col-xs-12'><label>Leucócitos</label><br>"
   form += "<input class='form-norm' name='leuco' type='text' placeholder='12000 celulas/dL'></input></div>";

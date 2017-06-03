@@ -225,12 +225,12 @@ function displayPrescription($prescriptions){
 
       function addResults($patientID,$conn){
 
-        //Concatenates the prescription data into a single k/v array
+        //Concatenates the prescription data into a single k/v array. On TGO/TGP the slash has to be escaped
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
                                                       \"ureia\",\"cr\",\"k\",\"na\",
-                                                      \"leuco\",\"inr\",\"pcr\",\"tgo/tgp\",
+                                                      \"leuco\",\"inr\",\"pcr\",\"tgo"."/"."tgp\", 
                                                       \"outros\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
