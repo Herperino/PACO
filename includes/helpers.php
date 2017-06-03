@@ -230,7 +230,7 @@ function displayPrescription($prescriptions){
         pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
                                                       \"ureia\",\"cr\",\"k\",\"na\",
-                                                      \"leuco\",\"inr\",\"pcr\",\"tgo"."/"."tgp\", 
+                                                      \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\", 
                                                       \"outros\")
           VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
