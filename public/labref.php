@@ -29,7 +29,7 @@
         }
         else if (strcmp($_POST['operation'],'LAB_EDIT') == 0){
 
-            editResult($patientID,$conn);
+            editResults($patientID,$conn);
         }
         else if(strcmp($_POST['operation'],'DELETE_LAB')){
           //Adds a row ignoring errors or warnings if no row is matched
