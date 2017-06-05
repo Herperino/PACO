@@ -281,10 +281,11 @@ function displayPrescription($prescriptions){
         //Checks for empty strings. If found, changes them to null
         foreach ($_POST as $key => $value){
 
-            if ($key == '')
-              $key = 0;
+            if ($value == '')
+              $value = 0;
         }
 
+        echo $_POST['timestamp'];
 
         pg_query($conn,"UPDATE public.\"labref\" SET
                       \"patientid\" = '".$patientID."',
