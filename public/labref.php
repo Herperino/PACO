@@ -22,7 +22,6 @@
         //Gets the patient name and ID for displaying.
         $name = getName($conn);
         $patientID = $_POST['patientID'];
-        echo $_POST['operation'];
 
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
 
@@ -34,7 +33,7 @@
         }
         else if(strcmp($_POST['operation'],'DELETE_LAB') == 0){
           //Adds a row ignoring errors or warnings if no row is matched
-          $query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
+          @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
         }
         else if(strcmp($_POST['operation'],'GET_LAB')){
           //Gets the last result as an array and return as a json object
