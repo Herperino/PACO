@@ -32,7 +32,7 @@
 
             editResults($patientID,$conn);
         }
-        else if(strcmp($_POST['operation'],'DELETE_LAB')){
+        else if(strcmp($_POST['operation'],'DELETE_LAB') == 0){
           //Adds a row ignoring errors or warnings if no row is matched
           $query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
         }
