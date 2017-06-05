@@ -142,7 +142,7 @@ function renderLabForm(parameters){
 
   //A few variables
   var info = 'Inserir resultado'; //A ser inserido como conteúdo do botão
-  var date = parameters.date; // Parameters.date comes from patient selector
+  var date = parameters['timestamp']; // Parameters.date comes from patient selector
   var choice = parameters['operation']; // Also comes from patient selector
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = "<div class ='row'>" //Form as an empty string that will be displayed
