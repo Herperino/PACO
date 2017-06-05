@@ -193,7 +193,7 @@ function displayPrescription($prescriptions){
               <button  data-patient =" . (string)$result['patientid'] ."
                        data-operation = \"LAB_EDIT\"
                        data-timestamp ='" . (string)$result['date'] ."' 
-                       type = 'button' onClick = 'prescriptionHandler(this)'
+                       type = 'button' onClick = 'labHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-pencil'></span></button>"); 
 
@@ -207,7 +207,12 @@ function displayPrescription($prescriptions){
     /**           FROM HERE ON ARE FUNCTIONS THAT WORK ON THE DATABASE                             */
     /** -------------------------------------------------------------------------------------------*/
 
-    /** Adds prescription values into the database. Requires a connection for pg_query */
+    /** Adds prescription values into the database. 
+    *   
+    *   $patientID is a valid ID received from the client-side
+    *   $conn is defined in config. Passed on due variable scope.
+    *
+    *   Requires a connection($conn) for pg_query */
     function addPrescription($patientID,$conn){
 
       //Concatenates the prescription data into a single k/v array
@@ -239,6 +244,14 @@ function displayPrescription($prescriptions){
         '".$prescriptions['med9']."','".$prescriptions['pos9']."',
         '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
       }
+
+
+    /** Adds lab result values into the database. 
+    *   
+    *   $patientID is a valid ID received from the client-side
+    *   $conn is defined in config. Passed on due variable scope.
+    *
+    *   Requires a connection($conn) for pg_query */
 
       function addResults($patientID,$conn){
 
@@ -273,15 +286,21 @@ function displayPrescription($prescriptions){
         }
 
 
-        pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
-                                                      \"hgb\",\"hemacias\", \"hct\",
-                                                      \"ureia\",\"cr\",\"k\",\"na\",
-                                                      \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\", 
-                                                      \"outros\")
-          VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
-                  '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
-                  '".$_POST['cr']."','".$_POST['k']."','".$_POST['na']."','".$_POST['leuco']."',
-                  '".$_POST['inr']."','".$_POST['pcr']."','".$_POST['tgo&tgp']."', '".$_POST['outros']."')");
+        pg_query($conn,"UPDATE public.\"labref\" SET
+                      \"patientid\" = '".$patientID."',
+                      \"userid\" = '".$_SESSION['id']."',
+                      \"hgb\" = '".$_POST['hgb']."',
+                      \"hemacias\" = '".$_POST['hemacias']."',
+                      \"hct\" = '".$_POST['hct']."',
+                      \"ureia\" = '".$_POST['ureia']."',
+                      \"cr\" = '".$_POST['cr']."',
+                      \"k\" = '".$_POST['k']."',
+                      \"na\" = '".$_POST['na']."',
+                      \"leuco\" = '".$_POST['leuco']."',
+                      \"inr\" = '".$_POST['inr']."',
+                      \"pcr\" = '".$_POST['pcr']."', 
+                      \"tgo&tgp\" = '".$_POST['tgo&tgp']."',
+                      \"outros\" = '".$_POST['outros']."'");
 
         }        
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
