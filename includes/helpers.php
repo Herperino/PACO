@@ -304,8 +304,8 @@ function displayPrescription($prescriptions){
                       \"outros\" = '".$_POST['outros']."'
                       WHERE 
                       \"date\" = '".$_POST['date']."' AND
-                      \"userID\" = '".$_SESSION['id']."'AND 
-                      \"patientID\" ='".$patientID."'
+                      \"userid\" = '".$_SESSION['id']."'AND 
+                      \"patientid\" ='".$patientID."'
                       ");
 
         }        
