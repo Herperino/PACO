@@ -120,7 +120,7 @@ function displayPrescription($prescriptions){
       print("<td>
 
               <button  data-patient =" . (string)$prescription['patientID'] ."
-                       data-operation = \"PRESCRIPTION_EDIT\"
+                       data-operation = \"COMMENT_THIS\"
                        data-timestamp ='" . (string)$prescription['date'] ."' 
                        type = 'button' onClick = 'console.log(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
@@ -175,12 +175,29 @@ function displayPrescription($prescriptions){
             }
           }
 
-          print("<td>");
-          print("<input  data-patient =" . (string)$result['patientid'] ."
-          data-operation = \"PRESCRIPTION_EDIT\"
-          data-timestamp ='" . (string)$result['date'] .
-          "' type = 'button' onClick = 'labHandler(this)'
-          class= 'btn btn-success' value='Editar Prescrição'/>");
+          print("<td>
+
+              <button  data-patient =" . (string)$result['patientid'] ."
+                       data-operation = \"COMMENT_THIS\"
+                       data-timestamp ='" . (string)$result['date'] ."' 
+                       type = 'button' onClick = 'console.log(this)'
+                       class= 'btn btn-default' value='Editar Prescrição'>".
+                        "<span class='glyphicon glyphicon-comment'></span>
+              </button>   
+
+
+            </td>");
+
+          print("<td>
+              
+              <button  data-patient =" . (string)$result['patientid'] ."
+                       data-operation = \"LAB_EDIT\"
+                       data-timestamp ='" . (string)$result['date'] ."' 
+                       type = 'button' onClick = 'prescriptionHandler(this)'
+                       class= 'btn btn-default' value='Editar Prescrição'>".
+                        "<span class='glyphicon glyphicon-pencil'></span></button>"); 
+
+          
           print("</td></tr></div>");
         }
       }
