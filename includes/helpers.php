@@ -302,7 +302,7 @@ function displayPrescription($prescriptions){
                       \"tgo&tgp\" = '".$_POST['tgo&tgp']."',
                       \"outros\" = '".$_POST['outros']."'
                       WHERE 
-                      \"date\" = '".$_POST['date']."' AND
+                      \"date\" = '".$_POST['timestamp']."' AND
                       \"userID\" = '".$_SESSION['id']."'AND 
                       \"patientID\" ='".$patientID."'
                       ");
