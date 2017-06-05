@@ -300,7 +300,12 @@ function displayPrescription($prescriptions){
                       \"inr\" = '".$_POST['inr']."',
                       \"pcr\" = '".$_POST['pcr']."', 
                       \"tgo&tgp\" = '".$_POST['tgo&tgp']."',
-                      \"outros\" = '".$_POST['outros']."'");
+                      \"outros\" = '".$_POST['outros']."'
+                      WHERE 
+                      \"date\" = '".$_POST['date']."' AND
+                      \"userID\" = '".$_SESSION['id']."'AND 
+                      \"patientID\" ='".$patientID."'
+                      ");
 
         }        
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
