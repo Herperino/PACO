@@ -139,7 +139,7 @@ function labHandler(event){
       var pkg_to_send = {operation: operation,
                          patientID: patientID,
                          timestamp: timestamp};
-
+      console.log(pkg_to_send);
       renderLabForm(pkg_to_send);
     }
 }

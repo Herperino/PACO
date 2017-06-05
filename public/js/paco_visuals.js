@@ -140,8 +140,6 @@ function renderLabForm(parameters){
   //For lab result handling, the controller has to be labref.php
   var controller = "labref.php";
 
-  console.log(parameters);
-
   //A few variables
   var info = 'Inserir resultado'; //A ser inserido como conteúdo do botão
   var date = parameters.date; // Parameters.date comes from patient selector
