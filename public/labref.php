@@ -33,7 +33,7 @@
         }
         else if(strcmp($_POST['operation'],'DELETE_LAB')){
           //Adds a row ignoring errors or warnings if no row is matched
-          @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
+          $query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$_POST['timestamp']."'");
         }
         else if(strcmp($_POST['operation'],'GET_LAB')){
           //Gets the last result as an array and return as a json object
