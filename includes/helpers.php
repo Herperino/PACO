@@ -285,7 +285,7 @@ function displayPrescription($prescriptions){
               $value = 0;
         }
 
-        echo $_POST['timestamp'];
+        echo $_POST['date'];
 
         pg_query($conn,"UPDATE public.\"labref\" SET
                       \"patientid\" = '".$patientID."',
@@ -303,7 +303,7 @@ function displayPrescription($prescriptions){
                       \"tgo&tgp\" = '".$_POST['tgo&tgp']."',
                       \"outros\" = '".$_POST['outros']."'
                       WHERE 
-                      \"date\" = '".$_POST['timestamp']."' AND
+                      \"date\" = '".$_POST['date']."' AND
                       \"userID\" = '".$_SESSION['id']."'AND 
                       \"patientID\" ='".$patientID."'
                       ");
