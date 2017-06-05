@@ -22,6 +22,7 @@
         //Gets the patient name and ID for displaying.
         $name = getName($conn);
         $patientID = $_POST['patientID'];
+        echo $_POST['operation'];
 
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
 
