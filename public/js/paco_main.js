@@ -6,6 +6,18 @@
   *  of the whole PACO platform.
   */
 
+
+/**Handles operations for the patients page
+*
+*  Operations may be one of:
+*  -EDIT: Edits a a given patient's info.
+*  -STATUS: Change current's patient status (active, inactive)
+*  -ADD: Inserts a new patient into the database
+*  -ACOMP: Operation to see a patient's prescription/results/notes
+*
+*  Requires a PatientID and the Operation.
+*  Timestamp required for EDIT_LAB and GET_LAB.
+**/
 function patientHandler(event){
 
     //Based on selectedIndex from the menu option
@@ -68,15 +80,14 @@ function patientHandler(event){
 
 }
 
-/** Event -> Controller response
- *  Request a response for the server given a page event.
- *
- *  Event can be:
- *  - ADD a prescription
- *  - EDIT a prescription
- *  - GET last prescription
- */
-
+/** 
+*  Handles operations for the prescriptions page.
+*
+*  The operations may be one of:
+*  - ADD a prescription
+*  - EDIT a prescription
+*  - GET last prescription
+**/
 function prescriptionHandler(event){
 
 
@@ -91,26 +102,20 @@ function prescriptionHandler(event){
                        patientID: patientID,
                        timestamp: timestamp};
 
-      getLastPrescription(pkg_to_send);
+    getLastPrescription(pkg_to_send);
 }
 
-function deleteEntry(event){
-
-  // important info to send
-  var target = document.location.href;
-  var patientID = event.dataset.patient;
-  var operation = event.dataset.operation;
-  var timestamp = event.dataset.timestamp;
-
-  //creates a package that will be sent as a request to the server
-  var pkg_to_send = {operation: operation,
-                     patientID: patientID,
-                     timestamp: timestamp};
-
-  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
-
-}
-
+/**
+*  Handles operations for the lab results page
+*
+*  Operations may be one of:
+*  -GET_LAB: Recover the last lab results from the server
+*  -ADD_LAB: Inserts a set of lab results into the database
+*  -EDIT_LAB: Edits a set of lab results on the server
+*
+*  Requires a PatientID and the Operation.
+*  Timestamp required for EDIT_LAB and GET_LAB.
+**/
 function labHandler(event){
 
 
@@ -170,6 +175,24 @@ function getLastPrescription(source){
                         date : timestamp};
         renderPrescriptionForm(to_form);
     });
+}
+
+/* Removes an entry from the database */
+function deleteEntry(event){
+
+  // important info to send
+  var target = document.location.href;
+  var patientID = event.dataset.patient;
+  var operation = event.dataset.operation;
+  var timestamp = event.dataset.timestamp;
+
+  //creates a package that will be sent as a request to the server
+  var pkg_to_send = {operation: operation,
+                     patientID: patientID,
+                     timestamp: timestamp};
+
+  $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
+
 }
 
 function validate(){

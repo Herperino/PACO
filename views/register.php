@@ -3,7 +3,7 @@
 <?php if($_SERVER['REQUEST_METHOD'] == "GET"):?>
 <div class ="container">
     <div class = "row">
-        <div class = 'offset-md-2 col-x-10 col-md-8'>
+        <div class = 'offset-md-2 col-xs-10 col-md-10 col-lg-10'>
             <h1>Registre-se no PACO</h1>
 
             <div class ="form-group">

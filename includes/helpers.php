@@ -245,6 +245,28 @@ function displayPrescription($prescriptions){
 
         }
 
+      //Edits labs results
+      function editResults($patientID,$conn){
+
+        //Checks for empty strings. If found, changes them to null
+        foreach ($_POST as $key => $value){
+
+            if ($key == '')
+              $key = 0;
+        }
+
+
+        pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
+                                                      \"hgb\",\"hemacias\", \"hct\",
+                                                      \"ureia\",\"cr\",\"k\",\"na\",
+                                                      \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\", 
+                                                      \"outros\")
+          VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
+                  '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
+                  '".$_POST['cr']."','".$_POST['k']."','".$_POST['na']."','".$_POST['leuco']."',
+                  '".$_POST['inr']."','".$_POST['pcr']."','".$_POST['tgo&tgp']."', '".$_POST['outros']."')");
+
+        }        
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
 
       function editPrescription($patientID,$conn){
