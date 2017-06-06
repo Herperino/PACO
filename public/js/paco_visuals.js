@@ -23,7 +23,11 @@
 
         var content = "<div class='panel-heading'>Pacientes ("+ patients+")</div>"+
                         "<div class ='panel-body'>" +
-                          "<div class = 'wrapper'><table id='patients' class='table'>"+
+                          "<div class = 'wrapper'>";
+
+        if (patients > 0){                          
+          
+          content += "<table id='patients' class='table'>"+
                             "<tr>"+
                               "<th>ID</th>"+
                               "<th>Nome</th>"+
@@ -31,6 +35,7 @@
                               "<th>Status</th>"+
                               "<th>Ação</th>"+
                             "</tr>";
+
 
         for (var count = 0; count < patients; count++)
             {
@@ -59,7 +64,7 @@
                 content += "</tr>"
 
             }
-
+        }
         content += "</table></div>";
         content += "<input onClick= 'handler()'"+
         "id = 'addBtn' style='width:100%' "+
