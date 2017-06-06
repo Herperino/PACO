@@ -287,11 +287,11 @@ function displayPrescription($prescriptions){
 
         echo $_POST['date'];
 
-        pg_query($conn,"UPDATE public.\"labref\" SET"
+        pg_query($conn,"UPDATE public.\"labref\" SET "
                       
                       .implode('AND',$query). //Implodes valid keys into the array
 
-                      "WHERE 
+                      " WHERE 
                       \"date\" = '".$_POST['date']."' AND
                       \"userid\" = '".$_SESSION['id']."'AND 
                       \"patientid\" ='".$patientID."'
