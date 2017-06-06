@@ -285,7 +285,7 @@ function displayPrescription($prescriptions){
               $query[$key] = $key ." = ". $value;
         }
 
-        var_dump($_POST);
+        echo implode(' , ',$query)
 
         pg_query($conn,"UPDATE public.\"labref\" SET "
                       
