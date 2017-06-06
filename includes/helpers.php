@@ -289,7 +289,7 @@ function displayPrescription($prescriptions){
 
         pg_query($conn,"UPDATE public.\"labref\" SET "
                       
-                      .implode('AND',$query). //Implodes valid keys into the array
+                      .implode(' AND ',$query). //Implodes valid keys into the array
 
                       " WHERE 
                       \"date\" = '".$_POST['date']."' AND
