@@ -316,13 +316,14 @@ function displayPrescription($prescriptions){
 
         foreach ($prescriptions as $key => $value){
 
-            $query = $key . " = '" . $value ."'";
+            $query[$key] = $key . " = '" . $value ."'";
 
         }
 
         pg_query("UPDATE public.\"prescriptions\" SET date = date, ."
             
             . implode(' , ', $query) .
+
           " WHERE \"date\" = '".$_POST['date']."' AND
                  \"userID\" = '".$_SESSION['id']."' AND 
                  \"patientID\" ='".$patientID."'");
