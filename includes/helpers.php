@@ -281,28 +281,17 @@ function displayPrescription($prescriptions){
         //Checks for empty strings. If found, changes them to null
         foreach ($_POST as $key => $value){
 
-            if ($value == '')
-              $value = 0;
+            if ($value != '')
+              $query[$key] = $key ." = ". $value;
         }
 
         echo $_POST['date'];
 
-        pg_query($conn,"UPDATE public.\"labref\" SET
-                      \"patientid\" = '".$patientID."',
-                      \"userid\" = '".$_SESSION['id']."',
-                      \"hgb\" = '".$_POST['hgb']."',
-                      \"hemacias\" = '".$_POST['hemacias']."',
-                      \"hct\" = '".$_POST['hct']."',
-                      \"ureia\" = '".$_POST['ureia']."',
-                      \"cr\" = '".$_POST['cr']."',
-                      \"k\" = '".$_POST['k']."',
-                      \"na\" = '".$_POST['na']."',
-                      \"leuco\" = '".$_POST['leuco']."',
-                      \"inr\" = '".$_POST['inr']."',
-                      \"pcr\" = '".$_POST['pcr']."', 
-                      \"tgo&tgp\" = '".$_POST['tgo&tgp']."',
-                      \"outros\" = '".$_POST['outros']."'
-                      WHERE 
+        pg_query($conn,"UPDATE public.\"labref\" SET"
+                      
+                      .implode('AND',$query). //Implodes valid keys into the array
+
+                      "WHERE 
                       \"date\" = '".$_POST['date']."' AND
                       \"userid\" = '".$_SESSION['id']."'AND 
                       \"patientid\" ='".$patientID."'
