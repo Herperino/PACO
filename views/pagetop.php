@@ -25,16 +25,9 @@
         <!-- http://getbootstrap.com/ -->
         <script src="/js/bootstrap.min.js"></script>
 
-         <!-- Material Design fonts -->
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-        <!-- Bootstrap Material Design -->
-        <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-material-design.css">
-        <link rel="stylesheet" type="text/css" href="dist/css/ripples.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 
