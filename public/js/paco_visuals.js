@@ -21,7 +21,7 @@
         var pageid = "\""+ page + "\"";
 
 
-        var content = "<div class='panel-heading'>Pacientes ("+ data.length+")</div>"+
+        var content = "<div class='panel-heading'>Pacientes ("+ patients+")</div>"+
                         "<div class ='panel-body'>" +
                           "<div class = 'wrapper'><table id='patients' class='table'>"+
                             "<tr>"+
