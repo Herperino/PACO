@@ -19,6 +19,11 @@ body
   border-radius:0px;
 }
 
+.panel-header{
+
+  background-color:white;
+}
+
 .btn{
 
   border-radius:0px; 
