@@ -320,7 +320,7 @@ function displayPrescription($prescriptions){
 
         }
 
-        pg_query("UPDATE public.\"prescriptions\" SET date = date, ."
+        pg_query("UPDATE public.\"prescriptions\" SET date = date, "
             
             . implode(' , ', $query) .
 
