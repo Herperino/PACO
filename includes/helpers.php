@@ -282,7 +282,7 @@ function displayPrescription($prescriptions){
         foreach ($_POST as $key => $value){
 
             if ($value != '' && $key != 'operation' && $key != 'patientID' )
-              $query[$key] = $key ." = ". $value;
+              $query[$key] = $key ." = '". $value "'";
         }
 
         //echo implode(' , ',$query)
