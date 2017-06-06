@@ -13,7 +13,7 @@
     $.getJSON("patients.php").done(function(data){
 
         var form = $('#patient_list');
-        var patients = data.length;
+        var patients = data.length || "0";
 
         var pageid = "\""+ page + "\"";
 
