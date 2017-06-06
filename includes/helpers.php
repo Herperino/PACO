@@ -316,7 +316,7 @@ function displayPrescription($prescriptions){
 
         foreach ($prescriptions as $key => $value){
 
-            $query = $key . " = " . $value ."'";
+            $query = $key . " = '" . $value ."'";
 
         }
 
