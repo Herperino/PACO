@@ -15,6 +15,15 @@ body
      position:relative;
 }
 
+.panel {
+  border-radius:0px;
+}
+
+.btn{
+
+  border-radius:0px; 
+}
+
 .fake-select{
 
   width:100%;
