@@ -314,20 +314,18 @@ function displayPrescription($prescriptions){
           $prescriptions[$currentP] = $_POST[$currentP];
         }
 
-        pg_query("UPDATE public.\"prescriptions\" SET date = date,
-          \"med1\" = '".$prescriptions['med1']."',\"pos1\" = '".$prescriptions['pos1']."',
-          \"med2\" = '".$prescriptions['med2']."',\"pos2\" = '".$prescriptions['pos2']."',
-          \"med3\" = '".$prescriptions['med3']."',\"pos3\" = '".$prescriptions['pos3']."',
-          \"med4\" = '".$prescriptions['med4']."',\"pos4\" = '".$prescriptions['pos4']."',
-          \"med5\" = '".$prescriptions['med5']."',\"pos5\" = '".$prescriptions['pos5']."',
-          \"med6\" = '".$prescriptions['med6']."',\"pos6\" = '".$prescriptions['pos6']."',
-          \"med7\" = '".$prescriptions['med7']."',\"pos7\" = '".$prescriptions['pos7']."',
-          \"med8\" = '".$prescriptions['med8']."',\"pos8\" = '".$prescriptions['pos8']."',
-          \"med9\" = '".$prescriptions['med9']."',\"pos9\" = '".$prescriptions['pos9']."',
-          \"med10\" = '".$prescriptions['med10']."',\"pos10\" = '".$prescriptions['pos10']."'
-          WHERE \"date\" = '".$_POST['date']."' AND
-          \"userID\" = '".$_SESSION['id']."'
-          AND \"patientID\" ='".$patientID."'");
+        foreach ($prescriptions as $key => $value){
+
+            $query = $key . " = " . $value ."'";
+
+        }
+
+        pg_query("UPDATE public.\"prescriptions\" SET date = date, ."
+            
+            . implode(' , ', $query) .
+          " WHERE \"date\" = '".$_POST['date']."' AND
+                 \"userID\" = '".$_SESSION['id']."' AND 
+                 \"patientID\" ='".$patientID."'");
         }
 
         /** Queries the database in order to get the current patient name for a given user **/
