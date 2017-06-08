@@ -373,6 +373,7 @@ function displayPrescription($prescriptions){
   */
   function editPatient($patientID, $conn){
 
+    echo "Fui chamado"
     //Edit the patient to contain html supported chars.
     $pname = htmlspecialchars($_POST['patient_name']);
 
