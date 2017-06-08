@@ -8,12 +8,16 @@
     {   
         print("<div class = 'jumbotron bg1'>
                     <div class='container'>
-                        <br><br>
+                        <br>
                             <div class= 'title' style='font-family:Helvetica' >
                                 <h1> PACO </h1>
                                 <h4> Programa de acompanhamento farmacoterapêutico</h4>
-                                <br>
                                 
+                                Seus pacientes em um só lugar                                
+
+                                <div>
+                                    <a href='register.php'><button type='button' class='btn btn-success'> Inscreva-se </button></a>
+                                </div>
                             </div>
                     </div>    
                 </div>
@@ -27,10 +31,8 @@
                                         O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento)
                                         para realizar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial
                                     
-                                        <br><br>
-                                        <div>
-                                            <a href='register.php'><button type='button' class='btn btn-success'> Inscreva-se </button></a>
-                                        </div>
+                                        <br>
+                                        
                                     </div>
                                 </div>
                     Mais conteúdo aqui explicando sobre o PACO
