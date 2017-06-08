@@ -34,9 +34,8 @@
                                     </div>
                                 </div>
                     Mais conteúdo aqui explicando sobre o PACO
-                </div>
-            
-        ");
+                </div>"
+        );
         
     }
 ?>
