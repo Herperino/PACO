@@ -365,59 +365,110 @@ function displayPrescription($prescriptions){
             else { pg_query($conn, "UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
           }
 
-          /** PatientID, database connection -> NULL
-          *  This part of the function will take patients new ID, name and age.
-          *  Query patients, lab and prescriptions to make changes to the user ID
-          *  or else it will fuck all the databases(prescriptions and labref)
-          *  A connection to the database must be passed
-          */
-          function editPatient($patientID, $conn){
+  /** PatientID, database connection -> NULL
+  *  This part of the function will take patients new ID, name and age.
+  *  Query patients, lab and prescriptions to make changes to the user ID
+  *  or else it will fuck all the databases(prescriptions and labref)
+  *  A connection to the database must be passed
+  */
+  function editPatient($patientID, $conn){
 
-          //Edit the patient to contain html supported chars.
-          $pname = htmlspecialchars($_POST['patient_name']);
+    //Edit the patient to contain html supported chars.
+    $pname = htmlspecialchars($_POST['patient_name']);
 
-          //If the patient ID remains the same
-          if ($_POST['new_id'] == $_POST['patientID']){
-            pg_query($conn,"UPDATE public.\"patients\" SET
-              patientname ='". $pname ."',
-              patientage = ". $_POST['patient_age'] ."
-              WHERE patientid = '". $_POST['patientID'] ."'");
-            }
-            //If the patientID changes.
-            else{
-              $new_id = $_POST['new_id'];
+    //Se o ID de paciente é mantido, atualiza seus dados
+    if ($_POST['new_id'] == $_POST['patientID']){
+      pg_query($conn,"UPDATE public.\"patients\" SET
+        patientname ='". $pname ."',
+        patientage = ". $_POST['patient_age'] ."
+        WHERE patientid = '". $_POST['patientID'] ."'");
+    }
 
-              //Here be queries updating the new ID into patients, labref and prescriptions
-              pg_query($conn,"UPDATE public.\"patients\" SET
-                patientid = '". $new_id ."',
-                patientname = '". $pname ."',
-                patientage = ". $_POST['patient_age'] ."
-                WHERE patientid = '".$_POST['patientID'] ."'");
+    //Se o ID de paciente é diferente, atualiza as tabelas
+    else{
+      $new_id = $_POST['new_id'];
 
-                pg_query($conn,"UPDATE public.\"prescriptions\" SET
-                  patientid = '". $new_id."'
-                  WHERE patientid ='". $_POST['patientID']."'");
+      //Verifica se há colisão de IDs
+      $check = pg_query($conn,"SELECT * FROM public.\"patients\" WHERE patientid = '".$new_id."'");
+      $colision = sizeof(pg_fetch_all($check)) > 0; //TRUE se o tamanho do array retornado é maior que 1;
 
-                  pg_query($conn,"UPDATE public.\"labref\" SET
-                    patientid = '". $new_id."'
-                    WHERE patientid ='". $_POST['patientID']."'");
-                  }
-                }
+      var_dump($colison);
+      echo "<br>";
+      var_dump(sizeof(pg_fetch_all($check));
+      echo "<br>";
+      var_dump(pg_fetch_all($check));
 
-                /** PatientID, page -> NULL
-                *  Adds a new patient to the database of patients
-                */
-    function addPatient($conn){
-        //TODO: Work on validation. No two ids should be the same for the same user.
+      if (!$colision){ //Se não houver colisão de IDs
 
-        $patientname = $_POST['patient_name'];
-        $patientage = $_POST['patient_age'];
-        $patientID = ltrim($_POST['new_id'],"0");
-        $userID = $_SESSION['id'];
+        //As queries para atualização de patients, prescriptions e labref
+        pg_query($conn,"UPDATE public.\"patients\" SET
+          patientid = '". $new_id ."',
+          patientname = '". $pname ."',
+          patientage = ". $_POST['patient_age'] ."
+          WHERE patientid = '".$_POST['patientID'] ."'");
 
-        //Insert a new patient into the patients database
-        pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-        values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
-        }
+        pg_query($conn,"UPDATE public.\"prescriptions\" SET
+          patientid = '". $new_id."'
+          WHERE patientid ='". $_POST['patientID']."'");
+
+        pg_query($conn,"UPDATE public.\"labref\" SET
+          patientid = '". $new_id."'
+          WHERE patientid ='". $_POST['patientID']."'");
+      }
+    }
+  }
+
+  /**----------------------------------------------- 
+  *  Inclui um novo paciente no banco de dados.
+  *  Informações do paciente, como $patientage e $patientID são oriundas
+  *  do formulário enviado por POST.
+  *
+  *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
+  *----------------------------------------------*/
+  function addPatient($conn){
+      //TODO: Work on validation. No two ids should be the same for the same user.
+
+      $patientname = $_POST['patient_name'];
+      $patientage = $_POST['patient_age'];
+      $patientID = ltrim($_POST['new_id'],"0");
+      $userID = $_SESSION['id'];
+
+      //Insert a new patient into the patients database
+      pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
+      values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
+      }
+
+
+  /** ------------------- Funções de Comentário------------------*/
+
+  /**
+  * /---------------------------------------------
+  * Recebe dados de paciente do servidor como $source
+  * $source deve ser recebido como um array via POST contendo:
+  * Timestamp, patientID, userID
+  * Desta fonte, a função deve retornar um JSON com os dados relevantes.
+  * ---------------------------------------------*/
+  function fetchData($source){
+    //TODO
+  }
+
+  /**
+  * /--------------------------------------------
+  * Insere um comentário no banco de dados
+  *
+  * $subject é um objeto retornado pela função fetchData()  
+  * Como estrutura de dados, $comment deve seguir o esquema de:
+  * AUTHOR, CONTENT, timestamp
+  * --------------------------------------------*/
+  function addComment($subject, $comment){
+    //TODO
+    //Create a template for comments
+  }
+
+  //Edita ou deleta um comentário
+  function editComment($commentID, $operation){
+    //TODO
+
+  }    
 
 ?>
