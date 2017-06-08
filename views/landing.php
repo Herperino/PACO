@@ -11,9 +11,14 @@
                         <br><br>
                             <div class= 'title' style='font-family:Helvetica' >
                                 <h1> PACO </h1>
-                                <h3> Programa de acompanhamento farmacoterapêutico</h3>
-                                 <br><br>
-                                <div class ='row'>
+                                <h4> Programa de acompanhamento farmacoterapêutico</h4>
+                                <br>
+                                
+                            </div>
+                    </div>    
+                </div>
+                <div class = 'jumbotron' id = 'Sobre'>
+                    <div class ='row'>
                                     <div class = 'content col-xs-12 col-sm-12 col-md-12 col-lg-12'>
                                         O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o 
                                         farmacêutico tem a responsabilidade de orientar o paciente, 
@@ -28,8 +33,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                    </div>    
+                    Mais conteúdo aqui explicando sobre o PACO
                 </div>
             
         ");
