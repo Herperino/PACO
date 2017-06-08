@@ -15,15 +15,6 @@ body
      position:relative;
 }
 
-.panel {
-  border-radius:0px;
-}
-
-.btn{
-
-  border-radius:0px; 
-}
-
 .fake-select{
 
   width:100%;
@@ -31,6 +22,7 @@ body
 }
 
 .marginless{
+    background-color:#FFFFFF;
     margin:0;
     padding:0;
 }
@@ -118,6 +110,11 @@ body
 #patient_list .tc:hover, #labresults_list .tc:hover
 {
     background-color: #EEEEEE;
+}
+
+.panel-heading{
+
+  background-color:#DDDDDD;
 }
 
 .panel{
