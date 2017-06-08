@@ -13,8 +13,11 @@
                                 <h1> PACO </h1>
                                 <h4> Programa de acompanhamento farmacoterapêutico</h4>
                                 
-                                Seus pacientes em um só lugar                                
+                                Todos os seus pacientes em um só lugar.
+                                <br>
+                                <small>Acompanhe, avalie, discuta.<small>
 
+                                <br>
                                 <div>
                                     <a href='register.php'><button type='button' class='btn btn-success'> Inscreva-se </button></a>
                                 </div>
@@ -22,6 +25,7 @@
                     </div>    
                 </div>
                 <div class = 'jumbotron' id = 'Sobre'>
+                <div class = 'container'>
                     <div class ='row'>
                                     <div class = 'content col-xs-12 col-sm-12 col-md-12 col-lg-12'>
                                         O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o 
@@ -35,7 +39,7 @@
                                         
                                     </div>
                                 </div>
-                    Mais conteúdo aqui explicando sobre o PACO
+                    </div>
                 </div>"
         );
         
