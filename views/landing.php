@@ -6,7 +6,7 @@
     
     else
     {   
-        print("<div class = 'jumbotron bg1'>
+        print("<div class = 'jumbotron'>
                     <div class='container'>
                         <br><br>
                             <div class= 'title' style='font-family:Helvetica' >
