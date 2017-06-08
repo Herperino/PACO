@@ -329,95 +329,8 @@ function displayPrescription($prescriptions){
                  \"patientID\" ='".$patientID."'");
         }
 
-        /** Queries the database in order to get the current patient name for a given user **/
-        function getName($conn){
-
-          //Gets the patient ID
-          $patientID = $_POST['patientID'];
-
-          //The query
-          $query = pg_query($conn, "SELECT patientname FROM public.\"patients\" WHERE
-            patientid = '".$patientID."' AND userid = '".$_SESSION['id']."'");
-            $patients = pg_fetch_all($query);
-
-            $name = ($patients[0]['patientname']);
-
-            return $name;
-          }
-
-          /** PatientID, database connection -> NULL
-          *  Gets a given patient ID and changes its status in the
-          *  database row corresponding to the patient under care
-          *  A connection to the database must be passed
-          */
-          function changeStatus($patientID, $conn){
-
-            //Get patient and it's status from the database
-            $query = "SELECT * FROM public.\"patients\" WHERE patientid = '" . $patientID ."'";
-            $res = pg_query($conn, $query);
-
-            //Fetches the single row for the user found
-            $patient = pg_fetch_row($res);
-            $status = $patient[6]; //6 = p_status
-
-            //Change status given current status state
-            if($status == 1) { pg_query($conn,"UPDATE public.\"patients\" SET p_status = 0 WHERE patientid = '".$patientID."'");}
-            else { pg_query($conn, "UPDATE public.\"patients\" SET p_status = 1 WHERE patientid ='".$patientID."'");}
-          }
-
-  /** PatientID, database connection -> NULL
-  *  This part of the function will take patients new ID, name and age.
-  *  Query patients, lab and prescriptions to make changes to the user ID
-  *  or else it will fuck all the databases(prescriptions and labref)
-  *  A connection to the database must be passed
-  */
-  function editPatient($patientID, $conn){
-
-    echo "Fui chamado";
-    //Edit the patient to contain html supported chars.
-    $pname = htmlspecialchars($_POST['patient_name']);
-
-    //Se o ID de paciente é mantido, atualiza seus dados
-    if ($_POST['new_id'] == $_POST['patientID']){
-      pg_query($conn,"UPDATE public.\"patients\" SET
-        patientname ='". $pname ."',
-        patientage = ". $_POST['patient_age'] ."
-        WHERE patientid = '". $_POST['patientID'] ."'");
-    }
-
-    //Se o ID de paciente é diferente, atualiza as tabelas
-    else{
-      $new_id = $_POST['new_id'];
-
-      //Verifica se há colisão de IDs
-      $check = pg_query($conn,"SELECT * FROM public.\"patients\" WHERE patientid = '".$new_id."'");
-      $colision = sizeof(pg_fetch_all($check)) > 0; //TRUE se o tamanho do array retornado é maior que 1;
-
-      var_dump($colison);
-      echo "<br>";
-      var_dump(sizeof(pg_fetch_all($check)));
-      echo "<br>";
-      var_dump(pg_fetch_all($check));
-
-      if (!$colision){ //Se não houver colisão de IDs
-
-        //As queries para atualização de patients, prescriptions e labref
-        pg_query($conn,"UPDATE public.\"patients\" SET
-          patientid = '". $new_id ."',
-          patientname = '". $pname ."',
-          patientage = ". $_POST['patient_age'] ."
-          WHERE patientid = '".$_POST['patientID'] ."'");
-
-        pg_query($conn,"UPDATE public.\"prescriptions\" SET
-          patientid = '". $new_id."'
-          WHERE patientid ='". $_POST['patientID']."'");
-
-        pg_query($conn,"UPDATE public.\"labref\" SET
-          patientid = '". $new_id."'
-          WHERE patientid ='". $_POST['patientID']."'");
-      }
-    }
-  }
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /**  --------------------------Funções de paciente ------------------------------*/
 
   /**----------------------------------------------- 
   *  Inclui um novo paciente no banco de dados.
@@ -427,18 +340,170 @@ function displayPrescription($prescriptions){
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
   function addPatient($conn){
-      //TODO: Work on validation. No two ids should be the same for the same user.
-
+      
+      //Variáveis obtidas via POST
       $patientname = $_POST['patient_name'];
       $patientage = $_POST['patient_age'];
-      $patientID = ltrim($_POST['new_id'],"0");
+      $patientID = ltrim($_POST['new_id'],"0"); //Remove 'trailing zeroes'
       $userID = $_SESSION['id'];
 
-      //Insert a new patient into the patients database
-      pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-      values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
+      $collision = checkCollision($patientID, "patients");
+
+      if ($collision)
+        return false; //Retorna falso em caso de colisão
+
+      else{
+
+        //Insere um novo paciente no banco de dados
+        pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
+        values (DEFAULT,'". $patientID."','".$patientname."','".$patientage."','".$userID."', '1')");
       }
 
+      return true; //Retorna TRUE se a inserção ocorrer com sucesso
+  }
+
+  /**----------------------------------------------- 
+  *  Inclui um altera os dados de paciente no banco de dados.
+  *  Informações do paciente, como $patientage e $patientID são oriundas
+  *  do formulário enviado por POST.
+  *
+  *  Também são feitas alterações no banco de dados onde o ID de paciente
+  *  é utilizado (prescriptions e labref)
+  *
+  *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
+  *----------------------------------------------*/
+  function editPatient($patientID, $conn){
+
+    //Se o ID de paciente é mantido, atualiza seus dados
+    if ($_POST['new_id'] == $_POST['patientID']){
+        pg_query($conn,"UPDATE public.\"patients\" SET
+          patientname ='". $pname ."',
+          patientage = ". $_POST['patient_age'] ."
+          WHERE patientid = '". $_POST['patientID'] ."'
+          AND userid = '".$_SESSION['id']."'");
+    }
+
+    //Se o ID de paciente é diferente, atualiza as tabelas
+    else{
+      $new_id = $_POST['new_id'];
+
+      //Verifica se há colisão entre o novo ID com os ids no banco de dados
+      $collision = checkCollision($new_id, "patients");
+
+      if ($collision) //Se houve colisão de IDs
+        return false; //Retorna FALSE se não tiver sucesso em alterar o conteúdo
+
+      else{ //Se não houver colisão de IDs
+
+        //As queries para atualização de patients, prescriptions e labref
+        pg_query($conn,"UPDATE public.\"patients\" SET
+          patientid = '". $new_id ."',
+          patientname = '". $pname ."',
+          patientage = ". $_POST['patient_age'] ."
+          WHERE patientid = '".$_POST['patientID'] ."' 
+          AND userid = '".$_SESSION['id']."'");
+
+        pg_query($conn,"UPDATE public.\"prescriptions\" SET
+          patientid = '". $new_id."'
+          WHERE patientid ='". $_POST['patientID']."'
+          AND \"userID\" = '".$_SESSION['id']."'");
+
+        pg_query($conn,"UPDATE public.\"labref\" SET
+          patientid = '". $new_id."'
+          WHERE patientid ='". $_POST['patientID']."'
+          AND userid = '".$_SESSION['id']."'");
+      }
+      
+    }
+
+    return true; //Retorna TRUE se tiver sucesso em alterar o conteúdo
+  }
+
+  /**----------------------------------------------- 
+  *  Altera o status de acompanhamento de paciente no banco de dados.
+  *  Informações do paciente são passadas por $patientID.
+  *
+  *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
+  *----------------------------------------------*/
+  function changeStatus($patientID, $conn){
+
+    //Busca o paciente no banco de dados
+    $query = "SELECT * FROM public.\"patients\" 
+              WHERE patientid = '" . $patientID ."'
+              AND userid = '".$_SESSION['id']."'";
+
+    $res = pg_query($conn, $query);
+
+    //Seleciona a linha contendo o paciente
+    $patient = pg_fetch_row($res);
+    $status = $patient[6]; //6 = p_status
+
+    //Altera o status conforme o status atual
+    if($status == 1) { 
+
+      pg_query($conn,"UPDATE public.\"patients\" 
+                      SET p_status = 0 
+                      WHERE patientid = '".$patientID."' 
+                      AND userid = '".$_SESSION['id']."'");
+    }
+    else { 
+
+      pg_query($conn,"UPDATE public.\"patients\" 
+                      SET p_status = 1
+                      WHERE patientid = '".$patientID."' 
+                      AND userid = '".$_SESSION['id']."'");
+    }
+
+  }
+
+
+  /** --------------------------------------------------------------- 
+  *  Avalia o banco de dados afim de obter o nome de um paciente
+  * 
+  *  Requer uma conexão ativa ($conn) com o banco de dados.
+  *-----------------------------------------------------------------*/
+  function getName($conn){
+
+    //Recebe o ID de paciente via POST
+    $patientID = $_POST['patientID'];
+
+    //A query
+    $query = pg_query($conn, "SELECT patientname FROM public.\"patients\" WHERE
+              patientid = '".$patientID."' AND userid = '".$_SESSION['id']."'");
+
+    $patients = pg_fetch_all($query); //Obtem a linha que contém o paciente
+
+    $name = ($patients[0]['patientname']); //Obtem a coluna com o nome do paciente
+
+    return $name;
+  }  
+
+  /**------------------------------------
+  *  Verifica se ocorre uma colisão entre um id que pretende
+  *  ser incluído ou alterado e um id já existente no banco de
+  *  dados
+  *  
+  * $id é o ID a ser verificado e $table é uma string com o nome da tabela  
+  *----------------------------------------*/
+  function checkCollision($id, $table){
+
+    //Verifica se há colisão de IDs
+    $check = pg_query("SELECT * FROM public.\"".$table."\"
+                       WHERE patientid = '".$id."' 
+                       AND userid = '".$_SESSION['id']."'");
+
+    $collision = sizeof(pg_fetch_all($check)) > 0; //TRUE se o tamanho do array retornado é maior que 1;
+
+    var_dump($collision);
+    echo "<br>";
+    var_dump(sizeof(pg_fetch_all($check)));
+    echo "<br>";    
+    var_dump(pg_fetch_all($check));
+
+    return $collision;
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   /** ------------------- Funções de Comentário------------------*/
 
