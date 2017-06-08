@@ -45,19 +45,22 @@
         }
         else if($operation == "STATUS"){
 
-            changeStatus($patientID,$conn);
+            $result = changeStatus($patientID,$conn);
         }
         else if($operation == "EDIT"){
 
-            editPatient($patientID,$conn);
+            $result = editPatient($patientID,$conn);
 
         }
         else if(strcmp($operation,"ADD") == 0){
 
-            addPatient($conn);
+            $result = addPatient($conn);
         }
 
         //Returns to the original page
-        redirect($page);
+        if ($result)
+            redirect($page);
+        else
+            render("apology.php",['errormessage' => "O ID de usuário já está em uso"])
     }
 ?>

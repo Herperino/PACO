@@ -494,12 +494,6 @@ function displayPrescription($prescriptions){
 
     $collision = sizeof(pg_fetch_all($check)) > 0; //TRUE se o tamanho do array retornado é maior que 1;
 
-    var_dump($collision);
-    echo "<br>";
-    var_dump(sizeof(pg_fetch_all($check)));
-    echo "<br>";    
-    var_dump(pg_fetch_all($check));
-
     return $collision;
   }
 
