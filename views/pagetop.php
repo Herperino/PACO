@@ -97,5 +97,5 @@
      if(isset($_SESSION['id']))
         print("<div id = 'pagemid' class= 'container-fluid'>");
     else
-        print("<div id = 'pagemid'");
+        print("<div id = 'pagemid'>");
  ?>
