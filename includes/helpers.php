@@ -394,7 +394,7 @@ function displayPrescription($prescriptions){
 
       var_dump($colison);
       echo "<br>";
-      var_dump(sizeof(pg_fetch_all($check));
+      var_dump(sizeof(pg_fetch_all($check)));
       echo "<br>";
       var_dump(pg_fetch_all($check));
 
