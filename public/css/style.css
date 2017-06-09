@@ -44,8 +44,6 @@ body{
 
 #pagemid{
   min-height: calc(100vh - 70px);
-  background-image:url("https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png");
-  border-radius:20px;
 }
 
 .img{
