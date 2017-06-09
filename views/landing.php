@@ -32,13 +32,24 @@
                         <div class ='row'>
                             <div class = 'col-xs-12 col-sm-12 col-md-12 col-lg-12'>    
                                 
-                                <p class= 'content '> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
+                                <p class= 'content'> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
                                 </p>    
 
                                 <div class = 'row'>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>ACOMPANHE</div>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>AVALIE</div>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>DISCUTA</div>
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+                                        ACOMPANHE
+                                        <img class = 'ico' src='https://image.flaticon.com/icons/svg/1/1755.svg' alt='View details free icon' title='View details free icon'>
+
+                                    </div>
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+                                        AVALIE
+                                        <img class ='ico' src='https://image.flaticon.com/icons/svg/344/344074.svg' alt='Evaluation free icon' title='Evaluation free icon'>
+                                    </div>
+
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+                                            DISCUTA
+                                            <img class ='ico' src='https://image.flaticon.com/icons/svg/134/134807.svg' alt='Chat free icon' title='Chat free icon'>
+                                    </div>
                                 </div>             
                                         
                             </div>
