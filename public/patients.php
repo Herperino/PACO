@@ -58,7 +58,7 @@
         }
 
         //Returns to the original page
-        if ($result)
+        if ($result == true)
             redirect($page);
         else
             render("apology.php",['errormessage' => "O ID de paciente já está em uso"]);
