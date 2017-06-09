@@ -351,7 +351,7 @@ function displayPrescription($prescriptions){
 
       $collision = checkCollision($patientID, "patients");
 
-      if ($collision)
+      if ($collision == TRUE)
         return false; //Retorna falso em caso de colisão
 
       else{
@@ -392,7 +392,7 @@ function displayPrescription($prescriptions){
       //Verifica se há colisão entre o novo ID com os ids no banco de dados
       $collision = checkCollision($new_id, "patients");
 
-      if ($collision) //Se houve colisão de IDs
+      if ($collision == TRUE) //Se houve colisão de IDs
         return false; //Retorna FALSE se não tiver sucesso em alterar o conteúdo
 
       else{ //Se não houver colisão de IDs
