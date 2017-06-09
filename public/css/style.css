@@ -76,6 +76,17 @@ body{
     color:white;
 }
 
+.ico{
+
+  width:25%;
+  height:25%;
+}
+
+.icons{
+  text-align:center;
+  font-family:Helvetica;
+}
+
 .viewtitle
 {
      border: 1px solid lightgray;
