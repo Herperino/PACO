@@ -15,7 +15,7 @@
                                 <br>
                                 Todos os seus pacientes em um só lugar.
                                 <br>
-                                
+                                <br>
                                 <small>Acompanhe, avalie, discuta.</small>
 
                                 <br>
@@ -30,15 +30,15 @@
                 <div class = 'jumbotron' id = 'Sobre'>
                     <div class = 'container'>
                         <div class ='row'>
-                            <div class = 'content col-xs-12 col-sm-12 col-md-12 col-lg-12'>    
+                            <div class = 'col-xs-12 col-sm-12 col-md-12 col-lg-12'>    
                                 
-                                <p> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
+                                <p class= 'content '> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
                                 </p>    
 
                                 <div class = 'row'>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>MOCHILA</div>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>MOCHILA</div>
-                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>MOCHILA</div>
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>ACOMPANHE</div>
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>AVALIE</div>
+                                <div class = 'content col-xs-4 col-sm-4 col-md-4 col-lg-4'>DISCUTA</div>
                                 </div>             
                                         
                             </div>
