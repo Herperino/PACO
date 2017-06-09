@@ -22,6 +22,7 @@ function connect_db(){
   }
   return $conn;
 }
+
 /** Renders a view from POST requests to the server.
 *  Used mostly for login and main transitions.
 *  Taken from pset7 helpers.php, used for the same purpose
@@ -68,7 +69,7 @@ function utf8_string_array_encode(&$array){
   return $array;
 }
 
-/**
+/**--------------------------------------
 * Redirects user to location, which can be a URL or
 * a relative path on the local host.
 *
@@ -76,7 +77,8 @@ function utf8_string_array_encode(&$array){
 *
 * Because this function outputs an HTTP header, it
 * must be called before caller outputs any HTML.
-*/
+* --------------------------------------*/
+
 function redirect($location)
 {
   if (headers_sent($file, $line))
@@ -207,43 +209,43 @@ function displayPrescription($prescriptions){
     /**           FROM HERE ON ARE FUNCTIONS THAT WORK ON THE DATABASE                             */
     /** -------------------------------------------------------------------------------------------*/
 
-    /** Adds prescription values into the database. 
-    *   
-    *   $patientID is a valid ID received from the client-side
-    *   $conn is defined in config. Passed on due variable scope.
-    *
-    *   Requires a connection($conn) for pg_query */
-    function addPrescription($patientID,$conn){
+  /** Adds prescription values into the database. 
+  *   
+  *   $patientID is a valid ID received from the client-side
+  *   $conn is defined in config. Passed on due variable scope.
+  *
+  *   Requires a connection($conn) for pg_query */
+  function addPrescription($patientID,$conn){
 
-      //Concatenates the prescription data into a single k/v array
-      for ($i = 1; $i<=10; $i++){
+    //Concatenates the prescription data into a single k/v array
+    for ($i = 1; $i<=10; $i++){
 
-        $currentM = "med" . $i;
-        $currentD = "dos" . $i;
-        $currentV = "via" . $i;
-        $currentP = "pos" . $i;
+      $currentM = "med" . $i;
+      $currentD = "dos" . $i;
+      $currentV = "via" . $i;
+      $currentP = "pos" . $i;
 
-        $prescriptions[$currentM] = $_POST[$currentM] ." ". $_POST[$currentD] ." ". $_POST[$currentV] ;
-        $prescriptions[$currentP] = $_POST[$currentP];
+      $prescriptions[$currentM] = $_POST[$currentM] ." ". $_POST[$currentD] ." ". $_POST[$currentV] ;
+      $prescriptions[$currentP] = $_POST[$currentP];
 
-      }
+    }
 
-      pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"patientID\",\"userID\", \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\"
-        ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
-        \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
-        \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
-        VALUES ('".$patientID."','".$_SESSION['id']."',
-        '".$prescriptions['med1']."','".$prescriptions['pos1']."',
-        '".$prescriptions['med2']."','".$prescriptions['pos2']."',
-        '".$prescriptions['med3']."','".$prescriptions['pos3']."',
-        '".$prescriptions['med4']."','".$prescriptions['pos4']."',
-        '".$prescriptions['med5']."','".$prescriptions['pos5']."',
-        '".$prescriptions['med6']."','".$prescriptions['pos6']."',
-        '".$prescriptions['med7']."','".$prescriptions['pos7']."',
-        '".$prescriptions['med8']."','".$prescriptions['pos8']."',
-        '".$prescriptions['med9']."','".$prescriptions['pos9']."',
-        '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
-      }
+    pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"patientID\",\"userID\", \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\"
+      ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
+      \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
+      \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
+      VALUES ('".$patientID."','".$_SESSION['id']."',
+      '".$prescriptions['med1']."','".$prescriptions['pos1']."',
+      '".$prescriptions['med2']."','".$prescriptions['pos2']."',
+      '".$prescriptions['med3']."','".$prescriptions['pos3']."',
+      '".$prescriptions['med4']."','".$prescriptions['pos4']."',
+      '".$prescriptions['med5']."','".$prescriptions['pos5']."',
+      '".$prescriptions['med6']."','".$prescriptions['pos6']."',
+      '".$prescriptions['med7']."','".$prescriptions['pos7']."',
+      '".$prescriptions['med8']."','".$prescriptions['pos8']."',
+      '".$prescriptions['med9']."','".$prescriptions['pos9']."',
+      '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
+    }
 
 
     /** Adds lab result values into the database. 
