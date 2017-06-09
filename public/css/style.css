@@ -15,8 +15,6 @@
 body{
   position:relative;     
   font-family: 'Roboto Condensed', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-
 }
 
 .jumbotron{
@@ -84,8 +82,8 @@ body{
 
 .ico{
 
-  width:25%;
-  height:25%;
+  width:33%;
+  height:33%;
 }
 
 .icons{
