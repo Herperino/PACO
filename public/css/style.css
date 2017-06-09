@@ -1,5 +1,7 @@
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
+
+
 @media screen and (max-width: 480px) {
   #patients
   {display: none;}
@@ -11,13 +13,20 @@
 }
 
 body{
-     position:relative;
+  position:relative;     
+  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 .jumbotron{
   margin:0;
 }
+.Sobre{
 
+  background-color:#BBBBFF;
+
+}
 .fake-select{
 
   width:100%;
@@ -58,19 +67,16 @@ body{
 .title{
     color:white;
     width:auto;
-    font-family: Helvetica, Arial;
     text-align:center;
 }
 
 .content{
-    font-family:Helvetica, Arial;
     font-size: calc(90% + 0.25vw);
 }
 
 .landing
 {
     position:absolute;
-    font-family: Helvetica, Arial;
     line-height:2;
     text-align:justify;
     color:white;
@@ -84,7 +90,6 @@ body{
 
 .icons{
   text-align:center;
-  font-family:Helvetica;
 }
 
 .viewtitle
