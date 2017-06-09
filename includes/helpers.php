@@ -494,9 +494,9 @@ function displayPrescription($prescriptions){
                        WHERE patientid = '".$id."' 
                        AND userid = '".$_SESSION['id']."'");
 
-    $collision = sizeof(pg_fetch_all($check)) > 0; //TRUE se o tamanho do array retornado é maior que 1;
+    $collision = pg_fetch_all($check); //TRUE se o tamanho do array retornado é maior que 1;
 
-    return $collision;
+    return $collision != false;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
