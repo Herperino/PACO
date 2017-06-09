@@ -62,7 +62,7 @@
                         <ul class='nav navbar-nav'>
                           <li><a href='acompanhamento.php'>Prescrições</a></li>
                           <li><a href='labref.php'>Laboratório</a></li>
-                          <li><a href='notas.php'> Observações</a></li>
+                          <li><a href='notas.php'> Notas</a></li>
                         </ul>
 
 
