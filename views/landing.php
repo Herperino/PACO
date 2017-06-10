@@ -37,20 +37,21 @@
                                             <h2>Acompanhe</h2>
                                             <img class = 'ico' src='https://image.flaticon.com/icons/svg/1/1755.svg' alt='View details free icon' title='View details free icon'>
                                             <br><br>
-                                            <small>Adicione prescrições e resultados laboratoriais de forma fácil</small>
+                                            Adicione prescrições e resultados laboratoriais de forma fácil
                                         </div>
                                     <div class = 'icons col-xs-12 col-sm-4 col-md-4 col-lg-4'>
                                             <h2>Avalie</h2>
                                             <img class ='ico' src='https://image.flaticon.com/icons/svg/344/344074.svg' alt='Evaluation free icon' title='Evaluation free icon'>
                                             <br><br>
-                                            <small>Visualize prescrições anteriores e contraste com resultados laboratoriais</small>
+                                            Visualize prescrições anteriores e contraste com resultados laboratoriais
                                         </div>
 
                                     <div class = 'icons col-xs-12 col-sm-4 col-md-4 col-lg-4'>
                                                 <h2>Discuta<h2>
                                                 <img class ='ico' src='https://image.flaticon.com/icons/svg/134/134807.svg' alt='Chat free icon' title='Chat free icon'>
                                             <br><br>
-                                            <small>Comente e discuta sobre os seus pacientes de maneira rápida e simples</small>
+                                            Comente e discuta sobre os seus pacientes de maneira rápida e simples
+                                            
                                         </div>
                                 </div>
 
