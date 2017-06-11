@@ -19,10 +19,12 @@ body{
 
 .jumbotron{
   margin:0;
+  border-radius:2px;
 }
-.Sobre{
+#Sobre{
 
-  background-color:#BBBBFF;
+  background-color:#68838B;
+  color:white;
 
 }
 .fake-select{
@@ -120,7 +122,7 @@ body{
     /*background-image:url('/img/bg_paco.jpg');*/
     background-image:url("http://www.bucharestexpat.com/wp-content/uploads/2013/12/Vintage-Pharmacy.jpg");
     background-size: cover;
-    min-height:40vw;
+    min-height:60vw;
     height:auto;
 }
 
