@@ -11,7 +11,7 @@ Para a implementação local do programa de acompanhamento, é necessário:
 - Extensão bcmath para PHP
 - Extensão OpenSSL para PHP
 - Extensão dom para PHP
-- MySQL
+- Postgresql
 
 3) O que é possível fazer na versão atual?
 - Registro
@@ -23,10 +23,11 @@ Para a implementação local do programa de acompanhamento, é necessário:
 - Editar resultados laboratorais
 - Alterar nome, ID ou idade de pacientes
 - Alterar status de acompanhamento (em acompanhamento/inativo)
+- Remover pacientes, prescrições ou resultados
 - Logout
 
 4) Quais são as principais características do webapp?
 - Design responsivo
 - Automação do processo de acompanhamento
 
-(Versão atual: 0.2)
+(Versão atual: 0.687)
