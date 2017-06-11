@@ -37,7 +37,7 @@
 
     <script>
         //Adiciona um botão que vai permitir inserir uma nova prescrição
-        var patientID =""+ <?php echo (string)$P_ID ?>; //É preciso coerção de tipos pra não quebrar
+        var patientID =""+ <?php echo $P_ID ?> + ""; //É preciso coerção de tipos pra não quebrar
         window.onload = function(){
             newPrescriptionButton(patientID);
         }
