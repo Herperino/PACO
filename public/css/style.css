@@ -114,7 +114,8 @@ body{
 
 .panel{
 
-  min-width:60vw;
+  min-width:80vw;
+  border-color:#aaa;
 }
 
 .form-norm{
