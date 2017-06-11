@@ -56,7 +56,7 @@
                                 </div>
 
                                 <br><br>
-                                <div class= 'content'> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
+                                <div class= 'content col-xs-8 col-sm-8 col-md-8 col-lg-8'> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada por mim (Leon Nascimento) para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
                                 </div>                 
                                         
                             </div>
