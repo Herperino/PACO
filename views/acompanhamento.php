@@ -36,8 +36,8 @@
         </div>     <!--end panel-->
 
     <script>
-        //Will add a button that allows to insert a new prescription to the DB
-        var patientID =""+ <?php echo $P_ID ?>;
+        //Adiciona um botão que vai permitir inserir uma nova prescrição
+        var patientID =""+ String(<?php echo $P_ID ?>); //É preciso coerção de tipos pra não quebrar
         window.onload = function(){
             newPrescriptionButton(patientID);
         }
