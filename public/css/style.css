@@ -5,11 +5,24 @@
 @media screen and (max-width: 480px) {
   #patients
   {display: none;}
+
+  .bg1{
+
+    height:auto;
+  }
+  .ico{
+
+    height:20%;
+  }
 }
 
 @media screen and (min-width:480px){
   .small-only
   {display:none;}
+
+  .bg1{
+    height:78vmin;
+  }
 }
 
 body{
@@ -119,8 +132,6 @@ body{
     /*background-image:url('/img/bg_paco.jpg');*/
     background-image:url("http://www.bucharestexpat.com/wp-content/uploads/2013/12/Vintage-Pharmacy.jpg");
     background-size: cover;
-    min-height:60vw;
-    height:auto;
 }
 
 #patient_list .tc:hover, #labresults_list .tc:hover
