@@ -12,8 +12,9 @@
     ini_set("log_errors", 1);
     ini_set("error_log", "/bin/php-error.log");
 
-    // requirements
-    require("helpers.php");
+    //Requerimentos
+    require("helpers.php"); //Funções
+    require("objects.php"); //Classes
 
 
     // CS50 Library

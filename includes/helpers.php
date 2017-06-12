@@ -506,19 +506,22 @@ function displayPrescription($prescriptions){
   /**
   * /---------------------------------------------
   * Recebe dados de paciente do servidor como $source
-  * $source deve ser recebido como um array via POST contendo:
-  * Timestamp, patientID, userID
-  * Desta fonte, a função deve retornar um JSON com os dados relevantes.
+  * Deve ser receber:
+  * patientID, userID
+  * Desta fonte, a função deve retornar um array com os dados relevantes.
   * ---------------------------------------------*/
-  function fetchData($source){
+  function fetchData($patientID, $userID){
     //TODO
+
+
+    
   }
 
   /**
   * /--------------------------------------------
   * Insere um comentário no banco de dados
   *
-  * $subject é um objeto retornado pela função fetchData()  
+  * $subject é um objeto criado pela operação comment_this  
   * Como estrutura de dados, $comment deve seguir o esquema de:
   * AUTHOR, CONTENT, timestamp
   * --------------------------------------------*/
