@@ -209,15 +209,17 @@ function displayPrescription($prescriptions){
     /**           FROM HERE ON ARE FUNCTIONS THAT WORK ON THE DATABASE                             */
     /** -------------------------------------------------------------------------------------------*/
 
-  /** Adds prescription values into the database. 
+  /** --------------------------------------------------------
+  *   Inclui prescrições no banco de dados 
   *   
-  *   $patientID is a valid ID received from the client-side
-  *   $conn is defined in config. Passed on due variable scope.
+  *   $patientID é recebido do lado do cliente
+  *   $conn é a conexão padrão definida.
   *
-  *   Requires a connection($conn) for pg_query */
+  *   $conn é necessária para o funcionamento do query
+  *-----------------------------------------------------------*/
   function addPrescription($patientID,$conn){
 
-    //Concatenates the prescription data into a single k/v array
+    //Concatena cada entrada em uma única entrada medicamento + posologia
     for ($i = 1; $i<=10; $i++){
 
       $currentM = "med" . $i;
@@ -230,11 +232,16 @@ function displayPrescription($prescriptions){
 
     }
 
-    pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"patientID\",\"userID\", \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\"
-      ,\"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
+    //Cria uma ID unica para cada prescrição inserida
+    $uniqueID = uniqid("med");
+
+    //Query que inclui a informação no banco de dados
+    pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"uniqid\",\"patientID\",\"userID\", 
+      \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\",
+      \"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
       \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
       \"pos8\",\"med9\",\"pos9\",\"med10\",\"pos10\")
-      VALUES ('".$patientID."','".$_SESSION['id']."',
+      VALUES ('".$uniqueID."','".$patientID."','".$_SESSION['id']."',
       '".$prescriptions['med1']."','".$prescriptions['pos1']."',
       '".$prescriptions['med2']."','".$prescriptions['pos2']."',
       '".$prescriptions['med3']."','".$prescriptions['pos3']."',
@@ -245,6 +252,7 @@ function displayPrescription($prescriptions){
       '".$prescriptions['med8']."','".$prescriptions['pos8']."',
       '".$prescriptions['med9']."','".$prescriptions['pos9']."',
       '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
+
     }
 
 
@@ -257,20 +265,22 @@ function displayPrescription($prescriptions){
 
       function addResults($patientID,$conn){
 
-        //Checks for empty strings. If found, changes them to null
+        //Avalia se existem entradas vazias. Se exisitirem, são ignoradas.
         foreach ($_POST as $key => $value){
 
             if ($key == '')
               $key = 0;
         }
 
+        //Cria um ID único para cada resultado laboratorial
+        $uniqueID = uniqid("med");        
 
-        pg_query($conn,"INSERT INTO public.\"labref\"(\"patientid\",\"userid\",
+        pg_query($conn,"INSERT INTO public.\"labref\"(\"uniqid\",\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
                                                       \"ureia\",\"cr\",\"k\",\"na\",
                                                       \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\", 
                                                       \"outros\")
-          VALUES ('".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
+          VALUES ('".$uniqueID."','".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
                   '".$_POST['cr']."','".$_POST['k']."','".$_POST['na']."','".$_POST['leuco']."',
                   '".$_POST['inr']."','".$_POST['pcr']."','".$_POST['tgo&tgp']."', '".$_POST['outros']."')");
@@ -280,7 +290,7 @@ function displayPrescription($prescriptions){
       //Edits labs results
       function editResults($patientID,$conn){
 
-        //Checks for empty strings. If found, changes them to null
+        //Checks for empty strings. ISe encontradas, são puladas.
         foreach ($_POST as $key => $value){
 
             if ($value != '' && $key != 'operation' && $key != 'patientID' )
@@ -291,7 +301,7 @@ function displayPrescription($prescriptions){
 
         pg_query($conn,"UPDATE public.\"labref\" SET "
                       
-                      .implode(' , ',$query). //Implodes valid keys into the array
+                      .implode(' , ',$query). //Implode keys do POST na query
 
                       " WHERE 
                       \"date\" = '".$_POST['date']."' AND
