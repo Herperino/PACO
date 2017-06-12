@@ -273,7 +273,7 @@ function displayPrescription($prescriptions){
         }
 
         //Cria um ID único para cada resultado laboratorial
-        $uniqueID = uniqid("med");        
+        $uniqueID = uniqid("lab");        
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"uniqid\",\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
