@@ -158,7 +158,7 @@ function getLastPrescription(source){
 
     //Store parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
-                patientID : patientID;
+                patientID : patientID,
                 uniqid: id_unico};
 
     //If it is the first prescription. Render an empty form
