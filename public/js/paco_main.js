@@ -170,7 +170,7 @@ function getLastPrescription(source){
         
         var to_form = {last_p: data[0],
                        uniqid:id_unico,
-                       operation: "PRESCRIPTION_EDIT"
+                       operation: "PRESCRIPTION_EDIT",
                        patientID: patientID,
                        date : data[0]['date']};
         renderPrescriptionForm(to_form);
