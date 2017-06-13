@@ -310,9 +310,7 @@ function displayPrescription($prescriptions){
                       .implode(' , ',$query). //Implode keys do POST na query
 
                       " WHERE 
-                      \"date\" = '".$_POST['date']."' AND
-                      \"userid\" = '".$_SESSION['id']."'AND 
-                      \"patientid\" ='".$patientID."'
+                      \"uniqid\" = '".$_POST['uniqid']."'
                       ");
 
         }        
@@ -338,7 +336,7 @@ function displayPrescription($prescriptions){
 
         }
 
-        pg_query("UPDATE public.\"prescriptions\" SET date = date, "
+        pg_query("UPDATE public.\"prescriptions\" SET "
             
             . implode(' , ', $query) .
 

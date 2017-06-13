@@ -121,11 +121,11 @@ function labHandler(event){
     // important info to send
     var patientID = event.dataset.patient;
     var operation = event.dataset.operation;
-    var timestamp = event.dataset.timestamp;
+    var uniqid = event.dataset.uniqid;
 
 
     if (operation == "GET_LAB"){
-      $.post("labref.php", {operation: operation, patientID: patientID,timestamp: timestamp}).done(function(data){
+      $.post("labref.php", {operation: operation, patientID: patientID,uniqid: uniqid}).done(function(data){
 
           //handle data here
           console.log(data);
@@ -137,7 +137,7 @@ function labHandler(event){
     else{
       var pkg_to_send = {operation: operation,
                          patientID: patientID,
-                         timestamp: timestamp};
+                         uniqid: uniqid};
       console.log(pkg_to_send);
       renderLabForm(pkg_to_send);
     }
@@ -184,7 +184,7 @@ function deleteEntry(event){
   var target = document.location.href;
   var patientID = event.dataset.patient;
   var operation = event.dataset.operation;
-  var timestamp = event.dataset.timestamp;
+  var uniqid = event.dataset.uniqid;
 
   //creates a package that will be sent as a request to the server
   var pkg_to_send = {operation: operation,

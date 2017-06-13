@@ -150,7 +150,7 @@ function renderLabForm(parameters){
 
   //A few variables
   var info = 'Inserir resultado'; //A ser inserido como conteúdo do botão
-  var date = parameters['timestamp']; // Parameters.date comes from patient selector
+  var uniqid = parameters.uniqid; // Parameters.date comes from patient selector
   var choice = parameters['operation']; // Also comes from patient selector
   var pat_id = parameters['patientID']; // Also comes from patient selector
   var form = "<div class ='row'>" //Form as an empty string that will be displayed
@@ -201,11 +201,11 @@ function renderLabForm(parameters){
             form +
           "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
           "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
-          "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
+          "<input name= 'uniqid' type = 'hidden' value = '"+ uniqid +"'></input>"
       "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"
       if (choice == "LAB_EDIT"){ //Allows for a delete button only in EDITION MODE
         content +="<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
-        "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ="+ pat_id+" data-timestamp ='"+ date +"' data-operation='DELETE_LAB'" +
+        "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-uniqid ='"+ uniqid +"' data-operation='DELETE_LAB'" +
       "onclick = 'deleteEntry(this)'>Remover resultado</button> "
       }
       else
@@ -272,10 +272,13 @@ function renderPrescriptionForm(parameters){
             "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
             "<input name= 'uniqid' type = 'hidden' value = '"+ uniqid +"'></input>"
         "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"
+
         if (choice == "PRESCRIPTION_EDIT"){ //Allows for a delete button only in EDITION MODE
+
           content +="<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
-          "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ="+ pat_id+" data-uniqid ='"+ uniqid +"' data-operation='DELETE_PRESCRIPTION'" +
-        "onclick = 'deleteEntry(this)'>Remover Prescrição</button> "
+          "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-uniqid ='"+ uniqid +"' data-operation='DELETE_PRESCRIPTION'" +
+          "onclick = 'deleteEntry(this)'>Remover Prescrição</button> "
+          
         }
         else
           content +="<br><input class= 'btn btn-success' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
