@@ -22,9 +22,10 @@
         //Token para mostrar as prescrições corretamente
         $token = false;
 
-        //Gets patientID and userID
+        //Define patientID, userID e UniqueID a partir do POST
         $userID = $_SESSION['id'];
-        $patientID = $_POST['patientID'];
+        $patientID = $_POST['patientID'] ?: '0';
+        $uniqueID = $_POST['uniqid'];
 
         if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
             addPrescription($patientID,$conn);
