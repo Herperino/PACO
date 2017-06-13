@@ -94,7 +94,7 @@ function prescriptionHandler(event){
     // important info to send
     var uniqueID = event.dataset.id;
     var operation = event.dataset.operation;
-    var patientID = event.dataset.patientID;
+    var patientID = event.dataset.patient;
     
     var pkg_to_send = {event: event,
                        operation: operation,
