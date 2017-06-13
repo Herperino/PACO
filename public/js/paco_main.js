@@ -92,7 +92,7 @@ function prescriptionHandler(event){
 
 
     // important info to send
-    var uniqueID = event.dataset.uniqid;
+    var uniqueID = event.dataset.id;
     var operation = event.dataset.operation;
     var patientID = event.dataset.patientID;
     
