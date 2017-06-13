@@ -187,7 +187,7 @@ function deleteEntry(event){
   var uniqid = event.dataset.uniqid;
 
   //creates a package that will be sent as a request to the server
-   $.post(target, {operation: operation, patientID: patientID,timestamp: timestamp})
+   $.post(target, {operation: operation, patientID: patientID,uniqid: uniqid})
 
 }
 
