@@ -22,6 +22,9 @@
         //Token para mostrar as prescrições corretamente
         $token = false;
 
+        //Gets patientID and userID
+        $userID = $_SESSION['id'];
+
         if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
             addPrescription($patientID,$conn);
             $token = true;
@@ -61,10 +64,7 @@
         $page_mode = true;
 
         //Busca o nome do paciente no banco de dados
-        $name = getName($conn);
-
-        //Gets patientID and userID
-        $userID = $_SESSION['id'];
+        $name = getName($conn);        
 
         //Renderiza a página com os parâmetros passados
         render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID, 'token' => $token]);
