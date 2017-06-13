@@ -34,11 +34,11 @@
         }
         else if(strcmp($_POST['operation'],'DELETE_LAB') == 0){
           //Adds a row ignoring errors or warnings if no row is matched
-          @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE date ='".$uniqid."'");
+          @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
         }
         else if(strcmp($_POST['operation'],'GET_LAB') == 0){
           //Gets the last result as an array and return as a json object
-          $query = pg_query($conn, "SELECT * FROM public.\"labref\" WHERE date ='".$uniqid."'");
+          $query = pg_query($conn, "SELECT * FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
 
           //If the query returns something
           if ($query != false){
