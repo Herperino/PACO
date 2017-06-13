@@ -171,7 +171,7 @@ function getLastPrescription(source){
         var to_form = {last_p: data[0],
                        uniqid:id_unico,
                        patientID: patientID,
-                       date : timestamp};
+                       date : data[0]['date']};
         renderPrescriptionForm(to_form);
     });
 }
