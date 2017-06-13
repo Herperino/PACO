@@ -233,7 +233,7 @@ function renderPrescriptionForm(parameters){
     var info = 'Inserir prescrição';
     var date = parameters.date;
     var choice = parameters['operation'];
-    var pat_id = parameters['patientID'];
+    var uniqid = parameters['uniqid'];
     var form = '';
 
     //The form content
@@ -268,13 +268,11 @@ function renderPrescriptionForm(parameters){
     var content = "<div class='row'>"+
             "<form style='margin:auto' class = 'form-group col-sm-12 col-md-12 col-lg-12' action = \"" + controller + "\" method='POST'>" +
               form +
-            "<input name= 'operation' type = 'hidden' value = "+ choice +"></input>"+
-            "<input name= 'patientID' type = 'hidden' value = "+ pat_id +"></input>"+
-            "<input name= 'date' type = 'hidden' value = '"+ date +"'></input>"
+            "<input name= 'uniqid' type = 'hidden' value = "+ uniqid +"></input>"+
         "<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>"
         if (choice == "PRESCRIPTION_EDIT"){ //Allows for a delete button only in EDITION MODE
           content +="<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
-          "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-patient ="+ pat_id+" data-timestamp ='"+ date +"' data-operation='DELETE_PRESCRIPTION'" +
+          "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-uniqid ="+uniqid+" data-operation='DELETE_PRESCRIPTION'" +
         "onclick = 'deleteEntry(this)'>Remover Prescrição</button> "
         }
         else
