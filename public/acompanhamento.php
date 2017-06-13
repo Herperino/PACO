@@ -24,6 +24,7 @@
 
         //Gets patientID and userID
         $userID = $_SESSION['id'];
+        $patientID = $_POST['patientID'];
 
         if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
             addPrescription($patientID,$conn);
