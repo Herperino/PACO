@@ -318,7 +318,7 @@ function displayPrescription($prescriptions){
         }        
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
 
-      function editPrescription($patientID,$conn){
+      function editPrescription($conn){
 
         //Concatenates the prescription data into a single k/v array
         for ($i = 1; $i<=10; $i++){
@@ -342,9 +342,7 @@ function displayPrescription($prescriptions){
             
             . implode(' , ', $query) .
 
-          " WHERE \"date\" = '".$_POST['date']."' AND
-                 \"userID\" = '".$_SESSION['id']."' AND 
-                 \"patientID\" ='".$patientID."'");
+          " WHERE \"uniqid\" = '".$_POST['uniqid']."'");
         }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////

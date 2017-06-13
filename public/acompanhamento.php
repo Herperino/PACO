@@ -25,7 +25,7 @@
         //Define patientID, userID e UniqueID a partir do POST
         $userID = $_SESSION['id'];
         $patientID = $_POST['patientID'] ?: '0';
-        $uniqueID = $_POST['uniqid'] ?: 'nenhum';
+        $uniqueID = isset($_POST['uniqid']) ?: 'nenhum';
 
         if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
             addPrescription($patientID,$conn);
