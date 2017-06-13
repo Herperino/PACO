@@ -94,9 +94,11 @@ function prescriptionHandler(event){
     // important info to send
     var uniqueID = event.dataset.uniqid;
     var operation = event.dataset.operation;
+    var patientID = event.dataset.patientID;
     
     var pkg_to_send = {event: event,
                        operation: operation,
+                       patientID : patientID,
                        uniqid : uniqueID};
 
     getLastPrescription(pkg_to_send);
@@ -150,11 +152,13 @@ function getLastPrescription(source){
     var last_prescription = [];
 
 
-    //Declaring the prescription's date and patient
+    //Declarando o ID de objeto e de paciente
     var id_unico = source.uniqid;
+    var patientID = source.patientID;
 
     //Store parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
+                patientID : patientID;
                 uniqid: id_unico};
 
     //If it is the first prescription. Render an empty form
