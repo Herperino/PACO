@@ -92,15 +92,12 @@ function prescriptionHandler(event){
 
 
     // important info to send
-    var patientID = event.dataset.patient;
+    var uniqueID = event.dataset.uniqid;
     var operation = event.dataset.operation;
-    var timestamp = event.dataset.timestamp;
-
-
+    
     var pkg_to_send = {event: event,
                        operation: operation,
-                       patientID: patientID,
-                       timestamp: timestamp};
+                       uniqid : uniqueID};
 
     getLastPrescription(pkg_to_send);
 }
@@ -154,25 +151,23 @@ function getLastPrescription(source){
 
 
     //Declaring the prescription's date and patient
-    var timestamp = source.timestamp;
-    var patientID = source.patientID;
+    var id_unico = source.uniqid;
 
     //Store parameters to be sent to the request
     var info = {operation:"GET_PRESCRIPTION",
-                patientID: patientID,
-                date:timestamp};
+                uniqid: id_unico};
 
     //If it is the first prescription. Render an empty form
-     if(timestamp == "null")
+     if(id_unico == "null")
         renderPrescriptionForm(info);
 
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
-        console.log("hello from handler");
+        
         var to_form = {last_p: data[0],
-                        operation:source.operation,
-                        patientID: patientID,
-                        date : timestamp};
+                       uniqid:id_unico,
+                       patientID: patientID,
+                       date : timestamp};
         renderPrescriptionForm(to_form);
     });
 }

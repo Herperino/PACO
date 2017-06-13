@@ -106,6 +106,7 @@ function displayPrescription($prescriptions){
     foreach($prescriptions as $prescription){
       $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
 
+      //Header da tabela que será exibida
       print("<tr>".
       "<td>" .
       $prescription["patientID"].
@@ -113,17 +114,20 @@ function displayPrescription($prescriptions){
       "<td>" .
       $prescription["date"].
       "</td>");
+
+      //Imprime os medicamentos listados de 1 à 10 na página
       for($i = 1; $i <= 10; $i++){
         if (strcmp($prescription["med".$i]," 1x/d") < 0)
         print("<td>"."</td>");
         else
         print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
       }
+
+      //Botão de comentário
       print("<td>
 
-              <button  data-patient =" . (string)$prescription['patientID'] ."
-                       data-operation = \"COMMENT_THIS\"
-                       data-timestamp ='" . (string)$prescription['date'] ."' 
+              <button  data-id =" . (string)$prescription['uniqid'] ."
+                       data-operation = \"COMMENT_THIS\" 
                        type = 'button' onClick = 'console.log(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
@@ -131,11 +135,12 @@ function displayPrescription($prescriptions){
 
 
             </td>");
+
+      //Botão de edição
       print("<td>
               
-              <button  data-patient =" . (string)$prescription['patientID'] ."
+              <button  data-id =" . (string)$prescription['uniqid'] ."
                        data-operation = \"PRESCRIPTION_EDIT\"
-                       data-timestamp ='" . (string)$prescription['date'] ."' 
                        type = 'button' onClick = 'prescriptionHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-pencil'></span></button>"); 

@@ -40,7 +40,7 @@
         }
         else if(strcmp($_POST['operation'],'GET_PRESCRIPTION')==0){
 
-            $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE date ='".$_POST['date']."'");
+            $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");
 
             //If the query returns something
             if ($query != false){
