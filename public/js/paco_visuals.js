@@ -231,9 +231,9 @@ function renderPrescriptionForm(parameters){
     //console.log(typeof(parameters.last_p))
 
     var info = 'Inserir prescrição';
-    var date = parameters.['uniqid'];
-    var choice = parameters['operation'];
-    var pat_id = parameters['patientID'];
+    var date = parameters.uniqid;
+    var choice = parameters.operation;
+    var pat_id = parameters.patientID;
     var form = '';
 
     //The form content
