@@ -304,7 +304,7 @@ function newPrescriptionButton(id){
 
     var content ="<input id ='dateinfo' data-patient ='"+ patient +"'";
     content +="data-operation = 'PRESCRIPTION_ADD'";
-    content += "data-timestamp ='" + date + "'";
+    content += "data-id ='" + date + "'";
     content += "type = 'button' onClick = 'prescriptionHandler(this)'";
     content += "class= 'btn btn-success' value='Adicionar Prescrição'/>";
 

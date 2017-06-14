@@ -138,7 +138,6 @@ function labHandler(event){
       var pkg_to_send = {operation: operation,
                          patientID: patientID,
                          uniqid: uniqid};
-      console.log(pkg_to_send);
       renderLabForm(pkg_to_send);
     }
 }
@@ -162,7 +161,7 @@ function getLastPrescription(source){
                 uniqid: id_unico};
 
     //If it is the first prescription. Render an empty form
-     if(id_unico == "null")
+     if(id_unico == null)
         renderPrescriptionForm(info);
 
     //Query acompanhamento controller via POST ajax
