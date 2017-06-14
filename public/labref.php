@@ -22,7 +22,7 @@
         //Gets the patient name and ID for displaying.
         $name = getName($conn);
         $patientID = isset($_POST['patientID'])?: '0';
-        $uniqid = isset($_POST['uniqid'])?: 'nenhum';
+        $uniqid = $_POST['uniqid']?: 'nenhum';
 
         var_dump($uniqid);
 
