@@ -11,6 +11,10 @@
     width:20%;
     height:20%;
   }
+  .form_input{
+
+  width:100%;
+  }
 }
 
 @media screen and (min-width:480px){
@@ -24,6 +28,11 @@
   .ico{
     width:33%;
     height:33%;
+  }
+
+  .form_input{
+
+    width:26%;
   }
 }
 
@@ -96,11 +105,6 @@ body{
 
 .icons{
   text-align:center;
-}
-
-.form_input{
-
-  width:100%;
 }
 
 .viewtitle
