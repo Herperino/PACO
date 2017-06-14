@@ -251,9 +251,9 @@ function renderPrescriptionForm(parameters){
         }
 
         form += "<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>"
-        form+= "<input name= 'med"+ i + "'  type = 'text'" + current +  "placeholder = 'Medicamento'></input>";
-        form+= "<input name= 'dos"+ i + "' type = 'text' placeholder = 'Dose'></input>";
-        form+= "<input name= 'via"+ i + "' type = 'text'  placeholder = 'Via'></input>";
+        form+= "<input name= 'med"+ i + "'  type = 'text' class='form_input'" + current +  "placeholder = 'Medicamento'></input>";
+        form+= "<input name= 'dos"+ i + "' type = 'text' class='form_input' placeholder = 'Dose'></input>";
+        form+= "<input name= 'via"+ i + "' type = 'text'  class='form_input' placeholder = 'Via'></input>";
         form+= "<select class = 'custom-select' name= 'pos"+ i +"'>";
         form+= "<option value = 'null'> Posologia </option>";
         form+= "<option value = '1x/d' selected> 1x/dia </option>";

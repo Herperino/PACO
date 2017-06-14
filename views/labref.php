@@ -1,8 +1,7 @@
 <?php
 
     /**
-     * This is the view file for reviewing patients lab results
-     * (labref)
+     * Arquivo de visualização de resultados laboratoriais
      */
 
 ?>
