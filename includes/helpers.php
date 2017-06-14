@@ -160,7 +160,7 @@ function displayPrescription($prescriptions){
       if(!empty($labresults)){
         foreach($labresults as $result){
 
-          $labref = $sub = array_slice($result, 1, 12, true); //Removes index and userID from the array
+          $labref = $sub = array_slice($result, 1, 14, true); //Removes index and userID from the array
 
           print("<tr>");
 
