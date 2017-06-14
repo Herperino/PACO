@@ -394,7 +394,7 @@ function displayPrescription($prescriptions){
     //Se o ID de paciente é mantido, atualiza seus dados
     if ($_POST['new_id'] == $_POST['patientID']){
         pg_query($conn,"UPDATE public.\"patients\" SET
-          patientname ='". $pname ."',
+          patientname ='". $_POST['patient_name'] ."',
           patientage = ". $_POST['patient_age'] ."
           WHERE patientid = '". $_POST['patientID'] ."'
           AND userid = '".$_SESSION['id']."'");
