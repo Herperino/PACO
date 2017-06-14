@@ -29,18 +29,7 @@
 
         switch($_POST['operation']){
 
-            case 'ACOMP':
-
-            //Busca o banco de dados para todos os resultados para aquele paciente
-            $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
-            $results = pg_fetch_all($query);
-
-            //Renderiza a página
-            $page_mode = true;
-            render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
-
-            break;
-
+            
             case 'LAB_ADD':
 
             addResults($patientID,$conn);
@@ -76,6 +65,15 @@
             break;
 
         }//Fim do switch        
+
+        //Busca o banco de dados para todos os resultados para aquele paciente
+        $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
+        $results = pg_fetch_all($query);
+
+        //Renderiza a página
+        $page_mode = true;
+        render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
+
     }
 
     /** Upon a GET request, the server will will then render the page in select mode
