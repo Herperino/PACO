@@ -304,6 +304,7 @@ function displayPrescription($prescriptions){
         }
 
         //echo implode(' , ',$query)
+        if(isset($query)){
 
         pg_query($conn,"UPDATE public.\"labref\" SET "
                       
@@ -313,7 +314,9 @@ function displayPrescription($prescriptions){
                       \"uniqid\" = '".$_POST['uniqid']."'
                       ");
 
-        }        
+        }
+        
+      }
       /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
 
       function editPrescription($conn){
