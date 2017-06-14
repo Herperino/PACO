@@ -306,7 +306,7 @@ function newPrescriptionButton(id){
     content +="data-operation = 'PRESCRIPTION_ADD'";
     content += "data-date ='" + date + "'";
     content += "type = 'button' onClick = 'prescriptionHandler(this)'";
-    content += "class= 'btn btn-success' value='Adicionar Prescrição'/>";
+    content += "class= 'btn btn-success' style='width:100%;' value='Adicionar Prescrição'/>";
 
     target.innerHTML += content;
 }
@@ -326,7 +326,7 @@ function newLabButton(id){
   content +="data-operation = 'LAB_ADD'";
   content += "data-timestamp ='" + date + "'";
   content += "type = 'button' onClick = 'labHandler(this)'";
-  content += "class= 'btn btn-success' value='Adicionar Resultados'/>";
+  content += "class= 'btn btn-success' style='width:100%;' value='Adicionar Resultados'/>";
 
   target.innerHTML += content;
 }
