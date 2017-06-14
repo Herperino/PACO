@@ -150,6 +150,7 @@ function getLastPrescription(source){
 
     var last_prescription = [];
 
+    console.log(source);
 
     //Declarando o ID de objeto e de paciente
     var id_unico = source.uniqid;
