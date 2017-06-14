@@ -163,7 +163,7 @@ function getLastPrescription(source){
 
     //If it is the first prescription. Render an empty form
      if(id_unico == null)
-        renderPrescriptionForm(info);
+        renderPrescriptionForm({operation:"PRESCRIPTION_ADD", patientID: patientID, uniqid:null});
 
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
