@@ -19,10 +19,12 @@
      */
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        //Gets the patient name and ID for displaying.
+        //Recebe nome e ID do paciente
         $name = getName($conn);
         $patientID = isset($_POST['patientID'])?: '0';
-        $uniqid = $_POST['uniqid']?: 'nenhum';
+
+        if($_POST['operation'] != 'LAB_ADD')
+            $uniqid = $_POST['uniqid']; //Se a operação precisar de uniqid, o define;
 
         var_dump($uniqid);
 
