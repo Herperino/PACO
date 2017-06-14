@@ -53,14 +53,14 @@
 
             break;
 
-            case 'DELETE_LAB'
+            case 'DELETE_LAB':
 
             //Omite erros em caso de queries que os retornariam
             @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
 
             break;      
 
-            case 'GET_LAB'
+            case 'GET_LAB':
             
             $query = pg_query($conn, "SELECT * FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
 
