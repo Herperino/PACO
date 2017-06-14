@@ -26,7 +26,7 @@
         $userID = $_SESSION['id'];
         $patientID = $_POST['patientID'] ?: '0';        
 
-        if $_POST['operation'] != 'ACOMP')
+        if ($_POST['operation'] != 'ACOMP')
             $uniqueID = $_POST['uniqid'];
 
         switch($_POST['operation']){
@@ -81,7 +81,7 @@
                 
 
         //Renderiza a página com os parâmetros passados
-        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID);
+        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID]);
     }
 
     /** Upon a GET request, the server will will then render the page in select mode
