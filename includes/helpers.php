@@ -187,7 +187,7 @@ function displayPrescription($prescriptions){
 
               <button  data-patient =" . (string)$result['patientid'] ."
                        data-operation = \"COMMENT_THIS\"
-                       data-timestamp ='" . (string)$result['date'] ."' 
+                       data-uniqid ='" . (string)$result['uniqid'] ."' 
                        type = 'button' onClick = 'console.log(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
@@ -200,7 +200,7 @@ function displayPrescription($prescriptions){
               
               <button  data-patient =" . (string)$result['patientid'] ."
                        data-operation = \"LAB_EDIT\"
-                       data-timestamp ='" . (string)$result['date'] ."' 
+                       data-uniqid ='" . (string)$result['uniqid'] ."' 
                        type = 'button' onClick = 'labHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-pencil'></span></button>"); 

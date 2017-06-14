@@ -67,7 +67,6 @@
      */
     if($_SERVER['REQUEST_METHOD'] == 'GET')
     {
-
         render("labref.php", ['P_MODE' => $page_mode]);
     }
 ?>
