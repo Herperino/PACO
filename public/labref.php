@@ -29,7 +29,7 @@
 
         switch($_POST['operation']){
 
-            case 'ACOMP'
+            case 'ACOMP':
 
             //Busca o banco de dados para todos os resultados para aquele paciente
             $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");
