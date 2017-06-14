@@ -37,7 +37,7 @@
 
             break;
 
-            case 'PRESCRIPTION_EDIT'
+            case 'PRESCRIPTION_EDIT':
 
             editPrescription($conn);
 
