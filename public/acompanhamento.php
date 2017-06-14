@@ -19,25 +19,32 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        //Token para mostrar as prescrições corretamente
-        $token = false;
+        //Busca o nome do paciente no banco de dados
+        $name = getName($conn);
 
-        //Define patientID, userID e UniqueID a partir do POST
+        //Define patientID e userID a partir do POST
         $userID = $_SESSION['id'];
-        $patientID = $_POST['patientID'] ?: '0';
-        $uniqueID = isset($_POST['uniqid']) ?: 'nenhum';
+        $patientID = $_POST['patientID'] ?: '0';        
 
-        if(strcmp($_POST['operation'],'PRESCRIPTION_ADD')==0){
+        if $_POST['operation'] != 'ACOMP')
+            $uniqueID = $_POST['uniqid'];
+
+        switch($_POST['operation']){
+
+            case 'PRESCRIPTION_ADD':
+
             addPrescription($patientID,$conn);
-            $token = true;
-        }
-        else if (strcmp($_POST['operation'],'PRESCRIPTION_EDIT')==0){
 
-            editPrescription($patientID, $conn);
-            $token = true;
-        }
-        else if(strcmp($_POST['operation'],'GET_PRESCRIPTION')==0){
+            break;
 
+            case 'PRESCRIPTION_EDIT'
+
+            editPrescription($conn);
+
+            break;
+
+            case 'GET_PRESCRIPTION':
+            
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");
 
             //If the query returns something
@@ -46,16 +53,23 @@
               //makes a JSON return of the prescriptions array.
               header("Content-type: application/json; charset=UTF-8");
               print(json_encode($last_prescription, JSON_PRETTY_PRINT));
-              $token = true;
               exit();
             }
-        }
-        else if(strcmp($_POST['operation'],'DELETE_PRESCRIPTION')==0){
-          //Deletes selected prescription. Ignores warnings if not on delete function
-          @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");
-        }
+            break;
 
-        //Query database for the patient's prescriptions given a userID and patient name
+            case 'DELETE_PRESCRIPTION':
+            
+            //Remove uma linha do banco de dados que equivale ao uniqid
+            @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");    
+
+            break;
+
+        }//Fim do switch
+
+        
+        
+
+        //Busca o banco de dados para um determinado paciente
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
                                   WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'
                                   ORDER BY \"date\" ASC;");
@@ -64,12 +78,10 @@
 
         //Exibe a página em modo de visualização de prescrições
         $page_mode = true;
-
-        //Busca o nome do paciente no banco de dados
-        $name = getName($conn);        
+                
 
         //Renderiza a página com os parâmetros passados
-        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID, 'token' => $token]);
+        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID);
     }
 
     /** Upon a GET request, the server will will then render the page in select mode
