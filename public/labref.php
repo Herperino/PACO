@@ -24,6 +24,8 @@
         $patientID = isset($_POST['patientID'])?: '0';
         $uniqid = isset($_POST['uniqid'])?: 'nenhum';
 
+        var_dump($uniqid);
+
         if(strcmp($_POST['operation'],'LAB_ADD') == 0){
 
             addResults($patientID,$conn);
