@@ -294,7 +294,7 @@ function displayPrescription($prescriptions){
         }
 
       //Edits labs results
-      function editResults($patientID,$conn){
+      function editResults($conn){
 
         //Checks for empty strings. ISe encontradas, são puladas.
         foreach ($_POST as $key => $value){
