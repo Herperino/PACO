@@ -1,30 +1,21 @@
 <?php
 
     /**
-     * This is the controller file for selecting patients from the file
-     * The select view allows for a JSON request from acompanhamento or
-     * labref to render the correct patient list.
+     * Controlador de informações de paciente
      */
 
     require("../includes/config.php");
 
-    $patients = []; //Array containing all the patients currently under care
-
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-        /*
-         *    Query the server for the patients given a user and return a JSON.
-         *    Patients are sorted by status(active first) and last modification.
-         */
-
-        //Queries the data from the postgresql db
+        //Busca o banco de dados pelo ID do usuário ordenando pela última modificação
         $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status DESC,lastactive DESC ";
         $data = pg_query($conn, $query);
 
-        //Store patient data in an array
+        //Reúne pacientes em um array
         $patients = pg_fetch_all($data);
 
-        // output patients as JSON (pretty-printed for debugging convenience)
+        //Retorna os pacientes como um objeton em notação Javascript (JSON)
         header("Content-type: application/json; charset=UTF-8");
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
         exit();
@@ -32,33 +23,33 @@
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        //Get operation (Remove, Add, Change Status)
+        //Recebe a operação e o ID do paciente
         $operation = $_POST['operation'];
         $patientID = ltrim($_POST['patientID'],"0"); //Removes trailing zeroes
         $page = basename($_SERVER['HTTP_REFERER']);
 
-        //Query database according to operation selected
-        if($operation == "REMOVE"){
+        //Realiza funções no banco de dados conforme a 
+        switch($operation){
+            case 'REMOVE':
+                pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
+                break;
 
-          pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$patientID."'");
+            case 'STATUS':
+                $result = changeStatus($patientID,$conn);
+                break;             
 
-        }
-        else if($operation == "STATUS"){
+            case 'EDIT':
+                $result = editPatient($patientID,$conn);
+                break;
 
-            $result = changeStatus($patientID,$conn);
-        }
-        else if($operation == "EDIT"){
+            case 'ADD':
+                $result = addPatient($conn);
+                break;    
+        }        
+        
 
-            $result = editPatient($patientID,$conn);
-
-        }
-        else if(strcmp($operation,"ADD") == 0){
-
-            $result = addPatient($conn);
-        }
-
-        //Returns to the original page
-        if ($result == true)
+        //Caso o resultado da execução das funções ocorra sem problemas, redireciona para a página original 
+        if ($result != false)
             redirect($page);
         else
             render("apology.php",['errormessage' => "O ID de paciente já está em uso"]);
