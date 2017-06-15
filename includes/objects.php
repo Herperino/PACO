@@ -32,7 +32,7 @@ class Comment{
 
 	public function databaseIt($conn){
 
-		$query = "" //Query aqui
+		//$query = "" //Query aqui
 
 		echo "Inserido no banco com id =" . $this->uniqid;
 		//pg_query($conn, $query);
