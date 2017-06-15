@@ -46,17 +46,19 @@ class Comment{
 
 		//pg_query("SELECT * FROM public.\"comments\" WHERE uniqid =".$this->uniqid."")
 
+
+
 		echo("<br>
 
 			<div class ='jumbotron'>
-				$this->author disse:
+				$author disse:
 				<hr>
-				$this->content
+				$content
 
 				sobre:
-				$this ->subject;
+				$subject;
 
-				<small>id de comentário:$this->uniqid</small>
+				<small>id de comentário:$uniqid</small>
 			<br>
 			");
 
