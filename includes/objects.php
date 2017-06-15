@@ -20,7 +20,7 @@ class Comment{
 	public $content; //Conteudo do comentário
 	public $subject; //Assunto do comentário (prescrição, resultado)
 	private $uniqid; //id gerada aleatóriamente
-	public $sessid = "ss_" . $_SESSION['id']; //id de sessão default ("ss" + id de usuário)
+	public $sessid = "ss_$_SESSION['id']"  ; //id de sessão default ("ss" + id de usuário)
 
 	public function __construct($assunto,$conteudo){ //Construtor
 
