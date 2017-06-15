@@ -1,10 +1,9 @@
 <?php
+
+  //Requer arquivos de configuração
   require("../includes/config.php");
 
-  //FALSE significa que a página é renderizada em modo de seleção de comentários
-  //TRUE significa que a página é renderizada em modo de visualização de comentários
-  $render_mode = FALSE; 
-
+  //Funções de escrita no banco de dados serão feitas via POST
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Capturar dados referentes à prescrição via POST
@@ -26,29 +25,29 @@
     else if (strcmp($operation,'COMMENT_THIS') == 0){
 
         if (strcmp($fonte,"labref.php") == 0){
-          $assunto['tipo'] = "LAB"                    
+          $assunto['tipo'] = "LAB" ;                   
         }
         else if (strcmp($fonte,"acompanhamento.php") == 0){
-          $assunto['tipo'] = "MED"
+          $assunto['tipo'] = "MED";
         }
 
-        $comment = new Comment($tipo, $assunto,$) 
+        $comment = new Comment($tipo, $assunto);
     }
     else if (strcmp($operation,'EDIT_COMMENT') == 0){      
   	
     }
-
-    $render_mode = TRUE;
   }
   
+  //Chegou-se a página via GET. Visualização ocorrerá via GET
   else{
 
-
-
+    //Renderiza a página conforme os parâmetros 
+    render("notas.php");
+    exit();
   }
   
-
-  //Renderiza a página conforme os parâmetros 
-  render("notas.php", ['mode' => $render_mode]);
+  //Volta para a página inicial se vier via POST
+  redirect(basename($_SERVER['HTTP_REFERER']))
+  
 
 ?>
