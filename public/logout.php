@@ -1,20 +1,20 @@
 <?php
 
-    // configuration
+    //Requer as configurações
     require("../includes/config.php"); 
 
-    // unset any session variables
+    //Esvazia as funções de sessão
         $_SESSION = [];
 
-        // expire cookie
+        // Expira o cookie
         if (!empty($_COOKIE[session_name()]))
         {
             setcookie(session_name(), "", time() - 42000);
         }
 
-        // destroy session
+        // Destrói a sessão
         session_destroy();;
 
-    // redirect user
+    // redireciona usuário para landing
     redirect("/index.php");
 ?>

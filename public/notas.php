@@ -10,7 +10,7 @@
     //Capturar dados referentes à prescrição via POST
     $assunto = ['timestamp' => $_POST['timestamp'],
                 'patientid' => $_POST['patientid'],
-                'userid' => $_SESSION['id']]
+                'userid' => $_SESSION['id']];
 
     $fonte = $_SERVER['HTTP_REFERER'];
 
