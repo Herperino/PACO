@@ -14,7 +14,7 @@
 
     //Requerimentos
     require("helpers.php"); //Funções
-    //require("objects.php"); //Classes
+    require("objects.php"); //Classes
 
 
     // CS50 Library

@@ -7,10 +7,7 @@
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     //Capturar dados referentes à prescrição via POST
-    $assunto = ['timestamp' => $_POST['timestamp'],
-                'patientid' => $_POST['patientid'],
-                'userid' => $_SESSION['id']];
-
+   
     //Informações relevantes de servidor
     $fonte = $_SERVER['HTTP_REFERER'];
     $operation = $_POST['operation'];
@@ -47,6 +44,11 @@
   
   //Chegou-se a página via GET. Visualização ocorrerá via GET
   else{
+
+    $comment = new Comment("Mamilos", "Mamilos são muito polêmicos");
+
+    $comment->showComment();
+
 
     //Renderiza a página conforme os parâmetros 
     render("notas.php");
