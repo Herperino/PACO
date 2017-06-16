@@ -47,7 +47,7 @@
 
     $comment = new Comment("O osso rangedor", "O caroço furador");
 
-    $comment->databaseIt();
+    $comment->databaseIt($conn);
 
     //Renderiza a página conforme os parâmetros 
     render("notas.php", ['comments' =>$commentalia]);
