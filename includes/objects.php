@@ -45,8 +45,10 @@ class Comment{
 	public function showComment(){
 
 		//pg_query("SELECT * FROM public.\"comments\" WHERE uniqid =".$this->uniqid."")
-
-
+		$author = $this->author;
+ 		$content = $this->content;
+ 		$subject = $this->subject;
+ 		$uniqid = $this->uniqid;
 
 		echo("<br>
 
@@ -60,9 +62,10 @@ class Comment{
 
 				<small>id de comentário:$uniqid</small>
 			<br>
+			</div>
 			");
 
-		return $comment;
+		//return $comment;
 	}
 }
 
