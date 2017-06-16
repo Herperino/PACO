@@ -32,10 +32,13 @@ class Comment{
 
 	public function databaseIt($conn){
 
-		//$query = "" //Query aqui
+
+		//Query aqui
+		$query = "INSERT INTO public.\"comments\"(uniqid,autor,conteudo, assunto, id_sessao) 
+							  VALUES ('".$this->uniqid."','".$this->author."','".$this->content."','".$this->subject."','".$this->sessid."')" 
+		pg_query($conn, $query);
 
 		echo "Inserido no banco com id =" . $this->uniqid;
-		//pg_query($conn, $query);
 	}
 
 	public function getId(){
