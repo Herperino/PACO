@@ -57,9 +57,10 @@ class Comment{
 				<hr>
 				$content
 
+				<br>
 				sobre:
 				$subject;
-
+				<BR>
 				<small>id de comentário:$uniqid</small>
 			<br>
 			</div>

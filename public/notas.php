@@ -45,10 +45,12 @@
   //Chegou-se a página via GET. Visualização ocorrerá via GET
   else{
 
-    $comment = new Comment("Mamilos", "Mamilos são muito polêmicos");
+    $comment = new Comment("O osso rangedor", "O caroço furador");
+
+    $commentalia[0] = $comment;
 
     //Renderiza a página conforme os parâmetros 
-    render("notas.php", ['comment' =>$comment]);
+    render("notas.php", ['comments' =>$commentalia]);
     exit();
   }
   
