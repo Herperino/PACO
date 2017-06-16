@@ -47,11 +47,8 @@
 
     $comment = new Comment("Mamilos", "Mamilos são muito polêmicos");
 
-    $comment->showComment();
-
-
     //Renderiza a página conforme os parâmetros 
-    render("notas.php");
+    render("notas.php", ['comment' =>$comment]);
     exit();
   }
   
