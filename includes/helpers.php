@@ -526,29 +526,13 @@ function displayPrescription($prescriptions){
   * Desta fonte, a função deve retornar um array com os dados relevantes.
   * ---------------------------------------------*/
   function fetchData($patientID, $userID){
-    //TODO
-
-
     
+    $query = pg_query("SELECT * FROM public.\"comments\" WHERE userid = $userID AND id_sessao = $patientID");
+
+    //Se query retorna false, $results é um array vazio
+    $results = $query ? pg_fetch_all($query) : [];
+
+    return $results;
   }
-
-  /**
-  * /--------------------------------------------
-  * Insere um comentário no banco de dados
-  *
-  * $subject é um objeto criado pela operação comment_this  
-  * Como estrutura de dados, $comment deve seguir o esquema de:
-  * AUTHOR, CONTENT, timestamp
-  * --------------------------------------------*/
-  function addComment($subject, $comment){
-    //TODO
-    //Create a template for comments
-  }
-
-  //Edita ou deleta um comentário
-  function editComment($commentID, $operation){
-    //TODO
-
-  }    
 
 ?>
