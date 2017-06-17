@@ -51,7 +51,7 @@ class Comment{
 
 	}
 
-	public function setSubject($conteudo){
+	public function setContent($conteudo){
 
 		$this->content = $conteudo;
 
