@@ -92,8 +92,8 @@ function showCommentList(){
 
     for(var i = 0; i<data.length;i++){
 
-      console.log(data[i].patientname);
-      content += "<li>" + toString(data[i].patientname) + "</li>";
+      var paciente = console.log(data[i].patientname);
+      content += "<li>" + paciente + "</li>";
 
     }
 
