@@ -20,6 +20,7 @@
 
         header("Content-type: application/json; charset=UTF-8");
         print(json_encode($dados,JSON_PRETTY_PRINT));
+        exit();
         break;
 
       case 'COMMENT_THIS':
