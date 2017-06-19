@@ -90,7 +90,7 @@ function showCommentList(){
 
     console.log(data);
 
-  };
+  }
 
   //Modelo de formulário
   var form = "<div class='panel panel-default'>" +  
