@@ -85,23 +85,19 @@
 
 function showCommentList(){
 
+    post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+      console.log(data)
+    }
 
-  $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
-
-    console.log(data);
-
-  }
-
-  /*var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
+    var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
                 "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
                 "</div>" + "<ul class='list-group'>" +
                   //content+
                 "</ul>" +
                 "</div>"
 
-  document.getElementById("notas").innerHTML += form;*/
+  document.getElementById("notas").innerHTML += form;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                          FORMULÁRIOS                                              ////
