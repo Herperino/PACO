@@ -92,16 +92,14 @@ function showCommentList(){
 
   }
 
-  var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
+  /*var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
                 "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
                 "</div>" + "<ul class='list-group'>" +
                   //content+
                 "</ul>" +
                 "</div>"
 
-  document.getElementById("notas").innerHTML += form;
-
-
+  document.getElementById("notas").innerHTML += form;*/
 }
 
 
