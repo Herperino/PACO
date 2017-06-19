@@ -83,7 +83,7 @@
     });
 }
 
-function showCommentList{
+function showCommentList(){
 
   //Modelo de formulário
   var form = "<div class='panel panel-default'>"+  
