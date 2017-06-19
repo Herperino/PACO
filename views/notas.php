@@ -15,8 +15,8 @@
 <div class = "container">
 	<img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" />
 	<input class = 'btn btn-warning' onclick="post(window.location.href, {
-				patientid:'ss_default';
-			})" value="Teste">
+				patientid:'ss_default',operation:'RETRIEVE'
+			})" value="Buscar JSON">
 	</input>	
 </div>
 <!-- Construir aqui -->
