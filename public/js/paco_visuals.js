@@ -93,8 +93,8 @@ function showCommentList(){
     for(var i = 0; i<data.length;i++){
 
       var paciente = data[i].patientname;
-      console.log(typeof(paciente));
-      content += "<li>" + paciente + "</li>";
+
+      content += "<li class='list-group-item'>" + paciente + "</li>";
 
     }
 
@@ -105,7 +105,7 @@ function showCommentList(){
                 "</ul>" +
                 "</div>"
 
-  document.getElementById("notas").innerHTML += form;
+    document.getElementById("notas").innerHTML += form;
 
   });
 
