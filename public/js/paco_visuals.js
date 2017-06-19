@@ -92,15 +92,10 @@ function showCommentList(){
 
   }
 
-  //Modelo de formulário
-  var form = "<div class='panel panel-default'>" +  
-                "<div class='panel-heading'>Pacientes</div>" +  
-                "<div class='panel-body'>" +
-                "Abaixo você encontra todos os comentários sobre seus pacientes" +
-                "</div>" +
-
-                "<ul class='list-group'>" +
-                  content+
+  var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
+                "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
+                "</div>" + "<ul class='list-group'>" +
+                  //content+
                 "</ul>" +
                 "</div>"
 
