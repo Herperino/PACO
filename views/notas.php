@@ -11,13 +11,14 @@
 <!-- Não é um usuário comum -->
 <?php else: ?>
 
-<h1>O FAMOSO DEUS DA PROGRAMAÇÂO</h1>
+<!--h1>O FAMOSO DEUS DA PROGRAMAÇÂO</h1-->
 <div class = "container" id = "notas">
-	<img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" />
+	<!--img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" /-->
 	<input class = 'btn btn-warning' onclick="post(window.location.href, {
 				patientid:'ss_default',operation:'RETRIEVE'
 			})" value="Buscar JSON">
-	</input>	
+	</input>
+	<br>	
 </div>
 <!-- Construir aqui -->
 <?php endif?>

@@ -45,6 +45,17 @@
             case 'ADD':
                 $result = addPatient($conn);
                 break;    
+            case 'RETRIEVE'
+                $query = "SELECT patientname FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."' ORDER BY p_status DESC,lastactive DESC ";
+                $data = pg_query($conn, $query);
+
+                //Reúne pacientes em um array
+                $patients = pg_fetch_all($data);
+
+                header("Content-type: application/json; charset=UTF-8");
+                print(json_encode($patients,JSON_PRETTY_PRINT));
+                exit();
+                break;
         }        
         
 
