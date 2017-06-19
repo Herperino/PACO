@@ -54,7 +54,6 @@
 
                 header("Content-type: application/json; charset=UTF-8");
                 print(json_encode($patients,JSON_PRETTY_PRINT));
-                exit();
                 break;
         }        
         
