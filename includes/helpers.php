@@ -525,12 +525,12 @@ function displayPrescription($prescriptions){
   * patientID, userID
   * Desta fonte, a função deve retornar um array com os dados relevantes.
   * ---------------------------------------------*/
-  function fetchData($patientID, $userID){
+  function fetchData($patientID){
     
-    $query = pg_query("SELECT * FROM public.\"comments\" WHERE 'id_sessao' = '$patientID'");
+    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao = '$patientID'");
 
     //Se query retorna false, $results é um array vazio
-    $results = $query ? pg_fetch_all($query) : [];
+    $results = ($query!=false) ? pg_fetch_all($query) : [];
 
     return $results;
   }
