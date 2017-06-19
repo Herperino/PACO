@@ -197,7 +197,7 @@ function validate(){
     var regispwd = form.regispwd.value;
     var confirmation = form.confirmation.value;
     var betakey = form.testebeta.value;
-
+    
     console.log(form);
 
     if ((regispwd != confirmation) || (betakey != "catioro"))

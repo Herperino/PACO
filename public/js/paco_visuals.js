@@ -94,15 +94,16 @@ function showCommentList(){
 
       var paciente = data[i].patientname;
 
-      content += "<li class='list-group-item'>" + paciente + "</li>";
+      content += "<tr class='list-group-item'>"+
+      "<td>" + paciente + "</td>";
 
     }
 
     var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
                 "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
-                "</div>" + "<ul class='list-group'>" +
+                "</div>" + "<table class='list-group'>" +
                   content+
-                "</ul>" +
+                "</table>" +
                 "</div>"
 
     document.getElementById("notas").innerHTML += form;
