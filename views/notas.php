@@ -12,6 +12,9 @@
 <?php else: ?>
 
 <h1>O FAMOSO DEUS DA PROGRAMAÇÂO</h1>
-<img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" />
+<div class = "container">
+	<img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" />
+	<input class = 'btn btn-warning' onclick="alert('Dickbutt overlords')"/>
+</div>
 <!-- Construir aqui -->
 <?php endif?>
