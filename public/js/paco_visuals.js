@@ -5,6 +5,11 @@
  */
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+////                                   EXIBIÇÃO DE DADOS                                   ////
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
  /** Displays a list of patients and their current state
   *  based on data sent by the server
   */
@@ -77,6 +82,30 @@
         $('#patients').stacktable();
     });
 }
+
+function showCommentList{
+
+  //Modelo de formulário
+  var form = "<div class='panel panel-default'>"+  
+                "<div class='panel-heading'>Panel heading</div>" +  
+                "<div class='panel-body'>" +
+                "</div>" +
+
+                "<ul class='list-group'>" +
+                  "<li class='list-group-item'>Cras justo odio</li>" +
+                "</ul>" +
+                "</div>"
+
+  document.getElementById("notas").innerHTML += form;
+
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                          FORMULÁRIOS                                              ////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 /** Path, parameters -> Form (on page)
  *  Takes the parameters given to create a form containing them all
@@ -288,6 +317,10 @@ function renderPrescriptionForm(parameters){
 
     document.getElementById("prescription_list").innerHTML = content;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////                                      UTILIDADES                                            ////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function newPrescriptionButton(id){
 

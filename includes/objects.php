@@ -9,18 +9,18 @@
 	Assunto, Conteúdo. x
 
 	Permite se inserir no banco de dados através do método
-	addComment;
+	databaseIt;
 
 	Permite ser editado através do método:
-	editComment;
+	updateIt;
  -----------------------*/
 class Comment{
 
-	public $author; //Autor do comentário
+	private $author; //Autor do comentário
 	public $content; //Conteudo do comentário
 	public $subject; //Assunto do comentário (prescrição, resultado)
 	private $uniqid; //id gerada aleatóriamente
-	public $sessid = "ss_default"  ; //id de sessão default ("ss" + id de usuário)
+	private $sessid = "ss_default"  ; //id de sessão default ("ss" + id de usuário)
 
 	/*-------------------------------------
 
@@ -92,33 +92,6 @@ class Comment{
 
 		$this->uniqid = $uniqid;
 
-	}
-	
-	public function showComment(){
-
-		//pg_query("SELECT * FROM public.\"comments\" WHERE uniqid =".$this->uniqid."")
-		$author = $this->author;
- 		$content = $this->content;
- 		$subject = $this->subject;
- 		$uniqid = $this->uniqid;
-
-		echo("<br>
-
-			<div class ='jumbotron'>
-				$author disse:
-				<hr>
-				$content
-
-				<br>
-				sobre:
-				$subject;
-				<BR>
-				<small>id de comentário:$uniqid</small>
-			<br>
-			</div>
-			");
-
-		//return $comment;
 	}
 }
 
