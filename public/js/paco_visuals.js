@@ -101,9 +101,6 @@ function showCommentList(){
                 "</div>"
 
     document.getElementById("notas").innerHTML += form;
-
-  };
-
   
 }
 
