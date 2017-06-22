@@ -103,24 +103,8 @@ function makeCommentList(){
             content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
       }
 
-      //Em seguida busca o número de comentários para os pacientes listados
-      for(var i = 0; i<pacientes.length;i++){
-        var context = i;
-        console.log(context);
-        pacientes[context].comments = 0;
 
-         $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[context].id}).done(function(data){
-            
-            if (data != false)
-            pacientes[context].comments = data.length;           
-
-            //Segunda parte do conteúdo
-            content += "<td>("+  pacientes[context].comments +")<td></tr>";
-
-            document.getElementById("lista").innerHTML += content;
-         });           
-      }
-
+            document.getElementById("lista").innerHTML += content;    
         
     });   
 }
