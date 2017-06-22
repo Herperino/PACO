@@ -101,14 +101,15 @@ function showCommentList(){
 
       //Em seguida busca o número de comentários para os pacientes listados
       for(var i = 0; i<pacientes.length;i++){
+        var context = i;
 
          $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[i].id}).done(function(data){
 
             
             if (data != false)
-            pacientes[i].comments = data.length;
+            pacientes[context].comments = data.length;
             else 
-            pacientes[i].comments = 0;
+            pacientes[context].comments = 0;
 
             content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
             "<td>("+  pacientes[i].comments +")<td></tr>";
