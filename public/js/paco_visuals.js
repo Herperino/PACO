@@ -391,9 +391,9 @@ function getPatientInfo(){
           id: data[i].patientid
           }    
     }
+  });
 
     return pacientes;
-  });
 }
 
 //Readies the Fake-select module
