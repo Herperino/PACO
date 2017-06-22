@@ -85,22 +85,34 @@
 
 function showCommentList(){
 
+    //Incialmente busca informações do paciente no banco de dados
     $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
 
-    var pacientes = [];
+      var pacientes = [];
 
-    for(var i = 0; i<data.length;i++){
+      for(var i = 0; i<data.length;i++){
 
-        pacientes[i] = {
-          name:data[i].patientname,
-          status:data[i].p_status,
-          id: data[i].patientid
-          }    
-    }
+          pacientes[i] = {
+            name:data[i].patientname,
+            status:data[i].p_status,
+            id: data[i].patientid
+            }    
+      }
 
-    console.log(patients);
+      console.log(pacientes);
 
+      //Em seguida busca o número de comentários para os pacientes listados
+      for(var i = 0; i<pacientes.length;i++){
 
+         $.post("notas.php",{operation:"RETRIEVE", patientid:pacientes[i].id}).done(function(data){
+
+            pacientes[i].comments = data.length;
+
+         });
+
+         content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
+         "<td>("+  pacientes[i].comments +")<td></tr>";
+      }
 
     });
 
