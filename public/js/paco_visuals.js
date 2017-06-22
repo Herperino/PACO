@@ -86,30 +86,34 @@
 function makeCommentList(){
 
     //Incialmente busca informações do paciente no banco de dados
-    $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+    $.ajax({
+        type:'POST',
+        url:"patients.php",
+        data:{operation: 'RETRIEVE', patientID:'ignore'},
+        success: function(data){
 
-      var pacientes = []; // Array de objetos de pacientes
-      var content = ""; //Conteúdo a ser inserido no template
+            var pacientes = []; // Array de objetos de pacientes
+            var content = ""; //Conteúdo a ser inserido no template
 
-      for(var i = 0; i<data.length;i++){
+            for(var i = 0; i<data.length;i++){
 
-          pacientes[i] = {
-            name:data[i].patientname,
-            status:data[i].p_status,
-            id: data[i].patientid,
-            updated:data[i].LastActive
+                pacientes[i] = { name:data[i].patientname,
+                                 status:data[i].p_status,
+                                 id: data[i].patientid,
+                                 updated:data[i].LastActive
+                                }
+
+                  //Elimina exibir pacientes inativos
+                  console.log(pacientes[i])
+
+                  if (pacientes[i].status == 1)
+                    content += "<tr id="+ i +"><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
             }
 
-            //Elimina exibir pacientes inativos
-            console.log(pacientes[i])
-
-            if (pacientes[i].status == 1)
-              content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
+            document.getElementById("lista").innerHTML += content;
+            getCommentNumber(i, pacientes[i].id);
       }
-
-
-            document.getElementById("lista").innerHTML += content;    
-        
+      error: function(){alert("Erro ao resgatar o conteúdo")}
     });   
 }
 
@@ -385,12 +389,20 @@ function submitModal(){
     var form = document.getElementById('formC').submit();
 }
 
-//Faz uma solicitação ao banco de dados para buscar nome de pacientes para um determinado usuário
-function getPatientInfo(callback){
+//Retorna o número de comentários como um badge
+function getCommentNumber(paciente){
 
-  
+  var comments;
 
-    
+  $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
+
+    if (data == false)
+      comments = "";
+    else
+      comments = data.length;
+
+    return "<td> <span class='badge'>" + comments + "</span></td>"
+  });
 }
 
 //Readies the Fake-select module
