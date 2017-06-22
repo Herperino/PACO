@@ -383,13 +383,15 @@ function getPatientInfo(){
 
     for(var i = 0; i<data.length;i++){
 
-      pacientes[i] = {
-        name:data[i].patientname,
-        status:data[i].p_status,
-        id: data[i].patientid
+        pacientes[i] = {
+          name:data[i].patientname,
+          status:data[i].p_status,
+          id: data[i].patientid
+          }    
     }
 
     return pacientes;
+  });
 }
 
 //Readies the Fake-select module
