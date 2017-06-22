@@ -96,7 +96,7 @@ function makeCommentList(){
           pacientes[i] = {
             name:data[i].patientname,
             status:data[i].p_status,
-            id: data[i].patientid
+            id: data[i].patientid,
             updated:data[i].LastActive
             }
 
