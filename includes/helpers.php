@@ -527,7 +527,7 @@ function displayPrescription($prescriptions){
   * ---------------------------------------------*/
   function fetchData($sessionid){
     
-    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao = 'ss".$sessionid"'");
+    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao = 'ss".$sessionid."'");
 
     //Se query retorna false, $results é um array vazio
     $results = ($query!=false) ? pg_fetch_all($query) : [];
