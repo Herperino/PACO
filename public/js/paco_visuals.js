@@ -87,7 +87,7 @@ function showCommentList(){
 
     var patients = getPatientInfo();
 
-    console.log(patients);
+    
 
     content = "test";
 
@@ -380,6 +380,8 @@ function submitModal(){
 function getPatientInfo(){
 
   $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+
+    var pacientes = [];
 
     for(var i = 0; i<data.length;i++){
 
