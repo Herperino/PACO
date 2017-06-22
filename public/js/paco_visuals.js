@@ -100,7 +100,7 @@ function makeCommentList(){
             }
 
             //Primeira parte do conteúdo
-            content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>";
+            content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
       }
 
       //Em seguida busca o número de comentários para os pacientes listados
