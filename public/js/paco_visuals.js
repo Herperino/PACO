@@ -104,33 +104,25 @@ function showCommentList(){
       //Em seguida busca o número de comentários para os pacientes listados
       for(var i = 0; i<pacientes.length;i++){
 
-         $.post("notas.php",{operation:"RETRIEVE", patientid:pacientes[i].id}).done(function(data){
+         $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[i].id}).done(function(data){
 
             pacientes[i].comments = data.length;
 
-         });
+            content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
+            "<td>("+  pacientes[i].comments +")<td></tr>";
 
-         content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
-         "<td>("+  pacientes[i].comments +")<td></tr>";
+         });
       }
 
-    });
-
-    
-
-    content = "test";
-
-
-
-    var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
+         var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
                 "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
                 "</div>" + "<table class='list-group'>" +
                   content+
                 "</table>" +
                 "</div>"
 
-    document.getElementById("notas").innerHTML += form;
-  
+        document.getElementById("notas").innerHTML += form;
+    });   
 }
 
 
