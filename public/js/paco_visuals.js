@@ -87,7 +87,7 @@ function showCommentList(){
 
     var patients = getPatientInfo();
 
-    
+    console.log(patients);
 
     content = "test";
 
