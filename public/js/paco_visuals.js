@@ -388,7 +388,8 @@ function getPatientInfo(){
 
       pacientes[i] = {
         name:data[i].patientname,
-        status:data[i].p_status;
+        status:data[i].p_status,
+        id: data[i].patientid
     }
 
     return pacientes;
