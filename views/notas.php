@@ -26,7 +26,9 @@
             <table id = "lista" class='table list-group'>
                   
             </table> +
+
+            <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
     </div>
-<input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
+
 <!-- Construir aqui -->
 <?php endif?>

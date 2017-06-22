@@ -104,7 +104,7 @@ function makeCommentList(){
       }
 
       //Em seguida busca o número de comentários para os pacientes listados
-      for(var i = 0; i<pacientes.length;i++){
+      for(var i = 0; i<pacientes.length-1;i++){
         var context = i;
         pacientes[context].comments = 0;
 
