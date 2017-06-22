@@ -83,12 +83,13 @@
     });
 }
 
-function showCommentList(){
+function makeCommentList(){
 
     //Incialmente busca informações do paciente no banco de dados
     $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
 
-      var pacientes = [];
+      var pacientes = []; // Array de objetos de pacientes
+      var content = ""; //Conteúdo a ser inserido no template
 
       for(var i = 0; i<data.length;i++){
 
@@ -96,8 +97,11 @@ function showCommentList(){
             name:data[i].patientname,
             status:data[i].p_status,
             id: data[i].patientid
-            }    
-      }      
+            }
+
+            //Primeira parte do conteúdo
+            content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>";
+      }
 
       //Em seguida busca o número de comentários para os pacientes listados
       for(var i = 0; i<pacientes.length;i++){
@@ -109,22 +113,14 @@ function showCommentList(){
             if (data != false)
             pacientes[context].comments = data.length;           
 
-             content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>" +
-            "<td>("+  pacientes[context].comments +")<td></tr>";
-         });
+            //Segunda parte do conteúdo
+            content += "<td>("+  pacientes[context].comments +")<td></tr>";
 
-
-           
+            document.getElementById("lista").innerHTML += content;
+         });           
       }
 
-         var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
-                "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
-                "</div>" + "<table class='list-group'>" +
-                  content+
-                "</table>" +
-                "</div>"
-
-        document.getElementById("notas").innerHTML += form;
+        
     });   
 }
 

@@ -18,6 +18,15 @@
 	
 </div>
 	<br>	
-<input class = 'btn btn-warning' onclick="showCommentList()" value="Mostrar pacientes"/>
+	<div class='panel panel-default'> 
+		<div class='panel-heading'>Pacientes</div>
+            <div class='panel-body'>
+            Abaixo você encontra todos os comentários sobre seus pacientes +
+             </div> 
+            <table id = "lista" class='table list-group'>
+                  
+            </table> +
+    </div>
+<input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
 <!-- Construir aqui -->
 <?php endif?>
