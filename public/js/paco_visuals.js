@@ -103,7 +103,7 @@ function showCommentList(){
       for(var i = 0; i<pacientes.length;i++){
         var context = i;
 
-         $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[i].id}).done(function(data){
+         $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[context].id}).done(function(data){
 
             
             if (data != false)
