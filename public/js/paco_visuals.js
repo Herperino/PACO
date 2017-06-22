@@ -105,16 +105,17 @@ function showCommentList(){
 
          $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[context].id}).done(function(data){
 
-            
             if (data != false)
             pacientes[context].comments = data.length;
             else 
             pacientes[context].comments = 0;
 
-            content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>" +
-            "<td>("+  pacientes[context].comments +")<td></tr>";
 
          });
+
+         
+            content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>" +
+            "<td>("+  pacientes[context].comments +")<td></tr>";
       }
 
          var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
