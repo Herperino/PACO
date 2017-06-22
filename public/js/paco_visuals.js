@@ -97,10 +97,14 @@ function makeCommentList(){
             name:data[i].patientname,
             status:data[i].p_status,
             id: data[i].patientid
+            updated:data[i].LastActive
             }
 
-            //Primeira parte do conteúdo
-            content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
+            //Elimina exibir pacientes inativos
+            console.log(pacientes[i])
+
+            if (status != 0)
+              content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
       }
 
 
