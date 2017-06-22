@@ -85,9 +85,26 @@
 
 function showCommentList(){
 
-    var patients = getPatientInfo();
+    $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+
+    var pacientes = [];
+
+    for(var i = 0; i<data.length;i++){
+
+        pacientes[i] = {
+          name:data[i].patientname,
+          status:data[i].p_status,
+          id: data[i].patientid
+          }    
+    }
 
     console.log(patients);
+
+
+
+    });
+
+    
 
     content = "test";
 
@@ -379,21 +396,7 @@ function submitModal(){
 //Faz uma solicitação ao banco de dados para buscar nome de pacientes para um determinado usuário
 function getPatientInfo(callback){
 
-  $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
-
-    callback = [];
-
-    for(var i = 0; i<data.length;i++){
-
-        callback[i] = {
-          name:data[i].patientname,
-          status:data[i].p_status,
-          id: data[i].patientid
-          }    
-    }
-
-    return callback;
-  });
+  
 
     
 }
