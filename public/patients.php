@@ -46,7 +46,7 @@
                 $result = addPatient($conn);
                 break;    
             case 'RETRIEVE':
-                $query = "SELECT patientname FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."'";
+                $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$_SESSION['id']."'";
                 $data = pg_query($conn, $query);
 
                 //Reúne pacientes em um array

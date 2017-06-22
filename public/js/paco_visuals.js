@@ -85,19 +85,13 @@
 
 function showCommentList(){
 
+    var patients = getPatientInfo();
 
-  $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+    console.log(patients);
 
-    var content = "";
+    content = "test";
 
-    for(var i = 0; i<data.length;i++){
 
-      var paciente = data[i].patientname;
-
-      content += "<tr class='list-group-item'>"+
-      "<td>" + paciente + "</td>";
-
-    }
 
     var form = "<div class='panel panel-default'>" +  "<div class='panel-heading'>Pacientes</div>" +  
                 "<div class='panel-body'>" + "Abaixo você encontra todos os comentários sobre seus pacientes" +
@@ -108,7 +102,7 @@ function showCommentList(){
 
     document.getElementById("notas").innerHTML += form;
 
-  });
+  };
 
   
 }
@@ -383,6 +377,21 @@ function newLabButton(id){
 function submitModal(){
 
     var form = document.getElementById('formC').submit();
+}
+
+//Faz uma solicitação ao banco de dados para buscar nome de pacientes para um determinado usuário
+function getPatientInfo(){
+
+  $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
+
+    for(var i = 0; i<data.length;i++){
+
+      pacientes[i] = {
+        name:data[i].patientname,
+        status:data[i].p_status;
+    }
+
+    return pacientes;
 }
 
 //Readies the Fake-select module

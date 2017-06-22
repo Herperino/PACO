@@ -14,9 +14,10 @@
 <!--h1>O FAMOSO DEUS DA PROGRAMAÇÂO</h1-->
 <div class = "container" id = "notas">
 	<!--img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" /-->
-	<input class = 'btn btn-warning' onclick="showCommentList()" value="Mostrar pacientes">
-	</input>
-	<br>	
+	
+	
 </div>
+	<br>	
+<input class = 'btn btn-warning' onclick="showCommentList()" value="Mostrar pacientes"/>
 <!-- Construir aqui -->
 <?php endif?>
