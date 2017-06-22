@@ -112,7 +112,7 @@ function makeCommentList(){
 
             document.getElementById("lista").innerHTML += content;
             getCommentNumber(i, pacientes[i].id);
-      }
+      },
       error: function(){alert("Erro ao resgatar o conteúdo")}
     });   
 }
