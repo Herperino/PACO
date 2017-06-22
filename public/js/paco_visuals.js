@@ -111,8 +111,8 @@ function showCommentList(){
             else 
             pacientes[context].comments = 0;
 
-            content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
-            "<td>("+  pacientes[i].comments +")<td></tr>";
+            content += "<tr><td>"+  pacientes[context].id +"<td> <td>"+  pacientes[context].name +"<td>" +
+            "<td>("+  pacientes[context].comments +")<td></tr>";
 
          });
       }
