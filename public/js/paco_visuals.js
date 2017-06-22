@@ -103,7 +103,7 @@ function makeCommentList(){
             //Elimina exibir pacientes inativos
             console.log(pacientes[i])
 
-            if (status == 1)
+            if (pacientes[i].status == 1)
               content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
       }
 
