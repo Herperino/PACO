@@ -377,23 +377,25 @@ function submitModal(){
 }
 
 //Faz uma solicitação ao banco de dados para buscar nome de pacientes para um determinado usuário
-function getPatientInfo(){
+function getPatientInfo(callback){
 
   $.post("patients.php", {operation: 'RETRIEVE', patientID:'ignore'}).done(function(data){
 
-    var pacientes = [];
+    callback = [];
 
     for(var i = 0; i<data.length;i++){
 
-        pacientes[i] = {
+        callback[i] = {
           name:data[i].patientname,
           status:data[i].p_status,
           id: data[i].patientid
           }    
     }
+
+    return callback;
   });
 
-    return pacientes;
+    
 }
 
 //Readies the Fake-select module
