@@ -106,6 +106,8 @@ function showCommentList(){
 
          $.post("notas.php",{operation:"RETRIEVE", patientid: "ss"+pacientes[i].id}).done(function(data){
 
+            console.log(data);
+
             pacientes[i].comments = data.length;
 
             content += "<tr><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>" +
