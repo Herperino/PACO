@@ -10,8 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
- /** Displays a list of patients and their current state
-  *  based on data sent by the server
+ /** 
+  * Mostra uma lista de pacientes e oferece opções
   */
  function showPatients(page){
 
@@ -20,16 +20,15 @@
         var form = $('#patient_list');
         var patients = data.length;
 
+        //Se não houverem pacientes
         if (patients === undefined)
           patients = 0;
- 
-        var pageid = "\""+ page + "\"";
-
 
         var content = "<div class='panel-heading'>Pacientes ("+ patients+")</div>"+
                         "<div class ='panel-body'>" +
                           "<div class = 'wrapper'>";
 
+        //Caso exista pelo menos um paciente em acompanhamento
         if (patients > 0){                          
           
           content += "<table id='patients' class='table'>"+
@@ -41,45 +40,49 @@
                               "<th>Ação</th>"+
                             "</tr>";
 
+          //Para cada paciente, elabora uma linha na tabela
+          for (var count = 0; count < patients; count++)
+              {
+                  var rowindex = "row_" + count;
+                  var status = ["Inativo", "Ativo"];
 
-        for (var count = 0; count < patients; count++)
-            {
-                var rowindex = "row_" + count;
-                var status = ["Inativo", "Ativo"];
+                  if (data[count].p_status != "0"){
+                      content += "<tr class = 'tc'  id= '" + rowindex + "'>" ;
+                  }
+                  else{
+                      content += "<tr class = 'tc'  id= '" + rowindex + "' style = 'color:gray'>" ;
+                  }
 
-                if (data[count].p_status != "0"){
-                    content += "<tr class = 'tc'  id= '" + rowindex + "'>" ;
-                }
-                else{
-                    content += "<tr class = 'tc'  id= '" + rowindex + "' style = 'color:gray'>" ;
-                }
+                  content += "<td value = '" + count + "'>" + data[count].patientid + "</td>";
+                  content += "<td value = '" + count + "'>" + data[count].patientname + "</td>";
+                  content += "<td value ='" + count + "'>" + data[count].patientage + "</td>";
+                  content += "<td value = '" + count + "'>" + status[data[count].p_status] + "</td>";
+                  content += "<td> <select class = 'fake-select' data-style='btn-success'"+
+                  "id = 'ptt_" + data[count].patientid +
+                  "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
+                  "<option value='nada'>Selecione</option>"+
+                  "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
+                  "<option value='changestatus'>Status</option>"+
+                  "<option value='remover'>Remover</option>"+
+                  "<option value='acomp'>Acompanhar</option></select></td>";
+                  content += "</tr>"
 
-                content += "<td value = '" + count + "'>" + data[count].patientid + "</td>";
-                content += "<td value = '" + count + "'>" + data[count].patientname + "</td>";
-                content += "<td value ='" + count + "'>" + data[count].patientage + "</td>";
-                content += "<td value = '" + count + "'>" + status[data[count].p_status] + "</td>";
-                content += "<td> <select class = 'fake-select' data-style='btn-success'"+
-                "id = 'ptt_" + data[count].patientid +
-                "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
-                "<option value='nada'>Selecione</option>"+
-                "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+
-                "<option value='changestatus'>Status</option>"+
-                "<option value='remover'>Remover</option>"+
-                "<option value='acomp'>Acompanhar</option></select></td>";
-                content += "</tr>"
+              }
+          }
 
-            }
-        }
-        content += "</table></div>";
-        content += "<input onClick= 'handler()'"+
-        "id = 'addBtn' style='width:100%' "+
-        "type ='button' value= 'Adicionar Paciente'"+
-        "class = 'btn btn-success'/>" + 
-          "</div>" //panel body;
+          //Inclui o botão de inserção de novos pacientes
+          content += "</table></div>";
+          content += "<input onClick= 'handler()'"+
+          "id = 'addBtn' style='width:100%' "+
+          "type ='button' value= 'Adicionar Paciente'"+
+          "class = 'btn btn-success'/>" + 
+            "</div>" //panel body;
 
-        form.html(content);
+          //Insere o conteúdo no DOM
+          form.html(content);
 
-        $('#patients').stacktable();
+          //Extensão stacktable para view mobile
+          $('#patients').stacktable();
     });
 }
 
@@ -154,9 +157,6 @@ function renderPatientForm(path, parameters){
             "<div class='modal-content'>"+
                 "<div class='modal-header'>"+
                     "<h3 class='modal-title' id='exampleModalLabel'>Insira um novo paciente</h3>"+
-                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
-                    "<span aria-hidden='true'>&times;</span>"+
-                    "</button>"+
                 "</div>"+
             "<div class='modal-body'>"+
             "<form id= 'formC' class= 'form-group col-12' accept-charset='UTF-8' action ='" + path + "' method='post' >" +
@@ -336,6 +336,54 @@ function renderPrescriptionForm(parameters){
     document.getElementById("prescription_list").innerHTML = content;
 }
 
+/* ---------------------------------------------------------------
+ *
+ * Exibe um formulário para adição de comentários no banco de dados
+ * 
+ *----------------------------------------------------------------*/
+function showCommentForm(parameters){
+
+    if(parameters['operation'] == "COMMENT_THIS") 
+      var info = 'Adicionar novo comentário';
+    else 
+      var info = 'Alterar comentário';
+
+
+    var content = ""+
+    "<div class='modal fade' id='comment_form' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
+        "<div class='modal-dialog' role='document'>"+
+            "<div class='modal-content'>"+
+                "<div class='modal-header'>"+
+                    "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.type +" de "+ parameters.timestamp +"</h3>"+
+                "</div>"+
+            "<div class='modal-body'>"+
+            "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST' >" +
+            "<br><input name= 'conteudo' type = 'text' placeholder='Comente aqui'></input><br><br>" +
+            "<input name= 'operation' type = 'hidden' value = "+ parameters.operation +"></input>" +
+            "<input name= 'patientid' type = 'hidden'"+ parameters.pat_id +"  ></input>" +
+            "<input name= 'assunto' type = 'hidden'"+ parameters.uniqid +"  ></input>" +
+            "</form>" +
+            "</div>" +
+
+            "</div>"+
+            "<div class='modal-footer'>"+
+                "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
+                "<input class= 'btn btn-success' type = 'button' onclick ='submitModal()' value= '" + info +"'> &nbsp;" +
+
+            "</div>"+
+            "</div>"+
+        "</div>"+
+    "</div>";
+  
+}
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                      UTILIDADES                                            ////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -381,6 +429,7 @@ function newLabButton(id){
 
   target.innerHTML += content;
 }
+
 
 /*
  * Clears a modal form

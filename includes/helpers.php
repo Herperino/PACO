@@ -128,7 +128,7 @@ function displayPrescription($prescriptions){
 
               <button  data-id =" . (string)$prescription['uniqid'] ."
                        data-operation = \"COMMENT_THIS\" 
-                       type = 'button' onClick = 'console.log(this)'
+                       type = 'button' onClick = 'showCommentForm(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
               </button>   
