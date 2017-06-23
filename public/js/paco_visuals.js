@@ -348,6 +348,7 @@ function showCommentForm(parameters){
     else 
       var info = 'Alterar comentário';
 
+    alert("AEHOO");
 
     var content = ""+
     "<div class='modal fade' id='comment_form' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
