@@ -454,6 +454,7 @@ function newLabButton(id){
 
 function submitModal(form){
 
+    console.log("Got called")
     var form = document.getElementById(form).submit();
 }
 
