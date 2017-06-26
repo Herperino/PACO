@@ -347,7 +347,7 @@ function showCommentForm(parameters){
     
     var paciente = document.getElementById("nome").innerText;
 
-    var id_tipo = parameters.id.substring(0,2); //Todo comentário começa com um cód de 3 letras(med, com, lab)
+    var id_tipo = parameters.dataset.id.substring(0,2); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
     parameters.type = (function(codigo){
 
