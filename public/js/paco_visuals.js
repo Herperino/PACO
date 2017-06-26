@@ -359,11 +359,13 @@ function showCommentForm(parameters){
           case 'lab':
               return "resultado";
             break;
-          case 'admissao'
+          case 'admissao':
               return "entrada";
             break;
         }
     };
+
+    console.log(parameters);
 
     if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
