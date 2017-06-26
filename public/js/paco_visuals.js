@@ -359,7 +359,7 @@ function showCommentForm(parameters){
           case 'lab':
               var text = "resultado";
             break;
-          case 'admissao':
+          case 'adm':
               var text = "entrada";
             break;
         }
@@ -367,7 +367,7 @@ function showCommentForm(parameters){
         return text;
     })(id_tipo); //id_tipo é passado para ser avaliado
 
-    console.log(parameters);
+    console.log(id_tipo);
 
     if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
