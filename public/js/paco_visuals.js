@@ -347,7 +347,7 @@ function showCommentForm(parameters){
     
     var paciente = document.getElementById("nome").innerText;
 
-    var id_tipo = parameters.dataset.id.substring(0,2); //Todo comentário começa com um cód de 3 letras(med, com, lab)
+    var id_tipo = parameters.dataset.id.substring(0,3); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
     parameters.type = (function(codigo){
 
@@ -367,8 +367,6 @@ function showCommentForm(parameters){
         return text;
     })(id_tipo); //id_tipo é passado para ser avaliado
 
-    console.log(id_tipo);
-
     if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
     else 
@@ -384,9 +382,9 @@ function showCommentForm(parameters){
             "<div class='modal-body'>"+
                 "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
                   "<input name= 'conteudo' class = 'big_data' type = 'text' placeholder='Comente aqui'></input><br><br>" +
-                  "<input name= 'operation' type = 'hidden' value = "+ parameters.operation +"></input>" +
-                  "<input name= 'patientid' type = 'hidden'"+ parameters.pat_id +"  ></input>" +
-                  "<input name= 'assunto' type = 'hidden'"+ parameters.uniqid +"  ></input>" +
+                  "<input name= 'operation' type = 'hidden' value = "+ parameters.dataset.operation +"></input>" +
+                  "<input name= 'patientid' type = 'hidden'"+ parameters.dataset.pat_id +"  ></input>" +
+                  "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.uniqid +"  ></input>" +
                 "</form>" +
             "</div>" +
         "</div>"+
