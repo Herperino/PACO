@@ -12,7 +12,7 @@
     <div class= "row" style="overflow-x:auto">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h4> <?php echo $P_ID ?> - <?php echo $patientID ?>  </h4>
+                <h4 id="nome"> <?php echo $patientID ?>  </h4>
            </div>
 
         <div id ="labresults_list" class="panel-body">

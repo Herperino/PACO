@@ -109,6 +109,7 @@ function makeCommentList(){
                   //Elimina exibir pacientes inativos
                   console.log(pacientes[i])
 
+                  //Se for um paciente com status ativo, exibir na lista
                   if (pacientes[i].status == 1)
                     content += "<tr id='l"+ i +"''><td>"+  pacientes[i].id +"<td> <td>"+  pacientes[i].name +"<td>";
             }
@@ -343,37 +344,53 @@ function renderPrescriptionForm(parameters){
  *----------------------------------------------------------------*/
 function showCommentForm(parameters){
 
-    if(parameters['operation'] == "COMMENT_THIS") 
+    
+    var paciente = document.getElementById("nome").innerText;
+
+    var id_tipo = parameters.id.substring(0,2); //Todo comentário começa com um cód de 3 letras(med, com, lab)
+
+    parameters.type = function(codigo){
+
+        //Define qual tipo de texto será exibido
+        switch(codigo){
+          case 'med':
+              return "prescrição";
+            break;
+          case 'lab':
+              return "resultado";
+            break;
+          case 'admissao'
+              return "entrada";
+            break;
+        }
+    };
+
+    if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
     else 
-      var info = 'Alterar comentário';
-
-    alert("AEHOO");
+      var info = 'Alterar comentário';   
 
     var content = ""+
     "<div class='modal fade' id='comment_form' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
-        "<div class='modal-dialog' role='document'>"+
-            "<div class='modal-content'>"+
-                "<div class='modal-header'>"+
-                    "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.type +" de "+ parameters.timestamp +"</h3>"+
-                "</div>"+
+      "<div class='modal-dialog' role='document'>"+
+        "<div class='modal-content'>"+
+            "<div class='modal-header'>"+
+              "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.type +" de "+ paciente +"</h3>"+
+            "</div>"+
             "<div class='modal-body'>"+
-            "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST' >" +
-            "<br><input name= 'conteudo' type = 'text' placeholder='Comente aqui'></input><br><br>" +
-            "<input name= 'operation' type = 'hidden' value = "+ parameters.operation +"></input>" +
-            "<input name= 'patientid' type = 'hidden'"+ parameters.pat_id +"  ></input>" +
-            "<input name= 'assunto' type = 'hidden'"+ parameters.uniqid +"  ></input>" +
-            "</form>" +
+                "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
+                  "<input name= 'conteudo' class = 'big_data' type = 'text' placeholder='Comente aqui'></input><br><br>" +
+                  "<input name= 'operation' type = 'hidden' value = "+ parameters.operation +"></input>" +
+                  "<input name= 'patientid' type = 'hidden'"+ parameters.pat_id +"  ></input>" +
+                  "<input name= 'assunto' type = 'hidden'"+ parameters.uniqid +"  ></input>" +
+                "</form>" +
             "</div>" +
-
-            "</div>"+
-            "<div class='modal-footer'>"+
-                "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-                "<input class= 'btn btn-success' type = 'button' onclick ='submitModal()' value= '" + info +"'> &nbsp;" +
-
-            "</div>"+
-            "</div>"+
         "</div>"+
+        "<div class='modal-footer'>"+
+            "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
+            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal()' value= '" + info +"'> &nbsp;" +
+        "</div>"+
+      "</div>"+
     "</div>";
 
     document.body.innerHTML += content;
@@ -381,13 +398,6 @@ function showCommentForm(parameters){
     $('#comment_form').modal('show');
   
 }
-
-
-
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                      UTILIDADES                                            ////
