@@ -126,7 +126,7 @@ function displayPrescription($prescriptions){
       //Botão de comentário
       print("<td>
 
-              <button  data-id = $prescription['uniqid']
+              <button  data-id = $prescription["uniqid"]
                        data-operation = \"COMMENT_THIS\" 
                        data-pat_id = $prescription["patientID"]
                        type = 'button' onClick = 'showCommentForm(this)'
