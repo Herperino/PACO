@@ -365,7 +365,7 @@ function showCommentForm(parameters){
         }
 
         return text;
-    })();
+    })(id_tipo); //id_tipo é passado para ser avaliado
 
     console.log(parameters);
 
