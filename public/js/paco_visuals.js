@@ -148,7 +148,7 @@ function renderPatientForm(path, parameters){
          pat_id = "";
      }
 
-    var action = "submitModal();"
+    var action = "submitModal('formC');"
 
     //the form itself
 
@@ -390,7 +390,7 @@ function showCommentForm(parameters){
         "</div>"+
         "<div class='modal-footer'>"+
             "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal()' value= '" + info +"'> &nbsp;" +
+            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal('comment')' value= '" + info +"'> &nbsp;" +
         "</div>"+
       "</div>"+
     "</div>";
@@ -452,9 +452,9 @@ function newLabButton(id){
  * Clears a modal form
  */
 
-function submitModal(){
+function submitModal(form){
 
-    var form = document.getElementById('formC').submit();
+    var form = document.getElementById(form).submit();
 }
 
 //Retorna o número de comentários como um badge
