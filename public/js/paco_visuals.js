@@ -349,7 +349,7 @@ function showCommentForm(parameters){
 
     var id_tipo = parameters.id.substring(0,2); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
-    parameters.type = function(codigo){
+    parameters.type = (function(codigo){
 
         //Define qual tipo de texto será exibido
         switch(codigo){
@@ -365,7 +365,7 @@ function showCommentForm(parameters){
         }
 
         return text;
-    };
+    })();
 
     console.log(parameters);
 
