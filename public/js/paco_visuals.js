@@ -354,15 +354,17 @@ function showCommentForm(parameters){
         //Define qual tipo de texto será exibido
         switch(codigo){
           case 'med':
-              return "prescrição";
+              var text = "prescrição";
             break;
           case 'lab':
-              return "resultado";
+              var text = "resultado";
             break;
           case 'admissao':
-              return "entrada";
+              var text = "entrada";
             break;
         }
+
+        return text;
     };
 
     console.log(parameters);
