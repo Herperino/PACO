@@ -469,8 +469,6 @@ function getCommentNumber(target,paciente){
   var comments;
   var target = document.getElementById(target);
 
-  console.log(paciente);
-
   $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
     alert(data);

@@ -523,12 +523,12 @@ function displayPrescription($prescriptions){
   * /---------------------------------------------
   * Recebe dados de paciente do servidor como $source
   * Deve ser receber:
-  * sessionid
+  * paciente
   * Desta fonte, a função deve retornar um array com os dados relevantes.
   * ---------------------------------------------*/
-  function fetchData($sessionid){
+  function fetchData($paciente){
 
-    $id_sessao = "ss[_]" . $sessionid . "%";
+    $id_sessao = "ss\_" . $sessionid . "% ESCAPE '\'";
     
     $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."'");
 
