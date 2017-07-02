@@ -528,12 +528,12 @@ function displayPrescription($prescriptions){
   * ---------------------------------------------*/
   function fetchData($sessionid){
 
-    $id_sessao = "ss[_]" . $sessionid;
+    $id_sessao = "ss[_]" . $sessionid . "%";
     
     $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."'");
 
     //Se query retorna false, $results é um array vazio
-    $results = ($query!=false) ? pg_fetch_all($query) : 0;
+    $results = $query!=false ? pg_fetch_all($query) : 0;
 
     return $results;
   }
