@@ -1,1 +1,6 @@
-# Para todos os arquivos e sub-pastas localizados na pasta vendor/
+# Para todos os arquivos e sub-pastas localizados na pasta vendor/, exceto library50
+vendor/notrix/
+vendor/phpbench/
+vendor/openid/
+vendor/psx/
+vendor/autoload.php
