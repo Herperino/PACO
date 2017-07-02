@@ -349,8 +349,6 @@ function showCommentForm(parameters){
 
     var id_tipo = parameters.dataset.id.substring(0,3); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
-    console.log(id_tipo);
-
     parameters.type = (function(codigo){
 
         //Define qual tipo de texto será exibido
@@ -393,11 +391,11 @@ function showCommentForm(parameters){
                   "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.id +"  ></input>" +
                 "</form>" +
             "</div>" +
-        "</div>"+
-        "<div class='modal-footer'>"+
-            "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-            "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+" value= '" + info +"'> &nbsp;" +
-        "</div>"+
+            "<div class='modal-footer'>"+
+              "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
+              "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+" value= '" + info +"'> &nbsp;" +
+            "</div>"+
+        "</div>"+        
       "</div>"+
     "</div>";
 
