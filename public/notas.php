@@ -33,7 +33,7 @@
         $comment = new Comment($assunto, $conteudo,$paciente);
 
         //Inclui-se o comentário no banco de dados
-        $comment->databaseIt();
+        $comment->databaseIt($conn);
     
         break;
 
