@@ -386,7 +386,7 @@ function showCommentForm(parameters){
                   "<input name= 'conteudo' class = 'form-ext' type = 'text' placeholder='Comente aqui'></input><br><br>" +
                   "<input name= 'operation' type = 'hidden' value = "+ parameters.dataset.operation +"></input>" +
                   "<input name= 'patientid' type = 'hidden'"+ parameters.dataset.pat_id +"  ></input>" +
-                  "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.uniqid +"  ></input>" +
+                  "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.id +"  ></input>" +
                 "</form>" +
             "</div>" +
         "</div>"+
