@@ -528,7 +528,7 @@ function displayPrescription($prescriptions){
   * ---------------------------------------------*/
   function fetchData($sessionid){
 
-    $id_sessao = "ss_" . $sessionid . "_".$_SESSION['id'];
+    $id_sessao = "ss[_]" . $sessionid;
     
     $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."'");
 
