@@ -372,6 +372,8 @@ function showCommentForm(parameters){
     else 
       var info = 'Alterar comentário';   
 
+    function_call = "submitModal(\'comment\')"
+
     var content = ""+
     "<div class='modal fade' id='comment_form' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
       "<div class='modal-dialog' role='document'>"+
@@ -390,13 +392,13 @@ function showCommentForm(parameters){
         "</div>"+
         "<div class='modal-footer'>"+
             "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal(\'comment\')' value= '" + info +"'> &nbsp;" +
+            "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+"value= '" + info +"'> &nbsp;" +
         "</div>"+
       "</div>"+
     "</div>";
 
     //Console log 
-    console.log("Test");
+    console.log(function_call);
 
     document.body.innerHTML += content;
 
@@ -467,12 +469,12 @@ function getCommentNumber(target,paciente){
   var comments;
   var target = document.getElementById(target);
 
-  console.log("I was supposed to work!")
+  console.log(paciente);
 
   $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
     alert(data);
-    
+
     if (data == false)
       comments = "";
     else
