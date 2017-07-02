@@ -527,6 +527,8 @@ function displayPrescription($prescriptions){
   * Desta fonte, a função deve retornar um array com os dados relevantes.
   * ---------------------------------------------*/
   function fetchData($sessionid){
+
+    $id_sessao = "ss" . $sessionid;
     
     $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao = 'ss".$sessionid."'");
 
