@@ -349,6 +349,8 @@ function showCommentForm(parameters){
 
     var id_tipo = parameters.dataset.id.substring(0,3); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
+    console.log(parameters);
+
     parameters.type = (function(codigo){
 
         //Define qual tipo de texto será exibido
