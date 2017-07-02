@@ -390,7 +390,7 @@ function showCommentForm(parameters){
         "</div>"+
         "<div class='modal-footer'>"+
             "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal('comment')' value= '" + info +"'> &nbsp;" +
+            "<input class= 'btn btn-success' type = 'button' onclick ='submitModal(\'comment\')' value= '" + info +"'> &nbsp;" +
         "</div>"+
       "</div>"+
     "</div>";
@@ -471,6 +471,8 @@ function getCommentNumber(target,paciente){
 
   $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
+    alert(data);
+    
     if (data == false)
       comments = "";
     else
