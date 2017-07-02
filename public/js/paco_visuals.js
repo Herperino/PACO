@@ -381,7 +381,7 @@ function showCommentForm(parameters){
             "</div>"+
             "<div class='modal-body'>"+
                 "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
-                  "<input name= 'conteudo' class = 'big_data' type = 'text' placeholder='Comente aqui'></input><br><br>" +
+                  "<input name= 'conteudo' class = 'form-ext' type = 'text' placeholder='Comente aqui'></input><br><br>" +
                   "<input name= 'operation' type = 'hidden' value = "+ parameters.dataset.operation +"></input>" +
                   "<input name= 'patientid' type = 'hidden'"+ parameters.dataset.pat_id +"  ></input>" +
                   "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.uniqid +"  ></input>" +
