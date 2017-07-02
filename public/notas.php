@@ -34,7 +34,7 @@
 
         //Inclui-se o comentário no banco de dados
         $comment->databaseIt($conn);
-    
+        echo("Tentei enviar");
         break;
 
       case 'EDIT_COMMENT':
@@ -68,6 +68,7 @@
     exit();
   }
   
+  echo("Cheguei aqui");
   //Volta para a página inicial se vier via POST
   redirect(basename($_SERVER['HTTP_REFERER']))
   
