@@ -33,7 +33,7 @@ class Comment{
 		$this->subject = $assunto;
 		$this->content = $conteudo;
 		$this->uniqid = uniqid("cmt");
-		$this->sessid = "ss".$id;
+		$this->sessid = "ss_".$id. "_". $this->author;
 	}
 	/*--------------------------------------
 
