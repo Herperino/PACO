@@ -363,11 +363,10 @@ function showCommentForm(parameters){
               var text = "entrada";
             break;
         }
-
-
-        console.log(text);
         return text;
     })(id_tipo); //id_tipo é passado para ser avaliado
+
+    console.log(parameters.type);
 
     if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
