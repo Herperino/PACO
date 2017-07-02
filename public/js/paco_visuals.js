@@ -397,7 +397,7 @@ function showCommentForm(parameters){
 
     //Console log 
     console.log("Test");
-    
+
     document.body.innerHTML += content;
 
     $('#comment_form').modal('show');
@@ -457,7 +457,7 @@ function newLabButton(id){
 
 function submitModal(form){
 
-    console.log("Got called")
+    alert("SM was called with the intent of submitting to " + form );
     var form = document.getElementById(form).submit();
 }
 
