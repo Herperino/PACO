@@ -368,7 +368,7 @@ function showCommentForm(parameters){
 
     console.log(parameters.texto);
 
-    if(parameters.operation == "COMMENT_THIS") 
+    if(parameters.dataset.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
     else 
       var info = 'Alterar comentário';   
@@ -385,9 +385,9 @@ function showCommentForm(parameters){
             "<div class='modal-body'>"+
                 "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
                   "<input name= 'conteudo' class = 'form-ext' type = 'text' placeholder='Comente aqui'></input>" +
-                  "<input name= 'operation' type = 'hidden' value = "+ parameters.dataset.operation +"></input>" +
-                  "<input name= 'patientid' type = 'hidden'"+ parameters.dataset.pat_id +"  ></input>" +
-                  "<input name= 'assunto' type = 'hidden'"+ parameters.dataset.id +"  ></input>" +
+                  "<input name= 'operation' type = 'hidden' value = "+ parameters.dataset.operation +"/>" +
+                  "<input name= 'patientid' type = 'hidden' value = "+ parameters.dataset.pat_id +"/>" +
+                  "<input name= 'assunto' type = 'hidden' value = "+ parameters.dataset.id +"/>" +
                 "</form>" +
             "</div>" +
             "<div class='modal-footer'>"+
