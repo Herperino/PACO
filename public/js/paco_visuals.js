@@ -372,7 +372,7 @@ function showCommentForm(parameters){
     else 
       var info = 'Alterar comentário';   
 
-    function_call = "submitModal(\'comment\')"
+    function_call = "submitModal(\'comment\')";
 
     var content = ""+
     "<div class='modal fade' id='comment_form' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>"+
@@ -392,7 +392,7 @@ function showCommentForm(parameters){
         "</div>"+
         "<div class='modal-footer'>"+
             "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-            "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+"value= '" + info +"'> &nbsp;" +
+            "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+" value= '" + info +"'> &nbsp;" +
         "</div>"+
       "</div>"+
     "</div>";
