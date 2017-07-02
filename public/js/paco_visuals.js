@@ -349,7 +349,7 @@ function showCommentForm(parameters){
 
     var id_tipo = parameters.dataset.id.substring(0,3); //Todo comentário começa com um cód de 3 letras(med, com, lab)
 
-    parameters.type = (function(codigo){
+    parameters.texto = (function(codigo){
 
         //Define qual tipo de texto será exibido
         switch(codigo){
@@ -366,7 +366,7 @@ function showCommentForm(parameters){
         return text;
     })(id_tipo); //id_tipo é passado para ser avaliado
 
-    console.log(parameters.type);
+    console.log(parameters.texto);
 
     if(parameters.operation == "COMMENT_THIS") 
       var info = 'Adicionar novo comentário';
@@ -380,7 +380,7 @@ function showCommentForm(parameters){
       "<div class='modal-dialog' role='document'>"+
         "<div class='modal-content'>"+
             "<div class='modal-header'>"+
-              "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.type +" de "+ paciente +"</h3>"+
+              "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.texto +" de "+ paciente +"</h3>"+
             "</div>"+
             "<div class='modal-body'>"+
                 "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
