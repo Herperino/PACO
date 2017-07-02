@@ -530,7 +530,7 @@ function displayPrescription($prescriptions){
 
     $id_sessao = "ss_" . $sessionid;
     
-    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE ".$sessionid."'");
+    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."'");
 
     //Se query retorna false, $results é um array vazio
     $results = ($query!=false) ? pg_fetch_all($query) : [];
