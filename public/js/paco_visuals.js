@@ -395,6 +395,9 @@ function showCommentForm(parameters){
       "</div>"+
     "</div>";
 
+    //Console log 
+    console.log("Test");
+    
     document.body.innerHTML += content;
 
     $('#comment_form').modal('show');
