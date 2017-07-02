@@ -471,7 +471,7 @@ function getCommentNumber(target,paciente){
 
   $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
-    alert(data);
+    console.log(data);
 
     if (data == false)
       comments = "";
