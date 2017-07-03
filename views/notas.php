@@ -27,7 +27,9 @@
                   </tr>
             </table>           
         </div>
-     <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
+    <script>
+     $(document).ready(makeCommentList());
+    </script>
 </div>
 	
 
