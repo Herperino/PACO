@@ -11,7 +11,7 @@
 <!-- Não é um usuário comum -->
 <?php else: ?>
 <div class = "container" id = "notas">
-    <div class = 'page-header' style="overflow-x:auto"><h2>Notas</h2></div>
+    <div class = 'page-header'><h2>Notas</h2></div>
         <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
 	<br>   
     <div class='panel panel-default'> 

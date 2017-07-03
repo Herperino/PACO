@@ -36,7 +36,7 @@
 <!--THE VIEW mode allows the users to review a patient prescriptions and also edit the current prescription or add a new prescription -->
 <?php else: ?>
 <div class = 'container'>
-    <div class = 'page-header' style="overflow-x:auto"><h2>Acompanhamento laboratorial</h2></div>
+    <div class = 'page-header'><h2>Acompanhamento laboratorial</h2></div>
     <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
     <div id="patient_list" class = "panel panel-default">
         <script>showPatients("labref.php"); </script>
