@@ -471,15 +471,13 @@ function getCommentNumber(target,paciente){
 
   $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
-    console.log(data);
-
     if (data == false)
       comments = "0";
     else
       comments = data.length;
 
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:75%;margin-left:12.5%' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:60%;margin-left:15%' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
