@@ -479,7 +479,7 @@ function getCommentNumber(target,paciente){
       comments = data.length;
 
     target.innerHTML += "<td>"+
-                          "<button type='button' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:100%' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
@@ -491,4 +491,3 @@ function getCommentNumber(target,paciente){
     $('.fake-select').fakeSelect();    
   });
 
-  
