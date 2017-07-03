@@ -478,7 +478,11 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    target.innerHTML += "<td> <span class='badge'>" + comments + "</span></td>"
+    target.innerHTML += "<td>"+
+                          "<button type='button' class='btn btn-default'> Ver Comentários"+
+                          "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
+                          "</button>"+
+                        "</td>";
   });
 }
 
@@ -486,3 +490,5 @@ function getCommentNumber(target,paciente){
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();    
   });
+
+  

@@ -26,7 +26,7 @@
             <table id = "lista" class='table list-group'>
                   <tr>
                       <th>ID</th>
-                      <th colspan="3">Nome</th>
+                      <th>Nome</th>
                       <th>Comentários</th>
                   </tr>
             </table>
