@@ -23,7 +23,7 @@
                   <tr>
                       <th>ID</th>
                       <th>Nome</th>
-                      <th>Comentários</th>
+                      <th style="text-align:center">Comentários</th>
                   </tr>
             </table>           
         </div>
