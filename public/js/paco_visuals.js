@@ -479,7 +479,7 @@ function getCommentNumber(target,paciente){
       comments = data.length;
 
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:75%;margin-left:12.5% class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:75%;margin-left:12.5%' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
