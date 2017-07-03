@@ -11,7 +11,7 @@
 <!-- Não é um usuário comum -->
 <?php else: ?>
 <div class = "container" id = "notas">
-    <div class = 'page-header' style="overflow-x:auto"><h2>Acompanhamento de prescrições</h2></div>
+    <div class = 'page-header' style="overflow-x:auto"><h2>Notas</h2></div>
         <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
 	<br>   
     <div class='panel panel-default'> 
@@ -25,10 +25,9 @@
                       <th>Nome</th>
                       <th>Comentários</th>
                   </tr>
-            </table>
-
-            <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
-    </div>	
+            </table>           
+        </div>
+     <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
 </div>
 	
 
