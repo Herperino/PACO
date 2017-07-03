@@ -24,7 +24,11 @@
             Abaixo você encontra todos os comentários sobre seus pacientes
              </div> 
             <table id = "lista" class='table list-group'>
-                  
+                  <tr>
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>Comentários</th>
+                  </tr>
             </table>
 
             <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>

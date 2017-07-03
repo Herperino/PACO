@@ -474,7 +474,7 @@ function getCommentNumber(target,paciente){
     console.log(data);
 
     if (data == false)
-      comments = "";
+      comments = "0";
     else
       comments = data.length;
 
