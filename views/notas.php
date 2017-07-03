@@ -10,16 +10,12 @@
 
 <!-- Não é um usuário comum -->
 <?php else: ?>
-
-<!--h1>O FAMOSO DEUS DA PROGRAMAÇÂO</h1-->
 <div class = "container" id = "notas">
-	<!--img src="https://cdn-images-1.medium.com/max/800/1*uizrmPyTSyJIcxB8nQk8WA.gif" /-->
-	
-	
-</div>
-	<br>	
-	<div class='panel panel-default'> 
-		<div class='panel-heading'>Pacientes</div>
+    <div class = 'page-header' style="overflow-x:auto"><h2>Acompanhamento de prescrições</h2></div>
+        <h4>Pacientes em acompanhamento por <?php echo $_SESSION['username'] ?></h4>
+	<br>   
+    <div class='panel panel-default'> 
+        <div class='panel-heading'>Pacientes</div>
             <div class='panel-body'>
             Abaixo você encontra todos os comentários sobre seus pacientes
              </div> 
@@ -32,7 +28,9 @@
             </table>
 
             <input class = 'btn btn-warning' onclick="makeCommentList()" value="Mostrar pacientes"/>
-    </div>
+    </div>	
+</div>
+	
 
 <!-- Construir aqui -->
 <?php endif?>
