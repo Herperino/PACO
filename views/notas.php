@@ -18,7 +18,7 @@
 	
 </div>
 	<br>	
-	<div class='panel panel-primary'> 
+	<div class='panel panel-default'> 
 		<div class='panel-heading'>Pacientes</div>
             <div class='panel-body'>
             Abaixo você encontra todos os comentários sobre seus pacientes
@@ -26,7 +26,7 @@
             <table id = "lista" class='table list-group'>
                   <tr>
                       <th>ID</th>
-                      <th>Nome</th>
+                      <th colspan="3">Nome</th>
                       <th>Comentários</th>
                   </tr>
             </table>
