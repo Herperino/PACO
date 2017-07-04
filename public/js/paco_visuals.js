@@ -484,6 +484,15 @@ function getCommentNumber(target,paciente){
   });
 }
 
+//Cria uma lista de comentários para um paciente específico
+function displayComments(line, patient){
+
+
+
+
+
+}
+
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();    
