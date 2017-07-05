@@ -10,7 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
- /** 
+ /**
   * Mostra uma lista de pacientes e oferece opções
   */
  function showPatients(page){
@@ -29,8 +29,8 @@
                           "<div class = 'wrapper'>";
 
         //Caso exista pelo menos um paciente em acompanhamento
-        if (patients > 0){                          
-          
+        if (patients > 0){
+
           content += "<table id='patients' class='table'>"+
                             "<tr>"+
                               "<th>ID</th>"+
@@ -75,7 +75,7 @@
           content += "<input onClick= 'handler()'"+
           "id = 'addBtn' style='width:100%' "+
           "type ='button' value= 'Adicionar Paciente'"+
-          "class = 'btn btn-success'/>" + 
+          "class = 'btn btn-success'/>" +
             "</div>" //panel body;
 
           //Insere o conteúdo no DOM
@@ -120,7 +120,7 @@ function makeCommentList(){
               getCommentNumber("l"+i, pacientes[i].id);
       },
       error: function(){alert("Erro ao resgatar o conteúdo")}
-    });   
+    });
 }
 
 
@@ -326,7 +326,7 @@ function renderPrescriptionForm(parameters){
           content +="<br><input class= 'btn btn-success' style= 'width:45%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
           "<button class= 'btn btn-warning' style= 'width:45%;margin:1em 0 0 1em' data-uniqid ='"+ uniqid +"' data-operation='DELETE_PRESCRIPTION'" +
           "onclick = 'deleteEntry(this)'>Remover Prescrição</button> "
-          
+
         }
         else
           content +="<br><input class= 'btn btn-success' style= 'width:90%;margin:1em 0 0 1em' type = 'submit' value= '" + info +"'>" +
@@ -340,11 +340,11 @@ function renderPrescriptionForm(parameters){
 /* ---------------------------------------------------------------
  *
  * Exibe um formulário para adição de comentários no banco de dados
- * 
+ *
  *----------------------------------------------------------------*/
 function showCommentForm(parameters){
 
-    
+
     var paciente = document.getElementById("nome").innerText;
 
     var id_tipo = parameters.dataset.id.substring(0,3); //Todo comentário começa com um cód de 3 letras(med, com, lab)
@@ -368,10 +368,10 @@ function showCommentForm(parameters){
 
     console.log(parameters.texto);
 
-    if(parameters.dataset.operation == "COMMENT_THIS") 
+    if(parameters.dataset.operation == "COMMENT_THIS")
       var info = 'Adicionar novo comentário';
-    else 
-      var info = 'Alterar comentário';   
+    else
+      var info = 'Alterar comentário';
 
     function_call = "submitModal(\'comment\')";
 
@@ -394,17 +394,17 @@ function showCommentForm(parameters){
               "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
               "<input class= 'btn btn-success' type = 'button' onclick ="+function_call+" value= '" + info +"'> &nbsp;" +
             "</div>"+
-        "</div>"+        
+        "</div>"+
       "</div>"+
     "</div>";
 
-    //Console log 
+    //Console log
     console.log(function_call);
 
     document.body.innerHTML += content;
 
     $('#comment_form').modal('show');
-  
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -477,7 +477,7 @@ function getCommentNumber(target,paciente){
       comments = data.length;
 
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:60%;margin-left:15%' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target+"," + paciente +")' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
@@ -487,14 +487,11 @@ function getCommentNumber(target,paciente){
 //Cria uma lista de comentários para um paciente específico
 function displayComments(line, patient){
 
-
-
-
+    alert("L: " + line + "|P: " + patient);
 
 }
 
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
-    $('.fake-select').fakeSelect();    
+    $('.fake-select').fakeSelect();
   });
-
