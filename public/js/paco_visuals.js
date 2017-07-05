@@ -476,7 +476,7 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    console.log(target.id);
+    console.log(target);
 
     target.innerHTML += "<td>"+
                           "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + paciente +")' class='btn btn-default'> Ver Comentários"+
@@ -489,6 +489,7 @@ function getCommentNumber(target,paciente){
 //Cria uma lista de comentários para um paciente específico
 function displayComments(line, patient){
 
+    line.innerHTML = "CHATUBA";
     alert("L: " + line + "|P: " + patient);
 
 }
