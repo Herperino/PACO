@@ -476,7 +476,7 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    var content = data;
+    console.log(target);
 
     target.innerHTML += "<td>"+
                           "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + paciente +")' class='btn btn-default'> Ver Comentários"+
@@ -493,11 +493,11 @@ function getCommentNumber(target,paciente){
 function displayComments(line, paciente){
 
   $.post("notas.php", {operation:"RETRIEVE", patientid:paciente}).done(function(data){
-    for(var i = 0; i<data.length;i++){
-        line.innerHTMl = "<td>" + data[i] + "</td>";
-    }
-  });
-}
+     for(var i = 0; i<data.length;i++){
+         line.innerHTMl += "<td>" + data[i] + "</td>";
+     }
+   });
+ }
 
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
