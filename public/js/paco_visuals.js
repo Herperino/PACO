@@ -479,7 +479,7 @@ function getCommentNumber(target,paciente){
     console.log(target);
 
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + paciente +")' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + data +")' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
@@ -487,10 +487,14 @@ function getCommentNumber(target,paciente){
 }
 
 //Cria uma lista de comentários para um paciente específico
-function displayComments(line, patient){
+/*
+* Linha é uma linha da tabela passada como nó HTML
+*/
+function displayComments(line, data){
 
-    line.innerHTML = "CHATUBA";
-    alert("L: " + line + "|P: " + patient);
+    for(var i = 0; i<data.length;i++){
+        line.innerHTMl = "<td>" + data[i] + "</td>";
+    }
 
 }
 
