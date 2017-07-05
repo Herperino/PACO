@@ -494,7 +494,7 @@ function displayComments(line, paciente){
 
   var row = document.getElementById(line);
 
-  $.post("notas.php", {operation:"RETRIEVE", patientid:paciente}).done(function(data){
+  $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
         console.log(data);
    });
