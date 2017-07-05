@@ -479,7 +479,7 @@ function getCommentNumber(target,paciente){
     var content = data;
 
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + content +")' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments("+target.id+"," + paciente +")' class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
@@ -490,12 +490,13 @@ function getCommentNumber(target,paciente){
 /*
 * Linha é uma linha da tabela passada como nó HTML
 */
-function displayComments(line, data){
+function displayComments(line, paciente){
 
+  $.post("notas.php", {operation:"RETRIEVE", patientid:paciente}).done(function(data){
     for(var i = 0; i<data.length;i++){
         line.innerHTMl = "<td>" + data[i] + "</td>";
     }
-
+  });
 }
 
 //Readies the Fake-select module
