@@ -495,12 +495,8 @@ function displayComments(line, paciente){
   var row = document.getElementById(line);
 
   $.post("notas.php", {operation:"RETRIEVE", patientid:paciente}).done(function(data){
-     for(var i = 0; i<data.length;i++){
 
         console.log(data);
-
-         row.innerHTMl += "<td>" + data[i] + "</td>";
-     }
    });
  }
 
