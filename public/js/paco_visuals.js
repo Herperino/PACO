@@ -499,9 +499,10 @@ function displayComments(line, paciente){
       for(var i = 0; i < data.length; i++){
 
         var comment = data[i];
+        var commentinfo = "";
 
         for(var j = 0; j < comment.length; j++){
-          var commentinfo += "<td>" + comment[j] + "</td>";
+          commentinfo += "<td>" + comment[j] + "</td>";
         }
 
         var content = "<tr>" + commentinfo + "</tr>";
