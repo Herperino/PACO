@@ -106,8 +106,6 @@ function makeCommentList(){
                                  updated:data[i].LastActive
                                 }
 
-                  //Elimina exibir pacientes inativos
-                  console.log(pacientes[i])
 
                   //Se for um paciente com status ativo, exibir na lista
                   if (pacientes[i].status == 1)
@@ -476,7 +474,7 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    console.log(target.id);
+    console.log(target);
     var call = "onclick=\"displayComments(" + target.id + "," + paciente +")\"";
     target.innerHTML += "<td>"+
                           "<button type='button' style='width:60%;margin-left:15%' "+call+" class='btn btn-default'> Ver Comentários"+
