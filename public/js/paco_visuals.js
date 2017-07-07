@@ -500,9 +500,9 @@ function displayComments(line, paciente){
         console.log(data[i]);
 
         for(var j = 0; j<data[i].length;j++)
-          var commentinfo = "<td>" + data[i][j]  + "</td>"
+          var commentinfo += "<td>" + data[i][j]  + "</td>"
 
-        var content = "<tr>" + commentinfo + "</tr">
+        var content = "<tr>" + commentinfo + "</tr>"
         row.innerHTML += content;
       }
    });
