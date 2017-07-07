@@ -503,7 +503,7 @@ function displayComments(line, paciente){
           var commentinfo = "<td>" +  + "</td>"
 
         var content = "<tr>" + commentinfo + "</tr">
-        //row.innerHTML += "<td>" + data[i] + "</td>"
+        row.innerHTML += content;
       }
    });
  }
