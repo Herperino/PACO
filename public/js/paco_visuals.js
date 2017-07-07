@@ -476,10 +476,9 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    console.log(target);
-
+    var call = "onclick='displayComments('"+ target.id +"','" + paciente +"')"
     target.innerHTML += "<td>"+
-                          "<button type='button' style='width:60%;margin-left:15%' onclick='displayComments('"+target.id+"','" + paciente +"')' class='btn btn-default'> Ver Comentários"+
+                          "<button type='button' style='width:60%;margin-left:15%' "+call+" class='btn btn-default'> Ver Comentários"+
                           "<span class='glyphicon glyphicon-chevron-right' aria-hidden='true'> <span class='badge'>"+comments+"</span></span>"+
                           "</button>"+
                         "</td>";
