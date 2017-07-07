@@ -474,11 +474,8 @@ function getCommentNumber(target,paciente){
     else
       comments = data.length;
 
-    console.log(target);
-    if (target != null)
-      var call = "onclick=\"displayComments('" + target.id + "'," + paciente +")\"";
-    else
-      var call = "";
+    //Define a chamada do onclick
+    var call = "onclick=\"displayComments('" + target.id + "'," + paciente +")\"";
 
     target.innerHTML += "<td>"+
                           "<button type='button' style='width:60%;margin-left:15%' "+call+" class='btn btn-default'> Ver Comentários"+
@@ -494,13 +491,18 @@ function getCommentNumber(target,paciente){
 */
 function displayComments(line, paciente){
 
+  //Obtem o elemento da pagina com o id da linha da tabela
   var row = document.getElementById(line);
-  console.log(row);
 
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
       for(var i = 0; i < data.length; i ++){
         console.log(data[i]);
+
+        for(var j = 0; j<data[i].length;j++)
+          var commentinfo = "<td>" +  + "</td>"
+
+        var content = "<tr>" + commentinfo + "</tr">
         //row.innerHTML += "<td>" + data[i] + "</td>"
       }
    });
