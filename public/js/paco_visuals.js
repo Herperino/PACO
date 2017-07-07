@@ -476,7 +476,7 @@ function getCommentNumber(target,paciente){
 
     console.log(target);
     if (target != null)
-      var call = "onclick=\"displayComments(" + target.id + "," + paciente +")\"";
+      var call = "onclick=\"displayComments('" + target.id + "'," + paciente +")\"";
     else
       var call = "";
 
@@ -495,6 +495,7 @@ function getCommentNumber(target,paciente){
 function displayComments(line, paciente){
 
   var row = document.getElementById(line);
+  console.log(row);
 
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
