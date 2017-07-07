@@ -497,10 +497,11 @@ function displayComments(line, paciente){
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
       for(var i = 0; i < data.length; i++){
-        console.log(data[i]);
 
-        for(var j = 0; j < data[i].length; j++){
-          var commentinfo += "<td>" + data[i][j] + "</td>";
+        var comment = data[i];
+
+        for(var j = 0; j < comment.length; j++){
+          var commentinfo += "<td>" + comment[j] + "</td>";
         }
 
         var content = "<tr>" + commentinfo + "</tr>";
