@@ -109,7 +109,7 @@ function makeCommentList(){
 
                   //Se for um paciente com status ativo, exibir na lista
                   if (pacientes[i].status == 1)
-                    content += "<tr id='l"+ i +"''><td>"+  pacientes[i].id +"</td> <td>"+  pacientes[i].name +"</td>";
+                    content += "<tr id='l"+ i +"><td>"+  pacientes[i].id +"</td> <td>"+  pacientes[i].name +"</td>";
             }
 
             document.getElementById("lista").innerHTML += content;
