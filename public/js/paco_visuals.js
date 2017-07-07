@@ -503,6 +503,7 @@ function displayComments(line, paciente){
 
         for(var j = 0; j < comment.length; j++){
           commentinfo += "<td>" + comment[j] + "</td>";
+          console.log(comment[j]);
         }
 
         var content = "<tr>" + commentinfo + "</tr>";
