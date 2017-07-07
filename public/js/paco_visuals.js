@@ -499,8 +499,9 @@ function displayComments(line, paciente){
       for(var i = 0; i < data.length; i++){
         console.log(data[i]);
 
-        for(var j = 0; j<data[i].length;j++)
-          var commentinfo += "<td>" + data[i][j]  + "</td>";
+        for(var j = 0; j < data[i].length; j++){
+          var commentinfo += "<td>" + data[i][j] + "</td>";
+        }
 
         var content = "<tr>" + commentinfo + "</tr>";
         row.innerHTML += content;
