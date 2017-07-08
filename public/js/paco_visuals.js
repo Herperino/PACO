@@ -502,7 +502,7 @@ function displayComments(line, paciente){
         var commentinfo = "";
 
         for(var j = 0; j < comment.length; j++){
-          console.log(comment.length)
+          console.log(Object.keys(comment));
           commentinfo += "<td>" + comment[j] + "</td>";
           console.log(comment[j]);
         }
