@@ -501,8 +501,10 @@ function displayComments(line, paciente){
         var comment = data[i];
         var commentinfo = "";
 
+        console.log(Object.keys(comment));
+
+
         for(var j = 0; j < comment.length; j++){
-          console.log(Object.keys(comment));
           commentinfo += "<td>" + comment[j] + "</td>";
           console.log(comment[j]);
         }
