@@ -495,8 +495,6 @@ function displayComments(line, paciente){
   var row = document.getElementById(line);
   console.log("A função foi chamada");
 
-  alert("FUUUUUUUUUUUUUUUUUUUUUCK");
-
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
       for(var i = 0; i < data.length; i++){
@@ -506,14 +504,10 @@ function displayComments(line, paciente){
 
         console.log(Object.keys(comment));
 
-        for(var j = 0; j < comment.length; j++){
+        for(var j = 0; j < data[i].length; j++){
           commentinfo += "<td>" + comment[j] + "</td>";
           console.log(comment[j]);
         }
-
-        console.log(row);
-        console.log("||||");
-        console.log(content);
 
         var content = "<tr>" + commentinfo + "</tr>";
         row.innerHTML += content;
