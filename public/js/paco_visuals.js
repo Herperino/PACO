@@ -503,8 +503,8 @@ function displayComments(line, paciente){
         var commentinfo = "";
 
         for(var j = 0; j < Object.keys(comment).length; j++){
-          commentinfo += "<td>" + comment.Object.keys(comment)[j] + "</td>";
-          console.log(comment.Object.keys(comment)[j]);
+          commentinfo += "<td>" + comment[Object.keys(comment)[j]] + "</td>";
+          console.log(comment[Object.keys(comment)[j]]);
         }
 
         var content = "<tr>" + commentinfo + "</tr>";
