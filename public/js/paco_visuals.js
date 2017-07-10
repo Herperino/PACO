@@ -508,7 +508,7 @@ function displayComments(line, paciente){
         }
 
         var content = "<tr>" + commentinfo + "</tr>";
-        row.parent.innerHTML += content;
+        row.parentNode.innerHTML += content;
       }
    });
  }
