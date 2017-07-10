@@ -495,7 +495,6 @@ function displayComments(line, paciente){
   var row = document.getElementById(line);
   console.log("A função foi chamada");
 
-
   alert("FUUUUUUUUUUUUUUUUUUUUUCK");
 
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
