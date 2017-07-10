@@ -493,6 +493,8 @@ function displayComments(line, paciente){
 
   //Obtem o elemento da pagina com o id da linha da tabela
   var row = document.getElementById(line);
+  console.log("A função foi chamada");
+
 
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
@@ -503,11 +505,14 @@ function displayComments(line, paciente){
 
         console.log(Object.keys(comment));
 
-
         for(var j = 0; j < comment.length; j++){
           commentinfo += "<td>" + comment[j] + "</td>";
           console.log(comment[j]);
         }
+
+        console.log(row);
+        console.log("||||");
+        console.log(content);
 
         var content = "<tr>" + commentinfo + "</tr>";
         row.innerHTML += content;
