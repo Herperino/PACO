@@ -509,7 +509,7 @@ function displayComments(line, paciente){
 
           if (j == (Object.keys(comment).length) - 1)
             content += "<tr>" + commentinfo + "</tr>";
-        }        
+        }
       }
       row.innerHTML += content;
    });
