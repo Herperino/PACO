@@ -511,7 +511,7 @@ function displayComments(line, paciente){
             content += "<tr>" + commentinfo + "</tr>";
         }
         console.log(row.parentNode);
-        row.innerHTML += content;
+        row.parentNode.innerHTML += content;
       }
    });
  }
