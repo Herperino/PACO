@@ -492,7 +492,7 @@ function getCommentNumber(target,paciente){
 function displayComments(line, paciente){
 
   //Obtem o elemento da pagina com o id da linha da tabela
-  var row = document.getElementById(line);
+  var table = document.getElementById(line).parentNode;
   console.log("A função foi chamada");
 
   $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
@@ -510,8 +510,7 @@ function displayComments(line, paciente){
           if (j == (Object.keys(comment).length) - 1)
             content += "<tr>" + commentinfo + "</tr>";
         }
-        console.log(row.parentNode);
-        row.parentNode.innerHTML += content;
+        table.innerHTML += content;
       }
    });
  }
