@@ -127,25 +127,25 @@ function displayPrescription($prescriptions){
       print("<td>
 
               <button  data-id = '".$prescription["uniqid"]."'
-                       data-operation = \"COMMENT_THIS\" 
+                       data-operation = \"COMMENT_THIS\"
                        data-pat_id = '".$prescription["patientID"]."'
                        type = 'button' onClick = 'showCommentForm(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
-              </button>   
+              </button>
 
 
             </td>");
 
       //Botão de edição
       print("<td>
-              
+
               <button  data-id =" . (string)$prescription['uniqid'] ."
                        data-operation = \"PRESCRIPTION_EDIT\"
                        data-patient =" . (string)$prescription['patientID'] ."
                        type = 'button' onClick = 'prescriptionHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
-                        "<span class='glyphicon glyphicon-pencil'></span></button>"); 
+                        "<span class='glyphicon glyphicon-pencil'></span></button>");
       print("</td></tr></div>");}}
     }
 
@@ -188,25 +188,25 @@ function displayPrescription($prescriptions){
 
               <button  data-patient =" . (string)$result['patientid'] ."
                        data-operation = \"COMMENT_THIS\"
-                       data-uniqid ='" . (string)$result['uniqid'] ."' 
+                       data-uniqid ='" . (string)$result['uniqid'] ."'
                        type = 'button' onClick = 'console.log(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
                         "<span class='glyphicon glyphicon-comment'></span>
-              </button>   
+              </button>
 
 
             </td>");
 
           print("<td>
-              
+
               <button  data-patient =" . (string)$result['patientid'] ."
                        data-operation = \"LAB_EDIT\"
-                       data-uniqid ='" . (string)$result['uniqid'] ."' 
+                       data-uniqid ='" . (string)$result['uniqid'] ."'
                        type = 'button' onClick = 'labHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
-                        "<span class='glyphicon glyphicon-pencil'></span></button>"); 
+                        "<span class='glyphicon glyphicon-pencil'></span></button>");
 
-          
+
           print("</td></tr></div>");
         }
       }
@@ -217,8 +217,8 @@ function displayPrescription($prescriptions){
     /** -------------------------------------------------------------------------------------------*/
 
   /** --------------------------------------------------------
-  *   Inclui prescrições no banco de dados 
-  *   
+  *   Inclui prescrições no banco de dados
+  *
   *   $patientID é recebido do lado do cliente
   *   $conn é a conexão padrão definida.
   *
@@ -243,7 +243,7 @@ function displayPrescription($prescriptions){
     $uniqueID = uniqid("med");
 
     //Query que inclui a informação no banco de dados
-    pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"uniqid\",\"patientID\",\"userID\", 
+    pg_query($conn,"INSERT INTO public.\"prescriptions\"(\"uniqid\",\"patientID\",\"userID\",
       \"med1\",\"pos1\",\"med2\",\"pos2\",\"med3\",
       \"pos3\",\"med4\",\"pos4\",\"med5\",\"pos5\",
       \"med6\",\"pos6\",\"med7\",\"pos7\",\"med8\",
@@ -263,8 +263,8 @@ function displayPrescription($prescriptions){
     }
 
 
-    /** Adds lab result values into the database. 
-    *   
+    /** Adds lab result values into the database.
+    *
     *   $patientID is a valid ID received from the client-side
     *   $conn is defined in config. Passed on due variable scope.
     *
@@ -280,12 +280,12 @@ function displayPrescription($prescriptions){
         }
 
         //Cria um ID único para cada resultado laboratorial
-        $uniqueID = uniqid("lab");        
+        $uniqueID = uniqid("lab");
 
         pg_query($conn,"INSERT INTO public.\"labref\"(\"uniqid\",\"patientid\",\"userid\",
                                                       \"hgb\",\"hemacias\", \"hct\",
                                                       \"ureia\",\"cr\",\"k\",\"na\",
-                                                      \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\", 
+                                                      \"leuco\",\"inr\",\"pcr\",\"tgo&tgp\",
                                                       \"outros\")
           VALUES ('".$uniqueID."','".$patientID."','".$_SESSION['id']."', '".$_POST['hgb']."',
                   '".$_POST['hemacias']."','".$_POST['hct']."','".$_POST['ureia']."',
@@ -308,10 +308,10 @@ function displayPrescription($prescriptions){
         if(isset($query)){
 
         pg_query($conn,"UPDATE public.\"labref\" SET "
-                      
+
                       .implode(' , ',$query). //Implode keys do POST na query
 
-                      " WHERE 
+                      " WHERE
                       \"uniqid\" = '".$_POST['uniqid']."'
                       ");
 
@@ -341,7 +341,7 @@ function displayPrescription($prescriptions){
         }
 
         pg_query("UPDATE public.\"prescriptions\" SET "
-            
+
             . implode(' , ', $query) .
 
           " WHERE \"uniqid\" = '".$_POST['uniqid']."'");
@@ -350,7 +350,7 @@ function displayPrescription($prescriptions){
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /**  --------------------------Funções de paciente ------------------------------*/
 
-  /**----------------------------------------------- 
+  /**-----------------------------------------------
   *  Inclui um novo paciente no banco de dados.
   *  Informações do paciente, como $patientage e $patientID são oriundas
   *  do formulário enviado por POST.
@@ -358,7 +358,7 @@ function displayPrescription($prescriptions){
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
   function addPatient($conn){
-      
+
       //Variáveis obtidas via POST
       $patientname = $_POST['patient_name'];
       $patientage = $_POST['patient_age'];
@@ -380,7 +380,7 @@ function displayPrescription($prescriptions){
       return true; //Retorna TRUE se a inserção ocorrer com sucesso
   }
 
-  /**----------------------------------------------- 
+  /**-----------------------------------------------
   *  Inclui um altera os dados de paciente no banco de dados.
   *  Informações do paciente, como $patientage e $patientID são oriundas
   *  do formulário enviado por POST.
@@ -418,7 +418,7 @@ function displayPrescription($prescriptions){
           patientid = '". $new_id ."',
           patientname = '". $pname ."',
           patientage = ". $_POST['patient_age'] ."
-          WHERE patientid = '".$_POST['patientID'] ."' 
+          WHERE patientid = '".$_POST['patientID'] ."'
           AND userid = '".$_SESSION['id']."'");
 
         pg_query($conn,"UPDATE public.\"prescriptions\" SET
@@ -431,13 +431,13 @@ function displayPrescription($prescriptions){
           WHERE patientid ='". $_POST['patientID']."'
           AND userid = '".$_SESSION['id']."'");
       }
-      
+
     }
 
     return true; //Retorna TRUE se tiver sucesso em alterar o conteúdo
   }
 
-  /**----------------------------------------------- 
+  /**-----------------------------------------------
   *  Altera o status de acompanhamento de paciente no banco de dados.
   *  Informações do paciente são passadas por $patientID.
   *
@@ -446,7 +446,7 @@ function displayPrescription($prescriptions){
   function changeStatus($patientID, $conn){
 
     //Busca o paciente no banco de dados
-    $query = "SELECT * FROM public.\"patients\" 
+    $query = "SELECT * FROM public.\"patients\"
               WHERE patientid = '" . $patientID ."'
               AND userid = '".$_SESSION['id']."'";
 
@@ -457,27 +457,27 @@ function displayPrescription($prescriptions){
     $status = $patient[6]; //6 = p_status
 
     //Altera o status conforme o status atual
-    if($status == 1) { 
+    if($status == 1) {
 
-      pg_query($conn,"UPDATE public.\"patients\" 
-                      SET p_status = 0 
-                      WHERE patientid = '".$patientID."' 
+      pg_query($conn,"UPDATE public.\"patients\"
+                      SET p_status = 0
+                      WHERE patientid = '".$patientID."'
                       AND userid = '".$_SESSION['id']."'");
     }
-    else { 
+    else {
 
-      pg_query($conn,"UPDATE public.\"patients\" 
+      pg_query($conn,"UPDATE public.\"patients\"
                       SET p_status = 1
-                      WHERE patientid = '".$patientID."' 
+                      WHERE patientid = '".$patientID."'
                       AND userid = '".$_SESSION['id']."'");
     }
 
   }
 
 
-  /** --------------------------------------------------------------- 
+  /** ---------------------------------------------------------------
   *  Avalia o banco de dados afim de obter o nome de um paciente
-  * 
+  *
   *  Requer uma conexão ativa ($conn) com o banco de dados.
   *-----------------------------------------------------------------*/
   function getName($conn){
@@ -494,20 +494,20 @@ function displayPrescription($prescriptions){
     $name = ($patients[0]['patientname']); //Obtem a coluna com o nome do paciente
 
     return $name;
-  }  
+  }
 
   /**------------------------------------
   *  Verifica se ocorre uma colisão entre um id que pretende
   *  ser incluído ou alterado e um id já existente no banco de
   *  dados
-  *  
-  * $id é o ID a ser verificado e $table é uma string com o nome da tabela  
+  *
+  * $id é o ID a ser verificado e $table é uma string com o nome da tabela
   *----------------------------------------*/
   function checkCollision($id, $table){
 
     //Verifica se há colisão de IDs
     $check = pg_query("SELECT * FROM public.\"".$table."\"
-                       WHERE patientid = '".$id."' 
+                       WHERE patientid = '".$id."'
                        AND userid = '".$_SESSION['id']."'");
 
     $collision = pg_fetch_all($check); //TRUE se o tamanho do array retornado é maior que 1;
@@ -528,8 +528,8 @@ function displayPrescription($prescriptions){
   * ---------------------------------------------*/
   function fetchData($paciente){
 
-    $id_sessao = "%" . $paciente . "%";
-    
+    $id_sessao = "%_" . $paciente . "_%";
+
     $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."'");
 
     //Se query retorna false, $results é um array vazio
