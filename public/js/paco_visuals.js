@@ -501,13 +501,14 @@ function displayComments(line, paciente){
 
         var comment = data[i];
         var commentinfo = "";
+        var content = "";
 
         for(var j = 0; j < Object.keys(comment).length; j++){
           commentinfo += "<td>" + comment[Object.keys(comment)[j]] + "</td>";
           console.log(comment[Object.keys(comment)[j]]);
 
           if (j == (Object.keys(comment).length) - 1)
-            var content += "<tr>" + commentinfo + "</tr>";
+            content += "<tr>" + commentinfo + "</tr>";
         }
         row.parentNode.innerHTML += content;
       }
