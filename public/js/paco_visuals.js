@@ -511,6 +511,7 @@ function displayComments(line, paciente){
             content += "<tr>" + commentinfo + "</tr>";
         }
       }
+      console.log(content);
       row.innerHTML += content;
    });
  }
