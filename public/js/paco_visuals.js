@@ -510,9 +510,9 @@ function displayComments(line, paciente){
           if (j == (Object.keys(comment).length) - 1)
             content += "<tr>" + commentinfo + "</tr>";
         }
+        console.log(row.parentNode);
+        row.innerHTML += content;
       }
-      console.log(content);
-      row.innerHTML += content;
    });
  }
 
