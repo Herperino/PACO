@@ -524,7 +524,7 @@ function displayComments(line, paciente){
   });
 
   function test(id){
-      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:id).done(function(data){
+      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:id}).done(function(data){
 
           console.log(data);
       });
