@@ -524,7 +524,7 @@ function displayComments(line, paciente){
   });
 
   function test(){
-      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:'med5947329ec5e5d'}).done(function(data){
+      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", uniqid:'med5947329ec5e5d'}).done(function(data){
 
           console.log(data);
       });
