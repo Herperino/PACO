@@ -522,3 +522,11 @@ function displayComments(line, paciente){
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();
   });
+
+  function test(){
+      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:3}).done(function(data){
+
+          console.log(data);
+      });
+    
+  }

@@ -5,6 +5,7 @@ class Prescription{
   private $uniqid;
   private $date;
   private $patient;
+  public $medications;
 
 
   public function __construct($patient){
@@ -15,6 +16,9 @@ class Prescription{
       $this->date = date('Y-m-d H:i:s');
   }
 
+  /* -------------------------------
+    Restaura um objeto prescrição a partir do uniqid
+     ---------------------------------*/
   public static function restorePrescription($uniqid){
 
     $prescription =  new Prescription("");
@@ -27,9 +31,14 @@ class Prescription{
     $prescription->setUniqid($params[0]['uniqid']);
     $prescription->setPatient($params[0]['PatientID']);
 
+    //TODO: Loop que coloca todos os medicamentos como parte do objeto
+
     return $prescription;
   }
 
+  /* --------------------------------------------
+    Setters e Getters
+  -----------------------------------------------*/
   private function setDate($date){
     $this->date = $date;
   }
@@ -84,8 +93,9 @@ class Prescription{
       '".$prescriptions['med10']."','".$prescriptions['pos10']."')  ");
     }
 
-    /** Edits prescription data in the database. Requires a connection to be passed for pg_query */
-
+    /* -------------------------------
+        Edita a prescrição e a insere no banco de dados
+       ---------------------------------*/
     public function editPrescription($conn){
 
       //Concatenates the prescription data into a single k/v array
