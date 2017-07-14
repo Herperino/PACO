@@ -24,7 +24,7 @@
 
         //Define patientID e userID a partir do POST
         $userID = $_SESSION['id'];
-        $patientID = $_POST['patientID'] ?: '0';        
+        $patientID = $_POST['patientID'] ?: '0';
 
         if ($_POST['operation'] != 'ACOMP')
             $uniqueID = $_POST['uniqid'];
@@ -33,18 +33,20 @@
 
             case 'PRESCRIPTION_ADD':
 
-            addPrescription($patientID,$conn);
+            $prescription = new Prescription($patientID);
+            $prescription->addPrescription($patientID,$conn);
 
             break;
 
             case 'PRESCRIPTION_EDIT':
 
-            editPrescription($conn);
+            $prescription = Prescription::restorePrescription($_POST['uniqid']);
+            $prescription->editPrescription($conn);
 
             break;
 
             case 'GET_PRESCRIPTION':
-            
+
             $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");
 
             //If the query returns something
@@ -58,16 +60,16 @@
             break;
 
             case 'DELETE_PRESCRIPTION':
-            
+
             //Remove uma linha do banco de dados que equivale ao uniqid
-            @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");    
+            @$query = pg_query($conn, "DELETE FROM public.\"prescriptions\" WHERE uniqid ='".$_POST['uniqid']."'");
 
             break;
 
         }//Fim do switch
 
-        
-        
+
+
 
         //Busca o banco de dados para um determinado paciente
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
@@ -78,7 +80,7 @@
 
         //Exibe a página em modo de visualização de prescrições
         $page_mode = true;
-                
+
 
         //Renderiza a página com os parâmetros passados
         render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID]);

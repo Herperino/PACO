@@ -491,6 +491,8 @@ function getCommentNumber(target,paciente){
 */
 function displayComments(line, paciente){
 
+  //Se já existir um comentário sendo exibido, limpa os comentários
+
   //Obtem o elemento da pagina com o id da linha da tabela
   var table = document.getElementById(line).parentNode;
   console.log("A função foi chamada");
@@ -503,6 +505,7 @@ function displayComments(line, paciente){
         var commentinfo = "";
         var content = "";
 
+        //Condensa toda a informação de comentarios em as insere na tabela para exibição
         for(var j = 0; j < Object.keys(comment).length; j++){
           commentinfo += "<td>" + comment[Object.keys(comment)[j]] + "</td>";
           console.log(comment[Object.keys(comment)[j]]);
