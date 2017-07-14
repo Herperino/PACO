@@ -523,8 +523,8 @@ function displayComments(line, paciente){
     $('.fake-select').fakeSelect();
   });
 
-  function test(id){
-      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:id}).done(function(data){
+  function test(){
+      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", patientID:'med5947329ec5e5d'}).done(function(data){
 
           console.log(data);
       });
