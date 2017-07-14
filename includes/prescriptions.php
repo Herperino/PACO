@@ -2,17 +2,17 @@
 
 class Prescription{
 
-  private uniqid;
-  private date;
-  private patient;
+  private $uniqid;
+  private $date;
+  private $patient;
 
 
   public function __construct($patient){
 
       //Initializes a prescription with a patient, id and date;
-      this->uniqid = uniqid("med");
-      this->patient = $patient;
-      this->date = date('Y-m-d H:i:s');
+      $this->uniqid = uniqid("med");
+      $this->patient = $patient;
+      $this->date = date('Y-m-d H:i:s');
   }
 
   public static function restorePrescription($uniqid){
@@ -25,7 +25,7 @@ class Prescription{
 
     $prescription->setDate($params[0]['date']);
     $prescription->setUniqid($params[0]['uniqid']);
-    $prescription->setPatient($params[0]['PatientID'])
+    $prescription->setPatient($params[0]['PatientID']);
 
     return $prescription;
   }

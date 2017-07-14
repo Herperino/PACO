@@ -17,7 +17,7 @@
     require("objects.php"); //Classes
 
     //Define a o Locale
-    date_default_timezone_set("America/Sao_Paulo")
+    date_default_timezone_set("America/Sao_Paulo");
 
     // CS50 Library
     require("../vendor/library50-php-5/CS50/CS50.php");
