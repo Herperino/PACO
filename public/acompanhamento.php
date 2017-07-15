@@ -69,8 +69,6 @@
         }//Fim do switch
 
 
-
-
         //Busca o banco de dados para um determinado paciente
         $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
                                   WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'

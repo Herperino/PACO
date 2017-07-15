@@ -99,32 +99,33 @@ function redirect($location)
 * It must be called within a table div.
 */
 function displayPrescription($prescriptions){
-  print ( "<th>Paciente</th>".
+  $html = "<th>Paciente</th>".
   "<th>Data</th>".
-  "<th colspan='13'>Medicamentos </th>");
+  "<th colspan='13'>Medicamentos </th>";
+
   if (!empty($prescriptions)){
     foreach($prescriptions as $prescription){
       $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
 
       //Header da tabela que será exibida
-      print("<tr>".
+      $html .= "<tr>".
       "<td>" .
       $prescription["patientID"].
       "</td>".
       "<td>" .
       $prescription["date"].
-      "</td>");
+      "</td>";
 
       //Imprime os medicamentos listados de 1 à 10 na página
       for($i = 1; $i <= 10; $i++){
         if (strcmp($prescription["med".$i]," 1x/d") < 0)
-        print("<td>"."</td>");
+        $html .= "<td>"."</td>";
         else
-        print("<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>");
+        $html .= "<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>";
       }
 
       //Botão de comentário
-      print("<td>
+      $html .= "<td>
 
               <button  data-id = '".$prescription["uniqid"]."'
                        data-operation = \"COMMENT_THIS\"
@@ -135,18 +136,22 @@ function displayPrescription($prescriptions){
               </button>
 
 
-            </td>");
+            </td>";
 
       //Botão de edição
-      print("<td>
+      $html .="<td>
 
               <button  data-id =" . (string)$prescription['uniqid'] ."
                        data-operation = \"PRESCRIPTION_EDIT\"
                        data-patient =" . (string)$prescription['patientID'] ."
                        type = 'button' onClick = 'prescriptionHandler(this)'
                        class= 'btn btn-default' value='Editar Prescrição'>".
-                        "<span class='glyphicon glyphicon-pencil'></span></button>");
-      print("</td></tr></div>");}}
+                        "<span class='glyphicon glyphicon-pencil'></span></button>";
+      $html .= "</td></tr></div>";
+
+      }}
+
+      return $html;
     }
 
     /**
