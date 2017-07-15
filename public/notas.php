@@ -8,14 +8,14 @@
 
     //Define operaçao pedida
     $operation = $_POST['operation'];
-    //Capturar dados pertinentes via POST    
+    //Capturar dados pertinentes via POST
     $paciente = $_POST['patientid'];
 
     //Verifica as operações e as corrige de acordo
     switch($operation){
 
       case 'RETRIEVE':
-        //Busca comentários no servidor referente à um paciente              
+        //Busca comentários no servidor referente à um paciente
         $dados = fetchData($paciente);
 
         header("Content-type: application/json; charset=UTF-8");
@@ -24,7 +24,7 @@
         break;
 
       case 'COMMENT_THIS':
-         
+
         //O assunto e conteúdo passados pela form são segurados nestas variáveis
         $assunto = $_POST['assunto'];
         $conteudo = $_POST['conteudo'];
@@ -55,22 +55,35 @@
 
         $new_comment->updateIt();
 
-        break;      
+        break;
     }
-  }  
-    
-  
+  }
+
+
   //Chegou-se a página via GET. Visualização ocorrerá via GET
   else{
 
-    //Renderiza a página 
-    render("notas.php");
-    exit();
+    $id = $_GET['id'];
+
+    $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE uniqid ='".$id."'");
+
+    $data = pg_fetch_all($query);
+
+    $html = displayPrescription($data[0]);
+
+    echo $html;
+    
+
+    //Renderiza a página
+    if (!isset($id)){
+      render("notas.php");
+      exit();
+    }
   }
-  
+
   echo("Cheguei aqui");
   //Volta para a página inicial se vier via POST
   redirect(basename($_SERVER['HTTP_REFERER']))
-  
+
 
 ?>

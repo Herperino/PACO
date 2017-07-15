@@ -506,7 +506,7 @@ function displayComments(line, paciente){
         var content = "";
 
         //Condensa toda a informação de comentarios em as insere na tabela para exibição
-        for(var j = 0; j < Object.keys(comment).length; j++){
+        for(var j = 1; j < Object.keys(comment).length; j++){
           commentinfo += "<td>" + comment[Object.keys(comment)[j]] + "</td>";
           console.log(comment[Object.keys(comment)[j]]);
 
