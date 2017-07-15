@@ -70,13 +70,13 @@
     $data = pg_fetch_all($query);
 
     $html = displayPrescription($data);
-
-    echo $html;
+    
+    echo "<table class = 'table'>". $html . "</table>";
 
 
     //Renderiza a página
     if (!isset($id)){
-      render("notas.php");      
+      render("notas.php");
     }
     exit();
   }
