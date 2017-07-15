@@ -63,21 +63,22 @@
   //Chegou-se a página via GET. Visualização ocorrerá via GET
   else{
 
-    $id = $_GET['id'];
+    if (isset($_GET['id'])){
 
+    $id = $_GET['id'];
     $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\" WHERE uniqid ='".$id."'");
 
     $data = pg_fetch_all($query);
 
     $html = displayPrescription($data);
-    
-    echo "<table class = 'table'>". $html . "</table>";
 
+    echo "<table class = 'table'>". $html . "</table>";
+    exit();
+    }
 
     //Renderiza a página
-    if (!isset($id)){
-      render("notas.php");
-    }
+    render("notas.php");
+
     exit();
   }
 
