@@ -30,7 +30,7 @@
             <div id ="prescription_list" class="panel-body">
 
                 <table class = 'table'>
-                <?php displayPrescription($prescriptions); ?>
+                <?php print(displayPrescription($prescriptions)); ?>
                 </table>
             </div>     <!--end panel body-->
         </div>     <!--end panel-->
