@@ -69,10 +69,10 @@
 
     $data = pg_fetch_all($query);
 
-    $html = displayPrescription($data[0]);
+    $html = displayPrescription($data);
 
     echo $html;
-    
+
 
     //Renderiza a página
     if (!isset($id)){
