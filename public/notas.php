@@ -76,9 +76,9 @@
 
     //Renderiza a página
     if (!isset($id)){
-      render("notas.php");
-      exit();
+      render("notas.php");      
     }
+    exit();
   }
 
   echo("Cheguei aqui");
