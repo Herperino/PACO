@@ -520,13 +520,29 @@ function displayComments(line, paciente){
 
  function displayPrescription(id){
 
-   var operation = id? 'GET_PRESCRIPTION' : 'ALL_PRESCRIPTIONS';
+   var params = function(){
+     if (id){
+       var params1 = {
+          operation: 'GET_PRESCRIPTION',
+          uniqid : id
+       }
+
+       return params;
+     }
+     else {
+
+       var params2 = {
+          operation: 'ALL_PRESCRIPTIONS',
+         //Pensar num jeito de obter user e patientID via JS.
+       }
+     }
+   }
 
    var html = "<th>Paciente</th>"+
               "<th>Data</th>"+
               "<th colspan='13'>Medicamentos </th>";
 
-   $.post('acompanhamento.php', {uniqid:id, operation:operation}).done(function(prescriptions){
+   $.post('acompanhamento.php', params).done(function(prescriptions){
      if (prescriptions){
        for(var i = 0; i < prescriptions.length; i++){
 
@@ -543,7 +559,7 @@ function displayComments(line, paciente){
 
          //Imprime os medicamentos listados de 1 à 10 na página
          for($i = 1; $i <= 10; $i++){
-           if (strcmp(prescriptions[i]["med"+$i]," 1x/d") < 0)
+           if (prescriptions[i]["med"+$i] == "1x/d") < 0)
            html += "<td>"+"</td>";
            else
            html += "<td>"+ prescriptions[i]["med"+$i] +"&nbsp"+ prescriptions[i]["pos"+$i]+"</td>";
