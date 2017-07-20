@@ -58,6 +58,21 @@
               exit();
             }
             break;
+            case 'ALL_PRESCRIPTION':
+
+            $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
+                                      WHERE \"patientID\" = '".$patientID."' AND \"userID\" = '".$userID."'
+                                      ORDER BY \"date\" ASC;");
+
+            if ($query != false){
+              $prescriptions  = pg_fetch_all($query);
+              //Faz um JSON da query
+              header("Content-type: application/json; charset=UTF-8");
+              print(json_encode($last_prescription, JSON_PRETTY_PRINT));
+              exit();
+            }
+
+            break;
 
             case 'DELETE_PRESCRIPTION':
 

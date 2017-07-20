@@ -518,6 +518,65 @@ function displayComments(line, paciente){
    });
  }
 
+ function displayPrescription(id){
+
+   var operation = id? 'GET_PRESCRIPTION' : 'ALL_PRESCRIPTIONS';
+
+   var html = "<th>Paciente</th>"+
+              "<th>Data</th>"+
+              "<th colspan='13'>Medicamentos </th>";
+
+   $.post('acompanhamento.php', {uniqid:id, operation:operation}).done(function(prescriptions){
+     if (prescriptions){
+       for(var i = 0; i < prescriptions.length; i++){
+
+         prescriptions[i] = prescriptions[i].slice(2); //Remove ID and userID from array
+
+         //Header da tabela que será exibida
+         html += "<tr>"+
+         "<td>" +
+         prescriptions[i]["patientID"]+
+         "</td>"+
+         "<td>" +
+         prescriptions[i]["date"]+
+         "</td>";
+
+         //Imprime os medicamentos listados de 1 à 10 na página
+         for($i = 1; $i <= 10; $i++){
+           if (strcmp(prescriptions[i]["med"+$i]," 1x/d") < 0)
+           html += "<td>"+"</td>";
+           else
+           html += "<td>"+ prescriptions[i]["med"+$i] +"&nbsp"+ prescriptions[i]["pos"+$i]+"</td>";
+         }
+
+         //Botão de comentário
+         html += "<td>"+
+                 "<button data-id ='" + prescriptions[i].uniqid + "'"+
+                          "data-operation = \"COMMENT_THIS\"" +
+                          "data-pat_id = '"+ prescriptions[i].patientID +"'"+
+                          "type = 'button' onClick = 'showCommentForm(this)'"+
+                          "class= 'btn btn-default' value='Editar Prescrição'>"+
+                           "<span class='glyphicon glyphicon-comment'></span></button>"+
+               "</td>";
+
+         //Botão de edição
+         html +="<td>"+
+                 "<button  data-id ='" + prescriptions[i].uniqid +"'"+
+                          "data-operation = \"PRESCRIPTION_EDIT\""+
+                          "data-patient =" + prescriptions[i].patientID +"'"+
+                          "type = 'button' onClick = 'prescriptionHandler(this)'"+
+                          "class= 'btn btn-default' value='Editar Prescrição'>"+
+                           "<span class='glyphicon glyphicon-pencil'></span></button>";
+         html += "</td></tr></div>";
+
+         }}
+
+         return html;
+
+
+
+   });
+}
 //Readies the Fake-select module
   jQuery(document).ready(function($) {
     $('.fake-select').fakeSelect();
