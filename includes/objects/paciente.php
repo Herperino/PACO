@@ -165,13 +165,13 @@ class Patient{
 
     //Busca o banco de dados pelo ID do usuário ordenando pela última modificação
     $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$user."' ORDER BY p_status DESC,lastactive DESC ";
-    $data = pg_query($conn, $query);
+    $data = pg_query($query);
 
     //Reúne pacientes em um array
     $patients = pg_fetch_all($data);
 
     //Retorna os pacientes como um objeton em notação Javascript (JSON)
-    return patients;
+    return $patients;
   }
 
   /**------------------------------------
