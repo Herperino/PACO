@@ -8,7 +8,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-        Patient::showAllPatients($_SESSION['id']);
+        $patients = Patient::showAllPatients($_SESSION['id']);
         header("Content-type: application/json; charset=UTF-8");
         print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
         exit();
@@ -42,7 +42,7 @@
                 break;
             case 'RETRIEVE':
 
-                Patient::showAllPatients($_SESSION['id']);
+                $patients = Patient::showAllPatients($_SESSION['id']);
                 header("Content-type: application/json; charset=UTF-8");
                 print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
                 break;
