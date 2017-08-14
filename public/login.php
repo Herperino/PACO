@@ -1,5 +1,5 @@
 <?php
-        require("../includes/helpers.php");
+        require("../vendor/library50-php-5");
 
         /** This file is used for the login controller */
 
