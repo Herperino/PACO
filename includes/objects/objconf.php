@@ -17,6 +17,6 @@
 
 require_once("comments.php");
 require_once("prescriptions.php");
-require_once("patients.php");
+require_once("paciente.php");
 
 ?>

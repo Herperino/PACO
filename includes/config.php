@@ -7,7 +7,7 @@
     ini_set("error_log", "/bin/php-error.log");
 
     //Requerimentos - Infra-estrutura
-    require_once("helpers.php"); //Funções
+    require("helpers.php"); //Funções
     require("objects/objconf.php"); //Classes
 
     //Define o Locale e timezone
