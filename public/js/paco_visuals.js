@@ -17,6 +17,8 @@
 
     $.getJSON("patients.php").done(function(data){
 
+        console.log(data);
+
         var form = $('#patient_list');
         var patients = data.length;
 
