@@ -17,5 +17,5 @@
 
 require("comments.php");
 require("prescriptions.php");
-
+require("patients.php");
 ?>
