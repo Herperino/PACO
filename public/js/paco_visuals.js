@@ -558,11 +558,11 @@ function displayComments(line, paciente){
          "</td>";
 
          //Imprime os medicamentos listados de 1 à 10 na página
-         for($i = 1; $i <= 10; $i++){
-           if (prescriptions[i]["med"+$i] == "1x/d") < 0)
+         for(var i = 1; i <= 10; i++){
+           if (prescriptions[i]["med"+ i] == "1x/d") < 0)
            html += "<td>"+"</td>";
            else
-           html += "<td>"+ prescriptions[i]["med"+$i] +"&nbsp"+ prescriptions[i]["pos"+$i]+"</td>";
+           html += "<td>"+ prescriptions[i]["med"+i] +"&nbsp"+ prescriptions[i]["pos"+i]+"</td>";
          }
 
          //Botão de comentário
