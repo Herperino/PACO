@@ -1,5 +1,5 @@
 <?php
-        require("../vendor/library50-php-5");
+        require("../includes/helpers.php");
 
         /** This file is used for the login controller */
 
@@ -37,12 +37,12 @@
                 else
                 {
 
-                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ")]);
+                    render("apology.php", ['errormessage' => htmlspecialchars("1.Usuario ou senha errados ")]);
                 }
             }
             else
             {
-                render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados")]);
+                render("apology.php", ['errormessage' => htmlspecialchars("2.Usuario ou senha errados")]);
             }
 
         }
