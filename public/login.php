@@ -1,4 +1,6 @@
 <?php
+        require("../includes/helpers.php");
+
         /** This file is used for the login controller */
 
         /* Checks if the file was requested by filling the form atop the page.
