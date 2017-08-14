@@ -252,25 +252,26 @@ function displayPrescription($prescriptions){
         }
 
       //Edits labs results
-      function editResults($conn){
+    function editResults($conn){
 
-        //Checks for empty strings. ISe encontradas, são puladas.
-        foreach ($_POST as $key => $value){
+      //Checks for empty strings. ISe encontradas, são puladas.
+      foreach ($_POST as $key => $value){
 
-            if ($value != '' && $key != 'operation' && $key != 'patientID' )
-              $query[$key] = $key ." = '". $value . "'";
-        }
-
-        //echo implode(' , ',$query)
-        if(isset($query)){
-
-        pg_query($conn,"UPDATE public.\"labref\" SET "
-
-                      .implode(' , ',$query). //Implode keys do POST na query
-
-                      " WHERE
-                      \"uniqid\" = '".$_POST['uniqid']."'
-                      ");
-        }
+          if ($value != '' && $key != 'operation' && $key != 'patientID' )
+            $query[$key] = $key ." = '". $value . "'";
       }
+
+      //echo implode(' , ',$query)
+      if(isset($query)){
+
+      pg_query($conn,"UPDATE public.\"labref\" SET "
+
+                    .implode(' , ',$query). //Implode keys do POST na query
+
+                    " WHERE
+                    \"uniqid\" = '".$_POST['uniqid']."'
+                    ");
+      }
+      return true;
+    }
 ?>
