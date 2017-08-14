@@ -15,7 +15,8 @@
 	updateIt;
  -----------------------*/
 
-require("comments.php");
-require("prescriptions.php");
-require("patients.php");
+require_once("comments.php");
+require_once("prescriptions.php");
+require_once("patients.php");
+
 ?>
