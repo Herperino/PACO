@@ -37,12 +37,12 @@
                 else
                 {
 
-                    render("apology.php", ['errormessage' => htmlspecialchars("1.Usuario ou senha errados ")]);
+                    render("apology.php", ['errormessage' => htmlspecialchars("Usuario ou senha errados ")]);
                 }
             }
             else
             {
-                render("apology.php", ['errormessage' => htmlspecialchars("2.Usuario ou senha errados")]);
+                render("apology.php", ['errormessage' => htmlspecialchars("$users 2.Usuario ou senha errados")]);
             }
 
         }
