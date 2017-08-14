@@ -15,7 +15,7 @@
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         //Recebe a operação e o ID do paciente
-        $operation = $_POST['operation'];
+        $operation = $_POST['operation'] ?: 'nada';
         $uniqid = $_POST['uniqid'] ?: 'nenhum'; //Se for um novo paciente, uniqid é 'nenhum'
         $page = basename($_SERVER['HTTP_REFERER']);
 
