@@ -10,6 +10,8 @@ class Patient{
   private $idade;
   private $ultima_att;
 
+  public function __construct(){};
+
   public function getName($conn){
 
     return $nome;
