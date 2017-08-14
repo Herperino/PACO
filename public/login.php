@@ -1,6 +1,4 @@
 <?php
-        require("../includes/config.php");
-
         /** This file is used for the login controller */
 
         /* Checks if the file was requested by filling the form atop the page.
