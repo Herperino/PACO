@@ -16,7 +16,7 @@
 
       case 'RETRIEVE':
         //Busca comentários no servidor referente à um paciente
-        $dados = fetchData($paciente);
+        $dados = Comment::fetchData($paciente);
 
         header("Content-type: application/json; charset=UTF-8");
         print(json_encode($dados,JSON_PRETTY_PRINT));

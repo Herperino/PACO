@@ -81,4 +81,23 @@ class Comment{
 		$this->uniqid = $uniqid;
 
 	}
+	
+	/**
+	* /---------------------------------------------
+	* Recebe dados de paciente do servidor como $source
+	* Deve ser receber:
+	* paciente
+	* Desta fonte, a função deve retornar um array com os dados relevantes.
+	* ---------------------------------------------*/
+	public static function fetchData($paciente){
+
+    $id_sessao = "%\_" . $paciente . "\_%";
+
+    $query = pg_query("SELECT * FROM public.\"comments\" WHERE id_sessao LIKE '".$id_sessao."' ESCAPE '\'");
+
+    //Se query retorna false, $results é um array vazio
+    $results = $query!=false ? pg_fetch_all($query) : 0;
+
+    return $results;
+  }
 }

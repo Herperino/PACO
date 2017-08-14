@@ -13,10 +13,6 @@
     //Define o Locale e timezone
     date_default_timezone_set("America/Sao_Paulo");
 
-    // CS50 Library
-    //require("../vendor/library50-php-5/CS50/CS50.php");
-    //CS50::init(__DIR__ . "/../config.json");
-
     global $conn;
 
     $conn = connect_db();
