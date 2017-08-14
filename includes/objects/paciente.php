@@ -171,8 +171,7 @@ class Patient{
     $patients = pg_fetch_all($data);
 
     //Retorna os pacientes como um objeton em notação Javascript (JSON)
-    header("Content-type: application/json; charset=UTF-8");
-    print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
+    return patients;
   }
 
   /**------------------------------------

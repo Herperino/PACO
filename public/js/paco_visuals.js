@@ -14,6 +14,7 @@
   * Mostra uma lista de pacientes e oferece opções
   */
  function showPatients(page){
+   
     $.getJSON("patients.php").done(function(data){
 
         alert("AAAAAAAAAAAAAAAAAAAAAAAA")
