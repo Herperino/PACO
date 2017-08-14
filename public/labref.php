@@ -20,8 +20,10 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         //Recebe nome e ID do paciente
-        $name = getName($conn);
         $patientID = isset($_POST['patientID'])?: '0';
+        $paciente = Patient:restorePatient($patientID);
+
+        $name = Patient::getName($conn);
 
         if($_POST['operation'] != 'ACOMP')
             $uniqid = $_POST['uniqid']; //Se a operação precisar de uniqid, o define;
@@ -29,7 +31,7 @@
 
         switch($_POST['operation']){
 
-            
+
             case 'LAB_ADD':
 
             addResults($patientID,$conn);
@@ -47,10 +49,10 @@
             //Omite erros em caso de queries que os retornariam
             @$query = pg_query($conn, "DELETE FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
 
-            break;      
+            break;
 
             case 'GET_LAB':
-            
+
             $query = pg_query($conn, "SELECT * FROM public.\"labref\" WHERE uniqid ='".$uniqid."'");
 
             if ($query != false){
@@ -64,7 +66,7 @@
 
             break;
 
-        }//Fim do switch        
+        }//Fim do switch
 
         //Busca o banco de dados para todos os resultados para aquele paciente
         $query =  pg_query($conn, "SELECT * FROM public.\"labref\" WHERE patientid = '".$patientID."' ORDER BY date ASC");

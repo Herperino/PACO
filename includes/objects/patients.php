@@ -59,14 +59,14 @@ class Patient{
       if ($collision == TRUE)
         return false; //Retorna falso em caso de colisão
 
-      else{
+      else
+        return $paciente; //Retorna um objeto paciente se a inserção ocorrer com sucesso
+  }
 
-        //Insere um novo paciente no banco de dados
-        pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-        values (DEFAULT,'". $paciente->idenficador ."','".$paciente->nome."','".$paciente->idade."','".$paciente->dono."', '1')");
-      }
-
-      return true; //Retorna TRUE se a inserção ocorrer com sucesso
+  public function databaseIt(){
+    //Insere um novo paciente no banco de dados
+    pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
+    values (DEFAULT,'". $paciente->idenficador ."','".$paciente->nome."','".$paciente->idade."','".$paciente->dono."', '1')");
   }
 
   /**-----------------------------------------------
@@ -150,6 +150,27 @@ class Patient{
     }
 
     return true; //Retorna TRUE se tiver sucesso em alterar o conteúdo
+  }
+
+  public function remover($uniqid){
+    pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$uniqid."'");
+  }
+
+  /**
+  * Retorna um array contendo todos os pacientes de um usuario;
+  */
+  public static function showAllPatients($user){
+
+    //Busca o banco de dados pelo ID do usuário ordenando pela última modificação
+    $query = "SELECT * FROM public.\"patients\" WHERE userid = '".$user."' ORDER BY p_status DESC,lastactive DESC ";
+    $data = pg_query($conn, $query);
+
+    //Reúne pacientes em um array
+    $patients = pg_fetch_all($data);
+
+    //Retorna os pacientes como um objeton em notação Javascript (JSON)
+    header("Content-type: application/json; charset=UTF-8");
+    print(html_entity_decode(json_encode($patients, JSON_PRETTY_PRINT)));
   }
 
   /**------------------------------------
