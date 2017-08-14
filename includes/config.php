@@ -1,27 +1,21 @@
 <?php
 
-    /**
-     *  config.php
-     *  Taken from PSET7, allows for storing of sessions.
-     *  Also, some helpers
-     */
-
-    // display errors, warnings, and notices
-    error_reporting(-1); // reports all errors
-    ini_set("display_errors", "1"); // shows all errors
+    // Exibição de erros
+    error_reporting(-1);
+    ini_set("display_errors", "1");
     ini_set("log_errors", 1);
     ini_set("error_log", "/bin/php-error.log");
 
-    //Requerimentos
+    //Requerimentos - Infra-estrutura
     require("helpers.php"); //Funções
-    require("objects.php"); //Classes
+    require("objects/objconf.php"); //Classes
 
-    //Define a o Locale
+    //Define o Locale e timezone
     date_default_timezone_set("America/Sao_Paulo");
 
     // CS50 Library
-    require("../vendor/library50-php-5/CS50/CS50.php");
-    CS50::init(__DIR__ . "/../config.json");
+    //require("../vendor/library50-php-5/CS50/CS50.php");
+    //CS50::init(__DIR__ . "/../config.json");
 
     global $conn;
 

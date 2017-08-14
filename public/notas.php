@@ -82,7 +82,6 @@
     exit();
   }
 
-  echo("Cheguei aqui");
   //Volta para a página inicial se vier via POST
   redirect(basename($_SERVER['HTTP_REFERER']))
 
