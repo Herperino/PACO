@@ -14,10 +14,10 @@
   * Mostra uma lista de pacientes e oferece opções
   */
  function showPatients(page){
-
+    alert(data);
     $.getJSON("patients.php").done(function(data){
 
-        alert(data);
+
 
         var form = $('#patient_list');
         var patients = data.length;
