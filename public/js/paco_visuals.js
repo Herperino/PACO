@@ -58,7 +58,7 @@
                   content += "<td value ='" + count + "'>" + data[count].patientage + "</td>";
                   content += "<td value = '" + count + "'>" + status[data[count].p_status] + "</td>";
                   content += "<td> <select class = 'fake-select' data-style='btn-success'"+
-                  "id = '" + data[count].uniqid +
+                  "uniqid = '" + data[count].uniqid +
                   "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
                   "<option value='nada'>Selecione</option>"+
                   "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+

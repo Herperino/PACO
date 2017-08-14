@@ -8,7 +8,7 @@
 
     //Requerimentos - Infra-estrutura
     require_once("helpers.php"); //Funções
-    require_once("objects/objconf.php"); //Classes
+    require("objects/objconf.php"); //Classes
 
     //Define o Locale e timezone
     date_default_timezone_set("America/Sao_Paulo");
