@@ -559,7 +559,7 @@ function displayComments(line, paciente){
 
          //Imprime os medicamentos listados de 1 à 10 na página
          for(var i = 1; i <= 10; i++){
-           if (prescriptions[i]["med"+ i] == "1x/d") < 0)
+           if (prescriptions[i]["med"+ i] == "1x/d"))
            html += "<td>"+"</td>";
            else
            html += "<td>"+ prescriptions[i]["med"+i] +"&nbsp"+ prescriptions[i]["pos"+i]+"</td>";
