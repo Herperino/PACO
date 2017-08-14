@@ -12,6 +12,7 @@
             try{
               $query = "SELECT * FROM public.\"PACO_users\" WHERE email = '" . $_POST["id"]."'";
               $users = pg_query($conn, $query);
+              echo $users;
             }
             catch(Exception $e){
               render("apology.php", ['errormessage' => htmlspecialchars("test")]);
