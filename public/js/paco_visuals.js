@@ -14,10 +14,8 @@
   * Mostra uma lista de pacientes e oferece opções
   */
  function showPatients(page){
-   
-    $.getJSON("patients.php").done(function(data){
 
-        alert("AAAAAAAAAAAAAAAAAAAAAAAA")
+    $.getJSON("patients.php").done(function(data){
 
         var form = $('#patient_list');
         var patients = data.length;
@@ -26,7 +24,7 @@
         if (patients === undefined)
           patients = 0;
 
-        var content = "<div class='panel-heading'>Pacientes ("+ patients+")</div>"+
+        var content = "<div class='panel-heading'>Pacientes ("+ patients +")</div>"+
                         "<div class ='panel-body'>" +
                           "<div class = 'wrapper'>";
 
@@ -60,7 +58,7 @@
                   content += "<td value ='" + count + "'>" + data[count].patientage + "</td>";
                   content += "<td value = '" + count + "'>" + status[data[count].p_status] + "</td>";
                   content += "<td> <select class = 'fake-select' data-style='btn-success'"+
-                  "uniqid = '" + data[count].uniqid +
+                  "data-uniqid = '" + data[count].uniqid +
                   "'onchange='if (this.selectedIndex) patientHandler(this);'>"+
                   "<option value='nada'>Selecione</option>"+
                   "<option value='edit' data-toggle='modal' data-target='myform'>Editar</option>"+

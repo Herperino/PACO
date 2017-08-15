@@ -67,8 +67,8 @@ class Patient{
 
   public function databaseIt(){
     //Insere um novo paciente no banco de dados
-    pg_query($conn,"INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status)
-    values (DEFAULT,'". $paciente->idenficador ."','".$paciente->nome."','".$paciente->idade."','".$paciente->dono."', '1')");
+    pg_query("INSERT INTO public.\"patients\"(id,patientid, patientname, patientage,userid, p_status,uniqid)
+    values (DEFAULT,'". $this->idenficador ."','".$this->nome."','".$this->idade."','".$this->dono."', '1', $this->id)");
   }
 
   /**-----------------------------------------------
@@ -77,22 +77,20 @@ class Patient{
   *
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
-  public function changeStatus($patientID, $conn){
+  public function changeStatus(){
 
     //Altera o status conforme o status atual
     if($this->status == 1) {
 
       pg_query($conn,"UPDATE public.\"patients\"
                       SET p_status = 0
-                      WHERE patientid = '".$patientID."'
-                      AND userid = '".$_SESSION['id']."'");
+                      WHERE uniqid = '".$this->id."'");
     }
     else {
 
       pg_query($conn,"UPDATE public.\"patients\"
                       SET p_status = 1
-                      WHERE patientid = '".$patientID."'
-                      AND userid = '".$_SESSION['id']."'");
+                      WHERE uniqid = '".$this->id."'");
     }
 
   }
@@ -107,21 +105,21 @@ class Patient{
   *
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
-  public function editPatient($patientID, $conn){
+  public function editPatient($params){
 
     //Se o ID de paciente é mantido, atualiza seus dados
-    if ($this->identificador == $patientID){
+    if ($this->identificador == $params['id']){
 
         pg_query($conn,"UPDATE public.\"patients\" SET
-          patientname ='". $_POST['patient_name'] ."',
-          patientage = ". $_POST['patient_age'] ."
-
+          patientname ='". $params['nome'] ."',
+          patientage = ". $params['idade'] ."
           WHERE uniqid = '".$this->id."'");
     }
 
     //Se o ID de paciente é diferente, atualiza as tabelas
     else{
-      $this->identificador = $_POST['new_id'];
+      $old_id = $this->identificador;
+      $this->identificador = $params['id'];
 
       //Verifica se há colisão entre o novo ID com os ids no banco de dados
       $collision = checkCollision($this->identificador, "patients");
@@ -136,18 +134,17 @@ class Patient{
           patientid = '". $this->identificador ."',
           patientname = '". $this->nome  ."',
           patientage = ". $_POST['patient_age'] ."
-          WHERE patientid = '".$_POST['patientID'] ."'
-          AND userid = '".$_SESSION['id']."'");
+          WHERE uniqid = '".$this->id."'");
 
         pg_query($conn,"UPDATE public.\"prescriptions\" SET
           patientid = '". $this->identificador ."'
-          WHERE patientid ='". $this->identificador."'
-          AND \"userID\" = '".$_SESSION['id']."'");
+          WHERE patientid ='". $old_id."'
+          AND \"userID\" = '".$this->dono."'");
 
         pg_query($conn,"UPDATE public.\"labref\" SET
           patientid = '". $this->identificador ."'
-          WHERE patientid ='". $_POST['patientID']."'
-          AND userid = '".$_SESSION['id']."'");
+          WHERE patientid ='". $old_id."'
+          AND userid = '".$this->dono."'");
       }
     }
 
@@ -156,6 +153,8 @@ class Patient{
 
   public function remover($uniqid){
     pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$uniqid."'");
+
+    return true;
   }
 
   /**

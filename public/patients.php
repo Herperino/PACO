@@ -30,15 +30,20 @@
                 break;
 
             case 'STATUS':
-                $paciente->changeStatus($patientID,$conn);
+                $paciente->changeStatus();
                 break;
 
             case 'EDIT':
-                $paciente->editPatient($patientID,$conn);
+                $params['nome'] = $_POST['patient_name'];
+                $params['idade'] = $_POST['patient_age'];
+                $params['id'] = $_POST['new_id'];
+
+                $paciente->editPatient($params);
                 break;
 
             case 'ADD':
-                Patient::addPatient($conn);
+                $paciente = Patient::addPatient($conn);
+                $paciente->databaseIt();
                 break;
             case 'RETRIEVE':
 
@@ -50,7 +55,7 @@
 
 
         //Caso o resultado da execução das funções ocorra sem problemas, redireciona para a página original
-        if ($result != false)
+        if ($paciente != false)
             redirect($page);
         else
             render("apology.php",['errormessage' => "O ID de paciente já está em uso"]);
