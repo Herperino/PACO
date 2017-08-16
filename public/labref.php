@@ -21,7 +21,7 @@
 
         //Recebe nome e ID do paciente
         $patientID = isset($_POST['patientID'])?: '0';
-        $paciente = Patient:restorePatient($patientID);
+        $paciente = Patient::restorePatient($patientID);
 
         $name = Patient::getName($conn);
 
