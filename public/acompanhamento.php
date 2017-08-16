@@ -95,7 +95,6 @@
         //Exibe a página em modo de visualização de prescrições
         $page_mode = true;
 
-
         //Renderiza a página com os parâmetros passados
         render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => Prescription::displayPrescription($prescriptions), 'patientID' => $name, 'P_ID' =>$patientID]);
     }
