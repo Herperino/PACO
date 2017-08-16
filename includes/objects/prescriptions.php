@@ -185,34 +185,7 @@ class Prescription{
             }}
 
             return $html;
-          } .= "<td>
-
-                    <button  data-id = '".$prescription["uniqid"]."'
-                             data-operation = \"COMMENT_THIS\"
-                             data-pat_id = '".$prescription["patientID"]."'
-                             type = 'button' onClick = 'showCommentForm(this)'
-                             class= 'btn btn-default' value='Editar Prescrição'>".
-                              "<span class='glyphicon glyphicon-comment'></span>
-                    </button>
-
-
-                  </td>";
-
-            //Botão de edição
-            $html .="<td>
-
-                    <button  data-id =" . (string)$prescription['uniqid'] ."
-                             data-operation = \"PRESCRIPTION_EDIT\"
-                             data-patient =" . (string)$prescription['patientID'] ."
-                             type = 'button' onClick = 'prescriptionHandler(this)'
-                             class= 'btn btn-default' value='Editar Prescrição'>".
-                              "<span class='glyphicon glyphicon-pencil'></span></button>";
-            $html .= "</td></tr></div>";
-
-            }}
-
-            return $html;
-          }
+          } 
 
 }
 ?>
