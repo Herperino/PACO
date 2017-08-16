@@ -26,6 +26,7 @@
         $userID = $_SESSION['id'];
         $patientID = $_POST['patientID'] ?: '0';
 
+        //Se a operação não for acompanhamento, um uniqid deve ser fornecido
         if ($_POST['operation'] != 'ACOMP')
             $uniqueID = $_POST['uniqid'];
 
@@ -96,7 +97,7 @@
 
 
         //Renderiza a página com os parâmetros passados
-        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => $prescriptions, 'patientID' => $name, 'P_ID' =>$patientID]);
+        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => Prescription::displayPrescription($prescriptions), 'patientID' => $name, 'P_ID' =>$patientID]);
     }
 
     /** Upon a GET request, the server will will then render the page in select mode

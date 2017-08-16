@@ -90,67 +90,6 @@ function redirect($location)
 /* ----------------------------------------------------------------------------------------------*/
 /**             FROM HERE ON THERE ARE FUNCTIONS THAT HELP DATA TO BE DISPLAYED                  */
 /* --------------------------------------------------------------------------------------------- */
-/**
-* Takes data from the server to display the prescription list
-* for a registered patient.
-*
-* It must be called within a table div.
-*/
-function displayPrescription($prescriptions){
-  $html = "<th>Paciente</th>".
-  "<th>Data</th>".
-  "<th colspan='13'>Medicamentos </th>";
-
-  if (!empty($prescriptions)){
-    foreach($prescriptions as $prescription){
-      $prescription = $sub = array_slice($prescription, 2, null, true); //Remove ID and userID from array
-
-      //Header da tabela que será exibida
-      $html .= "<tr>".
-      "<td>" .
-      $prescription["patientID"].
-      "</td>".
-      "<td>" .
-      $prescription["date"].
-      "</td>";
-
-      //Imprime os medicamentos listados de 1 à 10 na página
-      for($i = 1; $i <= 10; $i++){
-        if (strcmp($prescription["med".$i]," 1x/d") < 0)
-        $html .= "<td>"."</td>";
-        else
-        $html .= "<td>". $prescription["med".$i] ."&nbsp". $prescription["pos".$i]."</td>";
-      }
-
-      //Botão de comentário
-      $html .= "<td>
-
-              <button  data-id = '".$prescription["uniqid"]."'
-                       data-operation = \"COMMENT_THIS\"
-                       data-pat_id = '".$prescription["patientID"]."'
-                       type = 'button' onClick = 'showCommentForm(this)'
-                       class= 'btn btn-default' value='Editar Prescrição'>".
-                        "<span class='glyphicon glyphicon-comment'></span>
-              </button>
-
-
-            </td>";
-
-      //Botão de edição
-      $html .="<td>
-
-              <button  data-id =" . (string)$prescription['uniqid'] ."
-                       data-operation = \"PRESCRIPTION_EDIT\"
-                       data-patient =" . (string)$prescription['patientID'] ."
-                       type = 'button' onClick = 'prescriptionHandler(this)'
-                       class= 'btn btn-default' value='Editar Prescrição'>".
-                        "<span class='glyphicon glyphicon-pencil'></span></button>";
-      $html .= "</td></tr></div>";
-
-      }}
-
-      return $html;
-    }
 
     /**
     * Takes data from the server to display the result list
