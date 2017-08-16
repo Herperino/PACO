@@ -126,10 +126,7 @@ class Prescription{
       }
 
       /**
-      * Takes data from the server to display the prescription list
-      * for a registered patient.
-      *
-      * It must be called within a table div.
+      *  Cria HTML das prescrições. Deve ser inserido num elemento table
       */
       public static function displayPrescription($prescriptions){
         $html = "<th>Paciente</th>".
@@ -185,7 +182,7 @@ class Prescription{
             }}
 
             return $html;
-          } 
+          }
 
 }
 ?>
