@@ -56,7 +56,7 @@ class Patient{
       $paciente->dono = $_SESSION['id'];
       $paciente->status = 1;
 
-      $collision = $this->checkCollision($paciente->idenficador, "patients");
+      $collision = $paciente->checkCollision($paciente->idenficador, "patients");
 
       if ($collision == TRUE)
         return false; //Retorna falso em caso de colisão
