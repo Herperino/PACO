@@ -98,10 +98,12 @@ function makeCommentList(){
             var pacientes = []; // Array de objetos de pacientes
             var content = ""; //Conteúdo a ser inserido no template
 
+            if (true){
             console.log(data);
             console.log(data.length);
-
             return;
+            }
+
             for(var i = 0; i<data.length;i++){
 
                 pacientes[i] = { name:data[i].patientname,
