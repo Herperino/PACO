@@ -99,7 +99,7 @@ function makeCommentList(){
             var content = ""; //Conteúdo a ser inserido no template
 
             for(var i = 0; i<data.length;i++){
-
+              console.log("Oh shit! I ran " + i + "times")
                 pacientes[i] = { name:data[i].patientname,
                                  status:data[i].p_status,
                                  id: data[i].patientid,
@@ -111,7 +111,7 @@ function makeCommentList(){
                   if (pacientes[i].status == 1)
                     content += "<tr id='l"+ i +"'><td>"+  pacientes[i].id +"</td> <td>"+  pacientes[i].name +"</td>";
             }
-
+            alert("SOLDADO");
             document.getElementById("lista").innerHTML += content;
 
             for (var i = 0; i<data.length;i++)

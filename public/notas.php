@@ -70,7 +70,7 @@
 
     $data = pg_fetch_all($query);
 
-    $html = displayPrescription($data);
+    $html = Prescription::displayPrescription($data);
 
     echo "<table class = 'table'>". $html . "</table>";
     exit();
@@ -83,7 +83,7 @@
   }
 
   //Volta para a página inicial se vier via POST
-  redirect(basename($_SERVER['HTTP_REFERER']))
+  //redirect(basename($_SERVER['HTTP_REFERER']))
 
 
 ?>
