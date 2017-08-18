@@ -99,7 +99,11 @@ function makeCommentList(){
             var content = ""; //Conteúdo a ser inserido no template
 
             console.log(data);
-            
+            if (true){            
+            console.log(data.length);
+            return;
+            }
+
             for(var i = 0; i<data.length;i++){
 
                 pacientes[i] = { name:data[i].patientname,
