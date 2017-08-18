@@ -18,7 +18,7 @@
 
         //Recebe a operação e o ID do paciente
         $operation = $_POST['operation'] ?: 'nada';
-        $uniqid = $_POST['uniqid'] ?: 'nenhum'; //Se for um novo paciente, uniqid é 'nenhum'
+        $uniqid = isset($_POST['uniqid']) ? $_POST['uniqid'] : 'nenhum'; //Se for um novo paciente, uniqid é 'nenhum'
         $page = basename($_SERVER['HTTP_REFERER']);
 
         $paciente = Patient::restorePatient($uniqid);

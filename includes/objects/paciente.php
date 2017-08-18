@@ -12,7 +12,7 @@ class Patient{
 
   public function __construct(){}
 
-  public function getName($conn){
+  public function getName(){
 
     return $nome;
   }
@@ -22,19 +22,19 @@ class Patient{
     $patient = new Patient();
 
     //Recebe o ID de paciente via POST
-    $query = pg_query($conn, "SELECT * FROM public.\"patients\" WHERE
+    $query = pg_query("SELECT * FROM public.\"patients\" WHERE
               uniqid = '".$uniqid."'");
 
     $patients = pg_fetch_all($query); //Obtem a linha que contém o paciente
 
-    $patient->id = $patientID;
+    $patient->id = $uniqid;
     $patient->name = ($patients[0]['patientname']);
     $patient->status = ($patients[0]['p_status']);
     $patient->dono = ($patients[0]['userid']);
     $patient->identificador = ($patients[0]['patientid']);
     $patient->idade = ($patients[0]['idade']);
 
-    return patient;
+    return $patient;
 
   }
   /**-----------------------------------------------
@@ -44,9 +44,9 @@ class Patient{
   *
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
-  public static function addPatient($conn){
+  public static function addPatient()){
 
-      $patient = new Patient();
+      $paciente = new Patient();
 
       //Variáveis obtidas via POST
       $paciente->nome = $_POST['patient_name'];
@@ -56,7 +56,7 @@ class Patient{
       $paciente->dono = $_SESSION['id'];
       $paciente->status = 1;
 
-      $collision = checkCollision($paciente->idenficador, "patients");
+      $collision = $this->checkCollision($paciente->idenficador, "patients");
 
       if ($collision == TRUE)
         return false; //Retorna falso em caso de colisão
