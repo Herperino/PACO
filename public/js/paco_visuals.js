@@ -90,7 +90,7 @@ function makeCommentList(){
 
     //Incialmente busca informações do paciente no banco de dados
     $.ajax({
-        type:'POST',
+        type:'GET',
         url:"patients.php",
         data:{operation: 'RETRIEVE', patientID:'ignore'},
         success: function(data){
@@ -99,7 +99,7 @@ function makeCommentList(){
             var content = ""; //Conteúdo a ser inserido no template
 
             console.log(data);
-            if (true){            
+            if (true){
             console.log(data.length);
             return;
             }
