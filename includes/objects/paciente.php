@@ -44,7 +44,7 @@ class Patient{
   *
   *  Requer uma conexão ($conn) ativa com o banco de dados para funcionar
   *----------------------------------------------*/
-  public static function addPatient()){
+  public static function addPatient(){
 
       $paciente = new Patient();
 
