@@ -100,7 +100,8 @@ function makeCommentList(){
 
             console.log(data);
             console.log(data.length);
-            break;
+
+            return;
             for(var i = 0; i<data.length;i++){
 
                 pacientes[i] = { name:data[i].patientname,
