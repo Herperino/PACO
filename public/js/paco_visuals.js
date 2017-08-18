@@ -145,7 +145,7 @@ function renderPatientForm(path, parameters){
          pat_id = "";
      }
 
-    var action = "submitModal('formC');"
+    var action = "submitModal(\'formC\');"
 
     //the form itself
 
