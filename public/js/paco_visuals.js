@@ -145,7 +145,7 @@ function renderPatientForm(path, parameters){
          pat_id = "";
      }
 
-    var action = "submitModal(\'formC\');"
+    var action = " onclick = \"submitModal(\'formC\')\";"
 
     //the form itself
 
@@ -169,7 +169,7 @@ function renderPatientForm(path, parameters){
             "</div>"+
             "<div class='modal-footer'>"+
                 "<input class= 'btn btn-default' type = 'button' value= 'Cancelar' data-dismiss='modal'>" +
-                "<input class= 'btn btn-success' type = 'button' onclick ='" + action + "' value= '" + info +"'> &nbsp;" +
+                "<input class= 'btn btn-success' type = 'button' "+ action + " value= '" + info +"'> &nbsp;" +
 
             "</div>"+
             "</div>"+
