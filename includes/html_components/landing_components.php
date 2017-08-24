@@ -2,13 +2,17 @@
 
     //Define uma templateque vai ser usada na montagem do about_div
     $icon_template = function($icon_url,$texto){
-                return "<div class = 'icons col-xs-12 col-sm-4 col-md-4 col-lg-4'>
+
+                $template = "<div class = 'icons col-xs-12 col-sm-4 col-md-4 col-lg-4'>
                           <h2>Acompanhe</h2>
                           <img class = 'ico' src='$icon_url'>
                           <br><br>
                           <small>$texto</small>
-                        </div>"
-                  };
+                        </div>";
+
+
+                return template;
+              };
 
     //Div título do landing
     $title_div = "<div class='container title' id='texto_titulo'>
