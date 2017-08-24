@@ -38,11 +38,11 @@
         <div class ='row'>
             <div class = 'col-xs-12 col-sm-12 col-md-12 col-lg-12'>
 
-                <div class = 'row'>
-                    $icon_template('https://image.flaticon.com/icons/svg/1/1755.svg','Adicione prescrições e resultados laboratoriais de forma fácil')
-                    $icon_template('https://image.flaticon.com/icons/svg/344/344074.svg','Visualize prescrições anteriores e contraste com resultados laboratoriais')
-                    $icon_template('https://image.flaticon.com/icons/svg/134/134807.svg','Comente e discuta sobre os seus pacientes de maneira rápida e simples')
-                </div>
+                <div class = 'row'>"
+                    .$icon_template('https://image.flaticon.com/icons/svg/1/1755.svg','Adicione prescrições e resultados laboratoriais de forma fácil').
+                    .$icon_template('https://image.flaticon.com/icons/svg/344/344074.svg','Visualize prescrições anteriores e contraste com resultados laboratoriais').
+                    .$icon_template('https://image.flaticon.com/icons/svg/134/134807.svg','Comente e discuta sobre os seus pacientes de maneira rápida e simples').
+                "</div>
 
                 <br><br>
                 <small> O Acompanhamento Farmacoterapêutico é definido como uma prática personalizada na qual o farmacêutico tem a responsabilidade de orientar o paciente, além de detectar, prevenir e resolver todos os problemas relacionados com medicamentos (PRM) de uma maneira contínua, sistemática e documentada, em colaboração com o paciente e equipe multiprofissional. O <strong>programa de acompanhamento farmacêutico</strong> é uma ferramenta elaborada para facilitar o acompanhamento de prescrições de pacientes internados em ambiente hospitalar ou ambulatorial.
