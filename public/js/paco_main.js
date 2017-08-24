@@ -121,7 +121,7 @@ function labHandler(event){
 
 
     if (operation == "GET_LAB"){
-      $.post("labref.php", {operation: operation, patientID: patientID,uniqid: uniqid}).done(function(data){
+      $.post("lab.php", {operation: operation, patientID: patientID,uniqid: uniqid}).done(function(data){
 
           //handle data here
           console.log(data);
@@ -162,7 +162,7 @@ function getLastPrescription(source){
         renderPrescriptionForm({operation:"PRESCRIPTION_ADD", patientID: patientID, uniqid:null});
 
     //Query acompanhamento controller via POST ajax
-    $.post("acompanhamento.php", info).done(function(data){
+    $.post("prescricoes.php", info).done(function(data){
 
         var to_form = {last_p: data[0],
                        uniqid:id_unico,

@@ -15,15 +15,14 @@
         <script src="/js/libs/jquery-1.11.3.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js"><\/script>')</script> </script>
 
-
-        <!-- https://github.com/twitter/typeahead.js/ -->
-        <script src="/js/typeahead.jquery.min.js"></script>
-        
         <!-- Stacktable's files -->
-        <script src="/js/stacktable.js"></script>
+        <script src="/js/libs/stacktable.js"></script>
         
         <!-- http://getbootstrap.com/ -->
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/libs/bootstrap.min.js"></script>
+
+          <!-- Fake-select.js by Takien on GitHub -->
+        <script src="js/libs/fake-select.js"></script>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -36,9 +35,7 @@
 
         <script src="js/paco_visuals.js"></script>
 
-        <!-- Fake-select.js by Takien on GitHub -->
-        <script src="js/fake-select.js"></script>
-
+      
         <!--Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed" rel="stylesheet"> 
 
@@ -63,9 +60,9 @@
                 print("<div class='collapse navbar-collapse' id='myNavbar'>
 
                         <ul class='nav navbar-nav'>
-                          <li><a href='acompanhamento.php'>Prescrições</a></li>
-                          <li><a href='labref.php'>Laboratório</a></li>
-                          <li><a href='notas.php'> Notas</a></li>
+                          <li><a href='prescricoes.php'>Prescrições</a></li>
+                          <li><a href='lab.php'>Laboratório</a></li>
+                          <li><a href='comentarios.php'> Notas</a></li>
                         </ul>
 
 

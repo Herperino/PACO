@@ -1,26 +1,10 @@
 <?php
 
-    /**
-     *  This is the controller file for reviewing patients prescriptions
-     * (acompanhamento). The SQL database allows for up to 20 medications
-     *  The fields are:userID, patient ID, patient active?, patient name,
-     *  patient age and medication (name, dose and frequency) 1-20
-     */
-
-      /**A server request will trigger a POST request to the server, meaning that
-     * a patient was selected. For such selection, we will grab the patient id
-     * and make a request to the server for the patients prescriptions in the
-     * database.
-     *
-     * Along with that, we will also display the patient's name, age and sex.
-     */
+    /** Controlador prescições **/
 
     require("../includes/config.php");
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-        //Busca o nome do paciente no banco de dados
-        //$name = getName($conn);
 
         //Define patientID e userID a partir do POST
         $userID = $_SESSION['id'];
@@ -75,16 +59,22 @@
 
             break;
 
-        }//Fim do switch
+            default:  
 
-        //Busca o banco de dados para um determinado paciente
-        $prescriptions = Prescription::fetchAllPrescriptions($uniqid,$userID);
+              //Busca o banco de dados para um determinado paciente
+              $prescriptions = Prescription::fetchAllPrescriptions($uniqid,$userID);
 
-        //Exibe a página em modo de visualização de prescrições
-        $page_mode = true;
+              //Exibe a página em modo de visualização de prescrições
+              $ver_prescrições = true;
 
-        //Renderiza a página com os parâmetros passados
-        render("acompanhamento.php", ['P_MODE' => $page_mode, 'prescriptions' => Prescription::displayPrescription($prescriptions), 'P_ID' =>$patientID]);
+              //Renderiza a página com os parâmetros passados
+              render("prescricoes.php", ['P_MODE' => $ver_prescriçoes, 'prescriptions' => Prescription::displayPrescription($prescriptions), 'P_ID' =>$patientID]);
+
+            break;
+
+        }//Fim do switch        
+
+        
     }
 
     /** Upon a GET request, the server will will then render the page in select mode
@@ -96,7 +86,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET')
     {
        //Renders acompanhamento in view mode
-        $page_mode = false; //Defines whether the view will be displayed in Select or View mode
-        render("acompanhamento.php", ['P_MODE' => $page_mode]);
+        $ver_prescrições = false; //Defines whether the view will be displayed in Select or View mode
+        render("prescricoes.php", ['P_MODE' => $ver_prescrições]);
     }
 ?>

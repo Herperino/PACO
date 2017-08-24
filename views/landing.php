@@ -1,7 +1,7 @@
 <?php
     if(!empty($_SESSION['id']))
     {
-        redirect("/acompanhamento.php");
+        redirect("/prescricoes.php");
     }
 
     else

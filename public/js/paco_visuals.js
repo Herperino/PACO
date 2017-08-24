@@ -190,8 +190,8 @@ function renderPatientForm(path, parameters){
 
 function renderLabForm(parameters){
 
-  //For lab result handling, the controller has to be labref.php
-  var controller = "labref.php";
+  //For lab result handling, the controller has to be lab.php
+  var controller = "lab.php";
 
   //A few variables
   var info = 'Inserir resultado'; //A ser inserido como conteúdo do botão
@@ -271,8 +271,8 @@ function renderLabForm(parameters){
  */
 function renderPrescriptionForm(parameters){
 
-    //For prescription handling, the controller can only be acompanhamento.php
-    var controller = "acompanhamento.php";
+    //For prescription handling, the controller can only be prescricoes.php
+    var controller = "prescricoes.php";
     //console.log(typeof(parameters.last_p))
 
     var info = 'Inserir prescrição';
@@ -380,7 +380,7 @@ function showCommentForm(parameters){
               "<h3 class='modal-title' id='titulo'>Comentando "+ parameters.texto +" de "+ paciente +"</h3>"+
             "</div>"+
             "<div class='modal-body'>"+
-                "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='notas.php' method='POST'>" +
+                "<form id= 'comment' class= 'form-group col-12' accept-charset='UTF-8' action ='comentarios.php' method='POST'>" +
                   "<input name= 'conteudo' class = 'form-ext' type = 'text' placeholder='Comente aqui'></input>" +
                   "<input name= 'operation' type = 'hidden' value = '"+ parameters.dataset.operation +"'/>" +
                   "<input name= 'patientid' type = 'hidden' value = '"+ parameters.dataset.pat_id +"'/>" +
@@ -466,7 +466,7 @@ function getCommentNumber(target,paciente){
   var comments;
   var target = document.getElementById(target);
 
-  $.post("notas.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
+  $.post("comentarios.php",{operation:"RETRIEVE", patientid:paciente}).done(function(data){
 
     if (data == false)
       comments = "0";
@@ -496,7 +496,7 @@ function displayComments(line, paciente){
   var table = document.getElementById(line).parentNode;
   console.log("A função foi chamada");
 
-  $.post("notas.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
+  $.post("comentarios.php", {operation:"RETRIEVE", patientid: paciente}).done(function(data){
 
       for(var i = 0; i < data.length; i++){
 
@@ -541,7 +541,7 @@ function displayComments(line, paciente){
               "<th>Data</th>"+
               "<th colspan='13'>Medicamentos </th>";
 
-   $.post('acompanhamento.php', params).done(function(prescriptions){
+   $.post('prescricoes.php', params).done(function(prescriptions){
      if (prescriptions){
        for(var i = 0; i < prescriptions.length; i++){
 
@@ -598,7 +598,7 @@ function displayComments(line, paciente){
   });
 
   function test(){
-      $.post("acompanhamento.php", {operation:"GET_PRESCRIPTION", uniqid:'med5947329ec5e5d'}).done(function(data){
+      $.post("prescricoes.php", {operation:"GET_PRESCRIPTION", uniqid:'med5947329ec5e5d'}).done(function(data){
 
           console.log(data);
       });

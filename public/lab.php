@@ -74,7 +74,7 @@
 
         //Renderiza a página
         $page_mode = true;
-        render("labref.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
+        render("lab.php", ['P_MODE' => $page_mode, 'labresults' => $results, 'patientID' => $name, 'P_ID' => $patientID]);
 
     }
 
@@ -85,6 +85,6 @@
      */
     if($_SERVER['REQUEST_METHOD'] == 'GET')
     {
-        render("labref.php", ['P_MODE' => $page_mode]);
+        render("lab.php", ['P_MODE' => $page_mode]);
     }
 ?>

@@ -77,7 +77,7 @@
     }
 
     //Renderiza a página
-    render("notas.php");
+    render("comentarios.php");
 
     exit();
   }
