@@ -1,9 +1,7 @@
 /**
-  *  /paco/public/scripts.js
+  *  /paco/public/js/paco_main.js
   *
-  *  This is the PACO JS script file.
-  *  It contains functions that will work client-side to help the functioning
-  *  of the whole PACO platform.
+  *  Arquivo com as principais funcionalidades JS do PACO
   */
 
 
@@ -15,25 +13,23 @@
 *  -ADD: Inserts a new patient into the database
 *  -ACOMP: Operation to see a patient's prescription/results/notes
 *
-*  Requires a PatientID and the Operation.
-*  Timestamp required for EDIT_LAB and GET_LAB.
+*  Requer um Uniqid e uma operação.
 **/
 function patientHandler(event){
 
     //Based on selectedIndex from the menu option
     var options = ["EDIT","STATUS", "REMOVE","ACOMP", "ADD"];
-    var index = event.selectedIndex; //Index of the option in select
-    var choice = options[index-1]; //offsetting the non 0 indexed select
+    var index = event.selectedIndex; //Index da opção no select
+    var choice = options[index-1]; //Arrays start at zero (tm)
 
-    var patientid = event.id.substring(4); //Patient ids are passed as "ptt_(patientid)"
+    var uniqid = event.uniqid; //Todo paciente tem um id unico
 
-    //If option chosen is ACOMP, send patient chosen to acompanhamento.php(Request method is POST)
+    //Se a escolha for acompanhar, encaminha os parametros para pagina desejada
     if (choice == "ACOMP"){
 
-        //TODO: SEND INFO TO the correct page
         var package_to_send = {
             operation : choice,
-            patientID : patientid
+            uniqid : uniqid
         }
         post(window.location.href, package_to_send);
     }
@@ -44,7 +40,7 @@ function patientHandler(event){
         //TODO: SEND INFO TO PATIENTS.PHP (Will query the database for the fix)
         var package_to_send = {
             operation : choice,
-            patientID : patientid
+            uniqid : uniqid
         }
         $.post("patients.php", package_to_send).done(showPatients());
 
@@ -54,16 +50,16 @@ function patientHandler(event){
         //TODO: SEND INFO TO PATIENTS.PHP (Will query the database for the fix)
         var package_to_send = {
             operation : choice,
-            patientID : patientid
+            uniqid : uniqid
         }
         $.post("patients.php", package_to_send).done(showPatients());
-        
+
     }
     else if (choice == "EDIT"){
 
         var info = {
             operation:choice,
-            patientID : patientid
+            uniqid : uniqid
         }
 
         renderPatientForm("patients.php", info);
@@ -80,7 +76,7 @@ function patientHandler(event){
 
 }
 
-/** 
+/**
 *  Handles operations for the prescriptions page.
 *
 *  The operations may be one of:
@@ -95,7 +91,7 @@ function prescriptionHandler(event){
     var uniqueID = event.dataset.id;
     var operation = event.dataset.operation;
     var patientID = event.dataset.patient;
-    
+
     var pkg_to_send = {event: event,
                        operation: operation,
                        patientID : patientID,
@@ -167,7 +163,7 @@ function getLastPrescription(source){
 
     //Query acompanhamento controller via POST ajax
     $.post("acompanhamento.php", info).done(function(data){
-        
+
         var to_form = {last_p: data[0],
                        uniqid:id_unico,
                        operation: "PRESCRIPTION_EDIT",
@@ -197,7 +193,7 @@ function validate(){
     var regispwd = form.regispwd.value;
     var confirmation = form.confirmation.value;
     var betakey = form.testebeta.value;
-    
+
     console.log(form);
 
     if ((regispwd != confirmation) || (betakey != "catioro"))
@@ -241,4 +237,4 @@ function handler(){
     }
 
 //Calls stacktable
-$('#patients').stacktable();    
+$('#patients').stacktable();

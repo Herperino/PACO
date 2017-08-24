@@ -125,6 +125,19 @@ class Prescription{
         " WHERE \"uniqid\" = '".$this->uniqid."'");
       }
 
+      public static function fetchAllPrescriptions($id,$owner){
+        $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
+                                  WHERE \"uniqid\" = '".$id."' AND \"userID\" = '".$owner."'
+                                  ORDER BY \"date\" ASC;");
+
+        if ($query != false)
+          $prescriptions  = pg_fetch_all($query);
+        else
+          return [];
+
+        return $prescriptions;
+      }
+
       /**
       *  Cria HTML das prescrições. Deve ser inserido num elemento table
       */
