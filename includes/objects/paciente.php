@@ -152,7 +152,7 @@ class Patient{
   }
 
   public function remover($uniqid){
-    pg_query($conn, "DELETE FROM public.\"patients\" WHERE patientid ='".$uniqid."'");
+    pg_query($conn, "DELETE FROM public.\"patients\" WHERE uniqid ='".$uniqid."'");
 
     return true;
   }
