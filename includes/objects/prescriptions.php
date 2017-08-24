@@ -126,7 +126,7 @@ class Prescription{
       }
 
       public static function fetchAllPrescriptions($id,$owner){
-        $query = pg_query($conn, "SELECT * FROM public.\"prescriptions\"
+        $query = pg_query("SELECT * FROM public.\"prescriptions\"
                                   WHERE \"uniqid\" = '".$id."' AND \"userID\" = '".$owner."'
                                   ORDER BY \"date\" ASC;");
 

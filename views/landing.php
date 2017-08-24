@@ -9,7 +9,6 @@
         //Requer os componentes HTML para montar a página
         require_once('../includes/html_components/landing_components.php');
 
-        print("Deveria ter funcionado");
         //Monta a página com base nos componentes acima
         print("<div class = 'jumbotron bg1' id='Titulo'>"
                 .$title_div.
