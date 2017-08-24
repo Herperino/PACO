@@ -9,7 +9,7 @@
                           <br><br>
                           <small>$texto</small>
                         </div>";
-;
+
               };
 
     //Div título do landing
