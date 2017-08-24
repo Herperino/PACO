@@ -1,8 +1,9 @@
 <?php
 
-    // Loads some php helpers for the site
+    // Carrega algumas funções helpers
     require("../includes/helpers.php");
 
+    //Habilita sessões para login
     session_start();
 
     // render landing page
